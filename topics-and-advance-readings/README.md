@@ -1,0 +1,1 @@
+If you will be attending Rebooting the Web of Trust Fall 2017 in Boston, Massachusetts, please upload your topic papers and advanced readings to this directory with a pull request (or, if you don't know how, post an issue). 
