@@ -1,6 +1,6 @@
-### Author: Kyle Den Hartog
-### Title: Framework for the Comparison of Identity Systems
-### Date: 2017-05-12
+##### Author: Kyle Den Hartog
+##### Title: Framework for the Comparison of Identity Systems
+##### Date: 2017-05-12
 
 # Abstract:
 This paper intends to address the different types of identity systems and develop a method of comparing the identity systems. It is the goal of this paper to first identify the types of identity systems that have been created in the past as well as newly emerging identity systems. These identity systems can be used in many ways, but they often have many similarities allowing for the comparison of these identity systems. Outlined in this paper is a framework to make these comparisons by relying upon 4 categories that are apart of identity systems. They are verifiability, system architecture, accessibility, and security.
