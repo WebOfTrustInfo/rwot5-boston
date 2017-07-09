@@ -1,3 +1,7 @@
+### Author: Kyle Den Hartog
+### Title: Framework for the Comparison of Identity Systems
+### Date: 2017-05-12
+
 # Abstract:
 This paper intends to address the different types of identity systems and develop a method of comparing the identity systems. It is the goal of this paper to first identify the types of identity systems that have been created in the past as well as newly emerging identity systems. These identity systems can be used in many ways, but they often have many similarities allowing for the comparison of these identity systems. Outlined in this paper is a framework to make these comparisons by relying upon 4 categories that are apart of identity systems. They are verifiability, system architecture, accessibility, and security.
 
@@ -120,6 +124,7 @@ A system that provides integrity guarantees is important because it shows that t
 * High: Data history is immutable and all changes are recorded
 * Medium: Data is maintained by a trusted source with proper security controls
 * Low: Data has no integrity guarantees
+
 Through the integrity of this system a user will have full control of the data, but it can be verified that the data is kept in the state that it was intended. High ranking is intended to hold this by representing a system with a high level of data integrity because the history can be seen of when the data was created and changed. A medium ranking is given when a trusted source maintains the data securely. By relying upon a 3rd party it becomes possible that the data could be manipulated reducing the integrity of the data. Last, a low score is given to a system which disregards the integrity of the data of the identities.
 
 *Confidentiality:*
@@ -127,13 +132,15 @@ Confidentiality is also an important point of security to consider. This focuses
 * High: Guaranteed protection through mathematical proof
 * Medium: Computationally unlikely to be broken
 * Low: Computationally likely to be broken
- A high ranking should be given to a system that provides mathematical proof that the system and its data is secure. This provides the strongest guarantees for the security of the system. A medium ranking should be given to identity systems that are computationally secure, but are not considered perfectly secure. Last, a low ranking should be given to an identity system which provides either no guarantees of confidentiality or utilizes deprecated processes that are easily broken.
+
+A high ranking should be given to a system that provides mathematical proof that the system and its data is secure. This provides the strongest guarantees for the security of the system. A medium ranking should be given to identity systems that are computationally secure, but are not considered perfectly secure. Last, a low ranking should be given to an identity system which provides either no guarantees of confidentiality or utilizes deprecated processes that are easily broken.
 
 *Theft prevention:*
 Identity theft is important to address with an identity system. An identity system that is not secure to identity theft reduces the trust in the system as well as causes issues of concern for many other categories of this framework. The ranks for identity theft prevention are:
 * High: not possible
 * Medium: Difficult with little prevalence
 * Low: Easy and highly prevalent
+
 A system which can guarantee an identity cannot be miss represented or stolen will receive a ranking of high. A ranking of medium should be given to a system which allows for little prevalence of identity theft and is difficult to conduct. To meet the tolerance level should be very small (> 1% of the system) and anything with a greater amount of prevalence should be given a low ranking.
 
 *Data revocation:*
@@ -141,6 +148,7 @@ Data revocation is important to the accessibility of an identity system because 
 * High: Data access can be shared and unshared by the identity holder
 * Medium: Data access is shareable, but not revocable
 * Low: All data is public, therefore irrevocable
+
 A system which grants more data control should be ranked higher in this criterion. As such a high should be given to a system that allows a user to take away all access to data shared at any point in the past and doesn’t grant access to future data. A medium rank focuses on systems that allow some control of data, but do not allow for the system to remove data shared previously. A low should be given to a system that makes all data public as no control is given to the user.
 
 *Anonymity:*
@@ -148,6 +156,7 @@ Anonymity is an important aspect to consider when it comes to privacy. A system 
 * High: Allows for Anonymous users to join the system
 * Medium: Anonymity is allowed, but the anonymous identity can be linked to the person
 * Low: Anonymity is not allowed or is easily broken
+
 The focus on high and medium is to address anonymity in terms of its difficulty to be broken. If a user’s anonymity cannot be broken at all it should be given a high ranking. However, if it can be broken in some capacity, but is difficult or requires a large amount of resources, a medium ranking should be given. A low is to indicate that the identity system places little to no emphasis on anonymity.
 
 # Conclusion:
