@@ -12,6 +12,7 @@ In advance of the design workshop, all participants produced a one-or-two page t
 * A specific solution related to the web-of-trust that you'd like others to use or contribute to?
 
 _As topics & advance readings are submitted, they will be listed here_
+* [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 
 ## Other Readings of Interest
 
