@@ -11,7 +11,10 @@ In advance of the design workshop, all participants produced a one-or-two page t
 * A specific problem that they wanted to solve with a web-of-trust solution, and why current solutions (PGP or CA-based PKI) can't address the problem?
 * A specific solution related to the web-of-trust that you'd like others to use or contribute to?
 
-_As topics & advance readings are submitted, they will be listed here_
+The advanced readings published to date are:
+
+* [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
+* [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 
 ## Other Readings of Interest
