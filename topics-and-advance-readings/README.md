@@ -9,6 +9,6 @@ In advance of the design workshop, all participants produced a one-or-two page t
 
 The advanced readings published to date are:
 
-* [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
-* [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
-* [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
+* [#RebootingWebOfTrust User Story & Tech Concept](RWOT-User-Story.md) by Christopher Allen
+* [Framework for the Comparison of Identity Systems](Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
+* [Owned vs. Unowned Claims and Self-Sovereign Identity](owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
