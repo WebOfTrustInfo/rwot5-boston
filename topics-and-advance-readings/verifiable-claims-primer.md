@@ -70,7 +70,7 @@ A claim is statement about a subject, expressed as a subject-property-value
 relationship:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-simple.svg" width="100%" height="400">
 </a>
 
 
@@ -79,7 +79,7 @@ express a large variety of statements. For example, whether or not someone is
 over the age of 21 may be expressed as follows:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-simple.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-example.svg" width="100%" height="400">
 </a>
 
 These claims may be merged together to express a graph of information about
