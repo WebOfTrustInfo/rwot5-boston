@@ -10,7 +10,7 @@ credentials are composed of statements called ***__verifiable claims__***.
 
 Starting in 2013, the
 [W3C Credentials Community Group](https://w3c-ccg.github.io/) started to
-work on solutions in this space followed shortly thereafter by the
+work in earnest on solutions in this space followed shortly thereafter by the
 [Rebooting Web of Trust Community](http://www.weboftrust.info/)
 and
 [W3C Verifiable Claims Working Group](https://www.w3.org/2017/vc/).
@@ -70,7 +70,7 @@ A claim is statement about a subject, expressed as a subject-property-value
 relationship:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-simple.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-simple.svg" width="50%">
 </a>
 
 
@@ -79,7 +79,7 @@ express a large variety of statements. For example, whether or not someone is
 over the age of 21 may be expressed as follows:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-example.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-example.svg" width="50%">
 </a>
 
 These claims may be merged together to express a graph of information about
@@ -87,14 +87,14 @@ a particular subject. The example below extends the data model above by
 adding claims that state that Pat knows Sam and that Sam is a student.
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-multiple.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-multiple.svg" width="50%">
 </a>
 
 When an Issuer sends data to a Holder, it bundles a set of claims into a
 data structure called a credential and digitally signs the data structure:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/credential.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/credential.svg" width="50%">
 </a>
 
 When a Verifier asks for data from a Holder, the Holder typically bundles a
@@ -102,6 +102,28 @@ set of credentials into a data structure called a profile and digitally signs
 the data structure:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/profile.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/profile.svg" width="50%">
 </a>
 
+The depictions above are a high-level introduction to the data model and gloss
+over specifics. Readers that would like to explore the data model in more depth
+are urged to read the
+[Verifiable Claims Working Groups' Data Model Specification](https://w3c.github.io/vc-data-model/).
+
+## Participating
+
+If you would like to participate in shaping this work, there are multiple ways
+to participate:
+
+1. If you want weekly updates and are NOT a W3C Member, or want to participate
+   in the more experimental work, you should
+   [join the Credentials Community Group](https://www.w3.org/community/wp-login.php?redirect_to=%2Fcommunity%2Fcredentials%2Fjoin). The W3C Credentials Community Group [holds weekly calls that are open to the public](https://w3c-ccg.github.io/).
+2. If you want weekly updates and are a W3C Member, you should
+   [join the Verifiable Claims Working Group](https://www.w3.org/2004/01/pp-impl/98922/join). The W3C Verifiable Claims Working Group [holds weekly calls that are open to W3C Members](https://lists.w3.org/Archives/Member/member-vc-wg/2017Apr/0000.html).
+3. We hold bi-yearly face-to-face meetings in the spring and fall at
+   [Rebooting Web of Trust](http://www.weboftrust.info/)
+   and once a year in the fall at the
+   [W3C Technical Plenary](https://www.w3.org/participate/meetings).
+
+The groups are very inclusive and welcome input and participation people
+from all disciplines and levels of expertise.
