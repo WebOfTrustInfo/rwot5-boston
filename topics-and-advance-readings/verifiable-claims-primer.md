@@ -56,7 +56,7 @@ The Verifiable Claims ecosystem is composed of four primary roles:
 A visual depiction of the ecosystem above is shown below:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://raw.githubusercontent.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/ecosystem.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/ecosystem.svg" width="100%" height="400">
 </a>
 
 ## Claims, Credentials, and Profiles
@@ -70,7 +70,7 @@ A claim is statement about a subject, expressed as a subject-property-value
 relationship:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://raw.githubusercontent.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim.svg" width="100%" height="400">
 </a>
 
 
@@ -79,7 +79,7 @@ express a large variety of statements. For example, whether or not someone is
 over the age of 21 may be expressed as follows:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://raw.githubusercontent.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-simple.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-simple.svg" width="100%" height="400">
 </a>
 
 These claims may be merged together to express a graph of information about
@@ -87,14 +87,14 @@ a particular subject. The example below extends the data model above by
 adding claims that state that Pat knows Sam and that Sam is a student.
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://raw.githubusercontent.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-multiple.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/claim-multiple.svg" width="100%" height="400">
 </a>
 
 When an Issuer sends data to a Holder, it bundles a set of claims into a
 data structure called a credential and digitally signs the data structure:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://raw.githubusercontent.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/credential.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/credential.svg" width="100%" height="400">
 </a>
 
 When a Verifier asks for data from a Holder, the Holder typically bundles a
@@ -102,6 +102,6 @@ set of credentials into a data structure called a profile and digitally signs
 the data structure:
 
 <a href="https://w3c.github.io/vc-data-model/">
-  <img src="https://raw.githubusercontent.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/profile.svg" width="100%" height="400">
+  <img src="https://rawgithub.com/msporny/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/verifiable-claims-primer-diagrams/profile.svg" width="100%" height="400">
 </a>
 
