@@ -6,7 +6,7 @@
 It is currently difficult to transmit credentials such as driver's licenses,
 proofs of age, education qualifications, and healthcare data, via the
 Internet in a way that is verifiable yet protects individual privacy. These
-credentials are composed of statements called ***__verifiable claims__***.
+credentials are composed of statements called ***verifiable claims***.
 
 Starting in 2013, the
 [W3C Credentials Community Group](https://w3c-ccg.github.io/) started to
