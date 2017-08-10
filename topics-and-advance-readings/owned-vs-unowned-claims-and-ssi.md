@@ -4,6 +4,7 @@ Natalie Smolenski
 Cultural Anthropologist and Business Development
 Learning Machine
 
+
 When Christopher Allen presented ten principles of self-sovereign identity for community discussion, he listed “Control” as the second principle. He described it as follows:
 
 > Control. Users must control their identities. Subject to well-understood and secure algorithms that ensure the continued validity of an identity and its claims, the user is the ultimate authority on their identity. They should always be able to refer to it, update it, or even hide it. They must be able to choose celebrity or privacy as they prefer. This doesn’t mean that a user controls all of the claims on their identity: other users may make claims about a user, but they should not be central to the identity itself.
