@@ -1,5 +1,7 @@
 If you will be attending Rebooting the Web of Trust Fall 2017 in Boston, Massachusetts, please upload your topic papers and advanced readings to this directory with a pull request (or, if you don't know how, post an issue). 
 
+_Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community. Go to [Eventbrite](https://www.eventbrite.com/e/rebootingweboftrust-design-workshop-v-fall-2017-in-boston-area-usa-tickets-34984665075) to register for this event._
+
 ##  Topics & Advance Readings
 
 In advance of the design workshop, all participants produced a one-or-two page topic paper to be shared with the other attendees on either:
