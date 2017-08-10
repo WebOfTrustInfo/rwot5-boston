@@ -1,6 +1,6 @@
 # Trust Objects: Enabling advanced reputation services on the Web of Trust
 
-### Presented by Moses Ma and Dr. Rutu Mulkar, FutureLab
+### Presented by Moses Ma and Dr. Rutu Mulkar-Mehta, FutureLab
 
 ### Submitted to the 5th Rebooting the Web of Trust Technical Workshop as a discussion paper
 
