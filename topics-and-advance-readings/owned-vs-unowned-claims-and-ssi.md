@@ -1,8 +1,9 @@
 # Owned vs. Unowned Claims and Self-Sovereign Identity
 
-Natalie Smolenski  
-Cultural Anthropologist and Business Development  
-Learning Machine  
+Natalie Smolenski
+Cultural Anthropologist and Business Development
+Learning Machine
+
 
 When Christopher Allen presented ten principles of self-sovereign identity for community discussion, he listed “Control” as the second principle. He described it as follows:
 
