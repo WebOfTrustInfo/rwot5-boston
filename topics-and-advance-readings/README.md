@@ -17,5 +17,5 @@ The advanced readings published to date are:
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects.md) by Moses Ma & Dr. Rutu Mulka
 * [A Verifiable Claims Primer](verifiable-claims-primer.md) by Manu Sporny
-* [Visa? Really?](Visa Really?.md) by Kaliya Identity Woman
+* [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
 
