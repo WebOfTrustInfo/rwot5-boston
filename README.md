@@ -16,6 +16,9 @@ The advanced readings published to date are:
 * [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
 * [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
+* [Recommendations for Decentralized Key Management Systems](topics-and-advance-readings/dkms-recommendations.md) by Michael Lodder
+* [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](topics-and-advance-readings/trust-objects.md) by Moses Ma & Dr. Rutu Mulka
+* [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
 
 ## Other Readings of Interest
 
