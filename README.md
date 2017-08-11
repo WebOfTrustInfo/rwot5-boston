@@ -20,6 +20,7 @@ The advanced readings published to date are:
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](topics-and-advance-readings/trust-objects.md) by Moses Ma & Dr. Rutu Mulka
 * [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
 * [Visa? Really?](topics-and-advance-readings/Visa-Really.md) by Kaliya Identity Woman
+* [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 
 ## Other Readings of Interest
 
