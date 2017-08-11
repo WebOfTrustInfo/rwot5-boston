@@ -35,9 +35,6 @@ TODO: compare to current OB/Blockcerts example
             "narrative": "Nibh iriure ei nam, modo ridens neglegentur mel eu. At his cibo mucius."
           }
         }
-      },
-      "verification": {
-        "type": "MerkleProof2017VerifiableClaim"
       }
     }
   ],
