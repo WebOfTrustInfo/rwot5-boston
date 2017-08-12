@@ -19,3 +19,4 @@ The advanced readings published to date are:
 * [A Verifiable Claims Primer](verifiable-claims-primer.md) by Manu Sporny
 * [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
+* [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
