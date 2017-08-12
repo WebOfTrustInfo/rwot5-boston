@@ -1,4 +1,4 @@
-# DID Introduction
+# DID Gentle Introduction
 
 By Kim Hamilton Duffy, Learning Machine
 
