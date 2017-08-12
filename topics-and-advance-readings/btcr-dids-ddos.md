@@ -1,5 +1,7 @@
 # BTCR DIDs and DDOs
 
+IN PROGRESS
+
 By Kim Hamilton Duffy, Learning Machine
 
 This document describes BTCR DIDs and DDOs using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
