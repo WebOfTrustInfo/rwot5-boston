@@ -4,8 +4,6 @@ IN PROGRESS
 
 By Kim Hamilton Duffy, Learning Machine
 
-This document describes BTCR DIDs and DDOs using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
-
 ## Creating a BTCR DID
 
 ### Abbreviations
@@ -14,12 +12,13 @@ This document describes BTCR DIDs and DDOs using the default example shown in th
 - Pi = public key i
 - Si = signing key i
 
-### Creating a BTCR DID (P2PKH, no DDO)
+### Creating a BTCR DID (P2PKH)
 
 - Create key set (`B0`/`P0`/`S0`)
 - Create key set (`B1`/`P1`/`S1`)
 - Create Bitcoin transaction as follows:
-	- Output is `B1`
+	- Output: Change address `B1`
+	- Optional output: OP_RETURN <link to DDO continuation>
 	- Signing key is `S0`
 - Issue TX0 and wait for confirmation. Get bech32 encoding of the transaction `BECH32(TX0)`
 
@@ -30,6 +29,7 @@ did:btcr:<BECH32(TX0)>
 
 ![](btcr.png)
 
+From the transaction reference, we can construct the BTCR Deterministic DDO, which will be described below
 
 ### Verify/lookup keys
 
@@ -43,6 +43,8 @@ did:btcr:<BECH32(TX0)>
 - Sign tx with `S1` (P1 is revealed)
 
 ## Getting BTCR DID/DDOs from a transaction
+
+This document describes BTCR DIDs and DDOs using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
 
 The playground supports looking up BTCR DDOs for both mainnet and testnet chains. In general, we work with the testnet chain in these examples as we experiment with and develop BTCR.
 
