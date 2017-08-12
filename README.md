@@ -22,6 +22,7 @@ The advanced readings published to date are:
 * [Visa? Really?](topics-and-advance-readings/Visa-Really.md) by Kaliya Identity Woman
 * [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
+* [A very gentle introduction to DIDs](topics-and-advance-readings/did-gentle-intro.md) by Kim Hamilton Duffy
 
 ## Other Readings of Interest
 
