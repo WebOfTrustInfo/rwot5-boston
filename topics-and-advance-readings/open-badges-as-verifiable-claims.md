@@ -2,6 +2,8 @@
 
 By Kim Duffy and Nate Otto
 
+IM PROGRESS
+
 Open Badges are awarded to describe skills and accomplishments. The learner-centric approach allows individuals to collect and curate their badges through their lifelong learning. Open Badges is used by thousands of organizations, and has developed a rich ecosystem in the educational credentialing/awards space.
 
 The Open Badges contributors above (listed as authors) have also been involved in the Verifiable Claims community. Open Badges already incorporates Verifiable Claims as the Endorsement mode. We would like to explore ways to combine Open Badges and Verifiable Claims to increase interoperability, and to leverage the benefits of both systems.
