@@ -4,7 +4,7 @@ By Kim Hamilton Duffy, Learning Machine
 
 IN PROGRESS
 
-The BTCR hackathon in July was my first exposure to DIDs and DDOs. I wrote this very introductory document to help consolidate my understanding of DIDs. Because my understanding of DIDs/DDOs is largely restricted to BTCR (and relatively new at that), details may be wrong. But I hope it will provide others with a more user-friendly intro to the [DID spec](https://w3c-ccg.github.io/did-spec/).
+The BTCR hackathon in July was my first exposure to DIDs and DDOs. I wrote this very introductory document to help consolidate my understanding. Because my understanding of DIDs/DDOs is largely restricted to BTCR (and relatively new at that), details may be wrong. But I hope it will provide others with a more user-friendly intro to the [DID spec](https://w3c-ccg.github.io/did-spec/).
 
 ## Motivation
 
