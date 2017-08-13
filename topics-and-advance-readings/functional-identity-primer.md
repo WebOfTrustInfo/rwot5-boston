@@ -67,7 +67,7 @@ For example, a website might apply the email associated with my account to allow
 
 We gain new insights by considering both existing identity information and previously unrelated observations. Identity is more than just what we know about people and apply to our interactions. It’s also how we make judgments based on what we know, gaining insights into character, capabilities, and proclivities. 
  
-<img alt="Raw data, Derived Attributes, and Reason" src="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/functional-identity-primer-diagrams/raw.der.reason.svg" width="300px">
+<img alt="Raw data, Derived Attributes, and Reason" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/raw.der.reason.svg" width="300px">
 
 * **Raw data** are data which may or may not contain information relatable to any particular person or thing. 
 * **Derived attributes** are conclusions reached by reasoning over identity information. They are what we learn when we consider what we know about people and things.
