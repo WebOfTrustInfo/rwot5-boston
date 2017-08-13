@@ -23,7 +23,7 @@ The functional approach reaches **beyond digital** systems to understand how ide
 
 Unfortunately, digital systems can **unwittingly compromise** real-world identity. Sometimes this occurs because digital identity systems neglect to consider external effects. Other times, it happens with systems that didn’t even realize they were dealing with identity-related personal information. A functional perspective allows engineers to see **beyond** static attributes and traditional notions of “Personally Identifiable Information” to better understand how engineering choices can impact identity, even outside their systems.
 
-With a better understanding of how identity functions, we will be able to build systems that **enhance** privacy and human dignity, while **improving** identity assurance and security.
+With a better understanding of how identity functions, we will be able to build systems that **enhance** privacy and human dignity, while **improving** identity assurance and security. 
 
 # Identity Systems
 An identity system is a collection of tools and techniques used to keep track of people and things.
