@@ -4,32 +4,67 @@ IN PROGRESS
 
 By Kim Hamilton Duffy, Learning Machine
 
-## Creating a BTCR DID
+This assumes you are familiar with DID/DDO terminology at a basic level
 
-### Abbreviations
+## Introduction
 
-- Bi = bitcoin address i
+BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme ([definition of DID scheme](https://w3c-ccg.github.io/did-spec/)) encodes a confirmed transaction on the Bitcoin blockchain. From the transaction, one can determine:
+- The "owner key", or the key for the owner of the DID. This is listed as the public key (not the hash of the public key, aka Bitcoin address), that signed the transaction
+- The "control key", or more precisely for BTCR, the hash of the control key (aka Bitcoin address), which is a transaction output. The owner of a control key can update the DDO
+- (Optional) A reference to a continuation DDO in the OP_RETURN field. This could be a link to an IPFS address of a DDO with additional keys
+
+(Note: the terminology around owner, control, and keys in general for DIDs is still being discussed. Explained later.)
+
+## BTCR Transaction Structure
+
+Abbreviations:
+- Bi = bitcoin address i 
 - Pi = public key i
-- Si = signing key i
+- Si = signing key i (or private key i)
 
-### Creating a BTCR DID (P2PKH)
-
+Creating the initial BTCR DID:
 - Create key set (`B0`/`P0`/`S0`)
 - Create key set (`B1`/`P1`/`S1`)
 - Create Bitcoin transaction as follows:
 	- Output: Change address `B1`
 	- Optional output: OP_RETURN <link to DDO continuation>
-	- Signing key is `S0`
-- Issue TX0 and wait for confirmation. Get bech32 encoding of the transaction `BECH32(TX0)`
+	- Signing key is `S0`, which reveals public key `P0` in the transaction
+- Issue TX0 and wait for confirmation. Get TX Ref encoding of the transaction `TXREF(TX0)`
 
 At this point we have a DID of the format: 
 ```
-did:btcr:<BECH32(TX0)>
+did:btcr:<TXREF(TX0)>
 ```
 
-![](btcr.png)
+![](btcr-tx.png)
 
-From the transaction reference, we can construct the BTCR Deterministic DDO, which will be described below
+## Definitions and details
+
+### BTCR DID Scheme
+
+The [standard scheme for DIDs](https://w3c-ccg.github.io/did-spec/) is:
+
+  did:<method>:<specific-idstring>
+
+In this case, the method is "btcr". In the BTCR DID method, `specific-idstring` is a TX Ref of confirmed transactions on a Bitcoin chain.
+
+### TX Refs
+
+TX Refs are described in BIP 136 "Bech32 Encoded Transaction Position References" (https://github.com/bitcoin/bips/pull/555). Among other advantages, they provide a concise way to refer to the confirmed transaction on a specific chain (testnet or mainnet) as a function of the block height and index. 
+
+The important difference is that txid is just a hash of the transaction, which may not yet be confirmed, and does not encode the chain, whereas TX Ref must be confirmed (since it is based on the block height and index).
+
+### Fragments and Deterministic DDOs
+
+BTCR DDOs are divided into fragments. 
+
+The first fragment is referred to as fragment /0 or "Deterministic DDO".  Everything in DDO fragment /0 can be deterministically created from the Bitcoin transaction alone. 
+
+If the Bitcoin transaction has an OP_RETURN output, it is assumed to be a reference to a DDO "continuation", referred to as fragment /1. This is necessary, for example, if the DDO contains multiple keys. We cannot store all this data in the OP_RETURN output field, so we reference the data in an external store.
+
+The concept of fragments is important for BTCR DDOs in the case that DDO continuation is stored in an immutable store such as IPFS. DDO cannot be signed until BTCR DID is available. But that would change the content, which changes the value in the OP_RETURN.
+
+
 
 ### Verify/lookup keys
 
@@ -57,26 +92,7 @@ The playground supports 3 means of entering a transaction:
 
 To start, click "Convert from TXID" on the site with the default transaction id. This testnet txid resolves to @ChristopherA's testnet BTCR DID -- `did:btcr:xyv2-xzyq-qqm5-tyke/0#transaction-key`.
 
-The DID follows the [standard scheme](https://w3c-ccg.github.io/did-spec/):
 
-  did:<method>:<specific-idstring>
-
-In this case, the method is "btcr". In the BTCR DID method, `specific-idstring` is a TX Refs of confirmed transactions in a Bitcoin chain.
-
-### About TX Refs
-TX Refs are described in BIP 136 "Bech32 Encoded Transaction Position References" (https://github.com/bitcoin/bips/pull/555). Among other advantages, they provide a concise way to refer to the confirmed transaction on a specific chain (testnet or mainnet) as a function of the block height and index. 
-
-The important difference is that txid is just a hash of the transaction, which may not yet be confirmed, and does not encode the chain, whereas TX Ref must be confirmed (since it is based on the block height and index).
-
-## Fragments and Deterministic DDOs
-
-BTCR DDOs are divided into fragments. 
-
-The first fragment is referred to as fragment /0 or "Deterministic DDO".  Everything in DDO fragment /0 can be deterministically created from the Bitcoin transaction alone. 
-
-If the Bitcoin transaction has an OP_RETURN output, it is assumed to be a reference to a DDO "continuation", referred to as fragment /1. This is necessary, for example, if the DDO contains multiple keys. We cannot store all this data in the OP_RETURN output field, so we reference the data in an external store.
-
-The concept of fragments is important for BTCR DDOs in the case that DDO continuation is stored in an immutable store such as IPFS. DDO cannot be signed until BTCR DID is available. But that would change the content, which changes the value in the OP_RETURN.
 
 ## Fragment /0, or the Deterministic DDO
 
