@@ -9,8 +9,14 @@ This assumes you are familiar with DID/DDO terminology at a basic level
 ## Introduction
 
 BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme encodes a confirmed transaction on the Bitcoin blockchain. From the transaction, one can determine:
-- The "owner key", or the key for the owner of the DID. This is listed as the public key (not the hash of the public key, aka Bitcoin address), that signed the transaction
-- The "control key", or more precisely for BTCR, the hash of the control key (aka Bitcoin address), which is a transaction output. The owner of a control key can update the DDO
+- The "owner key"
+    - What: the public key for the owner of the DID
+    - Where: this is the public key corresponding to the one that signed the transaction. 
+    - Note: we encode the owner key as a public key -- not the expected compressed Bitcoin address format -- for consistency with the LD signature suites
+- The "control key"
+    - What: the owner of a control key can update the DDO
+    - Where: The transaction output (P2PKH) Bitcoin address
+    - Note: This differs from the owner key encoding. This has the property that the control public key is not yet revealed -- just the hash.
 - (Optional) A reference to a continuation DDO in the OP_RETURN field. This could be a link to an IPFS address of a DDO with additional keys
 
 (Note: the terminology around owner, control, and keys in general for DIDs is still being discussed. Explained later.)
@@ -27,11 +33,13 @@ Creating the initial BTCR DID:
 - Create key set (`B1`/`P1`/`S1`)
 - Create Bitcoin transaction as follows:
 	- Output: Change address `B1`
-	- Optional output: OP_RETURN <link to DDO continuation>
+	- Optional output: `OP_RETURN <link to DDO continuation>`
 	- Signing key is `S0`, which reveals public key `P0` in the transaction
 - Issue TX0 and wait for confirmation. Get TX Ref encoding of the transaction `TXREF(TX0)`
 
 At this point we have a DID of the format `did:btcr:<TXREF(TX0)>`
+
+The initial BTCR DID is shown in the left side of this diagram.
 
 ![BTCR Transaction Structure](btcr-tx-ref.png)
 
