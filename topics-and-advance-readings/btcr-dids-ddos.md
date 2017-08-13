@@ -8,7 +8,7 @@ This assumes you are familiar with DID/DDO terminology at a basic level
 
 ## Introduction
 
-BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme ([definition of DID scheme](https://w3c-ccg.github.io/did-spec/)) encodes a confirmed transaction on the Bitcoin blockchain. From the transaction, one can determine:
+BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme encodes a confirmed transaction on the Bitcoin blockchain. From the transaction, one can determine:
 - The "owner key", or the key for the owner of the DID. This is listed as the public key (not the hash of the public key, aka Bitcoin address), that signed the transaction
 - The "control key", or more precisely for BTCR, the hash of the control key (aka Bitcoin address), which is a transaction output. The owner of a control key can update the DDO
 - (Optional) A reference to a continuation DDO in the OP_RETURN field. This could be a link to an IPFS address of a DDO with additional keys
@@ -31,12 +31,9 @@ Creating the initial BTCR DID:
 	- Signing key is `S0`, which reveals public key `P0` in the transaction
 - Issue TX0 and wait for confirmation. Get TX Ref encoding of the transaction `TXREF(TX0)`
 
-At this point we have a DID of the format: 
-```
-did:btcr:<TXREF(TX0)>
-```
+At this point we have a DID of the format `did:btcr:<TXREF(TX0)>`
 
-![](btcr-tx-ref.png)
+![BTCR Transaction Structure](btcr-tx-ref.png)
 
 ## Definitions and details
 
@@ -44,7 +41,7 @@ did:btcr:<TXREF(TX0)>
 
 The [standard scheme for DIDs](https://w3c-ccg.github.io/did-spec/) is:
 
-  did:<method>:<specific-idstring>
+`did:<method>:<specific-idstring>`
 
 In this case, the method is "btcr". In the BTCR DID method, `specific-idstring` is a TX Ref of confirmed transactions on a Bitcoin chain.
 
@@ -64,22 +61,26 @@ If the Bitcoin transaction has an OP_RETURN output, it is assumed to be a refere
 
 The concept of fragments is important for BTCR DDOs in the case that DDO continuation is stored in an immutable store such as IPFS. DDO cannot be signed until BTCR DID is available. But that would change the content, which changes the value in the OP_RETURN.
 
+## Looking up a BTCR DID
 
+DID consumers need to be able to construct a DDO from a DID. In BTCR that works as follows:
 
-### Verify/lookup keys
+- Given a DID, we know txid (`did:btcr:<TXREF(TX0)>`)
+- Look up transaction. Is the "control key" output spent?
+    - no: this is the latest version of the DID. From this we can construct the DDO (described below)
+    - yes: keep following transaction chain until the latest with an unspent output is found
 
-- Given a DID, we know txid (`did:btcr:<BECH32(TX0)>`)
-- Look up transaction. Is output spent?
-    - if so, keep following transaction chain until an unspent output is found
+## Updating the DID/DDO
 
-### Rotating keys
+Owners of a DID must be able to update it, for example to rotate keys. The BTCR Transaction Structure diagram shows how that is done in the second transaction. 
 
 - Create new tx like above, but send to `B2`
+- Set the OP_RETURN to the new continuation DDO
 - Sign tx with `S1` (P1 is revealed)
 
-## Getting BTCR DID/DDOs from a transaction
+## Example from the BTCR Playground
 
-This document describes BTCR DIDs and DDOs using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
+This section demonstrates BTCR DIDs and DDOs using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
 
 The playground supports looking up BTCR DDOs for both mainnet and testnet chains. In general, we work with the testnet chain in these examples as we experiment with and develop BTCR.
 
@@ -88,11 +89,7 @@ The playground supports 3 means of entering a transaction:
 - TX Ref (note that we don't need to enter the chain; described below)
 - TX block height, index, and chain (testnet or mainnet)
 
-## BTCR DID format
-
 To start, click "Convert from TXID" on the site with the default transaction id. This testnet txid resolves to @ChristopherA's testnet BTCR DID -- `did:btcr:xyv2-xzyq-qqm5-tyke/0#transaction-key`.
-
-
 
 ## Fragment /0, or the Deterministic DDO
 
@@ -251,7 +248,7 @@ Note: currently this differs from what's shown in the playground. We are working
 
 ### About
 
-#### * syntax
+#### `*` syntax
 
 In the DDO /1 fragment, we need to know the DID in fragment /0 for use in the `id`s. However, the `id`s cannot yet be known (as mentioned above, the DID isn't known until we issue the transaction). We're currently working around this by using the notation `"*/1#<fragment>"`
 
@@ -355,19 +352,3 @@ About claim signatures:
 - claims can use different set of keys
 - claims do not have to be signed by owner key
 
-
-## Key categories
-
-Insight from BTCR Hackathon: we need to come up with something better than "owner"/"control". One approach is to describe what the key can be used, e.g. for proof of ownership, keys for making other claims (e.g. PGP).
-
-- owner:
-   - person who can owns the DDO
-   - In this BTCR design, there is only 1 owner key. But note that other DID methods can have multiple owner keys
-- keys or proofs allows to prove that DDO belongs to DID
-- Only 1 key for signing DDO itself
-  - and updating it ??? (is this true? what if output to multiple addresses or other scheme?)
-- Control key lets you point to a new DDO
-  - In this BTCR design, there is only 1 control key. But note that other DID methods can have multiple control keys
-  - who controls ability to change to new DDO
-  - control key becomes signing key
-- instead of signatures/keys, call them proofs
