@@ -36,7 +36,7 @@ At this point we have a DID of the format:
 did:btcr:<TXREF(TX0)>
 ```
 
-![](btcr-tx.png)
+![](btcr-tx-ref.png)
 
 ## Definitions and details
 
