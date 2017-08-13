@@ -4,7 +4,7 @@ IN PROGRESS
 
 By Kim Hamilton Duffy, Learning Machine
 
-This assumes you are familiar with DID/DDO terminology at a basic level
+This assumes you are familiar with DID/DDO terminology at a basic level. 
 
 ## Introduction
 
@@ -18,6 +18,8 @@ BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID schem
     - This is the transaction output (P2PKH) Bitcoin address
     - Note: This differs from the owner key encoding. This has the property that the control public key is not yet revealed -- just the hash.
 - (Optional) A reference to a continuation DDO in the OP_RETURN field. This could be a link to an IPFS address of a DDO with additional keys
+
+The [BTCR Hackathon readme](https://github.com/WebOfTrustInfo/btcr-hackathon/blob/master/README.md) has more context on BTCR DIDs beyond these basics.
 
 (Note: the terminology around owner, control, and keys in general for DIDs is still being discussed. Explained later.)
 
