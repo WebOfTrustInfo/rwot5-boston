@@ -10,12 +10,12 @@ This assumes you are familiar with DID/DDO terminology at a basic level
 
 BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme encodes a confirmed transaction on the Bitcoin blockchain. From the transaction, one can determine:
 - The "owner key"
-    - What: the public key for the owner of the DID
-    - Where: this is the public key corresponding to the one that signed the transaction. 
+    - I.e. the public key for the owner of the DID
+    - This is the public key corresponding to the one that signed the transaction. 
     - Note: we encode the owner key as a public key -- not the expected compressed Bitcoin address format -- for consistency with the LD signature suites
 - The "control key"
-    - What: the owner of a control key can update the DDO
-    - Where: The transaction output (P2PKH) Bitcoin address
+    - I.e. the owner of a control key can update the DDO
+    - This is the transaction output (P2PKH) Bitcoin address
     - Note: This differs from the owner key encoding. This has the property that the control public key is not yet revealed -- just the hash.
 - (Optional) A reference to a continuation DDO in the OP_RETURN field. This could be a link to an IPFS address of a DDO with additional keys
 
