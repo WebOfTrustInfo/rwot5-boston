@@ -4,7 +4,7 @@ By Joe Andrieu [joe@legreq.com](mailto:joe@legreq.com)
 
 There are many ways to approach identity. For the Rebooting Web of Trust, we prefer a **functional approach** to focus conversations on how identity works and how we use it.
 
-The varied facets of identity are so rich that we each bring our own hot buttons and agendas to any discussion. Some people engage from a philosophical perspective, others cultural. Some dive into political issues and others get meta-physical and spiritual. These different perspectives are valid views of identity’s impact on our lives. More than valid. **__Vital__**. They help answer the question of “Why?” Why identity matters, why we should care. Unfortunately, they also inflame passions. We sometimes talk past each other to make points that have minimal relevance for others, leaving people frustrated and unheard.
+The varied facets of identity are so rich that we each bring our own **hot buttons** and **agendas** to any discussion. Some people engage from a **philosophical** perspective, others **cultural**. Some dive into **political** issues and others get **meta-physical** and **spiritual**. These different perspectives are valid views of identity’s impact on our lives. More than valid. **__Vital__**. They help answer the question of “Why?” Why identity matters, why we should care. Unfortunately, they also inflame **passions**. We sometimes talk past each other to make points that have minimal relevance for others, leaving people frustrated and unheard.
 
 As **engineers** and **system designers**, we’re concerned with **how things work**. We want to fix what’s broken and build new things. To do that, we want to discuss how things function. With identity, this functional perspective sidesteps the inflammatory rabbit holes, without dismissing them. Functional Identity lets us investigate **the HOW** without prejudice **to WHY**, viewing identity systems based on how they work and then, in turn, how they affect individuals and society.
 
@@ -23,7 +23,7 @@ The functional approach reaches **beyond digital** systems to understand how ide
 
 Unfortunately, digital systems can **unwittingly compromise** real-world identity. Sometimes this occurs because digital identity systems neglect to consider external effects. Other times, it happens with systems that didn’t even realize they were dealing with identity-related personal information. A functional perspective allows engineers to see **beyond** static attributes and traditional notions of “Personally Identifiable Information” to better understand how engineering choices can impact identity, even outside their systems.
 
-With a better understanding of how identity functions, we will be able to build systems that **enhance** privacy and human dignity, while **improving** identity assurance and security.
+With a better understanding of how identity functions, we will be able to build systems that **enhance** privacy and human dignity, while **improving** identity assurance and security. 
 
 # Identity Systems
 An identity system is a collection of tools and techniques used to keep track of people and things.
@@ -35,10 +35,9 @@ Organizations create processes, software, and services to **achieve** similar en
 # Terminology
 In the diagrams below, the blue boxes are nouns and the red ovals are verbs – the building blocks for describing identity systems.
 
-We start with the simplest identity system, using three nouns and a verb: 
+We start with the simplest identity system, using three nouns and a verb:
 
-![Subjects, Identifiers, Attributes, and Correlate](functional-identity-primer-diagrams/sub.id.attr.corr.svg)
-<img alt="Subjects, Identifiers, Attributes, and Correlate" src="functional-identity-primer-diagrams/sub.id.attr.corr.svg">
+<img alt="Subjects, Identifiers, Attributes, and Correlate" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/sub.id.attr.corr.svg" width="450px">
 
 * **Subjects** are entities—people or things—under consideration.
 * **Identifiers** are labels which refer to entities. They are used to keep track of what we know about those entities.
@@ -53,7 +52,7 @@ These terms apply equally to things other than people, such as organizations, gr
 
 We learn or acquire identity information over time, then apply what we’ve learned to various interactions, usually elsewhere. 
 
-![Acquire and Apply](functional-identity-primer-diagrams/acq.apply.svg)
+<img alt="Acquire and Apply" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/acq.apply.svg" width="300px" >
   
 * **Acquire** means to gather identity information for use by the system.
 * **Apply** means to use identity information to affect change outside the identity system, typically to moderate an interaction of the subject with a related system. 
@@ -68,7 +67,7 @@ For example, a website might apply the email associated with my account to allow
 
 We gain new insights by considering both existing identity information and previously unrelated observations. Identity is more than just what we know about people and apply to our interactions. It’s also how we make judgments based on what we know, gaining insights into character, capabilities, and proclivities. 
  
-![Raw data, Derived Attributes, and Reason](functional-identity-primer-diagrams/raw.der.reason.svg)
+<img alt="Raw data, Derived Attributes, and Reason" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/raw.der.reason.svg" width="300px">
 
 * **Raw data** are data which may or may not contain information relatable to any particular person or thing. 
 * **Derived attributes** are conclusions reached by reasoning over identity information. They are what we learn when we consider what we know about people and things.
@@ -80,8 +79,9 @@ We also reason using known attributes to derive new ones. For example, we calcul
 
 # Securing Identity Information
 
-We go to great lengths to keep identity information secure. 
-![Secure](functional-identity-primer-diagrams/secure.svg)
+We go to great lengths to keep identity information secure.
+
+<img alt="Secure" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/secure.svg" width="150px">
 
 * **Secure** means to restrict the creation and flow of identity information to the right people at the right time.
 
@@ -128,12 +128,12 @@ These are the verbs of identity. These are the actions taken by identity systems
 
 
 ### For technologists
-![Technologists' language](functional-identity-primer-diagrams/technologist.svg)
+<img alt="Technologists' language: Subjects, Identifiers, Attributes, Raw data, Derived attributes, Acquire, Correlate, Reason, Apply, Secure" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/technologist.svg" width="750px">
 
 We assign **identifiers** to **subjects**. We collect **raw data** and correlate **attributes** to the **subjects** we track. We **reason** over raw data and attributes, to **derive** new **attributes**. We then **apply** this information to current and future interactions with subjects. We **secure** identity information to keep secrets and preserve privacy.
  
 ### For laypeople
-![Regular language](functional-identity-primer-diagrams/layperson.svg)
+<img alt="Regular language: People, Names, Statements, Observations, Beliefs, Collect, Relate, Reason, Apply, Protect" src="https://rawgithub.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/master/topics-and-advance-readings/functional-identity-primer-diagrams/layperson.svg" width="750px">
 
 We give **names** to **people**. We **collect** **observations** and record **statements** relating those observations to people we know. We **reason** over these observations, statements, and **beliefs** to generate new beliefs. We then **apply** what we know and believe when dealing with those we recognize. We **protect** identity information to keep secrets and preserve privacy.
 
