@@ -21,3 +21,4 @@ The advanced readings published to date are:
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [A very gentle introduction to DIDs](did-gentle-intro.md) by Kim Hamilton Duffy
+* [DID for the 3D Web](did-3d-web.md) by Alberto Elias
