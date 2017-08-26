@@ -66,6 +66,7 @@ ActivityPub actor's ActivityStreams description.
 
 Here's an example of the record of our friend Alyssa P. Hacker:
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Person",
      "id": "https://social.example/alyssa/",
@@ -77,6 +78,7 @@ Here's an example of the record of our friend Alyssa P. Hacker:
      "followers": "https://social.example/alyssa/followers/",
      "following": "https://social.example/alyssa/following/",
      "liked": "https://social.example/alyssa/liked/"}
+```
 
 ActivityPub uses [ActivityStreams](https://www.w3.org/TR/activitystreams-core/) for its [vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/).
 This is pretty great because ActivityStreams includes all the common
@@ -125,11 +127,13 @@ She lent him a book recently and she wants to make sure he returns it
 to her.
 Here's the message she composes, as an ActivityStreams object:
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Note",
      "to": ["https://chatty.example/ben/"],
      "attributedTo": "https://social.example/alyssa/",
      "content": "Say, did you finish reading that book I lent you?"}
+```
 
 This is a note addressed to Ben.
 She POSTs it to her outbox.
@@ -144,6 +148,7 @@ some activity by some actor being taken on some object.
 In this case the activity is a Create of a Note object, posted by a
 Person.)
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Create",
      "id": "https://social.example/alyssa/posts/a29a6843-9feb-4c74-...",
@@ -154,6 +159,7 @@ Person.)
                 "attributedTo": "https://social.example/alyssa/",
                 "to": ["https://chatty.example/ben/"],
                 "content": "Say, did you finish reading that book I lent you?"}}
+```
 
 Alyssa's server looks up Ben's ActivityStreams actor object, finds his
 inbox endpoint, and POST's her object to his inbox.
@@ -172,6 +178,7 @@ Her phone polls her inbox via GET, and amongst a bunch of cat videos
 posted by friends and photos of her nephew posted by her sister, she
 sees<sup id="fnr.4">[4](#fn.4)</sup> the following:
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Create",
      "id": "https://chatty.example/ben/p/51086",
@@ -185,15 +192,18 @@ sees<sup id="fnr.4">[4](#fn.4)</sup> the following:
                 "content": "Argh, yeah, sorry, I'll get it back to you tomorrow.
                             I was reviewing the section on register machines,
                             since it's been a while since I wrote one."}}
+```
 
 Alyssa is relieved, and likes Ben's post:
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Like",
      "id": "https://social.example/alyssa/posts/5312e10e-5110-42e5-...",
      "to": ["https://chatty.example/ben/"],
      "actor": "https://social.example/alyssa/",
      "object": "https://chatty.example/ben/p/51086"}
+```
 
 She POSTs this message to her outbox.
 (Since it's an activity, her server knows it doesn't need to wrap it in
@@ -205,6 +215,7 @@ Soon the following message is blasted to all the members of her
 followers collection, and since it has the special Public group
 addressed, is generally readable by anyone.
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Create",
      "id": "https://social.example/alyssa/posts/9282e9cc-14d0-42b3-...",
@@ -218,6 +229,7 @@ addressed, is generally readable by anyone.
                        "https://www.w3.org/ns/activitystreams#Public"],
                 "content": "Lending books to friends is nice.
                             Getting them back is even nicer! :)"}}
+```
 
 # Bringing public key cryptography to the federated social web
 
@@ -226,6 +238,7 @@ having each actor on the system hold a public and private keypair, and
 by having actors have their public key attached directly to their
 actor object:
 
+``` json
     {"@context": ["https://www.w3.org/ns/activitystreams",
                   "https://w3id.org/security/v1"],
      "id": "https://schemers.example/u/alyssa",
@@ -235,6 +248,7 @@ actor object:
         "id": "https://schemers.example/u/alyssa#main-key",
         "owner": "https://schemers.example/u/alyssa",
         "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
+```
 
 This provides significant improvements to the system which we explore
 below.
@@ -249,6 +263,7 @@ They pretend to "share"<sup id="fnr.5">[5](#fn.5)</sup> the following post they
 pretend to have seen from Alyssa to the pasta-enthusiasts group, which
 Ben is a member of.
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Announce",
      "id": "https://havoc.example/~mallet/p/90815",
@@ -273,6 +288,13 @@ Ben is a member of.
        "created": "2017-09-23T21:32:21Z",
        "nonce": "22e8e7683f56c08bb873",
        "signatureValue": "wTjLtnZVYF79pq9Ts...OU1jYPSjvcE2jNc="}}
+```
+
+In general ActivityPub follows the client-server paradigm that has
+been popular on the World Wide Web, while restoring some level of
+decentralization.
+Current implementations of ActivityPub go as far as to bring a level
+of decentralization akin to email,
 
 Ben's server, or even the server hosting `pastalovers.example`, can
 check the signature against the `publicKey` listed on Alyssa's actor
@@ -379,11 +401,13 @@ actor's inbox.
 For example, an actor may receive the following object<sup id="fnr.9">[9](#fn.9)</sup>
 in their inbox:
 
+``` json
     {"@context": ["https://securityns.example/",
                   "https://www.w3.org/ns/activitystreams"],
      "type": "EncryptedEnvelope",
      "encryptedMessage": "-----BEGIN PGP MESSAGE-----\r\n...",
      "mediaType": "application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\""}
+```
 
 The server would put this object in the user's inbox, but if only the
 user's own computers hold the key, even the server would be unable to
@@ -395,6 +419,7 @@ In this case, the message went directly to Alyssa's inbox.
 Upon decrypting the component in encryptedMessage, another object
 is found:
 
+``` json
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Note",
      "id": "https://chatty.example/ben/p/86187",
@@ -402,6 +427,7 @@ is found:
      "attributedTo": "https://chatty.example/ben/",
      "content": "Up for some root beer floats at my friend's house?
                  Here's the address: ..."}
+```
 
 Note that while this improves privacy, it does come with several
 tradeoffs:
@@ -447,17 +473,21 @@ for ActivityPub.
 The simplest version of this can be seen simply by replacing the actor
 ids with DIDs.  To transform an example from the overview from:
 
+``` json
     {"type": "Note",
      "attributedTo": "https://social.example/alyssa/",
      "to": ["https://chatty.example/ben/"],
      "content": "Say, did you finish reading that book I lent you?"}}
+```
 
 to:
 
+``` json
     {"type": "Note",
      "attributedTo": "did:example:d20Hg0teN72oFeo0iNYrblwqt",
      "to": ["did:example:nJx2fgreaSfCujA0kMsiEW8Oz"],
      "content": "Say, did you finish reading that book I lent you?"}}
+```
 
 Gosh!  That was simple-ish.
 All we did was replace the human-readable identifiers representing
@@ -465,6 +495,7 @@ the users with DIDs.
 If we look up Alyssa's [DID](https://w3c-ccg.github.io/did-spec/#dids-(decentralized-identifiers)) based id, we can retrieve her actor object
 as a [DDO](https://w3c-ccg.github.io/did-spec/#ddos-(did-descriptor-objects)), but this time there is extra information:
 
+``` javascript
     {
       "@context": ["https://example.org/did/v1",
                    "https://www.w3.org/ns/activitystreams"],
@@ -490,8 +521,7 @@ as a [DDO](https://w3c-ccg.github.io/did-spec/#ddos-(did-descriptor-objects)), b
         "id": "did:example:d20Hg0teN72oFeo0iNYrblwqt#key-2",
         "type": ["CryptographicKey", "RsaPublicKey"],
         "expires": "2017-03-22T00:00:00Z",
-        "publicKeyPem": "----BEGIN PUBLIC KEY-----\r\nMIIB..
-          ... sGbFmgQaRyV\r\n-----END PUBLIC KEY-----"
+        "publicKeyPem": "----BEGIN PUBLIC KEY-----\r\n.."
       }],
       "control": [{
         "type": "OrControl",
@@ -509,6 +539,7 @@ as a [DDO](https://w3c-ccg.github.io/did-spec/#ddos-(did-descriptor-objects)), b
         "signatureValue": "IOmA4R7TfhkYTYW8...CBMq2/gi25s="
       }
     }
+```
 
 Hoo!  That's a lot of additions.
 Except here we see an example of Alyssa's profile that is entirely
@@ -526,6 +557,7 @@ advantage of these to use her DID as base of the `inbox`, `outbox`,
 etc URIs.
 Here's a cut down and modified version of the previous example:
 
+``` javascript
     {
       "@context": ["https://example.org/did/v1",
                    "https://www.w3.org/ns/activitystreams"],
@@ -543,6 +575,8 @@ Here's a cut down and modified version of the previous example:
       // DDO information goes here
       "service": {
         "httpeer": "dI0tuXjISZEadSH6QV9EhBEdccL4ouePdF8P57BJ"}}
+```
+
 
 Now that's an identity system!
 
