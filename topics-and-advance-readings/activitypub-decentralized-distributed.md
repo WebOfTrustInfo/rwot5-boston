@@ -29,7 +29,7 @@ At this point, users could even optionally transition from a
 client-server model system to a fully peer to peer system.
 
 
-![img](./activitypub-decentralized-distributed-diagrams/centralized_decentralized_distributed.png "Centralized, Decentralized, and Distributed drawings, from "On Distributed Communications, part 1" by Paul Baran, 1964")
+![img](./activitypub-decentralized-distributed-diagrams/centralized_decentralized_distributed.png "Centralized, Decentralized, and Distributed drawings, from 'On Distributed Communications, part 1' by Paul Baran, 1964")
 
 # ActivityPub overview
 
