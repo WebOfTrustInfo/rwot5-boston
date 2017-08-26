@@ -1,6 +1,6 @@
 # A Primer on Functional Identity
 ---
-By Joe Andrieu [joe@legreq.com](mailto:joe@legreq.com) 
+By Joe Andrieu, Legendary Requirements [joe@legreq.com](mailto:joe@legreq.com) 
 
 There are many ways to approach identity. For the Rebooting Web of Trust, we prefer a **functional approach** to focus conversations on how identity works and how we use it.
 
