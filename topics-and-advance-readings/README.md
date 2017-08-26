@@ -22,3 +22,4 @@ The advanced readings published to date are:
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [A very gentle introduction to DIDs](did-gentle-intro.md) by Kim Hamilton Duffy
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
+* [A Primer on Functional Identity](functional-identity-primer.md) by Joe Andrieu  
