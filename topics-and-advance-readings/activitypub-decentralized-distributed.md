@@ -8,13 +8,13 @@ of building federated social systems.
 Users can use implementations of ActivityPub like Mastodon and
 MediaGoblin as libre alternatives to large siloed social networking
 systems such as Facebook, Twitter, YouTube, and
-Instagram.
+Instagram.<sup id="fnr.1">[1](#fn.1)</sup>
 
 In general ActivityPub follows the client-server paradigm that has
 been popular on the World Wide Web, while restoring some level of
 decentralization.
 Current implementations of ActivityPub go as far as to bring a level
-of decentralization akin to email,but
+of decentralization akin to email,<sup id="fnr.2">[2](#fn.2)</sup> but
 there are many opportunities to go further.
 By attaching public keys to the profiles of actors (users) on the
 network and using [Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/), we can add a web of trust to
@@ -22,14 +22,11 @@ the federated social web and use it to enhance user privacy and assert
 the integrity of messages sent over the network.
 By using a decentralized identifier system such as
 [Decentralized Identifiers (DIDs)](https://w3c-ccg.github.io/did-spec/) we can move fully from a decentralized
-to a distributed system,
+to a distributed system,<sup id="fnr.3">[3](#fn.3)</sup>
 by escaping the core centralization mechanisms of DNS and SSL
 certificate authorities.
 At this point, users could even optionally transition from a
 client-server model system to a fully peer to peer system.
-
-
-![img](./activitypub-decentralized-distributed-diagrams/centralized_decentralized_distributed.png "Centralized, Decentralized, and Distributed drawings, from 'On Distributed Communications, part 1' by Paul Baran, 1964")
 
 # ActivityPub overview
 
@@ -173,7 +170,7 @@ think of this as being a streamlined submission from outbox to inbox.
 A while later, Alyssa checks what new messages she's gotten.
 Her phone polls her inbox via GET, and amongst a bunch of cat videos
 posted by friends and photos of her nephew posted by her sister, she
-seesthe following:
+sees<sup id="fnr.4">[4](#fn.4)</sup> the following:
 
     {"@context": "https://www.w3.org/ns/activitystreams",
      "type": "Create",
@@ -248,7 +245,7 @@ Sharing messages is common in social networks.
 But how can you verify that someone really said what they claimed?
 
 The user Mallet is trying to cause havoc in their social network.
-They pretend to "share"the following post they
+They pretend to "share"<sup id="fnr.5">[5](#fn.5)</sup> the following post they
 pretend to have seen from Alyssa to the pasta-enthusiasts group, which
 Ben is a member of.
 
@@ -288,7 +285,7 @@ interaction, forwarding and sharing content is desirable for positive
 reasons.
 One common problem in federated social networks that support private
 interactions is that a conversation can become fragmented; if Ben is
-posting to private collectionshe has
+posting to private collection<sup id="fnr.5">[5](#fn.5)</sup> she has
 curated of both his friends and coworkers, if members of coworkers
 can't see who is in the private family collection, even if they
 address to include the family in the conversation they can't traverse
@@ -309,7 +306,7 @@ of knowing who was in the private collection to enable access for.
 
 This is a frequently requested feature in federated social networks,
 so we should ensure that the necessary public key infrastructure is
-provided.
+provided.<sup id="fnr.6">[6](#fn.6)</sup>
 
 ## An easier to use web of trust?
 
@@ -324,7 +321,7 @@ attend and organize, and even more difficult still is learning the
 system.
 While some work has been done in this area (for example with
 [Monkeysign](https://monkeysign.readthedocs.io/en/2.x/) and [Gibberbot](https://guardianproject.info/apps/gibber/)), it would be even better if building your
-trust network was incidental to participating in the network.
+trust network was incidental to participating in the network.<sup id="fnr.7">[7](#fn.7)</sup>
 
 To a certain extent, this could come "for free, with caveats" in
 ActivityPub deployments that exist today, where subscriptions and
@@ -344,7 +341,7 @@ Furthermore, a malicious actor can still trick users;
 a user may believe they are subscribing to
 `https://social.example/alyssa/`, but perhaps Mallet tricked them
 into subscribing to `https://social.example/alyssaa/`
-instead.
+instead.<sup id="fnr.8">[8](#fn.8)</sup>
 
 Happily there are other ways to encourage stronger trust networks.
 Carl Ellison's paper
@@ -379,7 +376,7 @@ of a user,  a user may provide  a public key on their  actor object to
 which only their own computer(s) hold the corresponding private key.
 Other actors on the network may then send an object encrypted to the
 actor's inbox.
-For example, an actor may receive the following object
+For example, an actor may receive the following object<sup id="fnr.9">[9](#fn.9)</sup>
 in their inbox:
 
     {"@context": ["https://securityns.example/",
@@ -419,7 +416,7 @@ tradeoffs:
     network, these kinds of side effects will break.
     The server will also be unable to provide additional features
     such as being able to have server-based indexing of messages
-    for easy search.
+    for easy search.<sup id="fnr.10">[10](#fn.10)</sup>
     
     In a "more peer to peer" system (as discussed in the
     Distributed identity section) this becomes less of an issue
@@ -593,7 +590,7 @@ about how to make ActivityPub into a more robust distributed system.
 Thanks to Dave Longley for pointing to the vocabulary drift / ambiguity
 of the terms "decentralized" and "distributed", which lead to the
 addition of Paul Baran's diagrams and some terminology
-clarification.
+clarification.<sup id="fnr.3">[3](#fn.3)</sup>
 Thanks to Morgan Lemmer-Webber for the patience and for careful
 proofreading of this document.
 
@@ -624,10 +621,14 @@ distributed network; the community must build and maintain a healthy
 number of nodes and avoid the temptation to let a few large providers
 control the space of a federated network.</div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> It is worth spending some time to
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup>
+It is worth spending some time to
 discuss what is meant by "centralized" versus "distributed" versus
 "decentralized".
-In the figure 4 we see images from
+
+![img](./activitypub-decentralized-distributed-diagrams/centralized_decentralized_distributed.png "Centralized, Decentralized, and Distributed drawings, from 'On Distributed Communications, part 1' by Paul Baran, 1964")
+
+In the figure above we see images from
 Paul Baran's 1964 paper on the subject, and from these shapes we can
 see the kinds of shapes we mean: social silos resemble the the
 spoke-like centralized model, client-server federated social networks
