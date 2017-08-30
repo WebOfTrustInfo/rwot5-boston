@@ -24,4 +24,4 @@ The advanced readings published to date are:
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
 * [A Primer on Functional Identity](functional-identity-primer.md) by Joe Andrieu
 * [ActivityPub: from decentralized to distributed social networks](activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
-
+* [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
