@@ -25,6 +25,7 @@ The advanced readings published to date are:
 * [A very gentle introduction to DIDs](topics-and-advance-readings/did-gentle-intro.md) by Kim Hamilton Duffy
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
 * [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 
 ## Other Readings of Interest
 
