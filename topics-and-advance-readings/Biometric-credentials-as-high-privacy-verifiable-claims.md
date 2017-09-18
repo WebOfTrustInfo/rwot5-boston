@@ -1,5 +1,5 @@
-The Horcrux protocol: Biometric credentials as high-privacy verifiable claims
-John Callahan (Veridium IP Ltd), Asem Othman (Veridium IP Ltd)
+# The Horcrux protocol: Biometric credentials as high-privacy verifiable claims
+## John Callahan (Veridium IP Ltd), Asem Othman (Veridium IP Ltd)
 
 Private keys locked by biometrics on mobile devices provide not only ways for users to authenticate themselves, but also to
 manage important assets tied to the corresponding public keys used in various contexts including blockchains (NOTE:
