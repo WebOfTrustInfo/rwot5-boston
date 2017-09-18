@@ -18,11 +18,11 @@ Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](RWOT-User-Story.md) by Christopher Allen
 * [ActivityPub: from decentralized to distributed social networks](activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
-* [BFTKV DID Method Specification](<BFTKV DID Method Specification.pdf>) by Ercan Ozturk
+* [BFTKV DID Method Specification](BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
 * [Framework for the Comparison of Identity Systems](Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
-* [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](<Biometric credentials as high-privacy verifiable claims.md>) by John Callahan
+* [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan
 * [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
