@@ -11,20 +11,27 @@ In advance of the design workshop, all participants produced a one-or-two page t
 * A specific problem that they wanted to solve with a web-of-trust solution, and why current solutions (PGP or CA-based PKI) can't address the problem?
 * A specific solution related to the web-of-trust that you'd like others to use or contribute to?
 
-The advanced readings published to date are:
+The following advanced readings have been prepared as primers, intended to give you a foundation in some of the topics that may be discussed at the design workshop:
+
+* [A Primer on Functional Identity](topics-and-advance-readings/functional-identity-primer.md) by Joe Andrieu
+* [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
+
+Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
 * [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](topics-and-advance-readings/byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
+* [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
+* [Biometric transaction signing on blockchain](topics-and-advance-readings/Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
 * [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
+* [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](topics-and-advance-readings/Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
 * [Hypercerts: Blockcerts Revocation Improvements](topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 * [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
-* [A Primer on Functional Identity](topics-and-advance-readings/functional-identity-primer.md) by Joe Andrieu
 * [Recommendations for Decentralized Key Management Systems](topics-and-advance-readings/dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](topics-and-advance-readings/trust-objects.md) by Moses Ma & Dr. Rutu Mulka
-* [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
 * [A very gentle introduction to DIDs](topics-and-advance-readings/did-gentle-intro.md) by Kim Hamilton Duffy
 * [Visa? Really?](topics-and-advance-readings/Visa-Really.md) by Kaliya Identity Woman
 
