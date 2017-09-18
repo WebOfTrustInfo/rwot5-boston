@@ -22,7 +22,7 @@ Here are the rest of the advance readings to date:
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
 * [Framework for the Comparison of Identity Systems](Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
-* [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](Biometric credentials as high-privacy verifiable claims.md) by John Callahan
+* [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](<Biometric credentials as high-privacy verifiable claims.md>) by John Callahan
 * [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
