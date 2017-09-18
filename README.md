@@ -14,6 +14,7 @@ In advance of the design workshop, all participants produced a one-or-two page t
 The following advanced readings have been prepared as primers, intended to give you a foundation in some of the topics that may be discussed at the design workshop:
 
 * [A Primer on Functional Identity](topics-and-advance-readings/functional-identity-primer.md) by Joe Andrieu
+* [A Primer on Self-Sovereign identity](topics-and-advance-readings/self-sovereign-identity-primer.md) by Christopher Allen & Shannon Appelcline
 * [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
 
 Here are the rest of the advance readings to date:
