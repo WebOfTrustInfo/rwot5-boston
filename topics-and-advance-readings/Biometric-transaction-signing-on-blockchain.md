@@ -1,6 +1,5 @@
-Biometric transaction signing on blockchain
-
-John Callahan (Veridium IP Ltd), Virgil Tornoreanu (Veridium IP Ltd)
+# Biometric transaction signing on blockchain
+## John Callahan (Veridium IP Ltd), Virgil Tornoreanu (Veridium IP Ltd)
 
 The use of strong customer authentication (SCA) is a critical requirement for collecting explicit consent under the new
 PSD2 regulations, but equally important are GDPR regulations like the "right to be forgotten" that require banks to purge
