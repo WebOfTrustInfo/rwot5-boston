@@ -1,6 +1,6 @@
 ## Rebooting the Web of Trust V: Boston (October 2017)
 
-This repository contains documents related to RWOT5, the fifth Rebooting the Web of Trust design workshop, which is to run in Boston, Masachusetts, on October 3rd-5th, 2017. The goal of the workshop was to generate five technical white papers and/or proposals on topics decided by the group that would have the greatest impact on the future.
+This repository contains documents related to RWOT5, the fifth Rebooting the Web of Trust design workshop, which is to run in Boston, Massachusetts, on October 3rd-5th, 2017. The goal of the workshop was to generate five technical white papers and/or proposals on topics decided by the group that would have the greatest impact on the future.
 
 _Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community. Go to [Eventbrite](https://www.eventbrite.com/e/rebootingweboftrust-design-workshop-v-fall-2017-in-boston-area-usa-tickets-34984665075) to register for this event._
 
