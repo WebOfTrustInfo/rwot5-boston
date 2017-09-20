@@ -200,11 +200,13 @@ Additional Notes
 
 XDI examples in this document use the "XDI DISPLAY" format. Conversion to other formats such as "JXD" is possible (see **[10]**). 
 
+Certain language in this paper is imprecise. For example, instead of saying "*a DID* can send a message", it would be more accurate to say "*the entity that the DID identifies* can send a message" (for a discussion, see **[11]**).
+
 There is ongoing discussion on how the cryptographic keys used to control the DDO relate to "off-chain" or "peer-to-peer" functionality, such as verifiable claims or XDI messaging. In this paper, the "owner" key described by a DDO is used for signing and validating peer-to-peer XDI messages, i.e. the keys to control the DDO are the same as the keys used for XDI messaging. More diverse scenarios are possible, e.g. a DDO can publish multiple keys associated with a DID. This means that for example, even though `btcr` DIDs use an "EdDsaSAPublicKey" on the "secp256k1" curve, and `sov` DIDs use an "EdDsaSAPublicKey" key on the "ed25519" curve, they could both publish RSA keys in their DDOs for use by verifiable claims or XDI messaging.
 
-Digital signatures are only one kind of proof that can be used for authentication and authorization decisions (for a discussion, see **[11]**). In an XDI link contract's policy, more complex proofs than just plain digital signatures can be supported.
+Digital signatures are only one kind of proof that can be used for authentication and authorization decisions (for a discussion, see **[12]**). In an XDI link contract's policy, more complex proofs than just plain digital signatures can be supported.
 
-In this paper we demonstrate an XDI link contract between XDI peers that use different key types. This allows for diversity of both DID methods and key types. In some scenarios however it may be preferential to use the same key types for all participants, e.g. when protocols such as DID-TLS (see **[12]**) or CurveCP are used for peer-to-peer communication.
+In this paper we demonstrate an XDI link contract between XDI peers that use different key types. This allows for diversity of both DID methods and key types. In some scenarios however it may be preferential to use the same key types for all participants, e.g. when protocols such as DID-TLS (see **[13]**) or CurveCP are used for peer-to-peer communication.
 
 Related Work
 ------------
@@ -242,6 +244,8 @@ References
 
  **[10]** https://server.xdi2.org/XDIConverter
 
- **[11]** https://github.com/w3c-ccg/did-spec/issues/15
+ **[11]** https://github.com/w3c-ccg/did-spec/pull/22
 
- **[12]** https://docs.google.com/document/d/1-aPY1eeHdR_TnF7_WpEs58RZ_jNdDeptVrNEu3groFc/
+ **[12]** https://github.com/w3c-ccg/did-spec/issues/15
+
+ **[13]** https://docs.google.com/document/d/1-aPY1eeHdR_TnF7_WpEs58RZ_jNdDeptVrNEu3groFc/
