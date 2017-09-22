@@ -33,7 +33,6 @@ Here are the rest of the advance readings to date:
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 * [Recommendations for Decentralized Key Management Systems](topics-and-advance-readings/dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](topics-and-advance-readings/trust-objects.md) by Moses Ma & Dr. Rutu Mulka
-* [A very gentle introduction to DIDs](topics-and-advance-readings/did-gentle-intro.md) by Kim Hamilton Duffy
 * [Visa? Really?](topics-and-advance-readings/Visa-Really.md) by Kaliya Identity Woman
 
 ## Other Readings of Interest
