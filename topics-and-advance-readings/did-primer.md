@@ -29,19 +29,15 @@ covers:
 
 -   How DIDs differ from other globally-unique identifiers.
 
--   How the syntax of DIDs can be adapted to work with any
-    > modern blockchain.
+-   How the syntax of DIDs can be adapted to work with any modern blockchain.
 
--   How DIDs resolve to **DID documents** containing public keys and
-    > service endpoints.
+-   How DIDs resolve to **DID documents** containing public keys and service endpoints.
 
--   The key role that **DID methods** play in the implementation of
-    > DID infrastructure.
+-   The key role that **DID methods** play in the implementation of DID infrastructure.
 
 -   Privacy considerations for use of DIDs.
 
--   How DID infrastructure lays the foundation for **verifiable
-    > claims**.
+-   How DID infrastructure lays the foundation for **verifiable claims**.
 
 ## Setting the Stage: The Origin of DIDs
 
@@ -58,36 +54,13 @@ potential censorship) and a single point of failure. So, in the last few
 years, several groups began independently investigating decentralized
 alternatives. In chronological order:
 
-1.  The [*W3C Web Payments Working
-    > Group*](https://www.w3.org/Payments/WG/) and [*W3C Verifiable
-    > Claims Task Force*](https://w3c.github.io/vctf/), led by Manu
-    > Sporny and David Longley of Digital Bazaar, recognized that truly
-    > portable digital credentials for individuals would require a new
-    > type of identifier that was not dependent on a third-party for
-    > registration or resolution.
+1.  The [*W3C Web Payments Working Group*](https://www.w3.org/Payments/WG/) and [*W3C Verifiable Claims Task Force*](https://w3c.github.io/vctf/), led by Manu Sporny and David Longley of Digital Bazaar, recognized that truly portable digital credentials for individuals would require a new type of identifier that was not dependent on a third-party for registration or resolution.
 
-2.  The XDI.org Registry Working Group, led by [*OASIS XDI Technical
-    > Committee*](https://www.oasis-open.org/committees/xdi/) co-chairs
-    > Drummond Reed and Markus Sabadello and Internet Identity
-    > Workshop (IIW) co-founder Phil Windley, began looking for a
-    > decentralized solution for identifying participants in a global
-    > peer-to-peer XDI semantic data interchange network.
+2.  The XDI.org Registry Working Group, led by [*OASIS XDI Technical Committee*](https://www.oasis-open.org/committees/xdi/) co-chairs Drummond Reed and Markus Sabadello and Internet Identity Workshop (IIW) co-founder Phil Windley, began looking for a decentralized solution for identifying participants in a global peer-to-peer XDI semantic data interchange network.
 
-3.  The [*Rebooting the Web of
-    > Trust*](http://www.weboftrust.info/) (RWOT) community, led by
-    > Christopher Allen, began exploring how blockchain technology could
-    > be used to enable the decentralized digital identity and trust
-    > network originally envisioned by [*Phil
-    > Zimmermann*](https://en.wikipedia.org/wiki/Phil_Zimmermann) for
-    > [*PGP*](https://en.wikipedia.org/wiki/Pretty_Good_Privacy).
+3.  The [*Rebooting the Web of Trust*](http://www.weboftrust.info/) (RWOT) community, led by Christopher Allen, began exploring how blockchain technology could be used to enable the decentralized digital identity and trust network originally envisioned by [*Phil Zimmermann*](https://en.wikipedia.org/wiki/Phil_Zimmermann) for [*PGP*](https://en.wikipedia.org/wiki/Pretty_Good_Privacy).
 
-4.  [*The U.S. Department of Homeland Security (DHS) Science &
-    > Technology
-    > Directorate*](https://www.dhs.gov/science-and-technology) (S&T),
-    > led by Identity and Data Privacy Program Manager Anil John, began
-    > researching [*how blockchain technology could be used for
-    > privacy-respecting decentralized identity
-    > management*](https://www.sbir.gov/sbirsearch/detail/867797).
+4.  [*The U.S. Department of Homeland Security (DHS) Science & Technology Directorate*](https://www.dhs.gov/science-and-technology) (S&T), led by Identity and Data Privacy Program Manager Anil John, began researching [*how blockchain technology could be used for privacy-respecting decentralized identity management*](https://www.sbir.gov/sbirsearch/detail/867797).
 
 In the spring of 2016, all four groups converged on the concept of DIDs,
 a term originally coined by the W3C Verifiable Claims Task Force. Thanks
@@ -174,22 +147,17 @@ object*](https://json-ld.org/spec/latest/json-ld/) that uses the **DID
 context** (the RDF vocabulary of property names) defined in the DID
 specification. This includes six core components:
 
-1.  **The DID itself**, so the DID document is
-    > fully self-describing.
+1.  **The DID itself**, so the DID document is fully self-describing.
 
-2.  **A set of public keys or other proofs** that can be used for
-    > authentication or interaction with the identified entity.
+2.  **A set of public keys or other proofs** that can be used for authentication or interaction with the identified entity.
 
-3.  **A set of service endpoints** that describe where and how to
-    > interact with the identified entity.
+3.  **A set of service endpoints** that describe where and how to interact with the identified entity.
 
-4.  **A set of authorized capabilities** for the identified entity -- or
-    > other delegated entities -- to make changes to the DID document.
+4.  **A set of authorized capabilities** for the identified entity -- or other delegated entities -- to make changes to the DID document.
 
 5.  **Timestamps** for auditing.
 
-6.  **A optional JSON-LD signature** if needed for verifying the
-    > integrity of the document.
+6.  **A optional JSON-LD signature** if needed for verifying the integrity of the document.
 
 See the [*DID specification*](https://w3c-ccg.github.io/did-spec/) for
 several examples of DID documents.
@@ -217,9 +185,7 @@ A DID method specification must define the following:
 
 3.  How the method-specific identifier is generated or derived.
 
-4.  How the [*CRUD
-    > operations*](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
-    > are performed on a DID and DID document:
+4.  How the [*CRUD operations*](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) are performed on a DID and DID document:
 
     a.  **Creating** a new DID.
 
@@ -232,33 +198,13 @@ A DID method specification must define the following:
 It is these CRUD operations that may vary the most across different DID
 methods. For example:
 
-1.  **Create.** Some DID methods may generate a DID directly from a
-    > cryptographic key pair. Others may use the address of a
-    > transaction or a smart contract on the blockchain itself.
+1.  **Create.** Some DID methods may generate a DID directly from a cryptographic key pair. Others may use the address of a transaction or a smart contract on the blockchain itself.
 
-2.  **Read.** Some DID methods use blockchains that can store DID
-    > documents directly on the blockchain. Others may instruct DID
-    > resolvers to construct them dynamically based on attributes of a
-    > blockchain record. Still others may store a pointer on the
-    > blockchain to a DID document stored in one or more parts on other
-    > decentralized storage networks such as
-    > [*IPFS*](https://en.wikipedia.org/wiki/InterPlanetary_File_System)
-    > or [*STORJ*](https://en.wikipedia.org/wiki/STORJ).
+2.  **Read.** Some DID methods use blockchains that can store DID documents directly on the blockchain. Others may instruct DID resolvers to construct them dynamically based on attributes of a blockchain record. Still others may store a pointer on the blockchain to a DID document stored in one or more parts on other decentralized storage networks such as [*IPFS*](https://en.wikipedia.org/wiki/InterPlanetary_File_System) or [*STORJ*](https://en.wikipedia.org/wiki/STORJ).
 
-3.  **Update.** The update operation is the most critical from a
-    > security standpoint because control of a DID document represents
-    > control of the public keys or proofs necessary to authenticate an
-    > entity (and therefore for an attacker to impersonate the entity).
-    > Since verification of DID document update permissions can only be
-    > enforced by the target blockchain, the DID method specification
-    > must define precisely how authentication and authorization are
-    > performed for any update operation.
+3.  **Update.** The update operation is the most critical from a security standpoint because control of a DID document represents control of the public keys or proofs necessary to authenticate an entity (and therefore for an attacker to impersonate the entity). Since verification of DID document update permissions can only be enforced by the target blockchain, the DID method specification must define precisely how authentication and authorization are performed for any update operation.
 
-4.  **Delete.** DID entries on a blockchain are by definition immutable,
-    > so they can never be “deleted” in the conventional database sense.
-    > However they can be **revoked** in the cryptographic sense. A DID
-    > method specification must define how this termination is
-    > performed, e.g., by writing a null DID document.
+4.  **Delete.** DID entries on a blockchain are by definition immutable, so they can never be “deleted” in the conventional database sense. However they can be **revoked** in the cryptographic sense. A DID method specification must define how this termination is performed, e.g., by writing a null DID document.
 
 ## Related Specifications
 
@@ -357,35 +303,11 @@ Design*](https://en.wikipedia.org/wiki/Privacy_by_design) at the very
 lowest levels of infrastructure and thus become a powerful, new,
 privacy-preserving technology if deployed using best practices such as:
 
-1.  **Pairwise-unique DIDs.** While DIDs can be used as well-known
-    > public identifiers, they can also be used as private identifiers
-    > issued on a per-relationship basis. So rather than a person having
-    > a single DID, like a cell phone number or national ID number, she
-    > can have hundreds of pairwise-unique DIDs that cannot be
-    > correlated without her consent, yet can still be managed as easily
-    > as an address book.
+1.  **Pairwise-unique DIDs.** While DIDs can be used as well-known public identifiers, they can also be used as private identifiers issued on a per-relationship basis. So rather than a person having a single DID, like a cell phone number or national ID number, she can have hundreds of pairwise-unique DIDs that cannot be correlated without her consent, yet can still be managed as easily as an address book.
 
-2.  **Off-chain private data.** Storing any type of PII on a public
-    > blockchain, even encrypted or hashed, is dangerous for two
-    > reasons: 1) the encrypted or hashed data is a global correlation
-    > point when the data is shared with multiple parties, and 2) if the
-    > encryption is eventually broken (e.g., [*quantum
-    > computing*](https://en.wikipedia.org/wiki/Quantum_computing)), the
-    > data will be forever accessible on an immutable public ledger. So
-    > the best practice is to store all private data off-chain and
-    > exchange it only over encrypted, private,
-    > peer-to-peer connections.
+2.  **Off-chain private data.** Storing any type of PII on a public blockchain, even encrypted or hashed, is dangerous for two reasons: 1) the encrypted or hashed data is a global correlation point when the data is shared with multiple parties, and 2) if the encryption is eventually broken (e.g., [*quantum computing*](https://en.wikipedia.org/wiki/Quantum_computing)), the data will be forever accessible on an immutable public ledger. So the best practice is to store all private data off-chain and exchange it only over encrypted, private, peer-to-peer connections.
 
-3.  **Selective disclosure.** The decentralized PKI (DPKI) that DIDs
-    > make possible opens the door to individuals gaining greater
-    > control over their personal data in two ways. First, it enables it
-    > to be shared using encrypted digital credentials (see below).
-    > Second, these credentials can use [*zero-knowledge proof
-    > cryptography*](https://en.wikipedia.org/wiki/Zero-knowledge_proof)
-    > for [*data
-    > minimization*](https://www.forbes.com/sites/bernardmarr/2016/03/16/why-data-minimization-is-an-important-concept-in-the-age-of-big-data/),
-    > e.g., you can disclose that you are over a certain age without
-    > disclosing your exact birthdate.
+3.  **Selective disclosure.** The decentralized PKI (DPKI) that DIDs make possible opens the door to individuals gaining greater control over their personal data in two ways. First, it enables it to be shared using encrypted digital credentials (see below). Second, these credentials can use [*zero-knowledge proof cryptography*](https://en.wikipedia.org/wiki/Zero-knowledge_proof) for [*data minimization*](https://www.forbes.com/sites/bernardmarr/2016/03/16/why-data-minimization-is-an-important-concept-in-the-age-of-big-data/), e.g., you can disclose that you are over a certain age without disclosing your exact birthdate.
 
 ## DIDs and Verifiable Claims
 
@@ -416,17 +338,12 @@ any pre-established hierarchy -- a **web of trust**.
 Besides the links throughout this primer, these additional resources are
 available to anyone interested in joining the DID community.
 
--   [*W3C Verifiable Claims Working Group mailing
-    > list*](https://www.w3.org/community/credentials/)
+-   [*W3C Verifiable Claims Working Group mailing list*](https://www.w3.org/community/credentials/)
 
--   [*DID specification issues
-    > list*](https://github.com/w3c-ccg/did-spec/issues/)
+-   [*DID specification issues list*](https://github.com/w3c-ccg/did-spec/issues/)
 
--   [*Rebooting the Web of Trust event*](http://www.weboftrust.info/)
-    > (held every six months)
+-   [*Rebooting the Web of Trust event*](http://www.weboftrust.info/) (held every six months)
 
--   [*Internet Identity Workshop
-    > event*](http://www.internetidentityworkshop.com/) (held every
-    > six months)
+-   [*Internet Identity Workshop event*](http://www.internetidentityworkshop.com/) (held every six months)
 
 
