@@ -340,6 +340,8 @@ available to anyone interested in joining the DID community.
 
 -   [*W3C Verifiable Claims Working Group mailing list*](https://www.w3.org/community/credentials/)
 
+-   [*W3C Credentials Community Group](https://w3c-ccg.github.io)
+
 -   [*DID specification issues list*](https://github.com/w3c-ccg/did-spec/issues/)
 
 -   [*Rebooting the Web of Trust event*](http://www.weboftrust.info/) (held every six months)
