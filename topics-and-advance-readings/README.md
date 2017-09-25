@@ -32,4 +32,5 @@ Here are the rest of the advance readings to date:
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects.md) by Moses Ma & Dr. Rutu Mulka
 * [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
-* [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
+* [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
+* [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
