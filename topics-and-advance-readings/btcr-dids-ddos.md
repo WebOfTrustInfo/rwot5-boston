@@ -4,24 +4,14 @@ IN PROGRESS
 
 By Kim Hamilton Duffy, Learning Machine
 
-This assumes you are familiar with DID/DDO terminology at a basic level. 
+This assumes you are familiar with DID terminology at a basic level. 
 
 ## Introduction
 
-BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme encodes a confirmed transaction on the Bitcoin blockchain. From the transaction, one can determine:
-- The "owner key"
-    - I.e. the public key for the owner of the DID
-    - This is the public key corresponding to the one that signed the transaction. 
-    - Note: we encode the owner key as a public key -- not the expected compressed Bitcoin address format -- for consistency with the LD signature suites
-- The "control key"
-    - I.e. the owner of a control key can update the DDO
-    - This is the transaction output (P2PKH) Bitcoin address
-    - Note: This differs from the owner key encoding. This has the property that the control public key is not yet revealed -- just the hash.
-- (Optional) A reference to a continuation DDO in the OP_RETURN field. This could be a link to an IPFS address of a DDO with additional keys
+BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme uses a TX Ref-encoded (described below) a transaction on the Bitcoin blockchain. The DID Description is constructed from a combination of the transaction details and an optional "continuation" DID Description, the address of which is stored in the OP_RETURN field. This could be a link to an IPFS address of a DID Description with additional entities.
 
-The [BTCR Hackathon readme](https://github.com/WebOfTrustInfo/btcr-hackathon/blob/master/README.md) has more context on BTCR DIDs beyond these basics.
+The [BTCR Hackathon readme](https://github.com/WebOfTrustInfo/btcr-hackathon/blob/master/README.md) has more context on BTCR DIDs beyond these basics. Note that at the time of the BTCR Hackathon, we were not yet using the new capabilities-based DID approach, so many details (e.g. control/owner keys) are out of date in the BTCR Hackathon repo.
 
-(Note: the terminology around owner, control, and keys in general for DIDs is still being discussed. Explained later.)
 
 ## BTCR Transaction Structure
 
@@ -61,49 +51,39 @@ TX Refs are described in BIP 136 "Bech32 Encoded Transaction Position References
 
 The important difference is that txid is just a hash of the transaction, which may not yet be confirmed, and does not encode the chain, whereas TX Ref must be confirmed (since it is based on the block height and index).
 
-### Fragments and Deterministic DDOs
-
-BTCR DDOs are divided into fragments. 
-
-The first fragment is referred to as fragment /0 or "Deterministic DDO".  Everything in DDO fragment /0 can be deterministically created from the Bitcoin transaction alone. 
-
-If the Bitcoin transaction has an OP_RETURN output, it is assumed to be a reference to a DDO "continuation", referred to as fragment /1. This is necessary, for example, if the DDO contains multiple keys. We cannot store all this data in the OP_RETURN output field, so we reference the data in an external store.
-
-The concept of fragments is important for BTCR DDOs in the case that DDO continuation is stored in an immutable store such as IPFS. DDO cannot be signed until BTCR DID is available. But that would change the content, which changes the value in the OP_RETURN.
-
 ## Looking up a BTCR DID
 
-DID consumers need to be able to construct a DDO from a DID. In BTCR that works as follows:
+DID consumers need to be able to construct a DID Description from a DID. In BTCR that works as follows:
 
-- Given a DID, we know txid (`did:btcr:<TXREF(TX0)>`)
-- Look up transaction. Is the "control key" output spent?
-    - no: this is the latest version of the DID. From this we can construct the DDO (described below)
+- Given a DID, we know transaction reference (`did:btcr:<TXREF(TX0)>`)
+- Look up transaction. Is the transaction output spent?
+    - no: this is the latest version of the DID. From this we can construct the DID Description (described below)
     - yes: keep following transaction chain until the latest with an unspent output is found
 
-## Updating the DID/DDO
+## Updating a DID Descripton
 
-Owners of a DID must be able to update it, for example to rotate keys. The BTCR Transaction Structure diagram shows how that is done in the second transaction. 
+An entity updates the BTCR DID Description by spending the current transaction output. The BTCR Transaction Structure diagram shows how that is done in this second transaction. 
 
 - Create new tx like above, but send to `B2`
-- Set the OP_RETURN to the new continuation DDO
+- Set the OP_RETURN to the new DID Description
 - Sign tx with `S1` (P1 is revealed)
 
 ## Example from the BTCR Playground
 
-This section demonstrates BTCR DIDs and DDOs using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
+This section demonstrates BTCR DIDs and DID Descriptions using the default example shown in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/). 
 
-The playground supports looking up BTCR DDOs for both mainnet and testnet chains. In general, we work with the testnet chain in these examples as we experiment with and develop BTCR.
+The playground supports looking up BTCR DID Description for both mainnet and testnet chains. In general, we work with the testnet chain in these examples as we experiment with and develop BTCR.
 
 The playground supports 3 means of entering a transaction:
-- TXID and chain (testnet or mainnet)
 - TX Ref (note that we don't need to enter the chain; described below)
+- TXID and chain (testnet or mainnet)
 - TX block height, index, and chain (testnet or mainnet)
 
-To start, click "Convert from TXID" on the site with the default transaction id. This testnet txid resolves to @ChristopherA's testnet BTCR DID -- `did:btcr:xyv2-xzyq-qqm5-tyke/0#transaction-key`.
+To start, click "Convert from TX Ref" on the site with the default TX Ref.
 
-## Fragment /0, or the Deterministic DDO
+## DID Description
 
-Fragment /0 from the default BTCR Playground example is listed here:
+The DID Description resulting from DID `txtest1-xkyt-fzgq-qq87-xnhn` is listed below. 
 
 ### Output
 
@@ -113,252 +93,200 @@ Fragment /0 from the default BTCR Playground example is listed here:
         "https://schema.org/",
         "https://w3id.org/security/v1"
     ],
-    "ddo": {
-        "txid": "f8cdaff3ebd9e862ed5885f8975489090595abe1470397f79780ead1c7528107",
-        "funding-txid": "a2cb61283814f8e758f138260da0cccd367c43afead5458e13a7d058f5bc3f6a",
-        "funding-txref": "txtest1-xct2-xzcr-qql2-52ku",
-        "hash": "f8cdaff3ebd9e862ed5885f8975489090595abe1470397f79780ead1c7528107",
-        "more-ddo-hex": "6a4568747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4368726973746f70686572412f73656c662f6d61737465722f64646f2e6a736f6e6c64",
-        "more-ddo-asm": "OP_RETURN 68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4368726973746f70686572412f73656c662f6d61737465722f64646f2e6a736f6e6c64",
-        "more-ddo-txt": "https://raw.githubusercontent.com/ChristopherA/self/master/ddo.jsonld",
-        "owner": [
-            {
-                "id": "did:btcr:xyv2-xzyq-qqm5-tyke/0#transaction-key",
-                "type": [
-                    "CryptographicKey",
-                    "EdDsaSAPublicKey",
-                    "update-proof"
-                ],
-                "curve": "secp256k1",
-                "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71"
-            }
-        ],
-        "claim-issuer": [
-            {
-                "id": "did:btcr:xyv2-xzyq-qqm5-tyke/0#transaction-key",
-                "type": [
-                    "CryptographicKey",
-                    "EdDsaSAPublicKey",
-                    "update-proof"
-                ],
-                "curve": "secp256k1",
-                "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71"
-            }
-        ],
-        "control": [
-            {
-                "control-bond": 1.25,
-                "rotate-proof": [
+    "authorization": [
+        {
+            "capability": "UpdateDidDescription",
+            "permittedProofType": [
+                {
+                    "proofType": "SatoshiBlockchainSignature2017",
+                    "authenticationCredential": [
+                        {
+                            "type": [
+                                "EdDsaSAPublicKey",
+                                "CryptographicKey"
+                            ],
+                            "hash-base58check": "mvq9zXGAr76uSoRG5ybEdECuXoPGY42ihh"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "capability": "IssueCredential",
+            "permittedProofType": [
+                [
                     {
-                        "proof-type": "pay-to-pubkey-hash",
-                        "hash-base58check": "mvZ3MyLgsvYr87GGSbsPBWEDduLRptfzEU"
-                    }
-                ],
-                "revocation-proof": [
-                    {
-                        "bond-value": 1.25,
-                        "proof-type": "pay-to-pubkey-hash",
-                        "hash-base58check": "mvZ3MyLgsvYr87GGSbsPBWEDduLRptfzEU"
+                        "type": [
+                            "EdDsaSAPublicKey",
+                            "CryptographicKey"
+                        ],
+                        "publicKeyHex": "0280e0b456b9e97eecb8028215664c5b99ffa79628b60798edd9d562c6db1e4f85",
+                        "owner": "did:btcr:xkyt-fzgq-qq87-xnhn",
+                        "id": "did:btcr:xkyt-fzgq-qq87-xnhn/keys/fundingKey"
                     }
                 ]
-            }
-        ]
-    },
+            ],
+            "entity": "did:btcr:xkyt-fzgq-qq87-xnhn"
+        },
+        {
+            "capability": "IssueCredential",
+            "entity": "did:btcr:xkyt-fzgq-qq87-xnhn",
+            "permittedProofType": [
+                [
+                    {
+                        "id": "did:example:12345678/keys/1",
+                        "type": "RsaCryptographicKey",
+                        "owner": "did:example:12345678",
+                        "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+                    }
+                ]
+            ]
+        }
+    ],
+    "authenticationCredential": [
+        {
+            "type": [
+                "EdDsaSAPublicKey",
+                "CryptographicKey"
+            ],
+            "curve": "secp256k1",
+            "publicKeyHex": "0280e0b456b9e97eecb8028215664c5b99ffa79628b60798edd9d562c6db1e4f85",
+            "owner": "did:btcr:xkyt-fzgq-qq87-xnhn",
+            "id": "did:btcr:xkyt-fzgq-qq87-xnhn/keys/fundingKey"
+        },
+        {
+            "id": "did:example:12345678/keys/1",
+            "type": "RsaCryptographicKey",
+            "owner": "did:example:12345678",
+            "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+        }
+    ],
     "signature": {
         "type": "SatoshiBlockchainSignature2017",
-        "id": "did:btcr:xyv2-xzyq-qqm5-tyke",
-        "chain": "testnet3",
-        "blockhash": "00000000b3487880b2814da8c0a6b545453d88945dc29a7b700f653cd7e9cdc7",
-        "blockindex": 1,
-        "blocktime": "2017-07-08T08:20:50Z",
-        "confirmations": 15373,
-        "time": "2017-07-08T08:03:22.021Z",
-        "timereceived": "2017-07-08T08:03:22.021Z",
-        "burn-fee": -0.05
+        "id": "did:btcr:xkyt-fzgq-qq87-xnhn",
+        "chain": "testnet"
     }
 }
 ```
 
-### About
-- `hash` and `txid` are listed separately because with segwit, these values may be different
-- `more-ddo-<asm|hex|txt>`: These are different encodings of the same thing; if present, the txt variant will contain a link to the DDO continuation, or "fragment /1".
-  - In theory, if the data pointed to is immutable (in content-addressable store like IPFS) AND if we can use */1 syntax (see below), then there is an implicit signature by DDO fragment /0
-- `owner`: 
-  - for BTCR, this is the key used to sign the transaction
-- `claim-issuer`: this is also the tx signing key
-- `control`: contains hash of key that can perform rotation or revocation. Note: in general it can be key, but in BTCR, only the hash is revealed. 
-- `control bond`:funds at time of signing (not a bitcoin notion). Represents funds in that account
-- `signature`: term is from LD signatures, but we may not want to use this term for indirect signatures (i.e. by virtue of being part of a signed tx).
+### Constructing a BTCR DID Description
 
+The DID Description for DID `txtest1-xkyt-fzgq-qq87-xnhn` was determined as follows.
 
-## Fragment /1
+From the TX Ref, we look up details about the Bitcoin transaction. To see how to do this, refer to the transaction details for the TXID this resolves to, [67c0ee676221d9e0e08b98a55a8bf8add9cba854f13dda393e38ffa1b982b833](https://api.blockcypher.com/v1/btc/test3/txs/67c0ee676221d9e0e08b98a55a8bf8add9cba854f13dda393e38ffa1b982b833?limit=50&includeHex=true).
 
-Note: currently this differs from what's shown in the playground. We are working on updating samples. This version is the correct one.
+This transaction has an OP_RETURN data output. For Blockcypher this is in the data_string field: https://raw.githubusercontent.com/kimdhamilton/did/master/ddo.jsonld](https://raw.githubusercontent.com/kimdhamilton/did/master/ddo.jsonld]). That means this DID Description will include additional authorizations and authenticationCredentials listed in the target of that URL.
 
-### Output
+#### Parse the partial DID Description
+
+Important: the steps below assume that the partial DID Description is stored in an immutable store as opposed to github. If this were stored in github, the partial DID Description should be signed.
+
+This partial DID Description grants the following abilities:
+1. Two entities may issue credentials. 
+    - One is an entity (currently) without an id, but described by its authentication method (`SatoshiBlockchainSignature2017`) and its hex-encoded public key. Note this is the same as the key used to sign the transaction.
+    - One is an entity defined in a separate DID Description, with a `proofType` of `RsaSignature2017`
+2. Two entities may authenticate (as a TBD DID). These entities are similar to above.
+
 ```
+
 {
-  "@context": [
-    "https://schema.org/",
-    "https://w3id.org/security/v1"
-  ],
-  "id": "*/1#ddo.jsonld",
-  "type": [
-    "Credential",
-    "Identity",
-    "Person"
-  ],
-  "issuer": "*/0#did-transaction-key",
-  "issued": "2017-07-15",
-  "label": "ddo.jsonld",
-  "claim": {
-    "relationship": "me",
-    "alternate-name": "ChristopherA",
-    "sameAs": [
-      "https://raw.githubusercontent.com/ChristopherA/self/master/357405ED.asc",
-      "https://raw.githubusercontent.com/ChristopherA/self/master/FDA6C78E.asc",
-      "https://github.com/christophera",
-      "https://twitter.com/christophera"
-    ],
-    "claim-issuer": [
-      {
-        "id": "*/1#newkeyforlist",
-        "type": [
-          "CryptographicKey",
-          "EdDsaSAPublicKey",
-          "update-proof"
-        ],
-        "curve": "secp256k1",
-        "publicKeyHex": "todo"
-      },
-      {
-        "id": "*/1#oldkey",
-        "type": [
-          "CryptographicKey",
-          "EdDsaSAPublicKey",
-          "update-proof"
-        ],
-        "curve": "secp256k1",
-        "publicKeyHex": "todo",
-        "revoked": "tbd-reason-date"
-      }
-    ],
-    "additional-self-signed-claims": {},
-    "claims-issued": {},
-    "claims-accepted": {},
-    "signature": {
-      "type": "EcdsaKoblitzSignature2016",
-      "created": "2017-07-16T00:48:44Z",
-      "creator": "ecdsa-koblitz-pubkey:02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71",
-      "signatureValue": "HyV/c/DFdAigxSAuqE9O6yRqUk5wpobUaj63ig3hZMZxKJ/l2lNduWFKsN6aR5twAFurD3pJx2ZgVpu/fRb/lLo="
+  "@context": "https://w3id.org/btcr/v1",
+  "authorization": [
+    {
+        // gives the entity with TBD DID the ability to issue credentials where the "issuer" field is TBD DID. TODO: This could be a default ability.
+      "capability": "IssueCredential",
+      "permittedProofType": [
+        {
+	  // Would we need a different type for off-chain signatures?
+          "proofType": "SatoshiBlockchainSignature2017",
+          "authenticationCredential": [
+            {
+              "type": [
+                "EdDsaSAPublicKey",
+                "CryptographicKey"
+              ],
+              "publicKeyHex": "0280e0b456b9e97eecb8028215664c5b99ffa79628b60798edd9d562c6db1e4f85"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      // enables an entity to issue credentials where the "issuer" field is TBD DID as long as this specific RSA key is used
+      "capability": "IssueCredential",
+      "entity": "did:example:12345678",
+      "permittedProofType": [
+        {
+          "proofType": "RsaSignature2017",
+          "authenticationCredential": [
+            {
+              "id": "did:example:12345678/keys/1",
+              "type": "RsaCryptographicKey",
+              "owner": "did:example:12345678",
+              "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+            }
+          ]
+        }
+      ]
     }
-  }
-}
-```
-
-### About
-
-#### `*` syntax
-
-In the DDO /1 fragment, we need to know the DID in fragment /0 for use in the `id`s. However, the `id`s cannot yet be known (as mentioned above, the DID isn't known until we issue the transaction). We're currently working around this by using the notation `"*/1#<fragment>"`
-
-We considered using IPNS to work around this, but this allows only single-keyed updates.
-
-#### The transaction implicitly signs fragment /1 if the OP_RETURN value is a content addressable hash
-If fragment /1 is a content addressable hash, then tx signature is implicitly a signature for fragment /1.
-
-#### Claim-issuer
-`claim-issuer` appends unless id is same (main case for id being the same is to revoke with details)
-
-#### Censorship resistance
-- with IPFS URI of raw hash value; this is not-censorship resistant 
-- First BTCR DID does not need an OP_RETURN. This increases censorship resistance. Subsequently must have OP_RETURN
-
-
-## Fragment /2
-
-Currently not shown
-
-### Output
-```
-{
-  "@context": [
-    "https://schema.org/",
-    "https://w3id.org/security/v1"
   ],
-  "id": "did:btcr:xyv2-xzyq-qqm5-tyke/2#christophera-knows-kimh",
-  "type": [
-    "Credential",
-    "Identity",
-    "Person"
-  ],
-  "issuer": "did:btcr:xyv2-xzyq-qqm5-tyke/0#did-transaction-key",
-  "issued": "2017-07-17",
-  "label": "christophera-knows-kimh",
-  "claim": {
-    "knows": "did:btcr:xgjd-xzvz-qq03-7as7",
-    "relationship": "colleague",
-    "alternate-name": "KimH"
-  },
-  "signature": {
-    "type": "EcdsaKoblitzSignature2016",
-    "created": "2017-07-17T18:41:40Z",
-    "creator": "ecdsa-koblitz-pubkey:036abdaaa4db47ba2c0b81ad9bbf7be85d04f0fd50a62c6754499ac299a7647270",
-    "signatureValue": "IPYL4YW8/G0m+EFiGBWoyF3rC3xqDntN2pZesAZFLwrVDg7OfB2KPtKPBBwMvcAWfroqKdY0m1Z8lJae0dlHvyQ="
-  }
+  "authenticationCredential": [
+    {
+      "type": [
+        "EdDsaSAPublicKey",
+        "CryptographicKey"
+      ],
+      "curve": "secp256k1",
+      "publicKeyHex": "0280e0b456b9e97eecb8028215664c5b99ffa79628b60798edd9d562c6db1e4f85"
+    },
+    {
+      "id": "did:example:12345678/keys/1",
+      "type": "RsaCryptographicKey",
+      "owner": "did:example:12345678",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+    }
+  ]
 }
 ```
 
+#### About missing ids, entities, and owners
 
-## Constructed DDOs
+Again we're assuming the partial DID Description is stored in an immutable store. Because the content is immutable, the transaction signature signs the content hash as well. If not using content-addressable store, then another LD signature scheme would be used. 
 
-Constructed DDO is the current DDO based on state machine events. DDOs have almost nothing to do with VC, but we can shove VCs into a DDO.
+Because changing the content changes the address, and because the DID depends on the Bitcoin transaction reference, we have a bootstrapping problem where we cannot yet use the DID in the DID Description fragment shown above. We avoid this problem by omitting `id`, `entity`, and `owner` where the DID is not yet known.
 
-Synthesized values are read from a Verifiable Claims arrray
+It's valid for a Linked Data object to omit an id; this is called a "blank node" and is the way you indicate you don't know the identifier yet, but you know its attributes. 
 
-- Two different processors may come up with different end results, because they trust different sources
-- Can yield different views:
-  - I want to see what Christopher is saying about himself, don't care about anything else
-  - I was to see what the US government is saying about Christopher, ...
+#### Merging the partial DID Description and transaction details
 
-Result is a "constructed identity"
+With the partial DID Description and transaction details, we can form the complete DID Description.
 
-```
-DDO portion | DDO supplement + self-signed VC  | Just VCs    | Constructed Identity
-```
+- If an `authorization` is missing an `entity` in the partial DID Description, update it with the now known DID (did:btcr:xkyt-fzgq-qq87-xnhn)
+- If an `authenticationCredential` is missing an `owner`, update it with the now known DID (same as above)
+- If an `authenticationCredential` is missing an `id` there are 2 cases:
+    - If the credential's hex-encoded public key and proof type match that of the transaction signing key, populate the `id` with `did:btcr:xkyt-fzgq-qq87-xnhn/keys/fundingKey`. Note the `/keys/fundingKey` subpath is a convention
+    - Otherwise, populate the `id` with `did:btcr:xkyt-fzgq-qq87-xnhn/keys/i`, where `i` is the position of the authenticationCredential in the flattened partial DID Description. As of now, this is a very tentative convention.
+- Populate an authorization with the ability to update the DID Description from the transaction output
+    - A BTCR DID is updated by spending the transaction output. We can inspect the transaction to determine the output Bitcoin address
+    - At this point, we only reveal the hashed, base58 encoded version of the output key (i.e. the Bitcoin address)
+    - Note that we do not yet know the `entity` value; that will not exist until the DID Description is updated
+    - We could create an `id` convention for this, e.g `did:btcr:xyv2-xzyq-qqm5-tyke/keys/output_address`
+    
 
-```
-DIDsm    op_return  URI                     schema pointer
-0a         -> 1a                             ->            2a -  3a   | 0a 1a  2a 3a
-0b         -> 1b+a                           ->  2a -> 3a   | 0b 1ba 2a 3a
-0c         -> 1c                             -> (2a -> 3a)  | 0c 1c
-```
+## Comments
+- The method described above gives no _default_ capabilities to an entity authenticating with the transaction signing key
+    - Capabilities are only granted if merged with a partial DID Description as described above
+    - We could consider granting default capabilities, but this does against the best practice of avoiding key reuse
+    - This means the BTCR DID is mostly useless without a partial DID Description, so we should consider this carefully
+- Omitting `id` as opposed to the previous `*` microsyntax introduces the problem above in which we don't know the path suffix to assign to keys. We can solve this in at least 2 ways:
+    - Add a field to the BTCR DID method spec to address this. I.e. `subpath` and the assumption is that it will get merged with the DID to form the `id` value.
+    - Use an algorithmic approach like above, but I think that's a very bad idea
+- The number of confirmations of a transaction underlying a BTCR DID should be considered (and automated in the tool constructing the DID Description)
 
-Constructed DDO (current DDO based on all state machine events):
 
-```
-{
-  id: ‘did:xxxxx:yyyyyy’,
-  attribute1: value1, // synthesized values
-  attribute2: value2,
-  attribute3: value3, // signed by a claim that is then signed by signature
-  credential: [ … array of verifiable claims …], // data read from blockchain
-  signature: … // depends on blockchain
-}
-```
 
-can be a result of reading claims, e.g.:
-```
-claim: {
-  id: ‘did:xxxxx:yyyyyy’,
-  attribute1: value1,
-}
-signature: { … any issuer that the system building the constructed identity trusts ends up being a synthesized value above … }
-```
 
-In this case, the constructed id is what I say about myself. Don’t necessarily need to counter-sign; by listing it we actually signed it.
-
-About claim signatures:
-- claims can use different set of keys
-- claims do not have to be signed by owner key
+- Censorship resistance
+    - With IPFS URI of raw hash value; this is not-censorship resistant 
+    - First BTCR DID does not need an OP_RETURN. This increases censorship resistance. Subsequently must have OP_RETURN
 
