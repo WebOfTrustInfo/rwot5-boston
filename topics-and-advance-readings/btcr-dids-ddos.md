@@ -2,7 +2,7 @@
 
 IN PROGRESS
 
-By Kim Hamilton Duffy, Learning Machine
+By Kim Hamilton Duffy (Learning Machine), Ryan Grant, and Christopher Allen
 
 This assumes you are familiar with DID terminology at a basic level. 
 
