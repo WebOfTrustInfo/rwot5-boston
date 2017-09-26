@@ -264,7 +264,7 @@ With the partial DID Description and transaction details, we can form the comple
 - If an `authorization` is missing an `entity` in the partial DID Description, update it with the now known DID (did:btcr:xkyt-fzgq-qq87-xnhn)
 - If an `authenticationCredential` is missing an `owner`, update it with the now known DID (same as above)
 - If an `authenticationCredential` is missing an `id` there are 2 cases:
-    - If the credential's hex-encoded public key and proof type match that of the transaction signing key, populate the `id` with `did:btcr:xkyt-fzgq-qq87-xnhn/keys/fundingKey`. Note the `/keys/fundingKey` subpath is a convention
+    - If the credential's hex-encoded public key and proof type match that of the transaction signing key, populate the `id` with `did:btcr:xkyt-fzgq-qq87-xnhn/keys/fundingKey`. Note the `/keys/fundingKey` path is a convention
     - Otherwise, populate the `id` with `did:btcr:xkyt-fzgq-qq87-xnhn/keys/i`, where `i` is the position of the authenticationCredential in the flattened partial DID Description. As of now, this is a very tentative convention.
 - Populate an authorization with the ability to update the DID Description from the transaction output
     - A BTCR DID is updated by spending the transaction output. We can inspect the transaction to determine the output Bitcoin address
@@ -279,13 +279,9 @@ With the partial DID Description and transaction details, we can form the comple
     - We could consider granting default capabilities, but this does against the best practice of avoiding key reuse
     - This means the BTCR DID is mostly useless without a partial DID Description, so we should consider this carefully
 - Omitting `id` as opposed to the previous `*` microsyntax introduces the problem above in which we don't know the path suffix to assign to keys. We can solve this in at least 2 ways:
-    - Add a field to the BTCR DID method spec to address this. I.e. `subpath` and the assumption is that it will get merged with the DID to form the `id` value.
+    - Add a field to the BTCR DID method spec to address this. I.e. `path` and the assumption is that it will get merged with the DID to form the `id` value.
     - Use an algorithmic approach like above, but I think that's a very bad idea
 - The number of confirmations of a transaction underlying a BTCR DID should be considered (and automated in the tool constructing the DID Description)
-
-
-
-
 - Censorship resistance
     - With IPFS URI of raw hash value; this is not-censorship resistant 
     - First BTCR DID does not need an OP_RETURN. This increases censorship resistance. Subsequently must have OP_RETURN
