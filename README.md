@@ -15,6 +15,7 @@ The following advanced readings have been prepared as primers, intended to give 
 
 * [A Primer on Functional Identity](topics-and-advance-readings/functional-identity-primer.md) by Joe Andrieu
 * [A Primer on Self-Sovereign identity](topics-and-advance-readings/self-sovereign-identity-primer.md) by Christopher Allen & Shannon Appelcline
+* [DID Primer](topics-and-advance-readings/did-primer.md) by Drummond Reed & Manu Sporny
 * [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
 
 Here are the rest of the advance readings to date:
@@ -25,8 +26,11 @@ Here are the rest of the advance readings to date:
 * [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [Biometric transaction signing on blockchain](topics-and-advance-readings/Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
+* [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
+* [First XDI Link Contract between "btcr" DID and "sov" DID](topics-and-advance-readings/first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
 * [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
+* [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper
 * [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](topics-and-advance-readings/Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
 * [Hypercerts: Blockcerts Revocation Improvements](topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 * [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
