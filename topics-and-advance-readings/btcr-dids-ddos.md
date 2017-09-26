@@ -8,10 +8,9 @@ This assumes you are familiar with DID terminology at a basic level.
 
 ## Introduction
 
-BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme uses a TX Ref-encoded (described below) a transaction on the Bitcoin blockchain. The DID Description is constructed from a combination of the transaction details and an optional "continuation" DID Description, the address of which is stored in the OP_RETURN field. This could be a link to an IPFS address of a DID Description with additional entities.
+BTCR is a DID method that is based on the Bitcoin blockchain. The BTCR DID scheme uses a TX Ref-encoded (described below) transaction on the Bitcoin blockchain. The DID Description is constructed from a combination of the transaction details and an optional "continuation" DID Description, the address of which is stored in the OP_RETURN field. This could be a link to an IPFS address of a DID Description with additional entities.
 
 The [BTCR Hackathon readme](https://github.com/WebOfTrustInfo/btcr-hackathon/blob/master/README.md) has more context on BTCR DIDs beyond these basics. Note that at the time of the BTCR Hackathon, we were not yet using the new capabilities-based DID approach, so many details (e.g. control/owner keys) are out of date in the BTCR Hackathon repo.
-
 
 ## BTCR Transaction Structure
 
