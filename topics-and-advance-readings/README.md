@@ -34,7 +34,8 @@ Here are the rest of the advance readings to date:
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
-* [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects.md) by Moses Ma & Dr. Rutu Mulka
+* [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects.pdf) by Moses Ma & Dr. Rutu Mulka
+   * [Original Proposal](trust-objects.md) by Moses Ma & Dr. Rutu Mulka
 * [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
