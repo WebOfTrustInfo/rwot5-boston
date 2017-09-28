@@ -316,7 +316,7 @@ The next higher layer -- where most of the value is unlocked -- is
 **verifiable claims**. This is the technical term for a digitally signed
 electronic credential that conforms to the interoperability standards
 being developed by the [*W3C Verifiable Claims Working
-Group*](https://www.w3.org/2017/vc/charter.html).
+Group*](https://www.w3.org/2017/vc/charter.html). For a complete introduction, please see the [*Verifiable Claims Primer*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/verifiable-claims-primer.md).
 
 The diagram below (from Manu Sporny) illustrates the three primary roles
 in the verifiable claims ecosystem: **issuers** sign claims and give
