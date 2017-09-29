@@ -1,4 +1,4 @@
-If you will be attending Rebooting the Web of Trust Fall 2017 in Boston, Massachusetts, please upload your topic papers and advanced readings to this directory with a pull request (or, if you don't know how, post an issue). 
+If you will be attending Rebooting the Web of Trust Fall 2017 in Boston, Massachusetts, please upload your topic papers and advanced readings to this directory with a pull request (or, if you don't know how, post an issue).
 
 _Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community. Go to [Eventbrite](https://www.eventbrite.com/e/rebootingweboftrust-design-workshop-v-fall-2017-in-boston-area-usa-tickets-34984665075) to register for this event._
 
@@ -24,8 +24,10 @@ Here are the rest of the advance readings to date:
 * [BFTKV DID Method Specification](BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [Biometric transaction signing on blockchain](Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
+* [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
+* [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
 * [First XDI Link Contract between "btcr" DID and "sov" DID](first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
 * [Framework for the Comparison of Identity Systems](Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper
