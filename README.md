@@ -26,6 +26,7 @@ Here are the rest of the advance readings to date:
 * [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [Biometric transaction signing on blockchain](topics-and-advance-readings/Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
+* [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
 * [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
