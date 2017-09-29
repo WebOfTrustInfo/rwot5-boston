@@ -4,7 +4,7 @@ By Irene Hernandez
 Existing identity management systems do not work in the digital economy. Internet’s architecture mimicked the physical world, as issuers or central administrators were responsible for creating and managing large databases of validated user information. As a result, internet-based companies today require customers to a) fill out comprehensive online profiles with sensitive information and b) upload copies of physical documents to then spend millions of dollars in manual validation processes. For some companies, operating a large database of user data is an asset, but for many others is an expensive burden:
 1. On-boarding user-facing processes are inefficient and cumbersome, resulting in poor customer experience.
 2. New companies face high entry barriers, as they need to build trust on consumers for them to concede on providing sensitive attributes over the web.
-3. Companies become an increasingly attractive target for security threads and, as such, have to invest in expensive security infrastructure.
+3. Companies become an increasingly attractive target for security threats and, as such, have to invest in expensive security infrastructure.
 4. Companies are unable to ensure that records are up to date. Thus, companies bear an obscure risk, as they cannot accurately assess the risk of doing business with their customers. 
 5. Data must be curated to allow for vertical integration with suppliers and partners, leading to errors and inefficiencies.
 6. Despite all possible efforts, incorrect user information, poor authentication or fraud cannot be fully eliminated
