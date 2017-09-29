@@ -24,7 +24,7 @@ utility for creating, retrieving, and updating DID Documents across
 multiple ledgers. A demonstration video of the tool, as well as an
 explanation of how it works, can be viewed here:
 
-[did-client Demo Video]()
+[did-client Demo Video](https://www.youtube.com/watch?v=tQzQKZKF93w)
 
 ### did-client Source Code
 
