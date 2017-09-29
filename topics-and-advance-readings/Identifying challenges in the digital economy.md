@@ -1,4 +1,4 @@
-## Identifying user challenges in the digital economy
+## Identifying stakeholders' challenges in the digital economy
 By Irene Hernandez
 
 Existing identity management systems do not work in the digital economy. Internet’s architecture mimicked the physical world, as issuers or central administrators were responsible for creating and managing large databases of validated user information. As a result, internet-based companies today require customers to a) fill out comprehensive online profiles with sensitive information and b) upload copies of physical documents to then spend millions of dollars in manual validation processes. For some companies, operating a large database of user data is an asset, but for many others is an expensive burden:
