@@ -28,6 +28,7 @@ Here are the rest of the advance readings to date:
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
+* [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
 * [First XDI Link Contract between "btcr" DID and "sov" DID](topics-and-advance-readings/first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
 * [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper
