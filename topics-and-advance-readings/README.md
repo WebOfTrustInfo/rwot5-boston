@@ -38,6 +38,7 @@ Here are the rest of the advance readings to date:
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects-rough-draft.pdf) by Moses Ma & Dr. Rutu Mulka
    * [Original Proposal](trust-objects-proposal.md) by Moses Ma & Dr. Rutu Mulka
+* [Veres One DID Method Specification](topics-and-advance-readings/veres-one-did-method.md) by Manu Sporny, Dave Longley, and Matt Collier
 * [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
