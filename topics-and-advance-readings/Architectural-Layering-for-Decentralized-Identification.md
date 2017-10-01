@@ -151,8 +151,8 @@ multiple semantic identifiers to the same DID.
 
 Web architecture inherently enables the mapping of arbitrary strings to
 URIs. Typically those URIs are human-readable (or semi-human readable)
-URLs. However that is often not the case. For example, this very Google
-doc has the following URL:
+URLs. However that is often not the case. For example, the Google
+doc where this paper was originally drafted has the following distinctly un-human-friendly URL:
 
 **https://docs.google.com/document/d/12suJL5sX3CsNex\_mMhUW7A2mAmS50HjAaUUvq8O52-I/**
 
