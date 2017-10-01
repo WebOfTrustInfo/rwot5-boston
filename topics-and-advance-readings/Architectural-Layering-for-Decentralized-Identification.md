@@ -1,3 +1,4 @@
+# Architectural Layering for Decentralized Identification
 *A submission to Rebooting the Web of Trust \#5\
 2017-09-30\
 Drummond Reed, Co-Chair, DIF Identifiers, Names, and Discovery Working
@@ -41,20 +42,11 @@ motivations for DIDs:
 > specific requirements for a new type of URI that fits within the
 > URI/URL/URN architecture, albeit in a less traditional way:
 
-1.  **A URI that is persistent like a URN yet can be resolved or
-    > de-referenced to locate a resource like a URL.** In essence, a DID
-    > is a URI that serves both functions.
+1.  **A URI that is persistent like a URN yet can be resolved or de-referenced to locate a resource like a URL.** In essence, a DID is a URI that serves both functions.
 
-2.  **A URI that does not require a centralized authority to register,
-    > resolve, update, or revoke.** The overwhelming majority of URIs
-    > today are based on DNS names or IP addresses that depend on
-    > centralized authorities for registration and ultimate control.
-    > DIDs can be created and managed without any such authority.
+2.  **A URI that does not require a centralized authority to register, resolve, update, or revoke.** The overwhelming majority of URIs today are based on DNS names or IP addresses that depend on centralized authorities for registration and ultimate control. DIDs can be created and managed without any such authority.
 
-3.  **A URI whose ownership and associated metadata, including public
-    > keys, can be cryptographically verified.** Control of DIDs and DID
-    > documents leverages the same public/private key cryptography as
-    > distributed ledgers.
+3.  **A URI whose ownership and associated metadata, including public keys, can be cryptographically verified.** Control of DIDs and DID documents leverages the same public/private key cryptography as distributed ledgers.
 
 The Semantic Identification Layer
 =================================
@@ -174,19 +166,9 @@ Identification*](https://docs.google.com/document/d/12suJL5sX3CsNex_mMhUW7A2mAmS
 At a minimum, this form of semantic mapping MUST also be supported for
 DIDs. This requires either or both of two mechanisms:
 
-1.  **DID Web proxy resolvers.** These are web servers that accept a URL
-    > containing a DID and return the DID document. Almost all new
-    > identifier formats require Web proxy resolvers—for example this is
-    > still the way most DOIs ([*digital object
-    > identifiers*](https://en.wikipedia.org/wiki/Digital_object_identifier))
-    > are resolved today.
+1.  **DID Web proxy resolvers.** These are web servers that accept a URL containing a DID and return the DID document. Almost all new identifier formats require Web proxy resolvers—for example this is still the way most DOIs ([*digital object identifiers*](https://en.wikipedia.org/wiki/Digital_object_identifier)) are resolved today.
 
-2.  **Native DID resolvers.** These are URI processors built into the
-    > browser or OS that handle DID resolution natively just as they
-    > currently handle DNS name resolution natively. Note that
-    > implementing a universal resolver for DIDs that supports all
-    > popular DID methods is a core focus of the [*Decentralized
-    > Identity Foundation*](http://identity.foundation/).
+2.  **Native DID resolvers.** These are URI processors built into the browser or OS that handle DID resolution natively just as they currently handle DNS name resolution natively. Note that implementing a universal resolver for DIDs that supports all popular DID methods is a core focus of the [*Decentralized Identity Foundation*](http://identity.foundation/).
 
 \#4: The Semantic Identification Layer SHOULD Support Market-Driven Mapping Solutions
 -------------------------------------------------------------------------------------
@@ -198,25 +180,12 @@ semantic identification layer to be “liberated” from the traditional
 constraints of a semantic name service. For example, a semantic
 identification layer over DIDs could support:
 
-1.  **Global names.** These would be the DID infrastructure equivalent
-    > of domain names.
+1.  **Global names.** These would be the DID infrastructure equivalent of domain names.
 
-2.  **Local names.** This “name service” is not globally unique, but
-    > locally-unique using P2P connections. See Christopher Allen’s
-    > [*Rebooting the Web of Trust*](http://www.weboftrust.info/) paper
-    > on [*linked local
-    > names*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust/blob/master/topics-and-advance-readings/linked-local-names.md).
+2.  **Local names.** This “name service” is not globally unique, but locally-unique using P2P connections. See Christopher Allen’s [*Rebooting the Web of Trust*](http://www.weboftrust.info/) paper on [*linked local names*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust/blob/master/topics-and-advance-readings/linked-local-names.md).
 
-3.  **Structured directory services.** These are services similar to
-    > LinkedIn or corporate LDAP services that permit queries by
-    > attributes.
+3.  **Structured directory services.** These are services similar to LinkedIn or corporate LDAP services that permit queries by attributes.
 
-4.  **Unstructured web search.** This is simply applying the same Web
-    > document spidering/indexing (and even PageRank-style reputation)
-    > to locating a link to the DID for the target entity. Note that
-    > verification of the actual ownership of the DID by this entity is
-    > out-of-scope for the DID specification but directly in scope for
-    > the [*W3C Verifiable Claims Working
-    > Group*](https://www.w3.org/2017/vc/charter.html).
+4.  **Unstructured web search.** This is simply applying the same Web document spidering/indexing (and even PageRank-style reputation) to locating a link to the DID for the target entity. Note that verification of the actual ownership of the DID by this entity is out-of-scope for the DID specification but directly in scope for the [*W3C Verifiable Claims Working Group*](https://www.w3.org/2017/vc/charter.html).
 
 
