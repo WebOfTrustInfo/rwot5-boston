@@ -9,9 +9,15 @@
 
 ## Intro
 
+The Blockcerts iniciative allows for Open Badges compliant certificates to be issued in the Bitcoin blockchain. This has a lot of blockchain inherited bennefits. However, the current Blockcerts implementation does not offer good mechanisms to handle certificate revocation and certificate permanence. 
+
+Hypercerts consists on a set of aditions to Blockcerts that aims at improving the latter's revocation functionality (allow certificates to be revoked by any pre-agreed on combination of parties, contemplate temporary revocation) and also add certificate permanence (ensure that from the point of its issuance, a certificate's link is always the same).
+
+This body of work extends the [Hypercerts Thesis Proposal](https://github.com/joaosantos15/hypercerts/blob/master/Hypercerts_project.pdf) revocation mechanism section.
+ 
 The main goals of this mechanism are to allow revocation by an arbitrary combination of parties and to allow for batch issuing and revocation in an economical fashion. It is also desirable to have an architecture that can be easily implemented in other blockchains.
 
-The proposed architecture for multi-party revocation consists on using *revocation proofs*. For each certificate to be considered revoked it needs to have a set of revocation proofs issued to it. The number of revocation proofs each certificate requires to be considered revoked can vary from certificate to certificate, even if they are part of the same batch, and is defined upon batch issuance. An ethereum smart contract controls the issuance of revocation proofs and contains a an IPFS link to all the files relevant to the system’s operation.
+The proposed architecture for multi-party revocation consists on using **revocation proofs**. For each certificate to be considered revoked it needs to have a set of revocation proofs issued to it. The number of revocation proofs each certificate requires to be considered revoked can vary from certificate to certificate, even if they are part of the same batch, and is defined upon batch issuance. An ethereum smart contract controls the issuance of revocation proofs and contains a an IPFS link to all the files relevant to the system’s operation.
 
 ## Revocation Mechanism
 
@@ -29,19 +35,23 @@ At this point, the certificate is signed and issued in the Bitcoin blockchain.
 
 ## ![](https://user-images.githubusercontent.com/10178757/29876393-91039232-8d94-11e7-908a-07aebfed5f6e.jpg)
 
-### Revocation Status and Revocation Proofs
+### Revocation Status, Rules and Proofs
 
-This system contemplates four revocation methods:
+> Revocation Status
 
-1- Issuer Only Revocation: Only the Issuer revokes
+The revocation status of a certificate is not kept in any place. Instead it is calculated every time a client has interest in it. The way to verify the revocation state of a certificate is to analyse what are called revocation proofs which are documents that are digitally signed by parties authorized to revoke a certificate. 
 
-2- Receiver Only Revocation: Only receiver revokes
+> Revocation Rules File
 
-3- Third Party Only Revocation: Only a third party revokes
+The schema of the revocation rules file is still unclear, but will contain the following elements:
 
-4- Multiple Parties Revocation: Any combination of the previous
+* The period in which revocation can occurr. This can be an open or closed interval.
+* The identities of the parties who can issue revocation proofs. A simple solution for this would be to put the parties public keys as identifiers, but this raises a _future proof_ issue, as it would require the revoking parties to maintain those sets of keys for entire lifetime of the certificate. A better approach would be to use distributed identifiers.
+* The conditions upon which proofs operate under. This defines is all the listed proofs are required (an intersection,_and_) or only a subset.
 
-The revocation status of a certificate is not kept in any place. Instead it is calculated every time a client has interest in it. The way to verify the revocation state of a certificate is to analyse what are called revocation proofs which are documents that are digitally signed by parties authorized to revoke a certificate. The contents of that document are still unclear, it can be a string signed by a revocation key, being that each party has its own revocation key.
+> Revocation Proofs File
+
+The schema of this file is still unclear, it can be a string signed by a revocation key, being that each party has its own revocation key.
 
 So, for instance, if we have a certificate that is revocable by a combination of Issuer and Receiver, the way to verify that such certificate had been revoked would be to search for revocation proofs of the Issuer and the Receiver.
 
