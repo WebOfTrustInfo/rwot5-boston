@@ -26,6 +26,7 @@ Here are the rest of the advance readings to date:
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
+* [Decentralized Identifier Tooling](credential-handler-api.md) by Dave Longley & Manu Sporny
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
 * [DID Tooling](did-tooling.md) by Manu Sporny and Matt Collier
 * [First XDI Link Contract between "btcr" DID and "sov" DID](first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
@@ -33,13 +34,14 @@ Here are the rest of the advance readings to date:
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper
 * [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
 * [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
-* [Identifying stakeholders' challenges in the digital economy](topics-and-advance-readings/Identifying%20challenges%20in%20the%20digital%20economy.md) by Irene Hernandez
+* [Identifying stakeholders' challenges in the digital economy](Identifying-challenges-in-the-digital-economy.md) by Irene Hernandez
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects-rough-draft.pdf) by Moses Ma & Dr. Rutu Mulka
    * [Original Proposal](trust-objects-proposal.md) by Moses Ma & Dr. Rutu Mulka
-* [Veres One DID Method Specification](veres-one-did-method.md) by Manu Sporny, Dave Longley, and Matt Collier
+* [Veres One DID Method Specification](veres-one-did-method.md) by Manu Sporny, Dave Longley & Matt Collier
+* [Verifiable Claims of Impact](verifiable-claims-of-impact.md) by Cedric Franz & Dr. Shaun Conway
 * [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
