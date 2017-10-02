@@ -24,10 +24,10 @@ Here are the rest of the advance readings to date:
 * [BFTKV DID Method Specification](BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [Biometric transaction signing on blockchain](Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
-* [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
+* [Credential Handler API](credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
-* [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
+* [DID Tooling](did-tooling.md) by Manu Sporny and Matt Collier
 * [First XDI Link Contract between "btcr" DID and "sov" DID](first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
 * [Framework for the Comparison of Identity Systems](Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper
@@ -38,7 +38,7 @@ Here are the rest of the advance readings to date:
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](trust-objects-rough-draft.pdf) by Moses Ma & Dr. Rutu Mulka
    * [Original Proposal](trust-objects-proposal.md) by Moses Ma & Dr. Rutu Mulka
-* [Veres One DID Method Specification](topics-and-advance-readings/veres-one-did-method.md) by Manu Sporny, Dave Longley, and Matt Collier
+* [Veres One DID Method Specification](veres-one-did-method.md) by Manu Sporny, Dave Longley, and Matt Collier
 * [Visa? Really?](Visa-Really.md) by Kaliya Identity Woman
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
