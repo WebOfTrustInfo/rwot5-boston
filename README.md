@@ -28,6 +28,7 @@ Here are the rest of the advance readings to date:
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
+* [Decentralized Identifier Tooling](topics-and-advance-readings/credential-handler-api.md) by Dave Longley & Manu Sporny
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
 * [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
 * [First XDI Link Contract between "btcr" DID and "sov" DID](topics-and-advance-readings/first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
@@ -35,11 +36,14 @@ Here are the rest of the advance readings to date:
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper
 * [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](topics-and-advance-readings/Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
 * [Hypercerts: Blockcerts Revocation Improvements](topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
+* [Identifying stakeholders' challenges in the digital economy](topics-and-advance-readings/Identifying-challenges-in-the-digital-economy.md) by Irene Hernandez
+
 * [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 * [Recommendations for Decentralized Key Management Systems](topics-and-advance-readings/dkms-recommendations.md) by Michael Lodder
 * [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](topics-and-advance-readings/trust-objects-rough-draft.pdf) by Moses Ma & Dr. Rutu Mulka
 * [Veres One DID Method Specification](topics-and-advance-readings/veres-one-did-method.md) by Manu Sporny, Dave Longley, and Matt Collier
+* [Verifiable Claims of Impact](topics-and-advance-readings/verifiable-claims-of-impact.md) by Cedric Franz & Dr. Shaun Conway
 * [Visa? Really?](topics-and-advance-readings/Visa-Really.md) by Kaliya Identity Woman
 * [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
