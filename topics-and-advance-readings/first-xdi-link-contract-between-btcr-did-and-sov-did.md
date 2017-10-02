@@ -60,7 +60,7 @@ Note: The **BTCR TX Conversion Playground** (see **[7]**) can also be used to re
 The "sov" DID
 -------------
 
-We registered the DID `did:btcr:xkrn-xzcr-qqlv-j6sl` in the **Sovrin Provisional Network**. The Universal Resolver produces the following DDO:
+We registered the DID `did:sov:WRfXPg8dantKVubE3HX8pw` in the **Sovrin Provisional Network**. The Universal Resolver produces the following DDO:
 
 	curl -i -X GET  https://uniresolver.danubetech.com/1.0/identifiers/did:sov:WRfXPg8dantKVubE3HX8pw
 	
