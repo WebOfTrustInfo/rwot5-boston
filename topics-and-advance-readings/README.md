@@ -33,6 +33,7 @@ Here are the rest of the advance readings to date:
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper
 * [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
 * [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
+* [Identifying stakeholders' challenges in the digital economy](topics-and-advance-readings/Identifying%20challenges%20in%20the%20digital%20economy.md) by Irene Hernandez
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 * [Recommendations for Decentralized Key Management Systems](dkms-recommendations.md) by Michael Lodder
