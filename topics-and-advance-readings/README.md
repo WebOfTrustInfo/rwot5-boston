@@ -20,9 +20,11 @@ Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](RWOT-User-Story.md) by Christopher Allen
 * [ActivityPub: from decentralized to distributed social networks](activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [Architectural Layering for Decentralized Identification](Architectural-Layering-for-Decentralized-Identification.md) by Drummond Reed
 * [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
 * [BFTKV DID Method Specification](BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [Biometric transaction signing on blockchain](Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
+* [Blockchain Based Digital Signatures: Admissibility and Enforceability](Blockchain-Based-Digital-Signatures--Admissibility-and-Enforceability.md) by Dazza Greenwood
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
@@ -33,6 +35,7 @@ Here are the rest of the advance readings to date:
 * [Framework for the Comparison of Identity Systems](Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](Loop-white-paper.pdf) by Adrian Gropper
 * [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
+* [Hub Asset Access Control System - Intent](DIF-Hub-Permissions-RWOT-Intent.md) by Daniel Buchner
 * [Hypercerts: Blockcerts Revocation Improvements](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 * [Identifying stakeholders' challenges in the digital economy](Identifying-challenges-in-the-digital-economy.md) by Irene Hernandez
 * [Open Badges (and Blockcerts) as Verifiable Claims](open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
