@@ -157,6 +157,16 @@ Could similarly source telecomm, based on price, how good they are.
 
 An exciting example is _GreenCerts_, and it would be great to use verifiable claims with them.
 
+## Offline Solutions
 
+Puerto Rico has lots of power, cell, and water down. 
+
+This was a large storm, and people were _surprised_.
+
+Where was the backup?
+
+This got people thinking about what systems require you to be online?
+
+_Disasters are not only risks, also political problems? How can we mitigate?_
 
 
