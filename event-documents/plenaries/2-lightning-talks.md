@@ -137,7 +137,26 @@ A humancentric to a technical problem: I have a thing that's valuable and I need
    1 Shard a key and distribute it among people in my network. 
    2 Or: a friend must approve large-scale transfer of tokens.
 
+The latter example of _social elevation_ is a powerful idea.
+
+Unfortunately, examples have suggested that shard lossage is much higher than expected.
+
+Notaries are an example of existing social verification of this sort.
+
 ## Verifiable Claims for Energy Distribution, Telecom, etc.
+
+Use verifiable claims to source your source of electricity.
+
+Solar energy, wind energy, traditional means energy.
+
+It would help encourage more available energy sources.
+
+And customers could choose what they're willing to pay. 
+
+Could similarly source telecomm, based on price, how good they are.
+
+An exciting example is _GreenCerts_, and it would be great to use verifiable claims with them.
+
 
 
 
