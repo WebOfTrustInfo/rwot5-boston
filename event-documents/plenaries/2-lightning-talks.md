@@ -169,4 +169,45 @@ This got people thinking about what systems require you to be online?
 
 _Disasters are not only risks, also political problems? How can we mitigate?_
 
+Three ideas to consider
+
+   1 Verifiable claims require a nonce to be signed, which requires an online connection; we want to be able to identify when something uses a connection, and when you want to be able to make a claim without network
+   2 Apps would be a great way to solve this, but they'd have to be apps that everyone wants.
+   3 It's a new set of adversarial condition where someone has more info than you because they're online and you're not
+   
+## Compatibility / Interoperability Between Systems
+
+All sorts of signatures and IDs need compatibility and interoperability, but they don't work together well!
+
+Examples:
+
+1. **Verifiabile Claims & SOLID.** May not get claim out of RDF structure in the same form as you put it in. Also, you can't store multiple claims in same RDF.
+
+2. **DIDs & WebIDs.** They both identify and they both have associated public keys, but they don't work in the same way. 
+
+3. **DIDs & Other Data Stores.** Authorizing a device and friends to access data store and giving someone permission to update DID all require different interfaces. Why!?
+
+Could there be more harmonization?
+
+## Building a Decentralized Game
+
+Converting the web into an open metaverse!
+
+What do we need?
+
+   1 3D & XR support for the web
+   2 Decentralized file system
+   3 Identity system
+   
+Why is this important?
+
+   1 Privacy
+   2 Lots of heavy file servings
+   3 Identity
+   
+We're sharing a lot of information, and we need to be careful about what we share. Needs to be good inventory systems to link with identities. Finally, we need whole metaverse to be seemless, with consistent identities.
+
+   
+
+
 
