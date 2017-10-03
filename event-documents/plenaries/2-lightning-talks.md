@@ -63,4 +63,33 @@ This links to issue like China drowning out problems, Reputation.com doing the s
 
 So should we _limit rights of government to drown out signal!?_
 
+Should there be regulation?
+
+## Non Correlatable Individual Data Storage
+
+How do you make your verifiable claims from your self-sovereign identity without them being correlated over time?
+
+Identifiers resolve to an identity! That is correlation!
+
+Where do you find the balance?
+
+Perhaps if you could distribute methods that prove verifiable claim without actually giving verifiable claim? A zero-knowledge proof?
+
+Perhaps you could offer misinformation to increase the noise!
+
+Perhaps you could use that misinformation as active measures that would identify people misusing the reinformation.
+
+## BOPS
+
+Biometrics is really coming to the forefront, independent of old hardware.
+
+BOPS is IEEE 2410.
+
+Collection, storage, processing, transmission
+
+BOPS talks about where you store (mobile or server) and where the match occurs, and covers all the options.
+
+Here's the big concern:
+This should not be your identifier, just one point toward that.
+
 
