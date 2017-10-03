@@ -207,7 +207,28 @@ Why is this important?
    
 We're sharing a lot of information, and we need to be careful about what we share. Needs to be good inventory systems to link with identities. Finally, we need whole metaverse to be seemless, with consistent identities.
 
-   
+## Web of Trust Now
+ 
+Early PGP adopter, but only signed a few important message. Still, it's important for signing GitHub.
+ 
+Doesn't like PGP!
+ 
+So, is there a way to anonymously get info on who is seeing commits for code that we're thinking about now?
+ 
+Is there a way to start simple stuff now?
+ 
+Don't worry about perfection now.
+ 
+## Social Web & RWOT
+  
+Today, we have the least self-sovereign possile.
+  
+Now, we can do ActivityPub. Mastodon has adopted. They have different nodes, so you can have separate nodes. And Mastodon is adopting other elements like signatures.
+  
+So how do we get to actual self-sovereign, where we're a full network? Subscribe to each other on social networks and use that for PGP signing!  But what we really want is DIDs. Because then even if Mastodon nodes go down, we still have links. 
 
+We can _incrementally_ move through networks like this without just throwing away what we have.
+
+Mastodon is a use case happy to adopt ourselves as soon as we have it in a good-enough state!
 
 
