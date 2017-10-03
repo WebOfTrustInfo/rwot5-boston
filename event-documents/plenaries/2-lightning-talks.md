@@ -121,6 +121,22 @@ And may have been broken. Also, AMD PSP.
 
 _So for this group, whenever says they're going to make the world a better place, there's probably a downside that you're not seeing. KEEP AN EYE OUT FOR IT. Don't surpress criticism!_
 
+## Who Pays?
+### How Does the average user use?
+
+If you're going to be having decentralized things, you want them highly replicatable and available, and you need economic incentives to make this happen.
+
+So who pays??
+
+The questions of constraints and costs don't come up very often.
+
+## Social Key Recovery
+
+A humancentric to a technical problem: I have a thing that's valuable and I need to store it and have it not be compromised.
+
+   1 Shard a key and distribute it among people in my network. 
+   2 Or: a friend must approve large-scale transfer of tokens.
+
 ## Verifiable Claims for Energy Distribution, Telecom, etc.
 
 
