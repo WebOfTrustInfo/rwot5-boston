@@ -22,9 +22,11 @@ Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
 * [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [Architectural Layering for Decentralized Identification](topics-and-advance-readings/Architectural-Layering-for-Decentralized-Identification.md) by Drummond Reed
 * [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](topics-and-advance-readings/byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
 * [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
 * [Biometric transaction signing on blockchain](topics-and-advance-readings/Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
+* [Blockchain Based Digital Signatures: Admissibility and Enforceability](topics-and-advance-readings/Blockchain-Based-Digital-Signatures--Admissibility-and-Enforceability.md) by Dazza Greenwood
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
 * [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
@@ -35,9 +37,9 @@ Here are the rest of the advance readings to date:
 * [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
 * [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper
 * [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](topics-and-advance-readings/Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
+* [Hub Asset Access Control System - Intent](topics-and-advance-readings/DIF-Hub-Permissions-RWOT-Intent.md) by Daniel Buchner
 * [Hypercerts: Blockcerts Revocation Improvements](topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
 * [Identifying stakeholders' challenges in the digital economy](topics-and-advance-readings/Identifying-challenges-in-the-digital-economy.md) by Irene Hernandez
-
 * [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
 * [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
 * [Recommendations for Decentralized Key Management Systems](topics-and-advance-readings/dkms-recommendations.md) by Michael Lodder
