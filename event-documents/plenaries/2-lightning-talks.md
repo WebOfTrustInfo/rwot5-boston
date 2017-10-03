@@ -90,6 +90,38 @@ Collection, storage, processing, transmission
 BOPS talks about where you store (mobile or server) and where the match occurs, and covers all the options.
 
 Here's the big concern:
-This should not be your identifier, just one point toward that.
+This should _not be your identifier_, just one point toward that.
+
+## Impact Claims
+
+A whole category of claims that are about a subject rather than an entity. 
+
+Such as claim that "I have immunized a child". 
+
+You are evaluating the _content_ of a claim, where most claims are just evaluated based on who is making the claim and whether they're trusted!
+
+## Beyond Incompetence
+### Sabotage of Standards & Examples
+
+Groups see various different problems and want to solve them.
+But somewhere along the line something goes wrong.
+
+Solve some problems, but create new ones!
+
+These are _unintended consequences_.
+
+So we're now dealing with legacy problems like certificate authorities.
+
+EXAMPLE: Dual-ECC
+Where the NSA generated keys that gave them a backdoor into cryptography standard.
+
+EXAMPLE: Intel Backdoor
+God mode in Intel ME (Management Engine) that gives full control and access to your computer
+And may have been broken. Also, AMD PSP. 
+
+_So for this group, whenever says they're going to make the world a better place, there's probably a downside that you're not seeing. KEEP AN EYE OUT FOR IT. Don't surpress criticism!_
+
+## Verifiable Claims for Energy Distribution, Telecom, etc.
+
 
 
