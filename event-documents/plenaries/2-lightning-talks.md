@@ -39,4 +39,28 @@ Are we really going to accept liability for ourselves when we lose our keys?
 
 Are we increasing liability for other people with this?
 
+## Reconciling Privacy & Security with Usability & Convenience in Distributed Systems
+
+There are trade-offs!
+
+Usability vs security
+Privacy vs convenience
+
+We need to identify these, so that they can be balanced.
+
+Discussion of needing to bake security into system rather than depending on user to make decisions.
+
+How can you build modular systems that incorporate new systems while simultaneously letting laggards in.
+
+## Too Much Info
+### Is the First Amendment Dead?
+
+Based on an article.
+
+It argues that First Amendment only became issue with WWI and US propaganda. It then goes on to say it's not free speech which is issue, because anyone can speak through blog. So free listening is the new problem, to minimize the noise.
+
+This links to issue like China drowning out problems, Reputation.com doing the same, arguments over Fake News.
+
+So should we _limit rights of government to drown out signal!?_
+
 
