@@ -62,3 +62,10 @@ Chips allow signing on devices, with on-board key-pairs.
 
 Send a simple request to an API, get a response with a DID on blockchain, user becomes guardian of the Thing.
 
+## Final Thoughts
+
+We'd love to see these demos interoperating by the next Web of Trust.
+
+Maybe a Hackathon before Consensus in late May.
+
+We'd love to increasingly do claims, not just DIDs.
