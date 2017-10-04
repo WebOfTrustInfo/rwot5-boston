@@ -16,7 +16,6 @@ header-includes:
   - \usepackage{float}
   - \usepackage{afterpage}
   - \usepackage{pgfplots}
-  # - \usepackage{amsmath, amsthm, amssymb}
   - \textblockorigin{50mm}{10mm}
   - \renewcommand{\figurename}{Fig.}
   - \usepackage[font=footnotesize,labelfont=bf]{caption}
@@ -24,10 +23,23 @@ header-includes:
   - \usetikzlibrary{shapes, arrows}
   - \renewcommand{\abstractname}{Abstract.}
   - \renewenvironment{abstract} {\small\quotation {\bfseries\noindent{\small\abstractname}\nobreak}} {\endquotation}
+  - \usepackage{amsmath, amsthm, amssymb}
+  - |
+    \newtheoremstyle{plain}
+    {\parsep}
+    {\topsep}
+    {\itshape}
+    {0pt}
+    {\bfseries}
+    {.}
+    {5pt}
+    {}
   - \newtheorem{theorem}{Theorem}
   - \newtheorem{axiom}{Axiom}
   - \newtheorem{lemma}{Lemma}
   - \newtheorem{defn}{Definition}
+
+
 # had to `brew install pandoc-citeproc` and download ieee.csl
 # https://github.com/citation-style-language/styles/raw/master/ieee.csl
 # https://gist.github.com/marcelofernandez/3264858
@@ -148,15 +160,42 @@ Decentralized consensus systems that scale to meet the demands of competing (and
 Given these axioms:
 
 \begin{axiom}
-Access to computational power is not distributed uniformly, but is instead distributed according to rules resembling power laws. In other words, in any large population, a small group has access to computational power greatly exceeding what is available to the majority of the population.
+\label{AxCompPow}
+In any sufficiently large population (at scale), individual access to computational power is not distributed uniformly. Most individuals have access to average computational power, and a few have access to large amounts.
 \end{axiom}
 
 \begin{axiom}
-In centralized consensus systems, there exists an entity in $\{S\}$ with the power to exclude other entities from joining $\{S\}$ and participating in consensus, whereas in decentralized consensus systems no such entity exists.
+\label{AxDmd}
+In any two systems offering the same service to the same large population, the transactional demands of the average user converge at scale.
 \end{axiom}
 
 \begin{lemma}
-Let $P$ be a population of 1000 nodes,
+\label{LemTxn}
+Let $S_1$ and $S_2$ be functioning consensus systems offering the same service to the same population of users at scale. Let $N$ be a function returning the number of active users on the system. If $N(S_1) > N(S_2)$, then $T(S_1) > T(S_2)$ converges to a true statement as the value $N(S_1) - N(S_2)$ increases.
+\end{lemma}
+
+\begin{proof}
+This follows directly from (Axiom~\ref{AxDmd}).
+\end{proof}
+
+\begin{lemma}
+\label{LemCoord}
+The number of consensus participants decreases at scale, and therefore coordination costs decrease for systems at scale.
+\end{lemma}
+
+\begin{proof}
+This follows from (Axiom~\ref{AxCompPow}) and our definition of $C(S)$. \em{[TBD. details.]}
+\end{proof}
+
+\begin{lemma}
+"Increasing decentralization" of a consensus system at scale means making it slower and less capable of scale, therefore increase scale makes a system less capable of decentralization.
+\end{lemma}
+
+Follows from slow participants concept.
+
+\begin{lemma}
+\label{LemCensor}
+The probability that $\{S\}$ contains an entity capable of censoring transactions approaches 1 at scale.
 \end{lemma}
 
 <!--
