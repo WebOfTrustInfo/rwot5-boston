@@ -15,6 +15,7 @@ header-includes:
   - \usepackage[absolute]{textpos}
   - \usepackage{float}
   - \usepackage{afterpage}
+  # - \usepackage{amsmath, amsthm, amssymb}
   - \textblockorigin{50mm}{10mm}
   - \renewcommand{\figurename}{Fig.}
   - \usepackage[font=footnotesize,labelfont=bf]{caption}
@@ -22,6 +23,10 @@ header-includes:
   - \usetikzlibrary{shapes, arrows}
   - \renewcommand{\abstractname}{Abstract.}
   - \renewenvironment{abstract} {\small\quotation {\bfseries\noindent{\small\abstractname}\nobreak}} {\endquotation}
+  - \newtheorem{theorem}{Theorem}
+  - \newtheorem{axiom}{Axiom}
+  - \newtheorem{lemma}{Lemma}
+  - \newtheorem{defn}{Definition}
 # had to `brew install pandoc-citeproc` and download ieee.csl
 # https://github.com/citation-style-language/styles/raw/master/ieee.csl
 # https://gist.github.com/marcelofernandez/3264858
@@ -121,27 +126,33 @@ Therefore, $T(S)$ is a function that is _limited by the slowest consensus partic
 
 ## Coordination costs
 
-Relevant in our proof is the notion of _coordination costs_, or the difficulty for one entity to engage another and work toward a common goal.
+Relevant for our proof is the notion of _coordination costs_, or the difficulty for one entity to engage another and work toward a common goal.
 
-For example, when Bitcoin was first launched, it would be difficult for any miner to find enough collaborating miners to create a cartel with 51%+ of the hashing power, simply because there were many "relevant miners" (consensus participants) distributed all over the world.
+For example, when Bitcoin was first launched, it would be difficult for any miner to find enough collaborating miners to create a cartel with 51%+ of the hash power, simply because there were many "relevant miners" (consensus participants) distributed all over the world.
 
 Today, however, there are significantly fewer consensus participants in Bitcoin, and it is much easier to (1) identify them, and (2) bring them together in a single room to coordinate around some goal. Therefore, we say the coordination costs are lower today than before.
 
 We can approximate the coordination costs $C(S)$ of any consensus system as simply the number of consensus participants:
 
-$$C(S) = |\mathtt{consensus\_participants}(\{S\})|$$
+$$C(S) = \|\mathtt{consensus\_participants}(\{S\})\|$$
 
 ## Proof
 
 We seek to prove the following restatement of the DCS Triangle:
 
-> **Theorem.** Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
+\begin{theorem}
+Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
+\end{theorem}
 
-Our proof is built on the following axioms:
+Our proof is built on lemmas derived from the following axioms:
 
-> **Axiom 1.** Access to computational power is not distributed uniformly, but is instead distributed according to rules resembling power laws. In other words, in any large population, a small group has access to computational power greatly exceeding what is available to the majority of the population.^[Consider how many of your friends have access to super computers.]
+\begin{axiom}
+Access to computational power is not distributed uniformly, but is instead distributed according to rules resembling power laws. In other words, in any large population, a small group has access to computational power greatly exceeding what is available to the majority of the population.
+\end{axiom}
 
-> **Axiom 2.** In centralized consensus systems, there exists an entity in $\{S\}$ with the power to exclude other entities from joining $\{S\}$ and participating in consensus, whereas in decentralized consensus systems no such entity exists.
+\begin{axiom}
+In centralized consensus systems, there exists an entity in $\{S\}$ with the power to exclude other entities from joining $\{S\}$ and participating in consensus, whereas in decentralized consensus systems no such entity exists.
+\end{axiom}
 
 
 _[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
