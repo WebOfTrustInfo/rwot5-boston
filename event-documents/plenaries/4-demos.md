@@ -37,3 +37,13 @@ An OP_RETURN then points to DID Object. That's what contains most of the informa
 In BTRC DIDs, you can revoke just by spending the funds referenced by the txref. If you put an OP_RETURN in the new transaction, then it's update! 
 
 <i>Next up: schema! Currently based on schema.org, but might need additional keys.</i>
+
+## DIF Universal Resolver
+
+Pass in an identifier under any DID method, and it'll spit out the results!
+
+The driver and docker container dynamically assembles DDO Objects for you!
+Some simpler methods might simply allow direct access to DDO.
+
+_Already have sample code that works on BTRC, Sovrin, and V1!_
+
