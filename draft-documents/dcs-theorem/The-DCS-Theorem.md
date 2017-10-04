@@ -15,6 +15,7 @@ header-includes:
   - \usepackage[absolute]{textpos}
   - \usepackage{float}
   - \usepackage{afterpage}
+  - \usepackage{pgfplots}
   # - \usepackage{amsmath, amsthm, amssymb}
   - \textblockorigin{50mm}{10mm}
   - \renewcommand{\figurename}{Fig.}
@@ -144,7 +145,7 @@ We seek to prove the following restatement of the DCS Triangle:
 Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
 \end{theorem}
 
-Our proof is built on lemmas derived from the following axioms:
+Given these axioms:
 
 \begin{axiom}
 Access to computational power is not distributed uniformly, but is instead distributed according to rules resembling power laws. In other words, in any large population, a small group has access to computational power greatly exceeding what is available to the majority of the population.
@@ -154,6 +155,28 @@ Access to computational power is not distributed uniformly, but is instead distr
 In centralized consensus systems, there exists an entity in $\{S\}$ with the power to exclude other entities from joining $\{S\}$ and participating in consensus, whereas in decentralized consensus systems no such entity exists.
 \end{axiom}
 
+\begin{lemma}
+Let $P$ be a population of 1000 nodes,
+\end{lemma}
+
+<!--
+https://tex.stackexchange.com/questions/43610/plotting-bell-shaped-curve-in-tikz-pgf
+https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-graph
+-->
+
+\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+\begin{tikzpicture}
+
+\begin{axis}[no markers, domain=0:10, samples=100,
+axis lines*=left, xlabel=Computational power, ylabel=Node count,
+height=6cm, width=10cm, ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+grid = major]
+\addplot [fill=cyan!20, draw=none, domain=-3:3] {gauss(0,1)} \closedcycle;
+\addplot [fill=blue!20, draw=none, domain=2:3] {gauss(0,1)} \closedcycle;
+\end{axis}
+\end{tikzpicture}
 
 _[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
 
