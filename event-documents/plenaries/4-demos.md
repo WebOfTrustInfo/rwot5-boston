@@ -25,3 +25,15 @@ Digital identity for the city of Zug to get a residence permit.
 Uport is used to scan QR codes for verifiable claims.
 
 _This shows how those credentials supported by the Credential Handler API can actually be used!_
+
+## BTCR TX Conversion Playground
+
+Results of the BTCR hackathon, where BTRC is a DID method for the Bitcoin blockchain. It converts txids to txrefs for use by BTRC DIDs.
+
+Transactions aren't good enough because they're not necessarily confirmed on blockchain, so instead of txid for BTRC DIDs, we use txref, which is confirmed. They're from BIP 136. Error-correcting and censorship-resistance.
+
+An OP_RETURN then points to DID Object. That's what contains most of the information; it can even act as a source-of-authority for other identities!
+
+In BTRC DIDs, you can revoke just by spending the funds referenced by the txref. If you put an OP_RETURN in the new transaction, then it's update! 
+
+<i>Next up: schema! Currently based on schema.org, but might need additional keys.</i>
