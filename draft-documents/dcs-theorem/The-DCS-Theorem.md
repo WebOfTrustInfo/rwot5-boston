@@ -37,7 +37,18 @@ header-includes:
   - \newtheorem{theorem}{Theorem}
   - \newtheorem{axiom}{Axiom}
   - \newtheorem{lemma}{Lemma}
-  - \newtheorem{defn}{Definition}
+  - |
+    \newtheoremstyle{definition}
+    {10pt}
+    {5pt}
+    {}
+    {0pt}
+    {\bfseries}
+    {.}
+    {5pt}
+    {}
+  - \theoremstyle{definition}
+  - \newtheorem*{defn}{Definition}
 
 
 # had to `brew install pandoc-citeproc` and download ieee.csl
@@ -76,14 +87,13 @@ $$
 
 We note, additionally:
 
-- The intended behavior of _centralized_ systems is defined by its owners and can be modified without explicit consent from users of the system
-- The intended behavior of _decentralized_ systems cannot be modified without active approval from at least 50% of all _users_ of the system
 - The _scope_ $\{S\}$ may change over time, but there are always several components of a consistent _type_ (i.e. "all systems always have at least one _CPU_, one _developer_, and one _user_")
 - The system's state $s$ includes all data necessary for the system to compute $f_S$ given a message $m$
 - $S$ is considered _compromised_ if it fails to perform its intended behavior within the interval $S_\tau$
-- The system's users are always included in $\{S\}$ (a system without users is a system without messages or purpose)
 
 We will proceed to prove that any single such system may possess, at most, two of three properties:
+
+\clearpage
 
 \begin{figure}
   \centering
@@ -109,7 +119,13 @@ Implicit in our definition of a _decentralized system_ is the idea that the syst
 
 Imagine a decentralized system $S$, whose intended behavior (its purpose) is to maintain the integrity of a database while being responsive to queries. It does so by attempting to eliminate all single points of failure within a given _scope._
 
-> The ***scope*** of a system refers to all subcomponents and all entities "reasonably relevant" to a system's functioning.
+<!--
+> **Definition.** The ***scope*** of a system refers to all subcomponents and all entities "reasonably relevant" to a system's functioning.
+-->
+
+\begin{defn}
+The $scope$ of a system refers to all subcomponents and all entities "reasonably relevant" to a system's functioning.
+\end{defn}
 
 If we consider the scope of our "decentralized" database to be a computer with two CPUs and two hard disks (one primary, another backup), then we can say $S$ is "decentralized" at $t=0$ (has no single point of failure). However, if at $t=1$ one of the hard disk fails, it is no longer decentralized since now there does exist a single component capable of compromising the entire system.
 
@@ -125,7 +141,7 @@ The narrowing and enlarging of the scope is called the _relativity of decentrali
 
 The _computational throughput_ $T(S)$ of any consensus system depends on three factors:
 
-1. The computational power of each _consensus participant_ (those able to select transactions which are _written_ to the shared state).^[Note that participants who are only allowed to _verify_ state, but not participate in _creating_ it, are not considered consensus _participants_. Instead, they are called state _verifiers_.]
+1. The computational power of each _consensus participant_ (those able to select transactions which are _written_ to the shared state).^[Note that participants who are only allowed to _verify_ state, but not participate in _creating_ it, are not considered consensus _participants_. Instead, they are called state _validators_.]
 2. The amount of time the consensus algorithm considers messages to be lost (the _timeout_ period).
 3. The consensus _threshold_ the consensus algorithm uses to decide whether consensus has been reached (e.g. "how big of a quorum is required").
 
@@ -195,8 +211,12 @@ Follows from slow participants concept.
 
 \begin{lemma}
 \label{LemCensor}
-The probability that $\{S\}$ contains an entity capable of censoring transactions approaches 1 at scale.
+The probability that $\{S\}$ contains a cartel capable of colluding to censor transactions approaches 1 at scale.
 \end{lemma}
+
+\begin{proof}[Proof of the Main Theorem]
+foobar.
+\end{proof}
 
 <!--
 https://tex.stackexchange.com/questions/43610/plotting-bell-shaped-curve-in-tikz-pgf
