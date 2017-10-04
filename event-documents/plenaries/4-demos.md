@@ -47,3 +47,18 @@ Some simpler methods might simply allow direct access to DDO.
 
 _Already have sample code that works on BTRC, Sovrin, and V1!_
 
+Also working on universal registration.
+
+## DID + IOT + BLockchains
+
+Connecting blockchains to IoT devices, using DiDs.
+
+   * User DID Controlled Device DIDs
+   * Signed Messages 
+   * Inter-Blockchain referencing as BigChainDB base
+   * Enforced Create/Write access on BigchainDB assets
+
+Chips allow signing on devices, with on-board key-pairs.
+
+Send a simple request to an API, get a response with a DID on blockchain, user becomes guardian of the Thing.
+
