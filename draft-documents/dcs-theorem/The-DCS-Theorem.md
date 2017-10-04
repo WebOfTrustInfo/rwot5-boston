@@ -107,7 +107,7 @@ We will proceed to prove that any single such system may possess, at most, two o
 
 
 - **Consensus** means the system's state, $s$ is a _shared state_ that is updated by nodes running a _consensus algorithm_ over a network, and that furthermore, the output of _consensus algorithm_ determines the network's accepted output of $f_S$, and whether or not $f_S$ completes within $S_\tau$.
-- **Scale** means the system is capable of updating its state at the same (or greater) rate as any competing system providing the same service to the same arbitrary set of users across the globe (_"at scale"_).^[Examples of "services" include: streaming video, sending messages, maintaining balances on a ledger, etc.]
+- **Scale** means the system is capable of handling the transactional demands of any competing system providing the same service to the same arbitrary set of users across the globe (_"at scale"_).^[Examples of "services" include: streaming video, sending messages, maintaining balances on a ledger, etc.]
 - **Decentralized** means the system has no _single point of failure or control_ (SPoF). Another way to state this is: the system continues to perform its intended behavior if any single element is removed from $\{S\}$, and no single component in $\{S\}$ has the power to redefine $f_S$ on its own.
 
 Systems whose intended behavior can be modified without the consent of their users are considered _centralized_ due to the presence of a central point of control over the definition of the system.
@@ -200,7 +200,7 @@ The number of consensus participants decreases at scale, and therefore coordinat
 \end{lemma}
 
 \begin{proof}
-This follows from (Axiom~\ref{AxCompPow}) and our definition of $C(S)$. \em{[TBD. details.]}
+This follows from (Axiom~\ref{AxCompPow}), (Lemma~\ref{LemCoord}), and our definition of $C(S)$. \em{[TBD. details.]}
 \end{proof}
 
 \begin{lemma}
