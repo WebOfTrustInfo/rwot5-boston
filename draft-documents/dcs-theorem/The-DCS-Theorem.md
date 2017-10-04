@@ -101,27 +101,35 @@ This means:
 - Any system can be called "decentralized" if we define the scope narrowly enough.
 - All decentralized systems can be called "centralized" if we define their scope broadly enough.^[The entire Internet could be considered centralized if we include the entire solar system as part of the scope. The "single point of failure" could be the Earth itself, its atmosphere, the Sun, etc. Or, perhaps in the not distant future, a single ISP.]
 
-The narrowing and enlarging of the scope is called the _relativity of decentralization_, and it is why first choosing a reasonable and agreeable definition for a system's scope is vital before deciding whether or not it is "decentralized".
+The narrowing and enlarging of the scope is called the _relativity of decentralization_, and it is why first agreeing on a reasonable definition for a system's scope is vital before deciding whether or not it is "decentralized".
 
 ## Computational throughput of consensus systems
 
-The _computational throughput_ $C(S)$ of any consensus system depends on three factors:
+The _computational throughput_ $T(S)$ of any consensus system depends on three factors:
 
 1. The computational power of each _consensus participant_ (those able to select transactions which are _written_ to the shared state).^[Note that participants who are only allowed to _verify_ state, but not participate in _creating_ it, are not considered consensus _participants_. Instead, they are called state _verifiers_.]
 2. The amount of time the consensus algorithm considers messages to be lost (the _timeout_ period).
 3. The consensus _threshold_ the consensus algorithm uses to decide whether consensus has been reached (e.g. "how big of a quorum is required").
 
-*[TBD. More info here about how the throughput changes depending on the computational power of members.]*
+Note that if the computational power of a consensus participant is significantly less than that of the other participants, they are more likely to be excluded from the deciding quorum for several reasons:
+
+- If there are no network partitions to determine otherwise, fast consensus participants will process messages more quickly and therefore will be first to create a quorum.
+- If there are enough fast consensus participants to create a large enough quorum to exceed the system's consensus threshold, then there is no need to wait for the slow participants to move the system forward.
+- Slow consensus participants are more likely than fast consensus participants to hit the system's timeout period for processing and responding to messages, and therefore are more at risk of being excluded from the consensus process entirely.
+
+Therefore, $T(S)$ is a function that is _limited by the slowest consensus participants not excluded in the deciding quorum._
 
 ## Coordination costs
 
-_[TBD. Explain what coordination costs are.]_
+Relevant in our proof is the notion of _coordination costs_, or the difficulty for one entity to engage another and work toward a common goal.
 
-The difficulty for one entity to engage with another and work together toward a common goal.
+For example, when Bitcoin was first launched, it would be difficult for any miner to find enough collaborating miners to create a cartel with 51%+ of the hashing power, simply because there were many "relevant miners" (consensus participants) distributed all over the world.
 
-Example: when Bitcoin was first launched, it would be difficult for any miner, to find other miners in order to create a cartel with 51%+ of the hashing power, simply because there were so many random miners all over the world.
+Today, however, there are significantly fewer consensus participants in Bitcoin, and it is much easier to (1) identify them, and (2) bring them together in a single room to coordinate around some goal. Therefore, we say the coordination costs are lower today than before.
 
-If there's, however, a small number of miners, then it is easier to (1) identify them, and (2) bring them together in a single room to coordinate around some goal.
+We can approximate the coordination costs $C(S)$ of any consensus system as simply the number of consensus participants:
+
+$$C(S) = |\mathtt{consensus\_participants}(\{S\})|$$
 
 ## Proof
 
