@@ -16,10 +16,11 @@ Certificate Chaining | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebo
 Templates for DID Method Specs | Drummond | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DID%20Method%20Spec%20Template%20Definition.md)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 Hub->OCAP Model |
-Four Primers | Joe, Natalie, Drummond, Manu |
+Four Primers | Joe, Natalie, Drummond, Manu | [DID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-primer.md) -- [Functional ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/functional-identity-primer.md) -- [Self-Sovereign ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/self-sovereign-identity-primer.md) -- [Verifiable Claims](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/verifiable-claims-primer.md)
 Activity Pub Update | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/activitypub-decentralized-distributed/activitypub-decentralized-distributed.md)
 IPID Method Spec | Jonny |
 Blockcerts Revocation with DIDs | Kim |
+RWoT Identity Hubs Capabilities Perspective | Adrian | 
 
 ## Current DID Spec
 
