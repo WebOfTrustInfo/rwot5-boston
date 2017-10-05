@@ -2,7 +2,7 @@
 title: "\\textbf{The DCS Theorem}"
 author: Greg Slepak
 date: \small October 4, 2017
-abstract: "We present a probabilistic proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
+abstract: "We present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
 # output: pdf_document
 output:
   pdf_document:
@@ -67,10 +67,11 @@ bibliography: dcs.bib
 ---
 
 \begin{textblock}{3}(0,0)
-\LARGE UNFINISHED DRAFT!
+\LARGE DRAFT
 \end{textblock}
 
 ## Definitions
+\label{sec:defs}
 
 A _system_ is defined as any set of components (see \hyperref[sec:scope]{Scope}) following _precise rules_ in order to provide service(s) to the users of the system. These services constitute the system's _intended behavior_.
 
@@ -193,7 +194,7 @@ $$C(S) = \mathtt{num\_consensus\_participants}(\{S\})$$
   	\end{pgfonlayer}
   	\end{axis}
     \end{tikzpicture}
-    \caption{foo bar baz}
+    \caption{TODO: explain / elaborate on this figure and perhaps show system dynamic.}
 \end{figure}
 
 ## Proof
@@ -262,7 +263,7 @@ Let $S$ be a decentralized consensus system with a growing number of users. The 
 \end{lemma}
 
 \begin{proof}
-As a system $S$ gains more users the throughput of the system, $T(S)$ increases, per (Lemma~\ref{LemTxn}). By (Axiom~\ref{AxCompPow}), the number of individuals capable of handling that throughput decreases. Since $S$ starts out decentralized, there does not exist a single entity controlling who the participants are, and therefore some users who previously chose to play the role consensus participants are no longer able. Therefore $C(S)$ decreases as well.
+As a system $S$ gains more users the throughput of the system, $T(S)$ increases, per (Lemma~\ref{LemTxn}). By (Axiom~\ref{AxCompPow}), the number of individuals capable of handling that throughput decreases. Since $S$ starts out decentralized, there does not exist a single entity controlling who the participants are, and therefore some users who previously chose to play the role consensus participants are no longer able to process messages fast enough to participate in consensus. Therefore $C(S)$ decreases as well.
 \end{proof}
 
 \begin{lemma}
@@ -270,6 +271,7 @@ As a system $S$ gains more users the throughput of the system, $T(S)$ increases,
 Let $S$ be a decentralized consensus system. Coordination costs for $S$ decrease at scale.
 \end{lemma}
 
+<!--
 \begin{figure}
 
     \centering
@@ -301,13 +303,14 @@ Let $S$ be a decentralized consensus system. Coordination costs for $S$ decrease
       \node[anchor = north, color = blue] at (rel axis cs:0.7,0.8) {$C(S_1)$};
     \end{axis}
     \end{tikzpicture}
-    \caption{Highlighted regions show .. TBD.}
+    \caption{Highlighted regions show .. TBD. Show movement of same system at time $t=0$ to $t=1$. Fix vertical lines. Make clear what $C(S)$ represents.}
 \label{fig:CPS}
 \end{figure}
+-->
 
 \begin{proof}
-For our proof we are only interested in what happens to decentralized consensus systems at scale. By (Lemma~\ref{LemCP}) and our definition of $C(S)$, it directly follows that the coordination costs of decentralized consensus systems decrease at scale. Figure~\ref{fig:CPS} visualizes this point.
-\end{proof}
+For our proof we are only interested in what happens to decentralized consensus systems at scale. By (Lemma~\ref{LemCP}) and our definition of $C(S)$, it directly follows that the coordination costs of decentralized consensus systems decrease at scale because there are fewer consensus participants, which makes it easier for consensus participants to identify each other.
+\end{proof}<!-- Figure~\ref{fig:CPS} visualizes this point.-->
 
 \begin{lemma}
 \label{LemCensor}
@@ -315,7 +318,7 @@ Let $S$ be a decentralized consensus system. The probability that $\{S\}$ contai
 \end{lemma}
 
 \begin{proof}[Proof of the Main Theorem]
-From (Lemma~\ref{LemCoord}), the coordination costs in consensus systems decreases at scale, because there are fewer consensus participants. Since there are fewer consensus participants it is easier for them to identify each other and coordinate to form a cartel with the ability to compromise the consensus algorithm, and therefore the system. If a cartel coordinates to successfully compromise the system, the system is no longer decentralized (by our definition). Therefore, since the probability of cartel formation increases at scale, the probability of centralization increases as well.
+Per (Lemma~\ref{LemCoord}), fewer consensus participants means the probability of a colluding group (cartel) increases. If a cartel coordinates to successfully compromise consensus, the system is no longer decentralized (per our \hyperref[sec:defs]{definitions} of consensus and decentralized). If it is easier for consensus participants to identify each other, it follows that it is easier for anyone to identify a quorum of consensus participants. Either a successful attempt at coercing this quorum, or a successful attempt at collusion would represent system failure. In decentralized systems, system failure indicates there was a single point of failure (see example in \hyperref[sec:scope]{Scope}). Therefore, the probability of centralization increases.
 \end{proof}
 
 <!--
@@ -325,7 +328,7 @@ https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-gra
 
 ## Acknowledgements
 
-The author would like to thank Anya Petrova for her assistance.
+The author would like to thank Anya Petrova for her assistance with the paper and feedback on the proof.
 
 <!--
 ## OLD STUFF - Outdated brain dumps [To be deleted]
