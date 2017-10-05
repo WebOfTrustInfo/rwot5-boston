@@ -52,13 +52,11 @@ This is a DID method specification that conforms to the requirements specified i
 
 The namestring that shall identify this DID method is:
 
-	<em>[methodname]</em>
-
 	[[[ btcr ]]]
 
 A DID that uses this method MUST begin with the following prefix:
 
-	did:<em>[methodname]</em>
+	[[[ did:btcr ]]]
 
 Per the DID specification, this string MUST be in lowercase.
 
@@ -70,46 +68,46 @@ Per the DID specification, this string MUST be in lowercase.
 
 ## ABNF Definition
 
-[section contains an ABNF definition of the NSI]
+<em>[section contains an ABNF definition of the NSI]</em>
 
 ## Example
 
-[include at least one example]
+<em>[include at least one example]</em>
 
 # JSON-LD Context Definition
 
-[If your method involves storing any state in a DID document for purposes of controlling updates to the DID document, you MUST define a JSON-LD context in this section.]
+<em>[If your method involves storing any state in a DID document for purposes of controlling updates to the DID document, you MUST define a JSON-LD context in this section.]</em>
 
-The official definition of the btcr JSON-LD context is:
+[[[ The official definition of the btcr JSON-LD context is:
 <pre>
 {   "@context":   {      "Person": "http://xmlns.com/foaf/0.1/Person",      "xsd": "http://www.w3.org/2001/XMLSchema#",      "name": "http://xmlns.com/foaf/0.1/name",      "nickname": "http://xmlns.com/foaf/0.1/nick",      "affiliation": "http://schema.org/affiliation",      "depiction":      {         "@id": "http://xmlns.com/foaf/0.1/depiction",         "@type": "@id"      },      "image":      {         "@id": "http://xmlns.com/foaf/0.1/img",         "@type": "@id"      }
 
 }
 </pre>
 
-With minor edits, this is published at [https://example.com/mycontext.jsonld](https://example.com/mycontext.jsonld).  Changes are expected as this template evolves...
+With minor edits, this is published at [https://example.com/mycontext.jsonld](https://example.com/mycontext.jsonld).  Changes are expected as this template evolves... ]]]
 
 # CRUD Operation Definitions
 
 ## Create (Register)
 
-[Instructions from the DID spec: ](https://w3c-ccg.github.io/did-spec/#create)The DID method specification must specify how a client creates a DID record—the combination of a DID and its associated DDO—on the target system, including all cryptographic operations necessary to establish proof of ownership.
+<em>[Instructions from the DID spec: ](https://w3c-ccg.github.io/did-spec/#create)The DID method specification must specify how a client creates a DID record—the combination of a DID and its associated DDO—on the target system, including all cryptographic operations necessary to establish proof of ownership.</em>
 
-To create a DID, you must submit a transaction that looks like this: …
+[[[ To create a DID, you must submit a transaction that looks like this: …
 
 The transaction must be signed <in the following way>, and must meet these additional requirements: …
 
-Possible outcomes from the creation operation include: 0 "Success", error 1 “Malformed transaction”, error 2 “Permission denied”...
+Possible outcomes from the creation operation include: 0 "Success", error 1 “Malformed transaction”, error 2 “Permission denied”... ]]]
 
 ## Read (Resolve)
 
-[Instructions from the DID Spec:](https://w3c-ccg.github.io/did-spec/#read/verify) The DID method specification must specify how a client uses a DID to request a DDO from the target system, including how the client can verify the authenticity of the response.
+<em>[Instructions from the DID Spec:](https://w3c-ccg.github.io/did-spec/#read/verify) The DID method specification must specify how a client uses a DID to request a DDO from the target system, including how the client can verify the authenticity of the response.
 
-[This section should define both lookup of a DID document from a DID and how to cryptographically verify the response.]
+[This section should define both lookup of a DID document from a DID and how to cryptographically verify the response.]</em>
 
-Anyone can read a DID, using the following procedure: …
+[[[ Anyone can read a DID, using the following procedure: …
 
-Be aware of the following latency issues: … To help manage latency wisely, the response includes a proof of correctness at a given timestamp, which works like this: ...
+Be aware of the following latency issues: … To help manage latency wisely, the response includes a proof of correctness at a given timestamp, which works like this: ... ]]]
 
 ## Update
 
