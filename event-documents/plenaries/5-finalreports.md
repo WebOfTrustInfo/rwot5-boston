@@ -8,7 +8,7 @@ Still needs to be polished and peer-reviewed.
 
 ### Breaking (Down) the Law
 
-Simplifying how we talk about signatures in non-legal settings.
+Simplifying how we talk about signatures in non-technical settings.
 Where do the technical and legal meet the business?
 
 Have a first cut.
