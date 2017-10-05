@@ -17,3 +17,4 @@ Hub->OCAP Model |
 Four Primers | Joe, Natalie, Drummond, Manu |
 Activity Pub Update | Chris W. |
 IPID Method Spec | Jonny |
+Blockcerts Revocation with DIDs | Kim |
