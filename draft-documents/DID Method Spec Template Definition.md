@@ -170,6 +170,7 @@ Other sections from DID spec to incorporate into the outline:
 	9.5 Notification of DDO Changes
 	9.6 Key and Signature Expiration
 	9.7 Key Revocation and Recovery *
+</pre>
 
 # Privacy Considerations
 
