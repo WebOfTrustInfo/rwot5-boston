@@ -349,7 +349,7 @@ not only the traditional web but even into systems like distributed
 ledger technologies and so on.  Unfortunately, security is frequently
 difficult on Linked Data Systems.
 
-For example, [[https://solid.mit.edu/][SoLiD]] is overall a well structured system but
+For example, [SoLiD](https://solid.mit.edu/) is overall a well structured system but
 unfortunately plagued by the use of access control lists, which are
 known to have such longstanding problems as:
 
@@ -358,6 +358,6 @@ known to have such longstanding problems as:
  - lack of composability
 
 We can avoid these risks by using an object capability system such as
-the one described above.  Even more exciting is that by combining [[https://w3c-ccg.github.io/did-spec/][DIDs]]
+the one described above.  Even more exciting is that by combining [[DIDs](https://w3c-ccg.github.io/did-spec/)
 we can build a decentralized object capability system to the web that
 is safe to use.
