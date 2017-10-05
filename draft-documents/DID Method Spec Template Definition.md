@@ -16,7 +16,9 @@ It is RECOMMENDED to use the [ReSpec](https://github.com/w3c/respec/wiki) format
 
 # Notation
 
-In the following template, variables are denoted in [square brackets]. Explanatory comments are highlighted in <em>italics</em>. Examples of section content content appear in [[[ three square brackets ]]].
+In the following template, plain text and headers should appear in every method spec. Variables are denoted in [square brackets]. Explanatory comments are highlighted in <em>italics</em>. Examples of section content content appear in [[[ three square brackets ]]].
+
+...................Template begins immediately below this line.........................
 
 # <em>[Name]</em> DID Method Specification V<em>[x]</em>
 
@@ -137,7 +139,7 @@ Revocation is the one way final operation for a DID.  No use after revocation is
 
 ## Version of the JSON-LD Context
 
-[Define how your JSON-LD context will be versioned. This MUST use the mechansim defined in the DID spec.]]
+<em>[Define how your JSON-LD context will be versioned. This MUST use the mechansim defined in the DID spec.]]</em>
 
 # Security Considerations
 
@@ -175,29 +177,24 @@ This section MUST provide integrity protection and update authentication for all
 
 [[See requirements in the DID spec]](https://w3c-ccg.github.io/did-spec/#privacy-considerations)
 
-10. Privacy Considerations
+	10. Privacy Considerations
+	10.1 Requirements of DID Method Specifications
+	10.2 Keep Personally-Identifiable Information (PII) Off-Ledger
+	10.3 DID Correlation Risks and Pseudonymous DIDs
+	10.4 DDO Correlation Risks
+	10.5 Herd Privacy
 
-## 10.1 Requirements of DID Method Specifications
-
-## 10.2 Keep Personally-Identifiable Information (PII) Off-Ledger
-
-## 10.3 DID Correlation Risks and Pseudonymous DIDs
-
-## 10.4 DDO Correlation Risks
-
-## 10.5 Herd Privacy
-
-Consider all 4 types of privacy in http://www.lifewithalacrity.com/2015/04/the-four-kinds-of-privacy.html.
+<em>Consider all 4 types of privacy in http://www.lifewithalacrity.com/2015/04/the-four-kinds-of-privacy.html.</em>
 
 # Reference Implementations
 
-The code at [https://github.com/myaccount/myrepo](https://github.com/myaccount/myrepo) is intended to be the preferred embodiment of this DID method. Commit hash 4fc87fc5e85b2a071abfa7d8dfb15c06cd266dd5 is the version that officially aligns with this version of the spec.
+[[[ The code at [https://github.com/myaccount/myrepo](https://github.com/myaccount/myrepo) is intended to be the preferred embodiment of this DID method. Commit hash 4fc87fc5e85b2a071abfa7d8dfb15c06cd266dd5 is the version that officially aligns with this version of the spec.
 
-Note that the code includes a test suite (see tests/compliance_suite); any other implementations should ensure that all tests pass before they claim compatibility.
+Note that the code includes a test suite (see tests/compliance_suite); any other implementations should ensure that all tests pass before they claim compatibility. ]]]
 
 # Links and Resources
 
-Issues/bugs for this spec, and for the reference implementation, are managed on github at [https://github.com/myaccount/myrepo/issues](https://github.com/myaccount/myrepo/issues). Many developers maintaining the code and spec tend to hang out in RocketChat at chat.myorg.org, #btcrimpl.
+[[[ Issues/bugs for this spec, and for the reference implementation, are managed on github at [https://github.com/myaccount/myrepo/issues](https://github.com/myaccount/myrepo/issues). Many developers maintaining the code and spec tend to hang out in RocketChat at chat.myorg.org, #btcrimpl. ]]]
 
 # Acknowledgements
 
