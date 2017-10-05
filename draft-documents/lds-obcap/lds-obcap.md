@@ -337,6 +337,9 @@ additional parameters in the body:
      // The key Dummy Bot is using in this invocation
      "grantedKey": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4#key-1",
 
+     // Finally here's the base64 encoded file as part of the payload
+     "file": "nEOSQ7jbzBNg0Glup/FfeGDDzvLDvgEL36wcNpmbvKDgPy6+...",
+
      // Finally we sign this object with Dummy Bot's key
      "signature": {
         "type": "RsaSignature2016",
