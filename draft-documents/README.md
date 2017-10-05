@@ -23,9 +23,13 @@ Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 
 ## Current DID Spec
 
+Name | Lead | Link | Status
+---|---|---|---
 DID Spec | Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-spec/DID-Specification.html)
 
 ## Tech Talks
 
+Name | Lead | Link | Status
+---|---|---|---
 DID Client - Verifiable Claims Issuer | Manu | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-client-issuer/did-client-issuer.md)
 IoT Devices in BigChainDB Using DID | Gautam | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did%20-%20iot%20-%20bigchaindb/iot%20devices%20with%20dids%20on%20bigchaindb.md)
