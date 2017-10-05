@@ -20,7 +20,8 @@ header-includes:
   - \renewcommand{\figurename}{Fig.}
   - \usepackage[font=footnotesize,labelfont=bf]{caption}
   - \usepackage{tikz}
-  - \usetikzlibrary{shapes, arrows}
+  - \usetikzlibrary{shapes, arrows, patterns}
+  - \pgfplotsset{compat=1.14}
   - \renewcommand{\abstractname}{Abstract.}
   - \renewenvironment{abstract} {\small\quotation {\bfseries\noindent{\small\abstractname}\nobreak}} {\endquotation}
   - \usepackage{amsmath, amsthm, amssymb}
@@ -104,7 +105,6 @@ We will proceed to prove that any single such system may possess, at most, two o
   % \caption{Slepak's Triangle}
   \vspace{0.2cm}
 \end{figure}
-
 
 - **Consensus** means the system's state, $s$ is a _shared state_ that is updated by nodes running a _consensus algorithm_ over a network, and that furthermore, the output of _consensus algorithm_ determines the network's accepted output of $f_S$, and whether or not $f_S$ completes within $S_\tau$.
 - **Scale** means the system is capable of handling the transactional demands of any competing system providing the same service to the same arbitrary set of users across the globe (_"at scale"_).^[Examples of "services" include: streaming video, sending messages, maintaining balances on a ledger, etc.]
@@ -194,10 +194,73 @@ Let $S_1$ and $S_2$ be functioning consensus systems offering the same service t
 This follows directly from (Axiom~\ref{AxDmd}).
 \end{proof}
 
+\begin{figure}
+
+    \centering
+    \begin{tikzpicture}
+  	\begin{axis}[
+  	    domain=0:5,
+  	    xmin=-0.1, xmax=5.1, ymin=-0.1, ymax=5.1,
+  	    axis equal image,
+  	    set layers,
+  	    xlabel=Universe of users,
+  	%    xlabel style={scale=0.7},
+  	    xticklabels={},
+  	    xtick=\empty, ytick=\empty,
+  	%    axis line style={opacity=0.3},
+  	]
+  	\addplot [gray, only marks, mark=* , samples=500, mark size=0.75, on layer=axis background] {5*abs(rand)};
+  	\begin{pgfonlayer}{axis foreground}
+  		\draw (3.4,3.5) node [
+  			draw, ellipse, minimum width=3.5cm, minimum height=2.5cm, fill=pink, opacity=0.5,
+  			label={[scale=0.6,fill=white,draw,ultra thin]below:Users of $S_1$}
+  		] {};
+  		\draw (3.7,3.8) node [
+  			draw, ellipse, minimum width=2cm, minimum height=0.9cm, fill=green, opacity=0.5,
+  			label={[scale=0.5,fill=white]below:Consensus participants}
+  		] {};
+  	\end{pgfonlayer}
+  	\end{axis}
+    \end{tikzpicture}
+\end{figure}
+
 \begin{lemma}
 \label{LemCoord}
 The number of consensus participants decreases at scale, and therefore coordination costs decrease for systems at scale.
 \end{lemma}
+
+\begin{tikzpicture}
+
+    \begin{axis}[domain  = 0.97:2.3,
+                 samples = 100,
+                 xmin    = 1,
+                 xmax    = 2,
+                 ymin    = 0,
+                 ymax    = 1,
+                 ytick   = \empty,
+                 xtick   = \empty,
+                 xlabel  = {T(u)},
+                 ylabel  = {Number of nodes at T(u)},
+                 xlabel near ticks,
+                 ylabel near ticks,
+                 set layers,
+                ]
+      \addplot[thick, samples=400] {1/x^5};
+
+      \addplot [draw=none, fill=red!25, domain=1.8:2] {1/x^5} \closedcycle;
+      \addplot [draw=none, fill=blue!25, domain=1.6:1.8] {1/x^5} \closedcycle;
+
+      \node[anchor= north] at (axis cs: 1.122462048,-0.26) {$r_0$};
+      \draw[dashed,thin,color = blue] (axis cs: 1.6, 1 )-- (axis cs: 1.6, -0.5);
+  	\draw[dashed,thin,color = red] (axis cs: 1.8, 1 )-- (axis cs: 1.8, -0.5);      
+      \node[anchor = south] at (rel axis cs:0.94,0) {fast};
+      \node[anchor = south] at (rel axis cs:0.07,0) {slow};  
+      \node[anchor = north, color = red] at (rel axis cs:0.9,0.8) {T(S1)};
+
+      \node[anchor = north, color = blue] at (rel axis cs:0.7,0.8) {T(S2)};
+      \node[anchor = south] at (rel axis cs:0.94,0) {fast};     
+    \end{axis}
+\end{tikzpicture}
 
 \begin{proof}
 This follows from (Axiom~\ref{AxCompPow}), (Lemma~\ref{LemCoord}), and our definition of $C(S)$. \em{[TBD. details.]}
@@ -223,6 +286,10 @@ https://tex.stackexchange.com/questions/43610/plotting-bell-shaped-curve-in-tikz
 https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-graph
 -->
 
+_[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
+
+## OLD STUFF - Outdated brain dumps [To be deleted]
+
 \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
 \begin{tikzpicture}
@@ -237,9 +304,6 @@ grid = major]
 \end{axis}
 \end{tikzpicture}
 
-_[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
-
-## OLD STUFF - Outdated brain dumps [To be deleted]
 
 Our definitions do not allow us to write a definitive proof but they do allow for a probabilistic proof. Similarly, the choice of scope cannot be clearly defined for arbitrary systems, but must be arrived at by probability of what is "likely" to be a "reasonable" or "characteristic" scope of these systems.
 
