@@ -6,6 +6,7 @@
 * Mike Lodder, Evernym/Sovrin
 * Zachary Larson, Independent
 * Irene Hernandez, Independent 
+* Katryna Dow, Meeco
 
 
 
