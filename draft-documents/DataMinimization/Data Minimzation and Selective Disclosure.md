@@ -6,6 +6,7 @@
 * Mike Lodder, Evernym/Sovrin
 * Zachary Larson, Independent
 * Irene Hernandez, Independent 
+* Katryna Dow, Meeco
 
 ## Introduction
 Data minimization and selective disclosure (D&S, DataMin, SelDis) are very cool applications of crypto to do magic tricks, such as proving a person is over 25 years old without revealing their birthday or even which credential vouched for the person.
