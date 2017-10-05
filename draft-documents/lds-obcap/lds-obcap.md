@@ -4,13 +4,17 @@ By Christopher Allan Webber and Mark S. Miller
 
 ## Overview
 
-TODO: Explain Linked Data Signatures
+[Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/) bring
+a method of asserting integrity of linked data documents passed throughout
+the web.  The [object capability model](https://en.wikipedia.org/wiki/Object-capability_model)
+is a powerful system for ensuring the security of computing systems.
+In this paper, we explore layering an object capability model on top
+of Linked Data Signatures.
 
-TODO: Introduce the object capability model
-
-TODO: Describe that the mechanism described here can work with http(s)
-URIs.  However, if we combine with DIDs we can implement a fully
-decentralized object capability system on the web.
+The system we propose can work regardless of whether we are using
+https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/).
+Since DIDs work nicely with this system and add an additional layer of
+decentralization we use them for the URIs of this system.
 
 ## Example scenario
 
@@ -358,6 +362,7 @@ known to have such longstanding problems as:
  - lack of composability
 
 We can avoid these risks by using an object capability system such as
-the one described above.  Even more exciting is that by combining [[DIDs](https://w3c-ccg.github.io/did-spec/)
-we can build a decentralized object capability system to the web that
+the one described above.  Even more exciting is that by combining
+this system with [DIDs](https://w3c-ccg.github.io/did-spec/) we can
+build a fully decentralized object capability system to the web that
 is safe to use.
