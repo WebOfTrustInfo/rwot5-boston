@@ -18,7 +18,7 @@ GDPR | Marta | [Abstract](https://github.com/WebOfTrustInfo/rebooting-the-web-of
 Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
 Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/identity-hubs-capabilities-perspective.md)
 Identity Mental Maps | Joe A. | In Process
-IPID Method Spec | Jonny | [Offsite](https://github.com/jonnycrunch/ipid)
+IPID Method Spec | jonnycrunch | [Draft](https://github.com/jonnycrunch/ipid)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 
 ## Current DID Spec
