@@ -36,7 +36,7 @@ This is a DID method specification that conforms to the requirements specified i
 
 # Introduction (Informative)
 
-[[[ [1 paragraph] Managing DIDs on Bitcoin requires transactions with these characteristics: … Once a transaction has been submitted … Details follow. ]]]
+[[[ Managing DIDs on Bitcoin requires transactions with these characteristics: … Once a transaction has been submitted … Details follow. ]]]
 
 # Examples (Informative)
 
@@ -93,7 +93,7 @@ With minor edits, this is published at [https://example.com/mycontext.jsonld](ht
 
 ## Create (Register)
 
-<em>(Instructions from the DID spec: ](https://w3c-ccg.github.io/did-spec/#create)The DID method specification must specify how a client creates a DID record—the combination of a DID and its associated DDO—on the target system, including all cryptographic operations necessary to establish proof of ownership.)</em>
+<em>([Instructions from the DID spec: ](https://w3c-ccg.github.io/did-spec/#create)The DID method specification must specify how a client creates a DID record—the combination of a DID and its associated DDO—on the target system, including all cryptographic operations necessary to establish proof of ownership.)</em>
 
 [[[ To create a DID, you must submit a transaction that looks like this: …
 
@@ -125,25 +125,25 @@ We're trying to NOT suggest anything other than a fully composable capability at
 
 ## Delete (Revoke)
 
-[The method spec MUST define how to revoke a DID. Revocation is non-reversible.]
+<em>(The method spec MUST define how to revoke a DID. Revocation is non-reversible--do not confuse it with key rotation. For example, how would you handle the DID for a company that has declared bankruptcy?.)</em>
 
-[Instructions from the DID spec: ](https://w3c-ccg.github.io/did-spec/#delete/revoke)Although a core feature of distributed ledgers is immutability, the DID method specification must specify how a client can revoke a DID record on the target system, including all cryptographic operations necessary to establish proof of revocation.
+<em>[Instructions from the DID spec: ](https://w3c-ccg.github.io/did-spec/#delete/revoke)Although a core feature of distributed ledgers is immutability, the DID method specification must specify how a client can revoke a DID record on the target system, including all cryptographic operations necessary to establish proof of revocation.
 
-Revocation is the one way final operation for a DID.  No use after revocation is an equivalent problem to the double-spend problem, which is what motivates the use of blockchains and other distributed ledger technologies.
+Revocation is the one way final operation for a DID.  No use after revocation is an equivalent problem to the double-spend problem, which is what motivates the use of blockchains and other distributed ledger technologies.</em>
 
 # Versioning
 
 ## Version of this Specification
 
-[Define how this spec will be versioned. This SHOULD be by using the ReSpec template and standard ReSpec versioning mechanism.]]
+<em>(Define how this spec will be versioned. This SHOULD be by using the ReSpec template and standard ReSpec versioning mechanism.</em>
 
 ## Version of the JSON-LD Context
 
-<em>[Define how your JSON-LD context will be versioned. This MUST use the mechansim defined in the DID spec.]]</em>
+<em>(Define how your JSON-LD context will be versioned. This MUST use the mechansim defined in the DID spec.)</em>
 
 # Security Considerations
 
-[[See requirements in the DID spec]](https://w3c-ccg.github.io/did-spec/#security-considerations)
+<em>([See requirements in the DID spec](https://w3c-ccg.github.io/did-spec/#security-considerations)</em>
 
 ### attacks and their residual risks
 
