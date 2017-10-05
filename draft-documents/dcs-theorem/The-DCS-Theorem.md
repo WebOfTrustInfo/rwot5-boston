@@ -288,6 +288,7 @@ https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-gra
 
 _[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
 
+<!--
 ## OLD STUFF - Outdated brain dumps [To be deleted]
 
 \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
@@ -544,10 +545,11 @@ More users are forced to trust an increasingly smaller group to determine what t
 In reality, while _using_ the system may be less expensive, _participating_ in the system as an equally privileged node becomes significantly more expensive. The "increase" in capacity is also illusory, for by now the system has long exceeded its tolerable capacity for maintaining its decentralization.^[Threat of DDoS also goes up.]
 
 <!-- \clearpage -->
-
+<!--
 A feedback "death spiral" occurs:
 <!--
 https://tex.stackexchange.com/questions/2275/keeping-tables-figures-close-to-where-they-are-mentioned -->
+<!--
 \begin{figure}[H] % REQUIRED! or else "pandoc Paragraph ended before was complete"
 \centering
 % https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html
@@ -595,5 +597,6 @@ It's 75% of *users* not stake or CPU!
 PoS voting doesn't count if stake is centralized, and by Zipfs law we can expect it to be. Same for PoW.
 
 A human being physically cannot verify a vote count involving more people than what they can visually distinguish in their visual field of view without running into the Sybil attack or PoS (e.g. $1-1-vote).
+-->
 
 # References
