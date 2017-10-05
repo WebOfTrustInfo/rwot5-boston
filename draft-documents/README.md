@@ -6,7 +6,7 @@ Name | Lead | Link | Status
 ---|---|---|---
 Activity Pub Update | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/activitypub-decentralized-distributed/activitypub-decentralized-distributed.md)
 Amira: RWOT Use Case | Joe A. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/Amira-SSWOT-Engagement-Model.md)
-Blockcerts Revocation with DIDs | Kim |
+Blockcerts Revocation with DIDs | Kim | In Process
 Breaking (Down) the Law | Dazz | [Notes](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/BreakingDownAndConnectingLawAndTech) | 
 Certificate Chaining | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/lds-obcap/lds-obcap.md)
 Data Minimization & Selective Disclosure | Lionel | [Outline](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DataMinimization/Data%20Minimzation%20and%20Selective%20Disclosure.md)
@@ -16,8 +16,8 @@ DID Resolver | Markus | [Examples & Images](https://github.com/WebOfTrustInfo/re
 Four Primers | Joe, Natalie, Drummond, Manu | [DID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-primer.md) -- [Functional ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/functional-identity-primer.md) -- [Self-Sovereign ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/self-sovereign-identity-primer.md) -- [Verifiable Claims](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/verifiable-claims-primer.md)
 GDPR | Marta | [Abstract](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/GDPR-Self-Soverign-ID)
 Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
-Identity Hubs Capabilities Perspective | Adrian | 
-Identity Mental Maps | Joe A. |
+Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/identity-hubs-capabilities-perspective.md)
+Identity Mental Maps | Joe A. | In Process
 IPID Method Spec | Jonny | [Offsite](https://github.com/jonnycrunch/ipid)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 
