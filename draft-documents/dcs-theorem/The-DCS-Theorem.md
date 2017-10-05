@@ -163,47 +163,18 @@ Today, however, there are significantly fewer consensus participants in Bitcoin,
 
 We can approximate the coordination costs $C(S)$ of any consensus system as simply the number of consensus participants:
 
-$$C(S) = \|\mathtt{consensus\_participants}(\{S\})\|$$
-
-## Proof
-
-We seek to prove the following restatement of the DCS Triangle:
-
-\begin{theorem}
-Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
-\end{theorem}
-
-Given these axioms:
-
-\begin{axiom}
-\label{AxCompPow}
-In any sufficiently large population (at scale), individual access to computational power is not distributed uniformly. Most individuals have access to average computational power, and a few have access to large amounts.
-\end{axiom}
-
-\begin{axiom}
-\label{AxDmd}
-In any two systems offering the same service to the same large population, the transactional demands of the average user converge at scale.
-\end{axiom}
-
-\begin{lemma}
-\label{LemTxn}
-Let $S_1$ and $S_2$ be functioning consensus systems offering the same service to the same population of users at scale. Let $N$ be a function returning the number of active users on the system. If $N(S_1) > N(S_2)$, then $T(S_1) > T(S_2)$ converges to a true statement as the value $N(S_1) - N(S_2)$ increases.
-\end{lemma}
-
-\begin{proof}
-This follows directly from (Axiom~\ref{AxDmd}).
-\end{proof}
+$$C(S) = \mathtt{num\_consensus\_participants}(\{S\})$$
 
 \begin{figure}
 
     \centering
     \begin{tikzpicture}
-  	\begin{axis}[
+    \begin{axis}[
   	    domain=0:5,
   	    xmin=-0.1, xmax=5.1, ymin=-0.1, ymax=5.1,
-  	    axis equal image,
+  	%   axis equal image,
   	    set layers,
-  	    xlabel=Universe of users,
+  	    xlabel=Population of users,
   	%    xlabel style={scale=0.7},
   	    xticklabels={},
   	    xtick=\empty, ytick=\empty,
@@ -211,26 +182,41 @@ This follows directly from (Axiom~\ref{AxDmd}).
   	]
   	\addplot [gray, only marks, mark=* , samples=500, mark size=0.75, on layer=axis background] {5*abs(rand)};
   	\begin{pgfonlayer}{axis foreground}
-  		\draw (3.4,3.5) node [
-  			draw, ellipse, minimum width=3.5cm, minimum height=2.5cm, fill=pink, opacity=0.5,
-  			label={[scale=0.6,fill=white,draw,ultra thin]below:Users of $S_1$}
+  		\draw (3.5,3.5) node [
+  			ellipse, minimum width=3.7cm, minimum height=2.5cm, fill=pink, opacity=0.6,
+  			label={[scale=0.8,fill=white,draw,ultra thin]below:Users of $S_1$}
   		] {};
   		\draw (3.7,3.8) node [
-  			draw, ellipse, minimum width=2cm, minimum height=0.9cm, fill=green, opacity=0.5,
-  			label={[scale=0.5,fill=white]below:Consensus participants}
+  			ellipse, minimum width=2cm, minimum height=0.9cm, fill=green, opacity=0.5,
+  			label={[scale=0.7,fill=white]below:Consensus participants}
   		] {};
   	\end{pgfonlayer}
   	\end{axis}
     \end{tikzpicture}
+    \caption{foo bar baz}
 \end{figure}
 
-\begin{lemma}
-\label{LemCoord}
-The number of consensus participants decreases at scale, and therefore coordination costs decrease for systems at scale.
-\end{lemma}
+## Proof
 
-\begin{tikzpicture}
+<!-- \begin{theorem}
+Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
+\end{theorem} -->
 
+\begin{theorem}
+A consensus system that is decentralized initially, tends toward centralization as it scales to meet the demands of competing (and functionally equivalent) centralized consensus systems.
+\end{theorem}
+
+We begin with the following axioms accepted as true:
+
+\begin{axiom}
+\label{AxCompPow}
+In any sufficiently large population (at scale), individual access to computational power is not distributed uniformly. Most individuals have access to average computational power, and a few have access to large amounts.
+\end{axiom}
+
+\begin{figure}
+
+    \centering
+    \begin{tikzpicture}
     \begin{axis}[domain  = 0.97:2.3,
                  samples = 100,
                  xmin    = 1,
@@ -239,8 +225,65 @@ The number of consensus participants decreases at scale, and therefore coordinat
                  ymax    = 1,
                  ytick   = \empty,
                  xtick   = \empty,
-                 xlabel  = {T(u)},
-                 ylabel  = {Number of nodes at T(u)},
+                 xlabel  = {Throughput capability},
+                 ylabel  = {\# users with capability},
+                 xlabel near ticks,
+                 ylabel near ticks,
+                 set layers,
+                ]
+      \addplot[thick, samples=400] {1/x^5};      
+      \node[anchor = south] at (rel axis cs:0.94,0) {fast};
+      \node[anchor = south] at (rel axis cs:0.07,0) {slow};  
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Visualization of (Axiom~\ref{AxCompPow}).}
+\label{fig:CP}
+\end{figure}
+
+\begin{axiom}
+\label{AxDmd}
+In any two systems offering the same service to the same large population, the transactional demands of the average user converge at scale.
+\end{axiom}
+
+From those axioms, we derive the following lemmas:
+
+\begin{lemma}
+\label{LemTxn}
+Let $S_1$ and $S_2$ be consensus systems offering the same service to the same population of users at scale. Let $N$ be a function returning the number of users of a given system. If $N(S_1) > N(S_2)$, and if both systems remain uncompromised as they gain users, then $T(S_1) > T(S_2)$ converges to a true statement as the value $N(S_1) - N(S_2)$ increases.
+\end{lemma}
+
+\begin{proof}
+This follows directly from (Axiom~\ref{AxDmd}) and from the assertion that both systems remain uncompromised (indicating they are indeed processing messages on time as they gain more users).
+\end{proof}
+
+\begin{lemma}
+\label{LemCP}
+Let $S$ be a decentralized consensus system with a growing number of users. The number of users who can act as consensus participants decreases, and therefore, $C(S)$, decreases at scale.
+\end{lemma}
+
+\begin{proof}
+As a system $S$ gains more users the throughput of the system, $T(S)$ increases, per (Lemma~\ref{LemTxn}). By (Axiom~\ref{AxCompPow}), the number of individuals capable of handling that throughput decreases. Since $S$ starts out decentralized, there does not exist a single entity controlling who the participants are, and therefore some users who previously chose to play the role consensus participants are no longer able. Therefore $C(S)$ decreases as well.
+\end{proof}
+
+\begin{lemma}
+\label{LemCoord}
+Let $S$ be a decentralized consensus system. Coordination costs for $S$ decrease at scale.
+\end{lemma}
+
+\begin{figure}
+
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[domain  = 0.97:2.3,
+                 samples = 100,
+                 xmin    = 1,
+                 xmax    = 2,
+                 ymin    = 0,
+                 ymax    = 1,
+                 ytick   = \empty,
+                 xtick   = \empty,
+                 xlabel  = {Throughput capability},
+                 ylabel  = {\# users with capability},
                  xlabel near ticks,
                  ylabel near ticks,
                  set layers,
@@ -250,35 +293,29 @@ The number of consensus participants decreases at scale, and therefore coordinat
       \addplot [draw=none, fill=red!25, domain=1.8:2] {1/x^5} \closedcycle;
       \addplot [draw=none, fill=blue!25, domain=1.6:1.8] {1/x^5} \closedcycle;
 
-      \node[anchor= north] at (axis cs: 1.122462048,-0.26) {$r_0$};
       \draw[dashed,thin,color = blue] (axis cs: 1.6, 1 )-- (axis cs: 1.6, -0.5);
-  	\draw[dashed,thin,color = red] (axis cs: 1.8, 1 )-- (axis cs: 1.8, -0.5);      
+      \draw[dashed,thin,color = red] (axis cs: 1.8, 1 )-- (axis cs: 1.8, -0.5);      
       \node[anchor = south] at (rel axis cs:0.94,0) {fast};
       \node[anchor = south] at (rel axis cs:0.07,0) {slow};  
-      \node[anchor = north, color = red] at (rel axis cs:0.9,0.8) {T(S1)};
-
-      \node[anchor = north, color = blue] at (rel axis cs:0.7,0.8) {T(S2)};
-      \node[anchor = south] at (rel axis cs:0.94,0) {fast};     
+      \node[anchor = north, color = red] at (rel axis cs:0.9,0.8) {$C(S_2)$};
+      \node[anchor = north, color = blue] at (rel axis cs:0.7,0.8) {$C(S_1)$};
     \end{axis}
-\end{tikzpicture}
+    \end{tikzpicture}
+    \caption{Highlighted regions show .. TBD.}
+\label{fig:CPS}
+\end{figure}
 
 \begin{proof}
-This follows from (Axiom~\ref{AxCompPow}), (Lemma~\ref{LemCoord}), and our definition of $C(S)$. \em{[TBD. details.]}
+For our proof we are only interested in what happens to decentralized consensus systems at scale. By (Lemma~\ref{LemCP}) and our definition of $C(S)$, it directly follows that the coordination costs of decentralized consensus systems decrease at scale. Figure~\ref{fig:CPS} visualizes this point.
 \end{proof}
 
 \begin{lemma}
-"Increasing decentralization" of a consensus system at scale means making it slower and less capable of scale, therefore increase scale makes a system less capable of decentralization.
-\end{lemma}
-
-Follows from slow participants concept.
-
-\begin{lemma}
 \label{LemCensor}
-The probability that $\{S\}$ contains a cartel capable of colluding to censor transactions approaches 1 at scale.
+Let $S$ be a decentralized consensus system. The probability that $\{S\}$ contains a cartel capable of colluding to censor transactions increases at scale, and therefore $S$ tends toward centralization.
 \end{lemma}
 
 \begin{proof}[Proof of the Main Theorem]
-foobar.
+From (Lemma~\ref{LemCoord}), the coordination costs in consensus systems decreases at scale, because there are fewer consensus participants. Since there are fewer consensus participants it is easier for them to identify each other and coordinate to form a cartel with the ability to compromise the consensus algorithm, and therefore the system. If a cartel coordinates to successfully compromise the system, the system is no longer decentralized (by our definition). Therefore, since the probability of cartel formation increases at scale, the probability of centralization increases as well.
 \end{proof}
 
 <!--
@@ -286,7 +323,9 @@ https://tex.stackexchange.com/questions/43610/plotting-bell-shaped-curve-in-tikz
 https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-graph
 -->
 
-_[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
+## Acknowledgements
+
+The author would like to thank Anya Petrova for her assistance.
 
 <!--
 ## OLD STUFF - Outdated brain dumps [To be deleted]
