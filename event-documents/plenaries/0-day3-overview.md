@@ -1,0 +1,7 @@
+The final day of the Web of Trust design workshops tends to be the quietest day. We get started a little later and then have a shorter day. Today we had six hours to finish up work on our papers, to get them to a first draft before we split apart and headed back to our homes.
+
+Amazingly, rather than losing a few papers over the course of the workshop, this time they multiplied. The 8-9 planned papers, specs, and code repos [blossomed to 16](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/README.md) by this final day. Some of the outputs were relatively short, such as a DID template and some DID method specs, but these are the exact sort of thing that can be valuably generated at a workshop of this type by bringing together all of the involved people and getting them talking. 
+
+Substantive work for almost all of the projects was uploaded to the [drafts document](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents) by the end of the day. Overall, this is the highest amount of deliverables that we've ever seen for a RWOT conference, supported in large part by the highest turnout ever. With so much work that is rapidly maturing, it seems likely that we'll also see the largest amount of final work ever, over the next couple of months.
+
+The final day of RWOT5 ended with a look at this fifth conference and at the movement overall.
