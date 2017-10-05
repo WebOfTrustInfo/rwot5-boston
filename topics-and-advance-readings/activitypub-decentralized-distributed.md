@@ -1,6 +1,9 @@
 *This paper was written originally for the 2017 Rebooting Web of Trust*
 *summit.*
 
+**Contributors**
+* Christopher Webber, Independent
+
 # Introduction
 
 [ActivityPub](https://www.w3.org/TR/activitypub/) is a protocol being developed at the [W3C](https://www.w3.org/) for the purpose
