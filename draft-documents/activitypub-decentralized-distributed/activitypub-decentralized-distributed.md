@@ -3,6 +3,7 @@
 
 **Contributors**
 * Christopher Webber, Independent
+* Manu Sporny, Digital Bazaar
 
 # Introduction
 
@@ -61,7 +62,7 @@ has:
 -   An **inbox**:  How they get messages from the world
 -   An **outbox**: How they send messages to others
 
-![img](./activitypub-decentralized-distributed-diagrams/tutorial-1.png "Actor with inbox and outbox")
+![img](./static/tutorial-1.png "Actor with inbox and outbox")
 
 These are endpoints, or really, just URLs which are listed in the
 ActivityPub actor's ActivityStreams description.
@@ -103,7 +104,7 @@ her!
 Luckily these "inbox" and "outbox" things can help us out.
 They both behave differently for GET and POST.
 
-![img](./activitypub-decentralized-distributed-diagrams/tutorial-2.png "Actor with messages flowing from rest of world to inbox and from outbox to rest of world")
+![img](./static/tutorial-2.png "Actor with messages flowing from rest of world to inbox and from outbox to rest of world")
 
 So the full workflow is:
 
@@ -141,7 +142,7 @@ Here's the message she composes, as an ActivityStreams object:
 This is a note addressed to Ben.
 She POSTs it to her outbox.
 
-![img](./activitypub-decentralized-distributed-diagrams/tutorial-3.png "Actor posting message to outbox")
+![img](./static/tutorial-3.png "Actor posting message to outbox")
 
 Since this is a non-activity object, the server recognizes that this is
 an object being newly created, and does the courtesy of wrapping it in
@@ -167,14 +168,14 @@ Person.)
 Alyssa's server looks up Ben's ActivityStreams actor object, finds his
 inbox endpoint, and POST's her object to his inbox.
 
-![img](./activitypub-decentralized-distributed-diagrams/tutorial-4.png "Server posting to remote actor's inbox")
+![img](./static/tutorial-4.png "Server posting to remote actor's inbox")
 
 Technically these are two separate steps&#x2026; one is client to server
 communication, and one is server to server communication (federation).
 But, since we're using them both in this example, we can abstractly
 think of this as being a streamlined submission from outbox to inbox.
 
-![img](./activitypub-decentralized-distributed-diagrams/tutorial-5.png "Note flowing from one actor's outbox to other actor's inbox")
+![img](./static/tutorial-5.png "Note flowing from one actor's outbox to other actor's inbox")
 
 A while later, Alyssa checks what new messages she's gotten.
 Her phone polls her inbox via GET, and amongst a bunch of cat videos
@@ -503,16 +504,18 @@ as a [DDO](https://w3c-ccg.github.io/did-spec/#ddos-(did-descriptor-objects)), b
       "@context": ["https://example.org/did/v1",
                    "https://www.w3.org/ns/activitystreams"],
       "id": "did:example:d20Hg0teN72oFeo0iNYrblwqt",
-      // ActivityPub actor information
-      "type": "Person",
-      "name": "Alyssa P. Hacker",
-      "preferredUsername": "alyssa",
-      "summary": "Lisp enthusiast hailing from MIT",
-      "inbox": "https://9GaksjPhy0mWToTV.onion/alyssa/inbox/",
-      "outbox": "https://9GaksjPhy0mWToTV.onion/alyssa/outbox/",
-      "followers": "https://9GaksjPhy0mWToTV.onion/alyssa/followers/",
-      "following": "https://9GaksjPhy0mWToTV.onion/alyssa/following/",
-      "liked": "https://9GaksjPhy0mWToTV.onion/alyssa/liked/",
+      "activityPubService": {
+        "id": "did:example:d20Hg0teN72oFeo0iNYrblwqt#services/ActivityPub",
+        // ActivityPub actor information
+        "type": "Person",
+        "name": "Alyssa P. Hacker",
+        "preferredUsername": "alyssa",
+        "summary": "Lisp enthusiast hailing from MIT",
+        "inbox": "https://9GaksjPhy0mWToTV.onion/alyssa/inbox/",
+        "outbox": "https://9GaksjPhy0mWToTV.onion/alyssa/outbox/",
+        "followers": "https://9GaksjPhy0mWToTV.onion/alyssa/followers/",
+        "following": "https://9GaksjPhy0mWToTV.onion/alyssa/following/",
+        "liked": "https://9GaksjPhy0mWToTV.onion/alyssa/liked/"},
       // DDO information
       "owner": [{
         "id": "did:example:d20Hg0teN72oFeo0iNYrblwqt#key-1",
@@ -565,19 +568,21 @@ Here's a cut down and modified version of the previous example:
       "@context": ["https://example.org/did/v1",
                    "https://www.w3.org/ns/activitystreams"],
       "id": "did:example:d20Hg0teN72oFeo0iNYrblwqt",
-      // ActivityPub actor information
-      "type": "Person",
-      "name": "Alyssa P. Hacker",
-      "preferredUsername": "alyssa",
-      "summary": "Lisp enthusiast hailing from MIT",
-      "inbox": "did:example:d20Hg0teN72oFeo0iNYrblwqt/inbox/",
-      "outbox": "did:example:d20Hg0teN72oFeo0iNYrblwqt/outbox/",
-      "followers": "did:example:d20Hg0teN72oFeo0iNYrblwqt/followers/",
-      "following": "did:example:d20Hg0teN72oFeo0iNYrblwqt/following/",
-      "liked": "did:example:d20Hg0teN72oFeo0iNYrblwqt/liked/",
+      "activityPubService": {
+        "id": "did:example:d20Hg0teN72oFeo0iNYrblwqt#services/ActivityPub",
+        // ActivityPub actor information
+        "type": "Person",
+        "name": "Alyssa P. Hacker",
+        "preferredUsername": "alyssa",
+        "summary": "Lisp enthusiast hailing from MIT",
+        "inbox": "did:example:d20Hg0teN72oFeo0iNYrblwqt/inbox/",
+        "outbox": "did:example:d20Hg0teN72oFeo0iNYrblwqt/outbox/",
+        "followers": "did:example:d20Hg0teN72oFeo0iNYrblwqt/followers/",
+        "following": "did:example:d20Hg0teN72oFeo0iNYrblwqt/following/",
+        "liked": "did:example:d20Hg0teN72oFeo0iNYrblwqt/liked/"},
       // DDO information goes here
-      "service": {
-        "httpeer": "dI0tuXjISZEadSH6QV9EhBEdccL4ouePdF8P57BJ"}}
+      "httpeerService": {
+        "nodeId": "dI0tuXjISZEadSH6QV9EhBEdccL4ouePdF8P57BJ"}}
 ```
 
 
@@ -663,7 +668,7 @@ It is worth spending some time to
 discuss what is meant by "centralized" versus "distributed" versus
 "decentralized".
 
-![img](./activitypub-decentralized-distributed-diagrams/centralized_decentralized_distributed.png "Centralized, Decentralized, and Distributed drawings, from 'On Distributed Communications, part 1' by Paul Baran, 1964")
+![img](./static/centralized_decentralized_distributed.png "Centralized, Decentralized, and Distributed drawings, from 'On Distributed Communications, part 1' by Paul Baran, 1964")
 
 In the figure above we see images from
 Paul Baran's 1964 paper on the subject, and from these shapes we can
