@@ -82,6 +82,7 @@ We need to show how the future is quickly changing, to build the bridge to it, a
    * Better timing with regard to other events.
    * Illustrations, even video clips
       * (Problem is cost.)
+   * Mentorships between existing and new members.
 
 ## When Will We Next Meet?
 
