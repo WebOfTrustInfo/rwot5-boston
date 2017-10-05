@@ -18,11 +18,11 @@ It is RECOMMENDED to use the [ReSpec](https://github.com/w3c/respec/wiki) format
 
 In the following template, variables are denoted in [square brackets] and highlighted in <em>italics</em>.
 
-Examples of section content content appear in green.
+Examples of section content content appear in [[[ three square brackets ]]].
 
-[Name] DID Method Specification V[x]
+<em>[Name]</em> DID Method Specification V<em>[x]</em>
 
-[Author], [Affiliation]
+<em>[Author], [Affiliation]</em>
 
 # Preface
 
@@ -30,25 +30,25 @@ This is a DID method specification that conforms to the requirements specified i
 
 # Abstract
 
-[recommended]
+<em>[recommended]</em>
 
 The Bitcoin Reference (btcr) method for managing DIDs on Bitcoin is formally specified.
 
 # Introduction (Informative)
 
-[introductory content]
+<em>[introductory content]</em>
 
 # [1 paragraph] Managing DIDs on Bitcoin requires transactions with these characteristics: … Once a transaction has been submitted … Details follow.
 
 # Examples (Informative)
 
-[examples of DID documents or other artifacts used by this method]
+<em>[examples of DID documents or other artifacts used by this method]</em>
 
 # Target System(s)
 
-[Describe the system or systems which are the target of this DID method. The target system may be any DLT or other distributed network or other system capable of supporting the CRUD operations. This section should also specify any constraints it assumes or imposes on the target system.]
+<em>[Describe the system or systems which are the target of this DID method. The target system may be any DLT or other distributed network or other system capable of supporting the CRUD operations. This section should also specify any constraints it assumes or imposes on the target system.]</em>
 
-# This targets Bitcoin consensus rules exactly equal to the ones in binary X with hash Y. (Any time the binary changes, the spec will have to be updated accordingly, to clarify how it relates to forks and other evolution.)
+[[[ This targets Bitcoin consensus rules exactly equal to the ones in binary X with hash Y. (Any time the binary changes, the spec will have to be updated accordingly, to clarify how it relates to forks and other evolution.) ]]]
 
 # DID Method Name
 
