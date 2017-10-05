@@ -84,4 +84,37 @@
 	    "publicKeyPem" : "-----BEGIN PUBLIC KEY-----\r\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjBdn1zUIUFrjoO8ZnHCM\r\nrvvNIoruTW8e5stPJ2Zv8Py0RJiO6N4d/pr3L7AptWo4RDt6kI/KF6iBf8BFiRr/\r\nJw+/ZF8N9r2rXzLuE+P/foQwi5SC51/vKa3STptGc8sRvx5T3++gcIMu6jS0JExZ\r\nasYS3Gw75szL4mRpxXxJOSQwSS5nmPZljMxc9A/SML0vLN0zxuUHjoUXUdRGltfu\r\nzI8lqTvIP2aVSFO8zyAAXCDzky6IFNncSfh3d8PdMYLB2n9yoR8WATO5P+M6jFx3\r\nNSOJ6n/Tv18kYg5oe0BFokhEJEbsXrqjPdi/5oij6HOZQJBw6UfbKW2zDKf0JYNc\r\n4wIDAQAB\r\n-----END PUBLIC KEY-----\r\n"
 	  } ]
 	}
-                                                                
+
+## did:ipid 
+
+	curl -i -X GET  https://ipfs.io/ipns/QmbFuwbp7yFDTMX6t8HGcEiy3iHhfvng89A19naCYGKE
+	
+	{ "@context": "/ipfs/QmfS56jDfrXNaS6Xcsp3RJiXd2wyY7smeEAwyTAnL1RhEG",
+	"id": "did:ipid:QmcEF77C6QKj6Rzru7MR2N5tSM33PHQYEqXYzQuVHHAvvv",
+	"owner": [{ 
+	  "id": "did:ipid:QmcEF77C6QKj6Rzru7MR2N5tSM33PHQYEqXYzQuVHHAvvv",
+	  "type": ["CryptographicKey", "EdDsaPublicKey"],
+	  "curve": "ed25519",
+	  "expires": "2017-11-08T16:02:20Z",
+	  "publicKeyBase64": "lji9qTtkCydxtez/bt1zdLxVMMbz4SzWvlqgOBmURoM="
+	}, {
+	  "id": "did:ipid:QmcEF77C6QKj6Rzru7MR2N5tSM33PHQYEqXYzQuVHHAvvv",
+	  "type": ["CryptographicKey", "RsaPublicKey"],
+	  "expires": "2017-03-22T00:00:00Z",
+	  "publicKeyPem": "----BEGIN PUBLIC KEY-----\r\nMIIBOgIBAAJBAKkbSUT9/Q2uBfGRau6/XJyZhcF5abo7b37I5hr3EmwGykdzyk8GSyJK3TOrjyl0sdJsGbFmgQaRyV\r\n-----END PUBLIC KEY-----"
+	}],
+	  "control": [{
+	  "type": "OrControl",
+	  "signer": [ "did:eth:0xd3382e07f2173270ef43817ab1b4e1cdeb36f23b", "did:sov:8uQhQMGzWxR8vw5P3UWH1j" ]
+	}],
+	  "service": {
+	  "did": "did:eth:0x641073322a9aa53fcf025587f86226fe358da1ef2c2e4dcb989d610e9dbf6b9a",
+	},
+	  "created": "2017-09-24T17:00:00Z",
+	  "updated": "2017-10-04T02:41:00Z",
+	  "signature": {
+	    "type": "RsaSignature2016",
+	    "created": "2016-02-08T16:02:20Z",
+	    "creator": "did:ipid:QmeJGfbW6bhapSfyjV5kDq5wt3h2g46Pwj15pJBVvy7jM3",
+	   "signatureValue": "IOmA4R7TfhkYTYW87z640O3GYFldw0yqie9Wl1kZ5OBYNAKOwG5uOsPRK8/2C4STOWF+83cMcbZ3CBMq2/gi25s="
+	}}

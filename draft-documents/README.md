@@ -15,9 +15,16 @@ DID Method Spec Templates | Drummond | [Draft](https://github.com/WebOfTrustInfo
 DID Resolver | Markus | [Examples & Images](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/UniversalResolver)
 Four Primers | Joe, Natalie, Drummond, Manu | [DID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-primer.md) -- [Functional ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/functional-identity-primer.md) -- [Self-Sovereign ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/self-sovereign-identity-primer.md) -- [Verifiable Claims](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/verifiable-claims-primer.md)
 GDPR | Marta | [Abstract](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/GDPR-Self-Soverign-ID)
+<<<<<<< HEAD
+Hub Asset Access Control System  | Daniel B. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
+Hub->OCAP Model |  | (There's a file)
+Identity Hubs Capabilities Perspective | Adrian | 
+Identity Mental Maps | Joe A. |
+=======
 Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
 Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/identity-hubs-capabilities-perspective.md)
 Identity Mental Maps | Joe A. | In Process
+>>>>>>> 0f0b4911df1b37af9dbdb4dd484805ab8a801386
 IPID Method Spec | jonnycrunch | [Draft](https://github.com/jonnycrunch/ipid)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 
