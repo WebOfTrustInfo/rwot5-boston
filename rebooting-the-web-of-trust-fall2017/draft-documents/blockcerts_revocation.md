@@ -1,6 +1,10 @@
 [![](https://img.shields.io/badge/In%20progress--yellow.svg)]()
 # DIDs for Blockcerts' Certificate Revocation
 
+By João Santos (Instituto Superior Técnico) and Kim Hamilton Duffy (Learning Machine)
+
+This is a proposal for an architecture of Blockcerts' certificate revocation using Ethereum smart-contracts and it follows the "Hypercerts Thesis Proposal".
+
 ## Abstract
 
 Blockcerts are blockchain issued certificates compliant with Open Badges (currently being migrated to Verifiable Claims). This proposal aims at improving Blockcerts' revocation capabilities by using DIDs for identifying and authenticating parties for certificate revocation.
