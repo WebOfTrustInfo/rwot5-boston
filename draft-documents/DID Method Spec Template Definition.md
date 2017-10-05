@@ -16,7 +16,7 @@ It is RECOMMENDED to use the [ReSpec](https://github.com/w3c/respec/wiki) format
 
 # Notation
 
-In the following template, variables are denoted in [square brackets] and highlighted in <span style="color:magenta">magenta</span>. 
+In the following template, variables are denoted in [square brackets] and highlighted in <em>italics</em>.
 
 Examples of section content content appear in green.
 
