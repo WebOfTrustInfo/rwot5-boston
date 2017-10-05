@@ -19,7 +19,7 @@ Hub Asset Access Control System  | Daniel B. | [Revision](https://github.com/Web
 Hub->OCAP Model |  | (There's a file)
 Identity Hubs Capabilities Perspective | Adrian | 
 Identity Mental Maps | Joe A. |
-IPID Method Spec | Jonny |
+IPID Method Spec | jonnycrunch | [Draft](https://github.com/jonnycrunch/ipid)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 
 ## Current DID Spec
