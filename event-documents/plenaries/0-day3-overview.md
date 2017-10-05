@@ -4,4 +4,4 @@ Amazingly, rather than losing a few papers over the course of the workshop, this
 
 Substantive work for almost all of the projects was uploaded to the [drafts document](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents) by the end of the day. Overall, this is the highest amount of deliverables that we've ever seen for a RWOT conference, supported in large part by the highest turnout ever. With so much work that is rapidly maturing, it seems likely that we'll also see the largest amount of final work ever, over the next couple of months.
 
-The final day of RWOT5 ended with a look at this fifth conference and at the movement overall.
+The final day of RWOT5 ended with a look at this fifth conference and at the movement overall. We're planning our next conference somewhere on the west coast, possibly Santa Barbara, San Francisco, Seattle, or Vancouver, possibly in February. The exact date should be announcefd at IIW, in two weeks.
