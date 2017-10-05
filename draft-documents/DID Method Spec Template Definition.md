@@ -16,13 +16,11 @@ It is RECOMMENDED to use the [ReSpec](https://github.com/w3c/respec/wiki) format
 
 # Notation
 
-In the following template, variables are denoted in [square brackets] and highlighted in <em>italics</em>.
+In the following template, variables are denoted in [square brackets]. Explanatory comments are highlighted in <em>italics</em>. Examples of section content content appear in [[[ three square brackets ]]].
 
-Examples of section content content appear in [[[ three square brackets ]]].
+# <em>[Name]</em> DID Method Specification V<em>[x]</em>
 
-<em>[Name]</em> DID Method Specification V<em>[x]</em>
-
-<em>[Author], [Affiliation]</em>
+# <em>[Author], [Affiliation]</em>
 
 # Preface
 
@@ -32,13 +30,13 @@ This is a DID method specification that conforms to the requirements specified i
 
 <em>[recommended]</em>
 
-The Bitcoin Reference (btcr) method for managing DIDs on Bitcoin is formally specified.
+[[[ The Bitcoin Reference (btcr) method for managing DIDs on Bitcoin is formally specified. ]]]
 
 # Introduction (Informative)
 
 <em>[introductory content]</em>
 
-# [1 paragraph] Managing DIDs on Bitcoin requires transactions with these characteristics: … Once a transaction has been submitted … Details follow.
+[[[ [1 paragraph] Managing DIDs on Bitcoin requires transactions with these characteristics: … Once a transaction has been submitted … Details follow. ]]]
 
 # Examples (Informative)
 
@@ -54,13 +52,13 @@ The Bitcoin Reference (btcr) method for managing DIDs on Bitcoin is formally spe
 
 The namestring that shall identify this DID method is:
 
-	[methodname]
+	<em>[methodname]</em>
 
-btcr
+	[[[ btcr ]]]
 
 A DID that uses this method MUST begin with the following prefix:
 
-	did:[methodname]
+	did:<em>[methodname]</em>
 
 Per the DID specification, this string MUST be in lowercase.
 
@@ -68,7 +66,7 @@ Per the DID specification, this string MUST be in lowercase.
 
 ## Namestring Generation Method
 
-[definition of how the NSI is generated under this method]
+<em>[definition of how the NSI is generated under this method] </em>
 
 ## ABNF Definition
 
