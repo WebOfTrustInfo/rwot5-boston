@@ -353,9 +353,10 @@ not only the traditional web but even into systems like distributed
 ledger technologies and so on.  Unfortunately, security is frequently
 difficult on Linked Data Systems.
 
-For example, [SoLiD](https://solid.mit.edu/) is overall a well structured system but
-unfortunately plagued by the use of access control lists, which are
-known to have such longstanding problems as:
+For example, [SoLiD](https://solid.mit.edu/) directly uses and
+[ActivityPub](https://www.w3.org/TR/activitypub/) indirectly implies
+Access Control Lists.  Unfortunately these are are known to plague
+systems with problems, particularly:
 
  - excess authority leading to needless vulnerability
  - ambient authority leading to confused deputy problems
