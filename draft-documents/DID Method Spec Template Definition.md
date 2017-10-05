@@ -161,7 +161,7 @@ Confused Deputy Problem
   When attempting separation of writeAuthorization from authenticationCredential. 
 
   [https://en.wikipedia.org/wiki/Confused_deputy_problem](https://en.wikipedia.org/wiki/Confused_deputy_problem)
-<pre>
+</pre>
 
 Other sections from DID spec to incorporate into the outline:
 
