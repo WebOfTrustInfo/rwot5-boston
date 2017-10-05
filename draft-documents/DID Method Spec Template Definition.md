@@ -16,7 +16,7 @@ It is RECOMMENDED to use the [ReSpec](https://github.com/w3c/respec/wiki) format
 
 # Notation
 
-In the following template, variables are denoted in [square brackets] and highlighted in magenta. 
+In the following template, variables are denoted in [square brackets] and highlighted in <span style="color:magenta">magenta</span>. 
 
 Examples of section content content appear in green.
 
@@ -83,10 +83,11 @@ Per the DID specification, this string MUST be in lowercase.
 [If your method involves storing any state in a DID document for purposes of controlling updates to the DID document, you MUST define a JSON-LD context in this section.]
 
 The official definition of the btcr JSON-LD context is:
-
+<pre>
 {   "@context":   {      "Person": "http://xmlns.com/foaf/0.1/Person",      "xsd": "http://www.w3.org/2001/XMLSchema#",      "name": "http://xmlns.com/foaf/0.1/name",      "nickname": "http://xmlns.com/foaf/0.1/nick",      "affiliation": "http://schema.org/affiliation",      "depiction":      {         "@id": "http://xmlns.com/foaf/0.1/depiction",         "@type": "@id"      },      "image":      {         "@id": "http://xmlns.com/foaf/0.1/img",         "@type": "@id"      }
 
 }
+</pre>
 
 With minor edits, this is published at [https://example.com/mycontext.jsonld](https://example.com/mycontext.jsonld).  Changes are expected as this template evolves...
 
