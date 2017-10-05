@@ -95,4 +95,4 @@ February?
 _We will announce at IIW._
 
 Possible Helpers for West Coast:
-   * Tim — tim.li.chen@gmail.com
+   * Tim  Li Chen
