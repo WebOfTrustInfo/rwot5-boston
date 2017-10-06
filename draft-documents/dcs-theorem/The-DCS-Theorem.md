@@ -2,7 +2,7 @@
 title: "\\textbf{The DCS Theorem}"
 author: Greg Slepak
 date: \small October 4, 2017
-abstract: "We present a probabilistic proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
+abstract: "We present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
 # output: pdf_document
 output:
   pdf_document:
@@ -20,7 +20,8 @@ header-includes:
   - \renewcommand{\figurename}{Fig.}
   - \usepackage[font=footnotesize,labelfont=bf]{caption}
   - \usepackage{tikz}
-  - \usetikzlibrary{shapes, arrows}
+  - \usetikzlibrary{shapes, arrows, patterns}
+  - \pgfplotsset{compat=1.14}
   - \renewcommand{\abstractname}{Abstract.}
   - \renewenvironment{abstract} {\small\quotation {\bfseries\noindent{\small\abstractname}\nobreak}} {\endquotation}
   - \usepackage{amsmath, amsthm, amssymb}
@@ -66,10 +67,11 @@ bibliography: dcs.bib
 ---
 
 \begin{textblock}{3}(0,0)
-\LARGE UNFINISHED DRAFT!
+\LARGE DRAFT
 \end{textblock}
 
 ## Definitions
+\label{sec:defs}
 
 A _system_ is defined as any set of components (see \hyperref[sec:scope]{Scope}) following _precise rules_ in order to provide service(s) to the users of the system. These services constitute the system's _intended behavior_.
 
@@ -104,7 +106,6 @@ We will proceed to prove that any single such system may possess, at most, two o
   % \caption{Slepak's Triangle}
   \vspace{0.2cm}
 \end{figure}
-
 
 - **Consensus** means the system's state, $s$ is a _shared state_ that is updated by nodes running a _consensus algorithm_ over a network, and that furthermore, the output of _consensus algorithm_ determines the network's accepted output of $f_S$, and whether or not $f_S$ completes within $S_\tau$.
 - **Scale** means the system is capable of handling the transactional demands of any competing system providing the same service to the same arbitrary set of users across the globe (_"at scale"_).^[Examples of "services" include: streaming video, sending messages, maintaining balances on a ledger, etc.]
@@ -163,65 +164,174 @@ Today, however, there are significantly fewer consensus participants in Bitcoin,
 
 We can approximate the coordination costs $C(S)$ of any consensus system as simply the number of consensus participants:
 
-$$C(S) = \|\mathtt{consensus\_participants}(\{S\})\|$$
+$$C(S) = \mathtt{num\_consensus\_participants}(\{S\})$$
+
+\begin{figure}
+
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+  	    domain=0:5,
+  	    xmin=-0.1, xmax=5.1, ymin=-0.1, ymax=5.1,
+  	%   axis equal image,
+  	    set layers,
+  	    xlabel=Population of users,
+  	%    xlabel style={scale=0.7},
+  	    xticklabels={},
+  	    xtick=\empty, ytick=\empty,
+  	%    axis line style={opacity=0.3},
+  	]
+  	\addplot [gray, only marks, mark=* , samples=500, mark size=0.75, on layer=axis background] {5*abs(rand)};
+  	\begin{pgfonlayer}{axis foreground}
+  		\draw (3.5,3.5) node [
+  			ellipse, minimum width=3.7cm, minimum height=2.5cm, fill=pink, opacity=0.6,
+  			label={[scale=0.8,fill=white,draw,ultra thin]below:Users of $S_1$}
+  		] {};
+  		\draw (3.7,3.8) node [
+  			ellipse, minimum width=2cm, minimum height=0.9cm, fill=green, opacity=0.5,
+  			label={[scale=0.7,fill=white]below:Consensus participants}
+  		] {};
+  	\end{pgfonlayer}
+  	\end{axis}
+    \end{tikzpicture}
+    \caption{TODO: explain / elaborate on this figure and perhaps show system dynamic.}
+\end{figure}
 
 ## Proof
 
-We seek to prove the following restatement of the DCS Triangle:
+<!-- \begin{theorem}
+Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
+\end{theorem} -->
 
 \begin{theorem}
-Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
+A consensus system that is decentralized initially, tends toward centralization as it scales to meet the demands of competing (and functionally equivalent) centralized consensus systems.
 \end{theorem}
 
-Given these axioms:
+We begin with the following axioms accepted as true:
 
 \begin{axiom}
 \label{AxCompPow}
 In any sufficiently large population (at scale), individual access to computational power is not distributed uniformly. Most individuals have access to average computational power, and a few have access to large amounts.
 \end{axiom}
 
+\begin{figure}
+
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[domain  = 0.97:2.3,
+                 samples = 100,
+                 xmin    = 1,
+                 xmax    = 2,
+                 ymin    = 0,
+                 ymax    = 1,
+                 ytick   = \empty,
+                 xtick   = \empty,
+                 xlabel  = {Throughput capability},
+                 ylabel  = {\# users with capability},
+                 xlabel near ticks,
+                 ylabel near ticks,
+                 set layers,
+                ]
+      \addplot[thick, samples=400] {1/x^5};      
+      \node[anchor = south] at (rel axis cs:0.94,0) {fast};
+      \node[anchor = south] at (rel axis cs:0.07,0) {slow};  
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Visualization of (Axiom~\ref{AxCompPow}).}
+\label{fig:CP}
+\end{figure}
+
 \begin{axiom}
 \label{AxDmd}
 In any two systems offering the same service to the same large population, the transactional demands of the average user converge at scale.
 \end{axiom}
 
+From those axioms, we derive the following lemmas:
+
 \begin{lemma}
 \label{LemTxn}
-Let $S_1$ and $S_2$ be functioning consensus systems offering the same service to the same population of users at scale. Let $N$ be a function returning the number of active users on the system. If $N(S_1) > N(S_2)$, then $T(S_1) > T(S_2)$ converges to a true statement as the value $N(S_1) - N(S_2)$ increases.
+Let $S_1$ and $S_2$ be consensus systems offering the same service to the same population of users at scale. Let $N$ be a function returning the number of users of a given system. If $N(S_1) > N(S_2)$, and if both systems remain uncompromised as they gain users, then $T(S_1) > T(S_2)$ converges to a true statement as the value $N(S_1) - N(S_2)$ increases.
 \end{lemma}
 
 \begin{proof}
-This follows directly from (Axiom~\ref{AxDmd}).
+This follows directly from (Axiom~\ref{AxDmd}) and from the assertion that both systems remain uncompromised (indicating they are indeed processing messages on time as they gain more users).
+\end{proof}
+
+\begin{lemma}
+\label{LemCP}
+Let $S$ be a decentralized consensus system with a growing number of users. The number of users who can act as consensus participants decreases, and therefore, $C(S)$, decreases at scale.
+\end{lemma}
+
+\begin{proof}
+As a system $S$ gains more users the throughput of the system, $T(S)$ increases, per (Lemma~\ref{LemTxn}). By (Axiom~\ref{AxCompPow}), the number of individuals capable of handling that throughput decreases. Since $S$ starts out decentralized, there does not exist a single entity controlling who the participants are, and therefore some users who previously chose to play the role consensus participants are no longer able to process messages fast enough to participate in consensus. Therefore $C(S)$ decreases as well.
 \end{proof}
 
 \begin{lemma}
 \label{LemCoord}
-The number of consensus participants decreases at scale, and therefore coordination costs decrease for systems at scale.
+Let $S$ be a decentralized consensus system. Coordination costs for $S$ decrease at scale.
 \end{lemma}
+
+<!--
+\begin{figure}
+
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[domain  = 0.97:2.3,
+                 samples = 100,
+                 xmin    = 1,
+                 xmax    = 2,
+                 ymin    = 0,
+                 ymax    = 1,
+                 ytick   = \empty,
+                 xtick   = \empty,
+                 xlabel  = {Throughput capability},
+                 ylabel  = {\# users with capability},
+                 xlabel near ticks,
+                 ylabel near ticks,
+                 set layers,
+                ]
+      \addplot[thick, samples=400] {1/x^5};
+
+      \addplot [draw=none, fill=red!25, domain=1.8:2] {1/x^5} \closedcycle;
+      \addplot [draw=none, fill=blue!25, domain=1.6:1.8] {1/x^5} \closedcycle;
+
+      \draw[dashed,thin,color = blue] (axis cs: 1.6, 1 )-- (axis cs: 1.6, -0.5);
+      \draw[dashed,thin,color = red] (axis cs: 1.8, 1 )-- (axis cs: 1.8, -0.5);      
+      \node[anchor = south] at (rel axis cs:0.94,0) {fast};
+      \node[anchor = south] at (rel axis cs:0.07,0) {slow};  
+      \node[anchor = north, color = red] at (rel axis cs:0.9,0.8) {$C(S_2)$};
+      \node[anchor = north, color = blue] at (rel axis cs:0.7,0.8) {$C(S_1)$};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Highlighted regions show .. TBD. Show movement of same system at time $t=0$ to $t=1$. Fix vertical lines. Make clear what $C(S)$ represents.}
+\label{fig:CPS}
+\end{figure}
+-->
 
 \begin{proof}
-This follows from (Axiom~\ref{AxCompPow}), (Lemma~\ref{LemCoord}), and our definition of $C(S)$. \em{[TBD. details.]}
-\end{proof}
-
-\begin{lemma}
-"Increasing decentralization" of a consensus system at scale means making it slower and less capable of scale, therefore increase scale makes a system less capable of decentralization.
-\end{lemma}
-
-Follows from slow participants concept.
+For our proof we are only interested in what happens to decentralized consensus systems at scale. By (Lemma~\ref{LemCP}) and our definition of $C(S)$, it directly follows that the coordination costs of decentralized consensus systems decrease at scale because there are fewer consensus participants, which makes it easier for consensus participants to identify each other.
+\end{proof}<!-- Figure~\ref{fig:CPS} visualizes this point.-->
 
 \begin{lemma}
 \label{LemCensor}
-The probability that $\{S\}$ contains a cartel capable of colluding to censor transactions approaches 1 at scale.
+Let $S$ be a decentralized consensus system. The probability that $\{S\}$ contains a cartel capable of colluding to censor transactions increases at scale, and therefore $S$ tends toward centralization.
 \end{lemma}
 
 \begin{proof}[Proof of the Main Theorem]
-foobar.
+Per (Lemma~\ref{LemCoord}), fewer consensus participants means the probability of a colluding group (cartel) increases. If a cartel coordinates to successfully compromise consensus, the system is no longer decentralized (per our \hyperref[sec:defs]{definitions} of consensus and decentralized). If it is easier for consensus participants to identify each other, it follows that it is easier for anyone to identify a quorum of consensus participants. Either a successful attempt at coercing this quorum, or a successful attempt at collusion would represent system failure. In decentralized systems, system failure indicates there was a single point of failure (see example in \hyperref[sec:scope]{Scope}). Therefore, the probability of centralization increases.
 \end{proof}
 
 <!--
 https://tex.stackexchange.com/questions/43610/plotting-bell-shaped-curve-in-tikz-pgf
 https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-graph
 -->
+
+## Acknowledgements
+
+The author would like to thank Anya Petrova for her assistance with the paper and feedback on the proof.
+
+<!--
+## OLD STUFF - Outdated brain dumps [To be deleted]
 
 \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
@@ -237,9 +347,6 @@ grid = major]
 \end{axis}
 \end{tikzpicture}
 
-_[This is where the paper currently ends. What follows below are "brain dumps" of random thoughts about how to go about proving the theorem. I expect the entire paper to be no more than 5 pages long.]_
-
-## OLD STUFF - Outdated brain dumps [To be deleted]
 
 Our definitions do not allow us to write a definitive proof but they do allow for a probabilistic proof. Similarly, the choice of scope cannot be clearly defined for arbitrary systems, but must be arrived at by probability of what is "likely" to be a "reasonable" or "characteristic" scope of these systems.
 
@@ -480,10 +587,11 @@ More users are forced to trust an increasingly smaller group to determine what t
 In reality, while _using_ the system may be less expensive, _participating_ in the system as an equally privileged node becomes significantly more expensive. The "increase" in capacity is also illusory, for by now the system has long exceeded its tolerable capacity for maintaining its decentralization.^[Threat of DDoS also goes up.]
 
 <!-- \clearpage -->
-
+<!--
 A feedback "death spiral" occurs:
 <!--
 https://tex.stackexchange.com/questions/2275/keeping-tables-figures-close-to-where-they-are-mentioned -->
+<!--
 \begin{figure}[H] % REQUIRED! or else "pandoc Paragraph ended before was complete"
 \centering
 % https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html
@@ -531,5 +639,6 @@ It's 75% of *users* not stake or CPU!
 PoS voting doesn't count if stake is centralized, and by Zipfs law we can expect it to be. Same for PoW.
 
 A human being physically cannot verify a vote count involving more people than what they can visually distinguish in their visual field of view without running into the Sybil attack or PoS (e.g. $1-1-vote).
+-->
 
 # References
