@@ -2,7 +2,7 @@
 title: "\\textbf{The DCS Theorem}"
 author: Greg Slepak
 date: \small October 4, 2017
-abstract: "We present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
+abstract: "We present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
 # output: pdf_document
 output:
   pdf_document:
