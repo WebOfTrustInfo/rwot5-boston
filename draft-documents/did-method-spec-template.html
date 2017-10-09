@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>[method-name] DID Method Specification</title>
+      <style>
+        #instructions { border: dashed 1px black; padding: 1em; background-color:#d0d0d0; }
+          .replace-me {font-style:italic; color:magenta}
+      </style>
+    <script
+     src='https://www.w3.org/Tools/respec/respec-w3c-common'
+     class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        specStatus: "ED",
+        editors: [{
+          name: "Your Name",
+          url: "http://your-site.com",
+        }],
+        processVersion: 2017,
+        edDraftURI: "http://some.github.repo",
+        shortName: "dahut"
+      };
+    </script>
+  </head>
+  <body>
+    <section class="introductory" id="instructions">
+        <h1>How to Use This Template</h1>
+        <p>Save this .html file to a new, appropriate name. Open the file in a text editor and modify the
+            <code>respecConfig</code> variable with new values that are appropriate to you. In the body of the doc, replace
+            the content of all tags with <code>class="replace-me"</code> (which will replace all the pink placeholder
+            text below). Then delete this section of the doc, which has <code>id="instructions"</code>.</p>
+        <p>You may find the <a href="https://github.com/w3c/respec/wiki/User's-Guide" target="_blank">Respec User Guide</a>
+            helpful if you need to debug or do advanced configuration.</p>
+    </section>
+    <section class="introductory">
+        <h2>About</h2>
+        <p>This is a DID method specification that conforms to the requirements specified in the DID specification
+            currently published by the W3C Credentials Community Group. For more information about DIDs and DID method
+            specifications, please see the <a
+                    href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/did-primer.md"
+                    target="_blank">DID Primer.</a></p>
+    </section>
+    <section id='abstract'>
+      <p class="replace-me">
+        DIDs on Hitcoin are have several important use cases... Here, we specify how the the Hitcoin Reference (htcr)
+          method for managing DIDs on Hitcoin works.
+      </p>
+    </section>
+    <section id='sotd'>
+      <p>
+        This is required.
+      </p>
+    </section>
+    <section>
+        <h2>DID Method Name</h2>
+        <p>The namestring that shall identify this DID method is: <code class="replace-me">htcr</code></p>
+        <p>A DID that uses this method MUST begin with the following prefix: <code class="replace-me">did:htcr</code>.
+            Per the DID specification, this string MUST be in lowercase. The remainder of the DID, after the prefix,
+            is the NSI specified below.</p>
+    </section>
+    <section>
+        <h2>Target System(s)</h2>
+        <p class="replace-me">Describe the system or systems which are the target of this DID method. The target
+            system may be any DLT or other distributed network or other system capable of supporting the CRUD
+            operations. This section should also specify any constraints it assumes or imposes on the target system.</p>
+         <p class="replace-me">For example: This targets Hitcoin consensus rules exactly equal to the ones in binary
+             X with hash Y. Any time the binary changes, the spec will have to be updated accordingly, to clarify how it
+             relates to forks and other evolution.</p>
+    </section>
+    <section>
+        <h2>Namespace Specific Identifier (NSI)</h2>
+        <p>The NSI is the uniquely identifying portion of a DID that follows a canonical suffix. Each DID method spec
+            must define how their NSIs are composed, parsed, and proved unique.</p>
+        <h3>Namestring Generation Method</h3>
+        <p class="replace-me">The <code>btcr</code> DID method generates NSIs using standard uuid semantics, per
+            <a href="https://www.ietf.org/rfc/rfc4122.txt" target="_blank">RFC 4122</a>.</p>
+        <h3>ABNF Definition</h3>
+        <pre class="replace-me">
+            UUID = time-low "-" time-mid "-"
+             time-high-and-version "-"
+             clock-seq-and-reserved
+             clock-seq-low "-" node
+            time-low = 4hexOctet
+            time-mid = 2hexOctet
+            time-high-and-version = 2hexOctet
+            clock-seq-and-reserved = hexOctet
+            clock-seq-low = hexOctet
+            node = 6hexOctet
+            hexOctet = hexDigit hexDigit
+            hexDigit =
+             "0" / "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" /
+             "a" / "b" / "c" / "d" / "e" / "f" /
+             "A" / "B" / "C" / "D" / "E" / "F"
+        </pre>
+        <p class="replace-me">A convenient regex to match <code>htcr</code> DIDs is: <br/>
+            <code>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></p>
+        <h3>Examples</h3>
+        <p class="replace-me">A valid <code>htcr</code> DIDs might be: <code>did:htcr:e159f510-aa12-11e7-abc4-cec278b6b50a</code>.
+            Invalid values include capitalized chars, uuids without hyphens, uuids with curly braces, etc.</p>
+    </section>
+    <section>
+      <h2>JSON-LD Context Definition</h2>
+        <p class="replace-me">If your method involves storing any state in a DID document for purposes of controlling updates to the DID document, you MUST define a JSON-LD context in this section.)</p>
+        <p>The official definition of the <code>htcr</code> JSON-LD context is:</p>
+      <pre class="replace-me json" style="color:magenta">
+      {
+           "@context":
+           {
+              "Person": "http://xmlns.com/foaf/0.1/Person",
+              "xsd": "http://www.w3.org/2001/XMLSchema#",
+              "name": "http://xmlns.com/foaf/0.1/name",
+              "nickname": "http://xmlns.com/foaf/0.1/nick",
+              "affiliation": "http://schema.org/affiliation",
+              "depiction":
+              {
+                 "@id": "http://xmlns.com/foaf/0.1/depiction",
+                 "@type": "@id"
+              },
+              "image":
+              {
+                 "@id": "http://xmlns.com/foaf/0.1/img",
+                 "@type": "@id"
+              }
+          }
+       }</pre>
+       <p class="replace-me">With minor edits, this is published at https://example.com/mycontext.jsonld. Changes are expected as this template evolves... ]]]</p>
+       <p class="replace-me">If your JSON-LD context is not versioned exactly through the document versioning mechanism of this spec, define how your JSON-LD context will be versioned.</p>
+    </section>
+    <section>
+        <h2>CRUD Operation Definitions</h2>
+
+        <h3>Create (Register)</h3>
+        <p class="replace-me">The DID method specification must specify how a client creates a DID record—the combination of a DID and its associated DDO—on the target system, including all cryptographic operations necessary to establish proof of ownership.</p>
+        <p class="replace-me">For example:</p>
+        <p class="replace-me">To create a DID, you must submit a transaction that looks like this: … The transaction must be signed , and must meet these additional requirements: … Possible outcomes from the creation operation include: 0 "Success", error 1 “Malformed transaction”, error 2 “Permission denied”...</p>
+
+        <h3>Read (Resolve)</h3>
+        <p class="replace-me">The DID method specification must specify how a client uses a DID to request a DDO from the target system, including how the client can verify the authenticity of the response. This section should define both lookup of a DID document from a DID and how to cryptographically verify the response.</p>
+        <p class="replace-me">For example:</p>
+        <p class="replace-me">Anyone can read a DID, using the following procedure: … Be aware of the following latency issues: … To help manage latency wisely, the response includes a proof of correctness at a given timestamp, which works like this: ... </p>
+
+        <h3>Update</h3>
+        <p class="replace-me">The DID method specification must specify how a client can update a DID record on the target system, including all cryptographic operations necessary to establish proof of control.</p>
+        <p class="replace-me">For example:</p>
+        <p class="replace-me">The DID Specification does not prescribe any single DID Document update mechanism, but a mechanism SHOULD be chosen to support key recovery. Some early implementations relied on permissions that could not be attenuated in a composable manner. Veres One, for example, uses a narrower capacity as follows:</p>
+        <blockquote class="replace-me">"The authorizationCapability field must contain a capability for the delegate that includes UpdateDidDocument as the capability, the DID of the delegate as the entity, and may include a more specific set of authenticationCredentials that the delegate may use to authenticate when updating the DID Document."</blockquote>
+        <p class="replace-me">We're trying to NOT suggest anything other than a fully composable capability attenuation system as Best Practices. Chris Webber proposed a workable system based on certificate chaining, but there are no current examples using the idea. A paper is forthcoming.)</p>
+
+        <h3>Delete (Revoke)</h3>
+        <p class="replace-me">The method spec MUST define how to revoke a DID. Revocation is non-reversible--do not confuse it with key rotation. Although a core feature of distributed ledgers is immutability, a DID method must specify how a client can revoke a DID record on the target system, including all cryptographic operations necessary to establish proof of revocation. Revocation is the one way final operation for a DID. No use after revocation is an equivalent problem to the double-spend problem, which is what motivates the use of blockchains and other distributed ledger technologies.</p>
+    </section>
+
+    <section>
+        <h2>Security Considerations</h2>
+        <div class="replace-me">
+        <h3>Attacks</h3>
+            <p>At least the following forms of attack MUST be considered: eavesdropping, replay, message insertion, deletion, modification, impersonation, and man-in-the-middle. Potential denial of service attacks MUST be identified as well. If the protocol incorporates cryptographic protection mechanisms, it should be clearly indicated which portions of the data are protected and what the protections are (i.e., integrity only, confidentiality, and/or endpoint authentication, etc.). Some indication should also be given to what sorts of attacks the cryptographic protection is susceptible. Data which should be held secret (keying material, random seeds, etc.) should be clearly labeled. If the technology involves authentication, particularly user-host authentication, the security of the authentication method MUST be clearly specified.</p>
+
+        <h3>Residual Risks</h3>
+            <p>Discuss risks such as from compromise in a related protocol, incorrect implementation, or cipher) after threat mitigation has been deployed.
+
+            <h3>Recovery From Key Compromise</h3>
+
+            <p>This section MUST provide integrity protection and update authentication for all operations required by Section 7 of this specification (DID Operations).</p>
+
+            <p><a href="https://en.wikipedia.org/wiki/Confused_deputy_problem" target="_blank">Confused Deputy Problem</a> when attempting separation of writeAuthorization from authenticationCredential.</p>
+            <p>Other sections from DID spec to incorporate into the outline:</p>
+
+            <pre style="color:magenta">
+            9.3 Authentication Service Endpoints
+            9.4 Non-Repudiation
+            9.5 Notification of DDO Changes
+            9.6 Key and Signature Expiration
+            9.7 Key Revocation and Recovery *
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Privacy Considerations</h2>
+        <div class="replace-me">
+            <p>Considering <a href="http://www.lifewithalacrity.com/2015/04/the-four-kinds-of-privacy.html" target="_blank">all
+                four types of privacy</a>, explore issues from these sections of the DID spec:</p>
+
+            <pre style="color:magenta">
+            10. Privacy Considerations
+            10.1 Requirements of DID Method Specifications
+            10.2 Keep Personally-Identifiable Information (PII) Off-Ledger
+            10.3 DID Correlation Risks and Pseudonymous DIDs
+            10.4 DDO Correlation Risks
+            10.5 Herd Privacy
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Reference Implementations</h2>
+        <p class="replace-me">The code at https://github.com/myaccount/myrepo is intended to be the preferred embodiment of this DID method. Commit hash 4fc87fc5e85b2a071abfa7d8dfb15c06cd266dd5 is the version that officially aligns with this version of the spec.</p>
+        <p class="replace-me">Note that the code includes a test suite (see tests/compliance_suite); any other implementations should ensure that all tests pass before they claim compatibility.</p>
+    </section>
+
+    <section>
+        <h2>Resources</h2>
+        <p class="replace-me">Many developers maintaining the code and spec tend to hang out in RocketChat at chat.myorg.org, #btcrimpl. You might also connect with us in W3C working groups or at the semi-annual Rebooting Web of Trust conferences</p>
+    </section>
+
+  </body>
+</html>
