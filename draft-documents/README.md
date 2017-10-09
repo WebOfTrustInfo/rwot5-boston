@@ -21,7 +21,13 @@ Identity Mental Maps | Joe A. | In Process
 IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 
-### The Major Papers, By Topic with Info
+## Current DID Spec
+
+Name | Lead | Link | Status
+---|---|---|---
+DID Spec | Manu, Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-spec/DID-Specification.html)
+
+## Potential Outputs, By Topic with Info
 
 **Overview**
 
@@ -70,11 +76,7 @@ Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 
    * _Amira: A Self-Sovereign Web of Trust Engagement Model_, led by Joe Andrieu. A use case for a programmer wanting to remain private, inspired by DIDs.
 
-## Current DID Spec
 
-Name | Lead | Link | Status
----|---|---|---
-DID Spec | Manu, Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-spec/DID-Specification.html)
 
 ## Tech Talks
 
