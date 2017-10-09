@@ -25,9 +25,10 @@ Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 
 **DIDs**
 
-   * _Did Spec Update_, led by Drummond Reed & Manu Sporny. An update of the spec for Decentralized Identifiers (DIDs).
+   * _DID Spec Update_, led by Drummond Reed & Manu Sporny. An update of the spec for Decentralized Identifiers (DIDs).
    * _DID Method Spec Template Definition_, led by ?. A template for creating DID Method Specs. 
-
+   * _DID Resolver_, led by Markus Sabadello. A program for resolving DIDs using a variety of methods.
+   
 **Blockcerts**
 
    * _Blockcerts Revocation with DIDs_, led by Kim Duffy Hamilton. 
