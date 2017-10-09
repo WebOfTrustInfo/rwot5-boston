@@ -25,36 +25,36 @@ Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 
 **DIDs**
 
-_Did Spec Update_, led by Drummond Reed & Manu Sporny. An update of the spec for Decentralized Identifiers (DIDs).
-_DID Method Spec Template Definition_, led by ?. A template for creating DID Method Specs. 
+   * _Did Spec Update_, led by Drummond Reed & Manu Sporny. An update of the spec for Decentralized Identifiers (DIDs).
+   * _DID Method Spec Template Definition_, led by ?. A template for creating DID Method Specs. 
 
 **Blockcerts**
 
-_Blockcerts Revocation with DIDs_, led by Kim Duffy Hamilton. 
+   * _Blockcerts Revocation with DIDs_, led by Kim Duffy Hamilton. 
 
 **Legalities**
 
-_Breaking (Down) the Law_, led by Dazza Greenwood. Comparing traditional law structures with cryptographic structures.
+   * _Breaking (Down) the Law_, led by Dazza Greenwood. Comparing traditional law structures with cryptographic structures.
 
 **Selective Disclosure**
 
-_Data Minimization & Selective Disclosure_, led by Lionel Wolberg. Definitions of data minimization and disclosure, plus a technical look.
+   * _Data Minimization & Selective Disclosure_, led by Lionel Wolberg. Definitions of data minimization and disclosure, plus a technical look.
 
 **Signatures**
 
-_Capabilities Built on Linked Data Signatures via Certificate Chaining_, led by Christopher Webber. Layering an object capability model on top of Linked Data Signatures.
+   * _Capabilities Built on Linked Data Signatures via Certificate Chaining_, led by Christopher Webber. Layering an object capability model on top of Linked Data Signatures.
 
 **Social Systems**
 
-_ActivityPub_, led by Christopher Webber. Overview of the W3C protocol for developing federated social systems.
+   * _ActivityPub_, led by Christopher Webber. Overview of the W3C protocol for developing federated social systems.
 
 **Theory**
 
-_The DCS Theory_, led by Greg Slepak. A system cannot be decentralized, consensus, and scalable, simultaneously.
+   * _The DCS Theory_, led by Greg Slepak. A system cannot be decentralized, consensus, and scalable, simultaneously.
 
 **Use Cases**
 
-_Amira: A Self-Sovereign Web of Trust Engagement Model_, led by Joe Andrieu. A use case for a programmer wanting to remain private, inspired by DIDs.
+   * _Amira: A Self-Sovereign Web of Trust Engagement Model_, led by Joe Andrieu. A use case for a programmer wanting to remain private, inspired by DIDs.
 
 ## Current DID Spec
 
