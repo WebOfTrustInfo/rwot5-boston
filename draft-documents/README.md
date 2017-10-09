@@ -23,7 +23,10 @@ Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 
 ### The Major Papers, By Topic with Info
 
-**DIDs*
+**DIDs**
+
+_Did Spec Update_, led by Drummond Reed & Manu Sporny. An update of the spec for Decentralized Identifiers (DIDs).
+_DID Method Spec Template Definition_, led by ?. A template for creating DID Method Specs. 
 
 **Blockcerts**
 
@@ -44,6 +47,10 @@ _Capabilities Built on Linked Data Signatures via Certificate Chaining_, led by 
 **Social Systems**
 
 _ActivityPub_, led by Christopher Webber. Overview of the W3C protocol for developing federated social systems.
+
+**Theory**
+
+_The DCS Theory_, led by Greg Slepak. A system cannot be decentralized, consensus, and scalable, simultaneously.
 
 **Use Cases**
 
