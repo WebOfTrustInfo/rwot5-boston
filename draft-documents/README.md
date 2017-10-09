@@ -25,7 +25,7 @@ Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 
 Name | Lead | Link | Status
 ---|---|---|---
-DID Spec | Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-spec/DID-Specification.html)
+DID Spec | Manu, Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-spec/DID-Specification.html)
 
 ## Tech Talks
 
