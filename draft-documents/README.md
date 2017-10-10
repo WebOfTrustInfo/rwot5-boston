@@ -19,6 +19,7 @@ Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOf
 Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/identity-hubs-capabilities-perspective.md)
 Identity Mental Maps | Joe A. | In Process
 IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid)
+Smarm Smart Signatures | Chris W. | In Process
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
 
 ## Current DID Spec
@@ -62,7 +63,8 @@ DID Spec | Manu, Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 **Signatures**
 
    * _Capabilities Built on Linked Data Signatures via Certificate Chaining_, led by Christopher Webber. Layering an object capability model on top of Linked Data Signatures.
-
+   * _Smarm: Smart Signatures_, led by Christopher Webber. A Scheme-like smart-signature system.
+   
 **Social Systems**
 
    * _ActivityPub_, led by Christopher Webber. Overview of the W3C protocol for developing federated social systems.
