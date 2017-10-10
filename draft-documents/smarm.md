@@ -1,5 +1,36 @@
 # Overview
 
+[Smart signatures](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop/blob/master/draft-documents/smarter-signatures.md)
+are desirable, but how to implement them?
+We would like a language that is:
+We need a language that is powerful and flexible enough to meet our
+needs while safe and bounded to run while remaining simple enough
+to feasibly implement.
+
+[Scheme](https://en.wikipedia.org/wiki/Scheme_programming_language)
+is a turing-complete language with a (at least stated) fondness for
+minimalism.
+Unfortunately Scheme on its own is neither "safe" nor (necessarily)
+deterministic.
+Thankfully we can get the properties we want through:
+
+-   Making object capabilities a core part of the language.
+    Specifically, [Jonathan Rees' "W7 security kernel"](http://mumble.net/~jar/pubs/secureos/secureos.html)
+    demonstrates that a pure lexically scoped environment *is itself*
+    an appropritate substrate for object capabilities.
+-   Restricting space and time precisely in a way that is
+    deterministic and reproducible.
+-   Removing sources of external side effects.
+
+Thus the name "Smarm" is indeed quite smarmy, as Smarm is not a new
+language, but a configuration of existing language ideas, most of them
+relatively (for the world of computer programming) old, repurposed for
+new problem domains.
+(We will need to specify exactly what the primitives of the language
+are, as well as their associated costs... and perhaps that's where
+"Smarm" is a good name for this dialect of a dialect of a Lisp
+dialect.)
+
 ## Essentials
 
 -   Smart-signatures (smart contracts) supporting metalanguage.
@@ -8,9 +39,6 @@
     -   But delimited continuations are great, if we can get those in,
         awesome
     -   Will we support hygenic macros?
-    -   Type annotations (required or optional)?  There are a couple
-        of options to explore:
-        -   [Hackett](http://docs.racket-lang.org/hackett/guide.html)
     -   [SRFI-71](https://srfi.schemers.org/srfi-71/srfi-71.html) let/let\*/letrec.  r5rs already specifies multiple value
         return (a great feature!) but utilizing them via call-by-values
         is painful.
@@ -19,6 +47,8 @@
     (See also [Andy Wingo's blogpost on the subject](https://wingolog.org/archives/2011/03/19/bart-and-lisa-hacker-edition))
 -   Must also be constrained in both space and time
     -   space: Execution is done within a limited memory environment
+        (can this be done consistently without having to assign our own
+        costs / implementing our own garbage collector?)
     -   time: Implementations may need to "count" execution steps and
         halt a program that runs for too many steps.
 -   execution environment
@@ -30,21 +60,37 @@
     -   Many lisps have long supported both interpreted and compiled
         code so we don't need to "make a choice"
 -   ISO-8859-1 strings only (sorry! unicode strings would require
-    adding a whole lot of tooling to the language)
--   Can be normalized to [canonical s-expressions](http://people.csail.mit.edu/rivest/Sexp.txt).  The "display hints"
-    feature could be used for type annotations (there's some chance we'll
-    have to extend it to not just support a single atom but even full
-    s-expressionsfor compound objects of types which aren't just the
-    language primitives)
+    adding a whole lot of tooling to the language).
+    (Possibly we could call these "bytestrings" and leave open
+    the possibility of unicode strings for later?
+    Beware the lessons of Python 3!)
+-   Source code can be normalized to
+    [canonical s-expressions](http://people.csail.mit.edu/rivest/Sexp.txt).
+    The "display hints" feature could be used for type annotations,
+    though this could also be done by tagging list structures
+    (both are supported in [guile-csexps](https://gitlab.com/dustyweb/guile-csexps)
+    for instance).
 -   Some particular core types and procedures will need to be supplied
     for smart signatures support (linked data slice & dice, signature
     verification, and???)
 
 ## Up for consideration
 
+-   Type annotations?
+    These are not necessarily "necessary", as our language is already
+    appropriately constrained.
+    Adding type annotations may even complexify implementation
+    significantly.
+    Nonetheless, there are a couple of options to explore:
+    -   [Hackett](http://docs.racket-lang.org/hackett/guide.html)
+    -   [Typed Racket](https://docs.racket-lang.org/ts-guide/)
 -   Do we want to support any record types?
     (Property lists can always be used, though it may be desirable to
-    have a better type structure for the sake of a type system)
+    have a better type structure for the sake of a type system.)
+    However, it is possible to construct new types that even fit
+    nicely into the object capability model using a combination of
+    vectors and `seals` from
+    [W7](http://mumble.net/~jar/pubs/secureos/secureos.html).
 -   It may be desirable to use [Guile's compiler tower](https://www.gnu.org/software/guile/manual/html_node/Compiler-Tower.html) for the initial
     implementation.  While production code MUST NOT run in the Guile
     virtual machine, Guile's compiler tower supports switching out
