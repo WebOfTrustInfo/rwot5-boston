@@ -1,4 +1,8 @@
-# Overview
+# Smarm: Requirements for a smart-signatures Scheme
+
+By Christopher Allan Webber and Christopher Allen
+
+## Overview
 
 [Smart signatures](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop/blob/master/draft-documents/smarter-signatures.md)
 are desirable, but how to implement them?
@@ -31,14 +35,28 @@ are, as well as their associated costs... and perhaps that's where
 "Smarm" is a good name for this dialect of a dialect of a Lisp
 dialect.)
 
+What follows is a listing of requirements and notes to make this
+language possible.
+
 ## Essentials
 
--   Smart-signatures (smart contracts) supporting metalanguage.
--   Minimal scheme-ish; loosely based on [r5rs](http://www.schemers.org/Documents/Standards/R5RS/), with some changes:
+-   Smart-signatures (smart contracts) supporting metalanguage
+    means evaluation of a program as predicate.
+    Any "state" should be passed in as arguments to the program.
+-   Loosely based on [r5rs](http://www.schemers.org/Documents/Standards/R5RS/), with some changes:
     -   NO call/cc (undelimited continuations) as those break capabilities
     -   But delimited continuations are great, if we can get those in,
-        awesome
-    -   Will we support hygenic macros?
+        awesome.  Some analysis on how delimited continuations affect
+        capabilities, and the extent to which they are useful
+        (or overkill) in the described system should be explored.
+    -   Will we support writing hygenic macros within the language?
+        Some constructs supplied to the base environment will be
+        written within hygenic macros, but whether a user of the
+        language can feasibly use syntax-rules / syntax-case and
+        friends is up for debate.
+        Passing macros between modules in something like W7 which
+        fundamentally (?) is a run-time system may turn out to be
+        difficult.
     -   [SRFI-71](https://srfi.schemers.org/srfi-71/srfi-71.html) let/let\*/letrec.  r5rs already specifies multiple value
         return (a great feature!) but utilizing them via call-by-values
         is painful.
@@ -63,7 +81,7 @@ dialect.)
     adding a whole lot of tooling to the language).
     (Possibly we could call these "bytestrings" and leave open
     the possibility of unicode strings for later?
-    Beware the lessons of Python 3!)
+    Beware the lessons of Python 2 -> Python 3!)
 -   Source code can be normalized to
     [canonical s-expressions](http://people.csail.mit.edu/rivest/Sexp.txt).
     The "display hints" feature could be used for type annotations,
@@ -72,7 +90,11 @@ dialect.)
     for instance).
 -   Some particular core types and procedures will need to be supplied
     for smart signatures support (linked data slice & dice, signature
-    verification, and???)
+    verification, and???).
+    These could be part of the "base language", though this opens up
+    a debate of just how large the base system should be and where
+    modules (or even simply supplying utilities as arguments to the
+    program) fit in.
 
 ## Up for consideration
 
@@ -122,10 +144,10 @@ dialect.)
     licenses may include encoding the expected de-facto license into
     the genesis block.)
 
-# Implementation milestones
+## Implementation milestones
 
 -   Spec out language concepts (type annotation is the biggest decision;
-    r5rs already has the rest)
+    r5rs already has the rest).  Mostly done?
 -   Write a toy metacircular evaluator prototype of what the language
     "looks like" (this should be fast for an experienced schemer
     (task to Chris Webber or some other schemer?))
