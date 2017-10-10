@@ -45,24 +45,24 @@ DID Spec | Manu, Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 **Blockcerts**
 
    * _Blockcerts Revocation with DIDs_, led by Kim Duffy Hamilton. 
-
-**Data Stores**
-
-   * _Hub Asset Access Control System_, led by Matt Smith. Revision of the Hub system from using ACLs to Object Capabilities.
-   * _Identity Hubs Capabilities Perspective_, led by Adrian Gropper. Changing identity hubs from using ACLs to Object Capabilities.
    
 **Legalities**
 
    * _Breaking (Down) the Law_, led by Dazza Greenwood. Comparing traditional law structures with cryptographic structures.
    * _GDPR: The Data Apocalypse; or, "A Digital Declaration of Rights"_, led by Marta  Piekarska. How self-sovereign identities and verifiable claims can ease the GDPR in the EU.
    
+**Object Capabilities**
+
+   * _Capabilities Built on Linked Data Signatures via Certificate Chaining_, led by Christopher Webber. Layering an object capability model on top of Linked Data Signatures.
+   * _Hub Asset Access Control System_, led by Matt Smith. Revision of the Hub system from using ACLs to Object Capabilities.
+   * _Identity Hubs Capabilities Perspective_, led by Adrian Gropper. Changing identity hubs from using ACLs to Object Capabilities.
+
 **Selective Disclosure**
 
    * _Data Minimization & Selective Disclosure_, led by Lionel Wolberg. Definitions of data minimization and disclosure, plus a technical look.
 
 **Signatures**
 
-   * _Capabilities Built on Linked Data Signatures via Certificate Chaining_, led by Christopher Webber. Layering an object capability model on top of Linked Data Signatures.
    * _Smarm: Smart Signatures_, led by Christopher Webber. A Scheme-like smart-signature system.
    
 **Social Systems**
@@ -77,8 +77,6 @@ DID Spec | Manu, Drummond | [Spec](https://github.com/WebOfTrustInfo/rebooting-t
 **Use Cases**
 
    * _Amira: A Self-Sovereign Web of Trust Engagement Model_, led by Joe Andrieu. A use case for a programmer wanting to remain private, inspired by DIDs.
-
-
 
 ## Tech Talks
 
