@@ -37,10 +37,33 @@ See appendix for collected definitions of progressive disclosure.
 This section is for Lionel's awesome pictures and descriptions of the flow in our use case
 
 ## METHOD 
-### IDE MIX
-Used by IBM for anonymous credentials
-This is a form of verifiable claim.
-### Indy SDK
+### Background
+#### Number Theory
+* Integer Factorization
+* Prime Numbers
+* Discrete Logarithms
+* Quadratic Residues
+* Finite Field Arithmetic
+* Elliptic Curves
+#### Cryptography
+* Symmetric Encryption
+* Asymmetric Encryption
+* Digital Signatures
+    * Diffie Helman
+    * ECDSA
+        * EdDSA
+    * CL
+    * BLS
+* Zero-Knowledge Proofs
+    * Blinding
+    * 
+* Hashing
+* Accumulators
+   * Commitments
+   * Witnesses
+* Quantum Computing and Cryptography
+### Implementation of Verifiable Claims in Sovrin
+#### Indy SDK
 
 
 ## Appendix
