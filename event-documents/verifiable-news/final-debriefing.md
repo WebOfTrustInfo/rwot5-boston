@@ -144,8 +144,7 @@ pay for initial work and get fast traction
 goal of merging CHECK from Meedan and VCs from CCG, to be completed
 within ONE MONTH
 
-4\) Sandro will work on getting our proposal on a fast track with the W3C
-and seeing if Tim Berners Lee will support/participate
+4\) Sandro will work on getting our proposal on a fast track with the W3C.
 
 5\) Get work done quickly so we can present to key stakeholders and
 socialize at the W3C meeting in San Francisco in a month, with the goal
@@ -153,7 +152,7 @@ of achieving rapid traction
 
 ## People who signed up to help
 
-  **Name **          |
+Name          |
   ------------------|
   Tiemae             |
   Joao Santos        |
