@@ -5,8 +5,8 @@ The following docs may be coming out of the
 Name | Lead | Link | Status
 ---|---|---|---
 Activity Pub Update | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/activitypub-decentralized-distributed/activitypub-decentralized-distributed.md)
-Amira: RWOT Use Case | Joe A. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/Amira-SSWOT-Engagement-Model.md) | By Thanksgiving?
-Blockcerts Revocation with DIDs | Kim | In Process
+Amira: RWOT Use Case | Joe A. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/Amira-SSWOT-Engagement-Model.md) | Thanksgiving?
+Blockcerts Revocation with DIDs | Kim | In Process | 11/10?
 Breaking (Down) the Law | Dazza | [Notes](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/BreakingDownAndConnectingLawAndTech) | 
 Certificate Chaining | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/lds-obcap/lds-obcap.md)
 Data Minimization & Selective Disclosure | Lionel | [Outline](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DataMinimization/Data%20Minimzation%20and%20Selective%20Disclosure.md)
