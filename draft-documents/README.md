@@ -4,11 +4,11 @@ The following docs may be coming out of the
 ## Major Papers
 Name | Lead | Link | Status
 ---|---|---|---
-Activity Pub Update | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/activitypub-decentralized-distributed/activitypub-decentralized-distributed.md)
+Activity Pub Update | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/activitypub-decentralized-distributed/activitypub-decentralized-distributed.md) | Written
 Amira: RWOT Use Case | Joe A. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/Amira-SSWOT-Engagement-Model.md) | Thanksgiving?
 Blockcerts Revocation with DIDs | Kim | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/blockcerts_revocation.md) | 11/10?
 Breaking (Down) the Law | Dazza | [Notes](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/BreakingDownAndConnectingLawAndTech) | 
-Certificate Chaining | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/lds-obcap/lds-obcap.md)
+Certificate Chaining | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/lds-obcap/lds-obcap.md) | 10/6?
 Data Minimization & Selective Disclosure | Lionel | [Outline](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DataMinimization/Data%20Minimzation%20and%20Selective%20Disclosure.md) | 10/21?
 DCS Triangle | Greg S. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/dcs-theorem/The-DCS-Theorem.pdf) | 10/21?
 DID Method Spec Templates | Drummond | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DID%20Method%20Spec%20Template%20Definition.md)
