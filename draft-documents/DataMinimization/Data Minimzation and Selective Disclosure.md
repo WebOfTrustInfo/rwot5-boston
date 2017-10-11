@@ -9,13 +9,12 @@
 
 ## Introduction
 Data minimization and selective disclosure (D&S, DataMin, SelDis) are very cool applications of crypto to do magic tricks, such as proving a person is over 25 years old without revealing their birthday or even which credential vouched for the person.
-These capabilities are needed for creating, storing, presenting, and verifying user-controlled credentials among other things: DataMin is one of three mitigations against privacy threats in RFC6973, it is featured in article 5, 25 of the GDPR, the USA Privacy Act of 1974 and often appears in FIPPs. This group's goal is to standardize D&S techniques for the Verifiable Claims work (to be used in Blockchain systems supporting self-sovereign identity), an official work item of the W3C Credentials Community Group. Some topics we plan to address include Merkle trees for redaction, Progressive disclosure, CL Signature schemes (Camenisch-Lysyanskaya), ZK (zero knowledge) protocols such as Fiat-Shamir, ZK Snarks and Starks.
-Current known participants in this work item are:
-* Lionel Wolberger
-* Jan Camenisch
-* Maria Dubovitskaya
+These capabilities are needed for creating, storing, presenting, and verifying user-controlled credentials among other things: DataMin is one of three mitigations against privacy threats in RFC6973, it is featured in article 5, 25 of the GDPR, the USA Privacy Act of 1974 and often appears in FIPPs. This group's goal is to standardize D&S techniques for the Verifiable Claims work (to be used in Blockchain systems supporting self-sovereign identity), an official work item of the W3C Credentials Community Group. 
 
 ## Definitions
+### What are verifiable claims?
+Verifiable claims consist of a set of attributes that have been digitally signed by an issuer. The signature of the issuer serves as an attestation that the attributes in the claim are true.
+
 ### What is data minimization?
 Data minimization is the act of limiting the amount of shared data strictly to the minimum necessary in order to successfully accomplish a task or goal.   
 Data minimization has three parts:
@@ -28,6 +27,7 @@ See appendix for collected definitions of data minimization.
 ### What is selective disclosure?
 Selective disclosure is the ability of an individual to granularly decide what information to share. Selective disclosure is a means by which data minimization can be achieved.
 See appendix for collected definitions of selective disclosure.
+
 ### What is progressive disclosure
 Progressive disclosure is the ability of an individual to gradually increase the amount of relevant data revealed as trust is built or value generated. 
 See appendix for collected definitions of progressive disclosure.
@@ -36,13 +36,21 @@ See appendix for collected definitions of progressive disclosure.
 This section is for Lionel's awesome pictures and descriptions of the flow in our use case
 
 ## Method
+This section will show an implementation of verifiable claims that allows for selective disclosure of claim attributes. In order facilitate understanding of the implementation, we first provide a section providing a view of topics in number theory and cryptography.
+
 ### Background
+We begin with a brief overview of several concepts from number theory that serve as a foundation for the cryptography that enables selective disclosure.
+
 #### Number Theory
 * Integer Factorization
+   Determining the factors of a large integer is considered to be a hard mathematical problem. The difficulty of this problem is the basis for the security of RSA and other cryptographic algorithms.
 * Prime Numbers
+   A prime number has no factors other than itself and 1. Prime numbers are at the heart of countless cryptographic algorithms. 
+* Finite Fields and Groups
+   A 
 * Discrete Logarithms
+
 * Quadratic Residues
-* Finite Field Arithmetic
 * Elliptic Curves
 #### Cryptography
 * Symmetric Encryption
