@@ -3,14 +3,13 @@
 **Contributors**
 * Lionel Wolberger, Independent
 * Brent Zundel, Evernym/Sovrin
-* Mike Lodder, Evernym/Sovrin
 * Zachary Larson, Independent
 * Irene Hernandez, Independent 
 * Katryna Dow, Meeco
 
 ## Introduction
 Data minimization and selective disclosure (D&S, DataMin, SelDis) are very cool applications of crypto to do magic tricks, such as proving a person is over 25 years old without revealing their birthday or even which credential vouched for the person.
-These capabilities are needed for creating, storing, presenting, and verifying user-controlled credentials among other things: DataMin is one of three mitigations against privacy threats in RFC6973, it is featured in article 5, 25 of the GDPR, the USA Privacy Act of 1974 and often appears in FIPPs. This group's goal is to standardize D&S techniques for the Verifiable Claims work (to be used in Blockchain systems supporting self-sovereign identity), an official work item of the W3C Credentials Community Group. Some topics we plan to address include Merkle trees for redaction, Progressive disclosure, CL Signature schemes (Camenisch-Lysyanskaya), ZK (zero knowledge) protocols such as Fiat-Shamir, ZK Snarks and Starks; also commercial providers such as Qredo. 
+These capabilities are needed for creating, storing, presenting, and verifying user-controlled credentials among other things: DataMin is one of three mitigations against privacy threats in RFC6973, it is featured in article 5, 25 of the GDPR, the USA Privacy Act of 1974 and often appears in FIPPs. This group's goal is to standardize D&S techniques for the Verifiable Claims work (to be used in Blockchain systems supporting self-sovereign identity), an official work item of the W3C Credentials Community Group. Some topics we plan to address include Merkle trees for redaction, Progressive disclosure, CL Signature schemes (Camenisch-Lysyanskaya), ZK (zero knowledge) protocols such as Fiat-Shamir, ZK Snarks and Starks.
 Current known participants in this work item are:
 * Lionel Wolberger
 * Jan Camenisch
@@ -36,7 +35,7 @@ See appendix for collected definitions of progressive disclosure.
 ## Implementation
 This section is for Lionel's awesome pictures and descriptions of the flow in our use case
 
-## METHOD 
+## Method
 ### Background
 #### Number Theory
 * Integer Factorization
@@ -55,14 +54,18 @@ This section is for Lionel's awesome pictures and descriptions of the flow in ou
     * CL
     * BLS
 * Zero-Knowledge Proofs
-    * Blinding
-    * 
+    * Fiat Shamir
+    * Proof of knowledge of discrete logarithms
+    * ZK Snarks
+    * ZK Starks
 * Hashing
+* Merkle Trees
 * Accumulators
    * Commitments
    * Witnesses
 * Quantum Computing and Cryptography
-### Implementation of Verifiable Claims in Sovrin
+   * Shor's Algorithm
+### Verifiable Claims in Sovrin
 #### Indy SDK
 
 
