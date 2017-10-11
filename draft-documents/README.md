@@ -10,7 +10,7 @@ Blockcerts Revocation with DIDs | Kim | [Draft](https://github.com/WebOfTrustInf
 Breaking (Down) the Law | Dazza | [Notes](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/BreakingDownAndConnectingLawAndTech) | 
 Certificate Chaining | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/lds-obcap/lds-obcap.md)
 Data Minimization & Selective Disclosure | Lionel | [Outline](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DataMinimization/Data%20Minimzation%20and%20Selective%20Disclosure.md) | 10/21?
-DCS Triangle | Greg S. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/dcs-theorem/The-DCS-Theorem.pdf)
+DCS Triangle | Greg S. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/dcs-theorem/The-DCS-Theorem.pdf) | 10/21?
 DID Method Spec Templates | Drummond | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DID%20Method%20Spec%20Template%20Definition.md)
 DID Resolver | Markus | [Examples & Images](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/UniversalResolver) | 10/27?
 Four Primers | Joe, Natalie, Drummond, Manu | [DID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-primer.md) -- [Functional ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/functional-identity-primer.md) -- [Self-Sovereign ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/self-sovereign-identity-primer.md) -- [Verifiable Claims](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/verifiable-claims-primer.md)
@@ -18,7 +18,7 @@ GDPR | Marta | [Abstract](https://github.com/WebOfTrustInfo/rebooting-the-web-of
 Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
 Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/identity-hubs-capabilities-perspective.md) | 10/12?
 Identity Mental Maps | Joe A. | In Process
-IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid)
+IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid) | 10/16?
 Smarm Smart Signatures | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/smarm.md)
 Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html) | Written
 
