@@ -146,11 +146,13 @@ language possible.
 
 ## Implementation milestones
 
--   Spec out language concepts (type annotation is the biggest decision;
-    r5rs already has the rest).  Mostly done?
--   Write a toy metacircular evaluator prototype of what the language
-    "looks like" (this should be fast for an experienced schemer
-    (task to Chris Webber or some other schemer?))
+-   A toy implementation has been written making use of
+    [Guile's sandboxed evaluation](https://www.gnu.org/software/guile/manual/html_node/Sandboxed-Evaluation.html)
+    facilities (public git repository coming soon after some cleanup).
+    This works, but:
+    -   Restrictions on space and time are not deterministic.
+    -   We would still want native compilation with obfuscation to
+        prevent side-channel attacks.
 -   Real implementation has a number of different paths, but suggested:
     Implement on Guile's compiler tower with bottom layer first targeting
     VM then targeting native code generation.
