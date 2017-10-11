@@ -31,8 +31,7 @@ relatively (for the world of computer programming) old, repurposed for
 new problem domains.
 (We will need to specify exactly what the primitives of the language
 are, as well as their associated costs... and perhaps that's where
-"Smarm" is a good name for this dialect of a dialect of a Lisp
-dialect.)
+"Smarm" is a good name for this dialect of a dialect of Lisp.)
 
 What follows is a listing of requirements and notes to make this
 language possible.
@@ -72,8 +71,7 @@ language possible.
     -   compiles to native code for production, with appropriate obfuscation
         to prevent side channel attacks
     -   however "development environment" can be more loose for fast
-        "live hacking" (have a mutable toplevel, do type checking only at
-        runtime)
+        "live hacking" (have a mutable toplevel, etc)
     -   Many lisps have long supported both interpreted and compiled
         code so we don't need to "make a choice"
 -   ISO-8859-1 strings only (sorry! unicode strings would require
@@ -133,7 +131,7 @@ language possible.
     others evaluated and claimed "Oh, you're running my code, now you
     need a license" this is possibly a valid legal form of attack against
     blockchain participants who are automatically verifying the integrity
-    of legal signatures.  An equitable estoppel defense may work, though
+    of smart signatures.  An equitable estoppel defense may work, though
     it would be better to encode into the blockchain somehow that some
     licensing choice has been made.  Perhaps Wikipedia is a good example
     of the largest collaborative commons; using a copyleft license that
