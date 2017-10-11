@@ -20,7 +20,7 @@ Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/Web
 Identity Mental Maps | Joe A. | In Process
 IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid)
 Smarm Smart Signatures | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/smarm.md)
-Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html)
+Verus1 Method Spec | Manu | [Spec](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-method-veres-one/DID-Method-Veres-One.html) | Written
 
 ## Current DID Spec
 
