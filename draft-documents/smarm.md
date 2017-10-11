@@ -6,7 +6,6 @@ By Christopher Allan Webber and Christopher Allen
 
 [Smart signatures](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop/blob/master/draft-documents/smarter-signatures.md)
 are desirable, but how to implement them?
-We would like a language that is:
 We need a language that is powerful and flexible enough to meet our
 needs while safe and bounded to run while remaining simple enough
 to feasibly implement.
