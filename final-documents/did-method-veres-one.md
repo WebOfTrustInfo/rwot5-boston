@@ -2,10 +2,10 @@
 
 [![W3C](https://www.w3.org/StyleSheets/TR/2016/logos/W3C)](https://www.w3.org/)
 
-Veres One DID Method 1.0 {#title .title .p-name}
+Veres One DID Method 1.0
 ========================
 
-A decentralized identifier method for the Veres One Ledger {#subtitle}
+A decentralized identifier method for the Veres One Ledger
 ----------------------------------------------------------
 
 Draft Community Group Report 01 October 2017
@@ -49,7 +49,7 @@ available.
 
 <div id="abstract" class="section introductory">
 
-Abstract {#abstract-0}
+Abstract
 --------
 
 The Veres One Ledger is a permissionless public ledger designed
@@ -102,7 +102,7 @@ to <public-credentials@w3.org>
 
 </div>
 
-Table of Contents {#table-of-contents .introductory}
+Table of Contents
 -----------------
 
 1.  [<span class="secno">1. </span>Introduction](#introduction)
@@ -135,7 +135,7 @@ Table of Contents {#table-of-contents .introductory}
 
 <div id="introduction" class="section">
 
-<span class="secno">1. </span>Introduction {#x1.-introduction}
+<span class="secno">1. </span>Introduction
 ------------------------------------------
 
 <div id="issue-1" class="issue">
@@ -156,7 +156,7 @@ the Veres One Ledger, expanding upon the abstract of the document.
 
 <div id="core-data-model" class="section">
 
-<span class="secno">2. </span>Core Data Model {#x2.-core-data-model}
+<span class="secno">2. </span>Core Data Model
 ---------------------------------------------
 
 <div id="issue-2" class="issue">
@@ -177,12 +177,12 @@ the DID spec to build the Veres One Ledger.
 
 <div id="basic-concepts" class="section">
 
-<span class="secno">3. </span>Basic Concepts {#x3.-basic-concepts}
+<span class="secno">3. </span>Basic Concepts
 --------------------------------------------
 
 <div id="authentication" class="section">
 
-### <span class="secno">3.1 </span>Authentication {#x3.1-authentication}
+### <span class="secno">3.1 </span>Authentication
 
 Authentication is the process the ledger uses to determine if an entity
 is associated with a DID.
@@ -239,7 +239,7 @@ example of authentication credentials entry</span>
 
 <div id="authorization" class="section">
 
-### <span class="secno">3.2 </span>Authorization {#x3.2-authorization}
+### <span class="secno">3.2 </span>Authorization
 
 Authorization is the process the ledger uses to determine what an entity
 may to do the DID Document.
@@ -327,7 +327,7 @@ descriptions follows:
 
 <div id="service-descriptions" class="section">
 
-### <span class="secno">3.3 </span>Service Descriptions {#x3.3-service-descriptions}
+### <span class="secno">3.3 </span>Service Descriptions
 
 Services may be listed by including them at the top-level of the DID
 Document.
@@ -383,7 +383,7 @@ A detailed example of the expression of a service description follows:
 
 <div id="operations" class="section">
 
-<span class="secno">4. </span>Operations {#x4.-operations}
+<span class="secno">4. </span>Operations
 ----------------------------------------
 
 Every conforming Veres Ledger node *MUST* expose at least the following
@@ -468,7 +468,7 @@ JSON-based service description</span>
 
 <div id="creating-a-did" class="section">
 
-### <span class="secno">4.2 </span>Creating a DID {#x4.2-creating-a-did}
+### <span class="secno">4.2 </span>Creating a DID
 
 A DID is created by performing an HTTP POST of a signed DID Document to
 the `veresOneCreateService`. The following HTTP status codes are defined
@@ -581,7 +581,7 @@ Transfer-Encoding: chunked
 
 <div id="updating-a-did-document" class="section">
 
-### <span class="secno">4.3 </span>Updating a DID Document {#x4.3-updating-a-did-document}
+### <span class="secno">4.3 </span>Updating a DID Document
 
 A DID is updated by performing an HTTP POST of a signed DID Document to
 the `veresOneUpdateService`. The following HTTP status codes are defined
@@ -704,7 +704,7 @@ Transfer-Encoding: chunked
 
 <div id="delegating-control" class="section">
 
-### <span class="secno">4.4 </span>Delegating Control {#x4.4-delegating-control}
+### <span class="secno">4.4 </span>Delegating Control
 
 <div id="issue-3" class="issue">
 
@@ -724,7 +724,7 @@ wallet provider in the proofOfControl field.
 
 <div id="key-rotation-and-transferring-control" class="section">
 
-### <span class="secno">4.5 </span>Key Rotation and Transferring Control {#x4.5-key-rotation-and-transferring-control}
+### <span class="secno">4.5 </span>Key Rotation and Transferring Control
 
 <div id="issue-4" class="issue">
 
@@ -745,7 +745,7 @@ proofOfUpdateAuthorization.
 
 <div id="recovering-a-did" class="section">
 
-### <span class="secno">4.6 </span>Recovering a DID {#x4.6-recovering-a-did}
+### <span class="secno">4.6 </span>Recovering a DID
 
 <div id="issue-5" class="issue">
 
@@ -767,12 +767,12 @@ requirements under proofOfUpdateAuthorization.
 
 <div id="appendix-a:-examples" class="section">
 
-<span class="secno">5. </span>Appendix A: Examples {#x5.-appendix-a:-examples}
+<span class="secno">5. </span>Appendix A: Examples
 --------------------------------------------------
 
 <div id="typical-did-document" class="section">
 
-### <span class="secno">5.1 </span>Typical DID Document {#x5.1-typical-did-document}
+### <span class="secno">5.1 </span>Typical DID Document 
 
 The following is a complete example of a typical Veres One DID Document:
 
@@ -821,7 +821,7 @@ The following is a complete example of a typical Veres One DID Document:
 
 <div id="legacy-did-document" class="section">
 
-### <span class="secno">5.2 </span>Legacy DID Document {#x5.2-legacy-did-document}
+### <span class="secno">5.2 </span>Legacy DID Document
 
 The Veres One ledger was launched in 2015, predated this specification,
 and as a result has a number of legacy objects that developers should be
