@@ -35,7 +35,7 @@ by escaping the core centralization mechanisms of DNS and SSL
 certificate authorities.
 
 At this point, users could even optionally transition from a
-client-server model system to a fully peer-topeer system.
+client-server model system to a fully peer-to-peer system.
 
 ## ActivityPub overview
 
