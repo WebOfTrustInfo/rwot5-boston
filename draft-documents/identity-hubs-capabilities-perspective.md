@@ -70,7 +70,7 @@ protections and from the ability to sign documents in a legally
 non-repudiable manner.
 
 Self-sovereign identifiers serve as the root of trust
-for the subject’s agent and for claims presented to a requesting
+for the subject’s agent and for claims presented by a requesting
 party.
 
 ## Self-Sovereign Agent
