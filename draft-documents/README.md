@@ -16,7 +16,7 @@ DID Resolver | Markus | [Examples & Images](https://github.com/WebOfTrustInfo/re
 Four Primers | Joe, Natalie, Drummond, Manu | [DID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/did-primer.md) -- [Functional ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/functional-identity-primer.md) -- [Self-Sovereign ID](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/self-sovereign-identity-primer.md) -- [Verifiable Claims](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/verifiable-claims-primer.md)
 GDPR | Marta | [Abstract](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/GDPR-Self-Soverign-ID.md)
 Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
-Identity Hubs Capabilities Perspective | Adrian | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/identity-hubs-capabilities-perspective.md) | Edited, OKed
+Identity Hubs Capabilities Perspective | Adrian | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/identity-hubs-capabilities-perspective.pdf) | **Posted**
 Identity Mental Maps | Joe A. | In Process
 IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid) | 10/16?
 Smarm Smart Signatures | Chris W. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/smarm.md)
