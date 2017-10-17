@@ -53,7 +53,7 @@
 	  "@context" : "https://example.org/did/v1"
 	}
 
-## div:v1
+## did:v1
 	
 	curl -i -X GET  https://uniresolver.danubetech.com/1.0/identifiers/did:v1:testnet:5431fafa-a38f-4e37-96b6-cdeb8e5d1d40
 
