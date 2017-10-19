@@ -348,7 +348,7 @@ additional parameters in the body:
         "signatureValue": "..."}}
 ```
 
-# Conclusions
+## Conclusions
 
 Linked Data Systems are powerful ways of building collaborative,
 expressive systems.  Today we are seeing Linked Data Systems crossing
