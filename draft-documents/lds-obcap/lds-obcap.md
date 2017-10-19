@@ -1,4 +1,4 @@
-# Capabilities built on Linked Data Signatures via Certificate Chaining
+# Object Capability Chaining for Linked Data Signatures
 
 By Christopher Allan Webber and Mark S. Miller
 
@@ -9,7 +9,7 @@ a method of asserting integrity of linked data documents passed throughout
 the web.  The [object capability model](https://en.wikipedia.org/wiki/Object-capability_model)
 is a powerful system for ensuring the security of computing systems.
 In this paper, we explore layering an object capability model on top
-of Linked Data Signatures.
+of Linked Data Signatures via chains of signed certificates.
 
 The system we propose can work regardless of whether we are using
 https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/).
@@ -188,11 +188,11 @@ to, this attenuated capability.
      .-.         .-.        .-.
     ( A )------>( B )----->( D )
      '-'\        '-'        '-'
-       \ \        
-        \ \       
+       \ \
+        \ \
          \ '--->(R1)
-          \       
-           \      
+          \
+           \
             \    .-.
              '->( C )
                  '-'
@@ -255,8 +255,8 @@ The capability graph now looks like so:
      .-.          .-.         .-.
     ( A )------->( B )------>( D )
      '-'\         '-'         '-'
-       \ \         | \      
-        \ \        V  '--v  
+       \ \         | \
+        \ \        V  '--v
          \ '---->(R1)<--(R2)
           \        |
            \       V
