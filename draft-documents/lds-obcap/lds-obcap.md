@@ -47,7 +47,7 @@ The initial condition looks like so:
 ```
 
 <!-- at object capability level, use message
-     at crypto level, use envelope, certificate, messenger -->
+     at crypto level, use envelope, proclamation, messenger -->
 
 (A)lice has a file upload capability to the (C)loud storage system.
 (A)lice also has a capability to send a message to (B)ob, and (B)ob
@@ -121,14 +121,14 @@ Finally, here is the Cloud Storage service:
 ```
 
 Alice's capability to send a message to Bob is encoded in a
-certificate.  Let's look at what that certificate looks like:
+proclamation.  Let's look at what that proclamation looks like:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
                   "https://example.org/obcap/v1",
                   "http://schema.org"],
      "id": "did:example:0b36c7844941b61b-c763-4617-94de-cf5c539041f1",
-     "type": "Certificate",
+     "type": "Proclamation",
      
      // The subject is who the capability operates on (in this case,
      // the CloudStore object) and the method is what the capability does
@@ -158,15 +158,15 @@ files at a time.
                   "https://example.org/obcap/v1",
                   "http://schema.org"],
      "id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda",
-     "type": "Certificate",
+     "type": "Proclamation",
      
-     // This new attenuated certificate points to the prevoius one
+     // This new attenuated proclamation points to the prevoius one
      "parent": "did:example:0b36c7844941b61b-c763-4617-94de-cf5c539041f1",
 
      // Now we grant access to one of Bob's keys
      "grantedKey": "did:example:ee568de7-2970-4925-ad09-c685ab367b66#key-1",
 
-     // This certificate *does* have a caveat: each upload can only be
+     // This proclamation *does* have a caveat: each upload can only be
      // 50 Megabytes large.
      "caveat": [
        {"id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda#caveats/50-megs-only",
@@ -227,7 +227,7 @@ the attenuated capability he already has!
                   "https://example.org/obcap/v1",
                   "http://schema.org"],
      "id": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
-     "type": "Certificate",
+     "type": "Proclamation",
 
      // Yet again, point up the chain...
      "parent": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda",
@@ -285,8 +285,8 @@ capability to Dummy Bot:
 
 Now DummyBot has a capability to upload files to CloudStore, but only
 files that are within 50 megabytes, and only for the next month. This
-is possible because DummyBot is authorized on the final certificate,
-but the certificate "chains upward" including both the immediate
+is possible because DummyBot is authorized on the final proclamation,
+but the proclamation "chains upward" including both the immediate
 restriction/caveat within R2 on time but also the restriction/caveat
 in R1 on space!
 
@@ -320,7 +320,7 @@ Soon DummyBot takes a picture and uploads it:
                   '-'
 ```
 
-This is done through an `Invocation` on the certificate, along with
+This is done through an `Invocation` on the proclamation, along with
 additional parameters in the body:
 
 ``` javascript
@@ -330,7 +330,7 @@ additional parameters in the body:
      "id": "did:example:2bdf6273-a52e-4cdf-991f-b5f000008829",
      "type": "Invocation",
 
-     // Dummy Bot is invoking the certificate they have,
+     // Dummy Bot is invoking the proclamation they have,
      // but the whole chain will be checked for attenuation and
      // verification of access
      "cert": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
@@ -351,11 +351,11 @@ additional parameters in the body:
 
 ## Related work
 
-### SPKI
+### SPKI/SDSI
 
 ### CapCert
 
-http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Certificates
+http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations
 
 ### Macaroons
 
