@@ -1,4 +1,4 @@
-# Object Capability Chaining for Linked Data Signatures
+# Proclamation Chains for Linked Data Signatures
 
 By Christopher Allan Webber and Mark S. Miller
 
@@ -9,7 +9,8 @@ a method of asserting integrity of linked data documents passed throughout
 the web.  The [object capability model](https://en.wikipedia.org/wiki/Object-capability_model)
 is a powerful system for ensuring the security of computing systems.
 In this paper, we explore layering an object capability model on top
-of Linked Data Signatures via chains of signed certificates.
+of Linked Data Signatures via chains of signed proclamations.
+<sup id="fnr.proclamation-terminology">[fn:1](#proclamation-terminology)</sup>
 
 The system we propose can work regardless of whether we are using
 https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/).
@@ -348,6 +349,19 @@ additional parameters in the body:
         "signatureValue": "..."}}
 ```
 
+## Related work
+
+### SPKI
+
+### CapCert
+
+http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Certificates
+
+### Macaroons
+
+
+
+
 ## Conclusions
 
 Linked Data Systems are powerful ways of building collaborative,
@@ -370,3 +384,18 @@ the one described above.  Even more exciting is that by combining
 this system with [DIDs](https://w3c-ccg.github.io/did-spec/) we can
 build a fully decentralized object capability system to the web that
 is safe to use.
+
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.proclamation-terminology" name="fn.proclamation-terminology" class="footnum" href="#fnr.proclamation-terminology">1</a></sup>
+(Note: what we are calling "proclamations" have also been called
+"certificates" in previous work such as SPKI and CapCert, we have
+chosen the name "proclamation chain" to make clear that the structure
+we are proposing holds none of the centralization traditionally
+associated with "certificate authorities".)
+</div>
+
+</div>
+</div>
