@@ -161,6 +161,7 @@ Name          |
   Mark S. Miller     |
   Gautam Dhameja     |
   Ryan Grant         |
+  Kim Duffy          |
 
 ## Graphic Recordings follow
 

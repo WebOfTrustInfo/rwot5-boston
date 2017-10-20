@@ -1,3 +1,5 @@
+# ActivityPub
+
 *This paper was written originally for the 2017 Rebooting Web of Trust*
 *summit.*
 
@@ -5,7 +7,7 @@
 * Christopher Webber, Independent
 * Manu Sporny, Digital Bazaar
 
-# Introduction
+## Introduction
 
 [ActivityPub](https://www.w3.org/TR/activitypub/) is a protocol being developed at the [W3C](https://www.w3.org/) for the purpose
 of building federated social systems.
@@ -20,19 +22,22 @@ decentralization.
 Current implementations of ActivityPub go as far as to bring a level
 of decentralization akin to email,<sup id="fnr.2">[2](#fn.2)</sup> but
 there are many opportunities to go further.
+
 By attaching public keys to the profiles of actors (users) on the
 network and using [Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/), we can add a web of trust to
-the federated social web and use it to enhance user privacy and assert
+the federated social web and use it to enhance user privacy and to assert
 the integrity of messages sent over the network.
+
 By using a decentralized identifier system such as
 [Decentralized Identifiers (DIDs)](https://w3c-ccg.github.io/did-spec/) we can move fully from a decentralized
 to a distributed system,<sup id="fnr.3">[3](#fn.3)</sup>
 by escaping the core centralization mechanisms of DNS and SSL
 certificate authorities.
-At this point, users could even optionally transition from a
-client-server model system to a fully peer to peer system.
 
-# ActivityPub overview
+At this point, users could even optionally transition from a
+client-server model system to a fully peer-to-peer system.
+
+## ActivityPub overview
 
 <div class="center">
 *This section is borrowed from the ActivityPub standard's*
@@ -42,17 +47,18 @@ client-server model system to a fully peer to peer system.
 
 ActivityPub provides two layers:
 
--   **A server to server federation protocol:**
+-   **A server-to-server federation protocol:**
        so decentralized websites can share information
--   **A client to server protocol:**
+-   **A client-to-server protocol:**
     so users can communicate with ActivityPub using servers,
     from a phone or desktop or web application or whatever
 
 ActivityPub implementations can implement just one of these things or
 both of them.
+
 However, once you've implemented one, it isn't too many steps to
 implement the other, and there are a lot of benefits to both (making
-your website part of the decentralized social web, and being able to
+your website part of the decentralized social web and able to
 use clients and client libraries that work across a wide variety of
 social websites).
 
@@ -88,9 +94,11 @@ ActivityPub uses [ActivityStreams](https://www.w3.org/TR/activitystreams-core/) 
 This is pretty great because ActivityStreams includes all the common
 terms you need to represent all the activities and content flowing
 around a social network.
+
 It's likely that ActivityStreams already includes all the vocabulary
 you need, but even if it doesn't, ActivityStreams can be extended
 via [JSON-LD](https://json-ld.org/).
+
 If you know what JSON-LD is, you can take advantage of the cool linked
 data approaches provided by JSON-LD.
 If you don't, don't worry, JSON-LD documents and ActivityStreams can be
@@ -116,7 +124,7 @@ So the full workflow is:
 -   You can POST to your outbox to send messages to the world
     (client-to-server)
 -   You can GET from someone's outbox to see what messages they've
-    posted (or at least the ones you're authorized to see).
+    posted, or at least the ones you're authorized to see.
     (client-to-server and/or server-to-server)
 
 Of course, if that last one (GET'ing from someone's outbox) was the
@@ -166,12 +174,12 @@ Person.)
 ```
 
 Alyssa's server looks up Ben's ActivityStreams actor object, finds his
-inbox endpoint, and POST's her object to his inbox.
+inbox endpoint, and POSTs her object to his inbox.
 
 ![img](./static/tutorial-4.png "Server posting to remote actor's inbox")
 
-Technically these are two separate steps&#x2026; one is client to server
-communication, and one is server to server communication (federation).
+Technically these are two separate steps&#x2026; one is client-to-server
+communication, and one is server-to-server communication (federation).
 But, since we're using them both in this example, we can abstractly
 think of this as being a streamlined submission from outbox to inbox.
 
@@ -212,7 +220,6 @@ Alyssa is relieved, and likes Ben's post:
 She POSTs this message to her outbox.
 (Since it's an activity, her server knows it doesn't need to wrap it in
 a Create object.)
-
 Feeling happy about things, she decides to post a public message to her
 followers.
 Soon the following message is blasted to all the members of her
@@ -235,7 +242,7 @@ addressed, is generally readable by anyone.
                             Getting them back is even nicer! :)"}}
 ```
 
-# Bringing public key cryptography to the federated social web
+## Bringing public key cryptography to the federated social web
 
 We can dramatically improve the state of the federated social web by
 having each actor on the system hold a public and private keypair, and
@@ -254,17 +261,17 @@ actor object:
         "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
 ```
 
-This provides significant improvements to the system which we explore
+This provides significant improvements to the system, which we explore
 below.
 
-## Signing objects
+### Signing objects
 
 Sharing messages is common in social networks.
 But how can you verify that someone really said what they claimed?
 
 The user Mallet is trying to cause havoc in their social network.
-They pretend to "share"<sup id="fnr.5">[5](#fn.5)</sup> the following post they
-pretend to have seen from Alyssa to the pasta-enthusiasts group, which
+They pretend to "share"<sup id="fnr.5">[5](#fn.5)</sup> the following post that they
+claim Alyssa sent to the pasta-enthusiasts group, which
 Ben is a member of.
 
 ``` json
@@ -294,32 +301,26 @@ Ben is a member of.
        "signatureValue": "wTjLtnZVYF79pq9Ts...OU1jYPSjvcE2jNc="}}
 ```
 
-In general ActivityPub follows the client-server paradigm that has
-been popular on the World Wide Web, while restoring some level of
-decentralization.
-Current implementations of ActivityPub go as far as to bring a level
-of decentralization akin to email,
-
 Ben's server, or even the server hosting `pastalovers.example`, can
 check the signature against the `publicKey` listed on Alyssa's actor
-object.
-This check fails, and so Mallet's attempt at slander of Alyssa amongst
+object. This check fails, and so Mallet's attempt at slander of Alyssa amongst
 the pasta enthusiast community fails.
-
 While the above example looks at protecting against a malicious
 interaction, forwarding and sharing content is desirable for positive
 reasons.
+
 One common problem in federated social networks that support private
-interactions is that a conversation can become fragmented; if Ben is
+interactions is that a conversation can become fragmented: if Ben is
 posting to private collection<sup id="fnr.5">[5](#fn.5)</sup> she has
-curated of both his friends and coworkers, if members of coworkers
-can't see who is in the private family collection, even if they
+curated containing both his friends and coworkers, and members of coworkers
+can't see who is in the private family collection, when they
 address to include the family in the conversation they can't traverse
 the collection of family actors to deliver to all relevant
 participants.
 (This "ghost replies" problem happens frequently on federated networks
 even when messages are being sent to the actor's own `followers`,
 where breaks tend to happen across server boundaries.)
+
 ActivityPub includes a solution to this via a [forwarding mechanism](https://www.w3.org/TR/activitypub/#inbox-delivery),
 but the solution does not really work without signatures, as
 the forwards are happening indirectly rather than from the "same
@@ -334,14 +335,13 @@ This is a frequently requested feature in federated social networks,
 so we should ensure that the necessary public key infrastructure is
 provided.<sup id="fnr.6">[6](#fn.6)</sup>
 
-## An easier to use web of trust?
+### An easier to use web of trust?
 
 The PGP-style "web of trust" has been around for some time now, but
 the term "web of trust" is somewhat mired by the historically most
 popular method by which the trust network has populated.
 Key signing parties, while effective, have never taken off beyond
-a very small set of the population.
-Such parties are rewarding but difficult for most of the population to
+a very small set of the population. Such parties are rewarding but difficult for most of the population to
 attend and organize, and even more difficult still is learning the
 (generally) command line tooling necessary to participate in the
 system.
@@ -385,7 +385,7 @@ propagated as appropriate throughout the network.
 This kind of mechanism would work nicely even in a system like DIDs,
 where a human-readable identifier does not exist.
 
-## End to end encryption
+### End-to-end encryption
 
 A malicious server administrator may still snoop on all communication
 of participants on a system.
@@ -396,7 +396,7 @@ SSL Certificate Authorities may also be compromised into giving out
 fake certificates, allowing man in the middle attacks that neither the
 user nor server administrator may be aware of.
 
-End to  end encryption can solve  this (with some tradeoffs);  in this
+End-to-end encryption can solve  this (with some tradeoffs);  in this
 case, rather than having the server manage the public and private keys
 of a user,  a user may provide  a public key on their  actor object to
 which only their own computer(s) hold the corresponding private key.
@@ -417,7 +417,7 @@ The server would put this object in the user's inbox, but if only the
 user's own computers hold the key, even the server would be unable to
 read the contents held within the envelope.
 
-Upon retrieving the object from the server via the client to server
+Upon retrieving the object from the server via the client-to-server
 protocol, the user's client can decrypt the message.
 In this case, the message went directly to Alyssa's inbox.
 Upon decrypting the component in encryptedMessage, another object
@@ -448,10 +448,10 @@ tradeoffs:
     such as being able to have server-based indexing of messages
     for easy search.<sup id="fnr.10">[10](#fn.10)</sup>
     
-    In a "more peer to peer" system (as discussed in the
+    In a "more peer-to-peer" system (as discussed in the
     Distributed identity section) this becomes less of an issue
     because the distinction between client server blurs.
-    Nevertheless, for existing client to server implementations,
+    Nevertheless, for existing client-to-server implementations,
     this is a strong issue to consider.
 
 -   User maintenance of keys in end-to-end encryption systems is known
@@ -462,7 +462,7 @@ tradeoffs:
     users read old messages encrypted with keys they no longer have
     and which the original senders cannot send (or do not know how to).
 
-# Distributed identity
+## Distributed identity
 
 ActivityPub implementations at the present moment rely on HTTPS as
 their transport, which in turn relies on two centralized systems: DNS
@@ -555,9 +555,9 @@ have access to all her endpoints, which in this case are pointing
 to [Tor Hidden Services](https://www.torproject.org/docs/hidden-services.html.en).
 No central DNS required!
 
-Maybe in the future there is even a protocol &#x2013; let's call it
+Maybe in the future there will even be a protocol &#x2013; let's call it
 `httpeer` &#x2013; which supports all the standard HTTP verbage, but
-over some other peer to peer network.
+over some other peer-to-peer network.
 The DID spec supports [service endpoints](https://w3c-ccg.github.io/did-spec/#service-endpoint-references-(optional)), and Alyssa could take
 advantage of these to use her DID as base of the `inbox`, `outbox`,
 etc URIs.
@@ -588,17 +588,17 @@ Here's a cut down and modified version of the previous example:
 
 Now that's an identity system!
 
-# Append only systems and content addressed storage
+## Append only systems and content addressed storage
 
 Finally, it's worth mentioning the idea of moving ActivityPub to an
 entirely append-only, content-addressed system for object storage,
 "modification", and retrieval.
-Much success has been seen in recent years with these systems, and
-doing so would allow for many of the side effects in the federation
+Much success has been seen in recent years with these systems;
+enacting this change would allow for many of the side effects in the federation
 system to be dropped entirely.
 We leave this as a topic for a future paper.
 
-# Conclusions
+## Conclusions
 
 ActivityPub goes a long way towards providing a standardized way to
 move the social web from isolated, centralized silos towards the
@@ -608,16 +608,16 @@ Yet there are risks in trying to engineer the right system all at
 once, and great is well known to be the enemy of good.
 
 Thankfully we do not need to throw out what we have to make the
-improvements which are discussed in this paper.
+improvements that are discussed in this paper.
 ActivityPub already exists and works, and we can incrementally
 improve the systems we have and blur the line between the
-federated social web that works and more peer to peer systems
+federated social web that works and more peer-to-peer systems
 which are desirable.
 By adding public key infrastructure and distributed identifiers to
 ActivityPub we can move from a decentralized system to a distributed
 one and truly build a network that is both self-sovereign and social.
 
-# Acknowledgments
+## Acknowledgments
 
 Thanks to Evan Prodromou and Owen Shepherd for working on
 initial revisions of the ActivityPub standard.
@@ -648,9 +648,7 @@ This document and its images (with the exception of Paul Baran's
 drawings), like ActivityPub itself, are licensed under
 [W3C's permissive document license](https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
 
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
+## Footnotes:
 
 <div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> Of course, there is nothing stopping
 current-silos of social networking from adopting ActivityPub, would
@@ -674,7 +672,7 @@ In the figure above we see images from
 Paul Baran's 1964 paper on the subject, and from these shapes we can
 see the kinds of shapes we mean: social silos resemble the the
 spoke-like centralized model, client-server federated social networks
-resemble the tree-like decentralized model, and a peer to peer network
+resemble the tree-like decentralized model, and a peer-to-peer network
 resembles the mesh-like distributed model.
 Since the writing of that paper there has been significant vocabulary
 drift (perhaps because English is such a decentralized/distributed
@@ -682,7 +680,7 @@ language) and [clarifying the meaning of these terms](https://medium.com/@Vitali
 (In [one popular post on the Ethereum Stack Exchange](https://ethereum.stackexchange.com/a/7813), a diagram that looks
 almost exactly like Baran's diagram appears, but with the Decentralized
 and Distributed labels reversed!)
-The goal of this paper is really to seek out the systems which promote
+The goal of this paper is really to seek out the systems that promote
 the greatest amount of reliability, security, and user autonomy, and
 some of the methods discussed, such as public key cryptography,
 promote both.
@@ -690,7 +688,7 @@ Nonetheless, when the terms "decentralized" and "distributed" are used
 and meaning is to be sought out, look to Baran, for sometimes pictures
 are more descriptive than words.</div>
 
-<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> Alyssa probably would not likely see the JSON-LD objects
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> Alyssa probably would likely not see the JSON-LD objects
 directly as described here, but the author believes that some
 narrative context still assists in the explaination of a UI-agnostic
 protocol.</div>
@@ -721,14 +719,14 @@ revision seen.
 The latter two options may pose some challenge to highly relational
 systems which were not originally designed with signatures in mind.</div>
 
-<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> [GNU Ring](https://ring.cx/) is an interesting example of a peer to peer
+<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> [GNU Ring](https://ring.cx/) is an interesting example of a peer-to-peer
 social network system where a user's identity is actually their
 fingerprint.  While not the first system to have this concept, it's
 very pleasant to see in action (and the interface is itself
 aesthetically pleasing); to build up your buddy list is quite
 literally to build your web of trust.</div>
 
-<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> There are an incredible number of [unicode hacks](http://www.unicode.org/Public/security/latest/confusables.txt)
+<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> There are an incredible number of [unicode hacks](http://www.unicode.org/Public/security/latest/confusables.txt),
 which can trick even the most careful of technical users as well.</div>
 
 <div class="footdef"><sup><a id="fn.10" name="fn.10" class="footnum" href="#fnr.10">10</a></sup> `https://securityns.example/` is an imaginary
