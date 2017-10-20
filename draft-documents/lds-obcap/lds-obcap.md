@@ -596,8 +596,9 @@ difficult on Linked Data Systems.
 
 For example, [SoLiD](https://solid.mit.edu/) directly uses and
 [ActivityPub](https://www.w3.org/TR/activitypub/) indirectly implies
-Access Control Lists.  Unfortunately these are are known to plague
-systems with problems, particularly:
+Access Control Lists.  Unfortunately these are are known to
+[plague systems with problems](http://www.hpl.hp.com/techreports/2009/HPL-2009-20.html),
+particularly:
 
  - excess authority leading to needless vulnerability
  - ambient authority leading to confused deputy problems
