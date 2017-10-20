@@ -217,9 +217,9 @@ invokes her message sending capability between herself and Bob.
 ```
 
 Now Bob has access to upload 50MB or less files to the CloudStore.
-But he would prefer that DummyBot do uploads for him... well, for a
+But he would prefer that Dummy Bot do uploads for him... well, for a
 month.  He'll see how it goes.  Luckily these capabilities are
-composable, and so DummyBot can create an attenuated capability out of
+composable, and so Dummy Bot can create an attenuated capability out of
 the attenuated capability he already has!
 
 ``` javascript
@@ -283,9 +283,9 @@ capability to Dummy Bot:
                   '-'
 ```
 
-Now DummyBot has a capability to upload files to CloudStore, but only
+Now Dummy Bot has a capability to upload files to CloudStore, but only
 files that are within 50 megabytes, and only for the next month. This
-is possible because DummyBot is authorized on the final proclamation,
+is possible because Dummy Bot is authorized on the final proclamation,
 but the proclamation "chains upward" including both the immediate
 restriction/caveat within R2 on time but also the restriction/caveat
 in R1 on space!
@@ -301,7 +301,7 @@ in R1 on space!
    (________(_)      (________(_)      (________(_)
 ```
 
-Soon DummyBot takes a picture and uploads it:
+Soon Dummy Bot takes a picture and uploads it:
 
 ```
      .-.          .-.                 .-.
@@ -450,13 +450,140 @@ instruments, and the design describe, while in very scant detail,
 sounds very similar to how LDS Proclamation Chains work.)
 
 Overall Macaroons and LDS Proclamation Chains are both reasonable
-systems with different tradeoffs.  Implementors should be informed
+systems with different tradeoffs.  Implementers should be informed
 of these tradeoffs and make decisions accordingly.
 
 
-### W7 Security Kernel / Lexical Scope as Capabilities
+### Lexical Scope as Capabilities
+
+In this section we introduce a capability system that is in many ways
+fairly dramatically different than any of the other systems discussed
+in this paper.  Readers who do not wish to go "into the weeds" may
+prefer to skip this section.
+
+In the
+[W7 Security Kernel](http://mumble.net/~jar/pubs/secureos/secureos.html),
+Jonathan Rees introduces an implementation of security capabilities on
+nothing other than a strict lexically scoped environment, enforced
+by the runtime of the system.
+The language shown uses a cut-down variant of Scheme, though it can be
+implemented in any language that provides the same strict lexical scoping
+properties in a carefully bounded initial environment.
+(Indeed the [E language](http://erights.org/) uses strict lexical
+scoping as one key part of its capability system.)
+The paper demonstrates all the same properties of capabilities we have
+shown here: delegation, attenuation, and so on.
+
+However, there is one thing which is possible in W7 that is not
+possible in any of the other systems we have discussed in this paper,
+including the LDS Proclamation Chains system we have proposed.
+This is attenuation by composition in an enclosed environment.
+To see what this means and why it is desirable, let us consider an
+example.
+
+We have the following initial state:
+
+ - A: Alice
+ - C: Cloud Store
+ - H: Home Directory
+ - T: Timer Service
+
+```
+           .-.
+          ( H )
+           '-'
+          ^
+         /
+     .-./         .-.
+    ( A )------->( T )
+     '-'\         '-'
+         \
+          v
+           .-.
+          ( C )
+           '-'
+```
+
+(A)lice keeps her data in (H)ome Directory.  She would like to back it
+up to (C)loud Service, but she is afraid she will forget to back up
+regularly, so she would like to grant a capability to (T)imer Service to
+run the backup for her.  However, she would prefer that Timer Service
+not have access to actually read any of the contents of her data on Home
+Directory, and she does not want Timer Service to be able to write just
+anything to Cloud Store, only backups.  Effectively she would like to
+send Timer Service a new capability that *composes together* reading
+from Home Directory and writing to Cloud Store without giving access to
+either independently.  Here R represents the
+restricted-through-composition capability in this somewhat messy
+diagram:
+
+```
+           .-.
+          ( H )
+           '-'<.
+          ^    |
+         / _->(R)<-.
+     .-./.'    |  .-.
+    ( A )------->( T )
+     '-'\      ;  '-'
+         \    .
+          v  v
+           .-.
+          ( C )
+           '-'
+```
 
 
+In Rees' W7 / the lambda-calculus-obcap system, we could represent this
+like so:
+
+``` scheme
+;; Run in A's environment
+(timer-run-every            ; T
+  (lambda ()                ; R
+    (write-cloud-image      ; C
+      (get-homedir-image))) ; H
+  (* 60 60 24 7)) ; run every 604800 seconds, or once a week
+```
+
+The advantage here is that the runtime is able to enclose the
+capabilities and handle the composition of passing the returned value
+of one of the enclosed capabilities to the other, without exposing
+either individually outside of the enclosure.
+
+It does not appear we can do the same thing in LDS Proclamation
+Chains.  Here is a highly cut down invocation which attempts to embed
+the capabilities, for the sake of demonstration:
+
+``` javascript
+  {"type": "Invocation",
+   "usingKey": <alice-key-1>,
+   "method": "RunEvery",
+   "cert": <cert-id>,
+   "secs": 30,
+   /* But we would also need to clearly express how to combine these */
+   "runTheseCombinedSomehow": [
+     <alice-grants-timer-capability-to-homedir>,
+     <alice-grants-timer-capability-to-cloudstore>],
+   "signature": <signed-by-alice-key-1>}
+```
+
+There are two troubles here: making it clear how Timer Service is
+supposed to compose these capabilities in runTheseCombinedSomehow is
+not obvious, and even worse, there is nothing preventing Timer Service
+from running these individually since they are not properly enclosed,
+unlike in our W7/Scheme example earlier.  (It could be possible to
+embed a properly constrained W7-like language into the linked data
+document itself which could do the composition, and indeed
+[Smarm](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/smarm.md)
+may just be the system for that.  How to combine those systems is left
+as a hopefully not too brain-twisting exercise for the reader, or
+possibly the subject of a future paper.)
+
+The majority of needs for a capability system are likely served by
+attenuation and delegation on their own.  Nonetheless, full
+composability within a capability's enclosure, as explored above, is
+still a desirable property for the systems that can provide it.
 
 
 ## Conclusions
@@ -474,7 +601,7 @@ systems with problems, particularly:
 
  - excess authority leading to needless vulnerability
  - ambient authority leading to confused deputy problems
- - lack of composability
+ - lack of composability (including attenuation)
 
 We can avoid these risks by using an object capability system such as
 the one described above.  Even more exciting is that by combining
