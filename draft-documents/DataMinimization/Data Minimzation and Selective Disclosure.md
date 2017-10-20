@@ -35,6 +35,67 @@ See appendix for collected definitions of progressive disclosure.
 ## Implementation
 This section is for Lionel's awesome pictures and descriptions of the flow in our use case
 
+### Code for [Web Sequence Diagram](https://www.websequencediagrams.com/):
+Copy and paste the code below into the [Web Sequence Diagram](https://www.websequencediagrams.com/) webpage to generate the flow diagram
+~~~~
+title Verifiable Claim using Selective Disclosure
+participant Valid Time Oracle
+participant Janet
+participant ID Provider
+participant Ledger
+participant Bar
+
+note over Janet:Prover
+note over Bar:Validator
+
+note over Janet,Bar: Preparation and Setup
+
+note right of ID Provider:Infrastructure
+ID Provider->Ledger: Define Schema (Name, Birthdate, Address)
+ID Provider->Ledger: Claim Definition (Pub Key, etc.)
+ID Provider->ID Provider: Generate Prv Key for this claim
+ID Provider->Ledger:Revocation Registry
+
+note left of Bar: Prepare to accept Claims
+Bar->Bar:Install Agent
+Bar->Ledger: Check schema
+
+note over Janet,Bar: Begin Use Case
+Janet->ID Provider: Request ID
+ID Provider-->Janet: ID will be issued as a digital credential
+note right of Janet: Prepare to receive Claims
+Janet->Janet: Install Agent
+Janet->Janet: Prv Key Generate, Store
+Janet->Ledger:Check Schema
+Ledger->Janet:Claim Definition
+Janet-->ID Provider:Proof of Name, Birthdate, Address
+Janet->ID Provider: Blinded secret
+ID Provider->Janet: Claim
+Janet->Janet: Validate Claim against Claim Def
+
+note over Janet,Bar: Janet goes to the bar
+note left of Bar: Can Janet Enter?
+Bar->Janet: Request Proof of Age
+Janet->Valid Time Oracle: Get time
+Valid Time Oracle->Janet: Time Claim
+Janet->Janet:Generate Proof (This person is over 21)
+Janet->Bar: Provide Proof
+Bar->Bar: Evaluate proof
+Bar->Ledger: Verify on Ledger
+Ledger->Bar: Verification
+Bar->Janet: Come in
+
+note left of Bar: Invite to club
+
+Bar->Janet: Join loyalty club? (requires valid postal code)
+Janet->Janet:Generate Proof (postal code)
+Janet->Bar: Provide Proof
+Bar->Bar: Evaluate proof
+Bar->Ledger: Verify on Ledger
+Ledger->Bar: Verification
+Bar->Janet: Have Loyalty Card
+~~~~
+
 ## Method
 This section will show an implementation of verifiable claims that allows for selective disclosure of claim attributes. In order facilitate understanding of the implementation, we first provide a section providing a view of topics in number theory and cryptography.
 
