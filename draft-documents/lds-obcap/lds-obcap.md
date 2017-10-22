@@ -330,7 +330,7 @@ additional parameters in the body:
      "id": "did:example:2bdf6273-a52e-4cdf-991f-b5f000008829",
      "type": "Invocation",
 
-     // Dummy Bot is invoking the proclamation they have,
+     // Dummy Bot is invoking the proclamation it has,
      // but the whole chain will be checked for attenuation and
      // verification of access
      "cert": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
@@ -356,17 +356,13 @@ additional parameters in the body:
 [SPKI](http://world.std.com/~cme/html/spki.html) (and previously SDSI)
 is a key management project which aimed to resolve many of the issues
 (including around centralization) that the X.509 infrastructure
-introduced and developed into over time.  SPKI is also known to be
+introduced and developed into over time.  SPKI is
 [almost but not quite an object capability system](http://www.erights.org/elib/capability/ode/ode-pki.html).
 SPKI uses "certificates" (akin to "proclamations"[fn:1](#proclamation-terminology) here)
-to designate authority, similar to how we are doing so in this document,
+to express authority, similar to how we are doing so in this document,
 but did not exist in a linked data system as our proposal here does.
 Importantly, SPKI's authority is a broader form of access control, and for
 that reason carries some of the traditional problems of ACLs.
-However (as said in the [CapCert proposals](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations))
-SPKI got enough right in its time that it was
-["the only PKI/Certificate system ... that's good enough to criticize."](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Certificates),
-a quote from an analysis of SPKI to develop CapCert, which we discuss below.
 
 ### CapCert
 
@@ -400,7 +396,7 @@ smaller (a desirable property!) since rather than using public key
 cryptography for signatures, a simple HMAC is used.  Macaroons are
 thus passed around as bearer instruments over secure channels.  This
 leads to a tradeoff: macaroons are smaller in size than LDS
-Proclamation Chains, but unlike LDS Proclamation Chains can not be
+Proclamation Chains, but unlike LDS Proclamation Chains, cannot be
 sent or invoked over an insecure channel.  Unlike LDS Proclamation
 chains, macaroons cannot be stored on a blockchain or be publicly
 retrievable from the web.
@@ -463,9 +459,9 @@ prefer to skip this section.
 
 In the
 [W7 Security Kernel](http://mumble.net/~jar/pubs/secureos/secureos.html),
-Jonathan Rees introduces an implementation of security capabilities on
-nothing other than a strict lexically scoped environment, enforced
-by the runtime of the system.
+Jonathan Rees introduces an implementation of object capabilities on
+nothing other than a strict lexically scoped environment, enforced by
+the runtime of the system.
 The language shown uses a cut-down variant of Scheme, though it can be
 implemented in any language that provides the same strict lexical scoping
 properties in a carefully bounded initial environment.
@@ -607,7 +603,7 @@ particularly:
 We can avoid these risks by using an object capability system such as
 the one described above.  Even more exciting is that by combining
 this system with [DIDs](https://w3c-ccg.github.io/did-spec/) we can
-build a fully decentralized object capability system to the web that
+build a fully decentralized object capability system for the web that
 is safe to use.
 
 <div id="footnotes">
