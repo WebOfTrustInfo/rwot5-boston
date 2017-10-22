@@ -54,7 +54,11 @@ The initial condition looks like so:
 has a capability to send a message to (D)ummy Bot.
 
 Each of these characters has an associated linked data document that
-represents them within the system.  Here is Alice:
+represents them within the system which make use of
+[JSON-LD](https://json-ld.org/) and
+[Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/).
+
+Here is Alice:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
