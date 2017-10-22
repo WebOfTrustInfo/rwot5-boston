@@ -58,7 +58,7 @@ represents them within the system.  Here is Alice:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      // This is a DID, but it could as well be an https:// uri
      "id": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab",
@@ -77,7 +77,7 @@ Here is Bob:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:ee568de7-2970-4925-ad09-c685ab367b66",
      "type": "Person",
@@ -92,7 +92,7 @@ Here is Dummy Bot:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4",
      "type": "Service",
@@ -107,7 +107,7 @@ Finally, here is the Cloud Storage service:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:0b36c784-f9f4-4c1e-b76c-d821a4b32741",
      "type": "Service",
@@ -123,7 +123,7 @@ proclamation.  Let's look at what that proclamation looks like:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:0b36c7844941b61b-c763-4617-94de-cf5c539041f1",
      "type": "Proclamation",
@@ -153,7 +153,7 @@ files at a time.
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda",
      "type": "Proclamation",
@@ -222,7 +222,7 @@ the attenuated capability he already has!
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
      "type": "Proclamation",
@@ -323,7 +323,7 @@ additional parameters in the body:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:2bdf6273-a52e-4cdf-991f-b5f000008829",
      "type": "Invocation",
@@ -528,7 +528,7 @@ diagram:
 ```
 
 
-In Rees' W7 / the lambda-calculus-obcap system, we could represent this
+In Rees' W7 / the lambda-calculus-ocap system, we could represent this
 like so:
 
 ``` scheme
