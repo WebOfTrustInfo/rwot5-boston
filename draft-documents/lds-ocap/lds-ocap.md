@@ -72,6 +72,8 @@ Here is Alice:
      // Finally, a signature verification key Alice will be using
      // for her upload capability to the Cloud Storage system
      "publicKey": [{
+       // This has its own separate id because it is technically
+       // a separate document
        "id": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab#key-1",
        "owner": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab",
        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
@@ -162,7 +164,7 @@ files at a time.
      "id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda",
      "type": "Proclamation",
      
-     // This new attenuated proclamation points to the prevoius one
+     // This new attenuated proclamation points to the previous one
      "parent": "did:example:0b36c7844941b61b-c763-4617-94de-cf5c539041f1",
 
      // Now we grant access to one of Bob's keys
