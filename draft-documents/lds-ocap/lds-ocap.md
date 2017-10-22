@@ -362,6 +362,9 @@ is a key management project which aimed to resolve many of the issues
 (including around centralization) that the X.509 infrastructure
 introduced and developed into over time.  SPKI is
 [almost but not quite an object capability system](http://www.erights.org/elib/capability/ode/ode-pki.html).
+(See [From Capabilities To Financial Instruments](http://erights.org/elib/capability/ode/ode-bearer.html)
+and [Capability Myths Demolished](http://www.erights.org/elib/capability/duals/myths.html)
+for more information.)
 SPKI uses "certificates" (akin to "proclamations"[fn:1](#proclamation-terminology) here)
 to express authority, similar to how we are doing so in this document,
 but did not exist in a linked data system as our proposal here does.
