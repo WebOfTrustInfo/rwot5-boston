@@ -53,10 +53,8 @@ The initial condition looks like so:
 (A)lice also has a capability to send a message to (B)ob, and (B)ob
 has a capability to send a message to (D)ummy Bot.
 
-We've met our characters narratively, but let's see what they look
-like as linked data documents.
-
-Here is Alice:
+Each of these characters has an associated linked data document that
+represents them within the system.  Here is Alice:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
