@@ -124,7 +124,7 @@ Finally, here is the Cloud Storage service:
        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
 ```
 
-Alice's capability to send a message to Bob is encoded in a
+Alice's capability to store an object in Cloud Store is encoded in a
 proclamation.  Let's look at what that proclamation looks like:
 
 ``` javascript
