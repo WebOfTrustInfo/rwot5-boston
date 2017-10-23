@@ -437,12 +437,16 @@ Overall Macaroons and LDS Proclamation Chains are both reasonable
 systems with different tradeoffs.  Implementers should be informed
 of these tradeoffs and make decisions accordingly.
 
-### Lexical Scope as Capabilities
+### Capability Based Programming Languages
 
-In this section we introduce a capability system that is in many ways
-fairly dramatically different than any of the other systems discussed
-in this paper.  Readers who do not wish to go "into the weeds" may
-prefer to skip this section.
+Up until this point in the paper we have focused on different
+substrates on which to implement capabilities which have all relied on
+some sort of shared vocabulary between entities in the system.
+Another way to build capabilities is to build them at the layer of a
+programming language.  In addition to not requiring coordination on
+vocabulary from all entities in the system, this provides powerful
+compositional abilities which, as we will see, turn out to be highly
+desirable.
 
 In the
 [W7 Security Kernel](http://mumble.net/~jar/pubs/secureos/secureos.html),
@@ -452,14 +456,15 @@ the runtime of the system.
 The language shown uses a cut-down variant of Scheme, though it can be
 implemented in any language that provides the same strict lexical scoping
 properties in a carefully bounded initial environment.
-(Indeed the [E language](http://erights.org/) uses strict lexical
-scoping as one key part of its capability system.)
+(This is the general mechanism for implementing capabilities at a
+programming language level.)
 The paper demonstrates all the same properties of capabilities we have
 shown here: delegation, attenuation, and so on.
 
-However, there is one thing which is possible in W7 that is not
-possible in any of the other systems we have discussed in this paper,
-including the LDS Proclamation Chains system we have proposed.
+However, there is one thing which is possible in W7 (and other similar
+systems) that is not possible in any of the other systems we have
+discussed in this paper, including the LDS Proclamation Chains system
+we have proposed.
 This is attenuation by composition in an enclosed environment.
 To see what this means and why it is desirable, let us consider an
 example.
@@ -555,13 +560,7 @@ There are two troubles here: making it clear how Timer Service is
 supposed to compose these capabilities in runTheseCombinedSomehow is
 not obvious, and even worse, there is nothing preventing Timer Service
 from running these individually since they are not properly enclosed,
-unlike in our W7/Scheme example earlier.  (It could be possible to
-embed a properly constrained W7-like language into the linked data
-document itself which could do the composition, and indeed
-[Smarm](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/smarm.md)
-may just be the system for that.  How to combine those systems is left
-as a hopefully not too brain-twisting exercise for the reader, or
-possibly the subject of a future paper.)
+unlike in our W7/Scheme example earlier.
 
 The majority of needs for a capability system are likely served by
 attenuation and delegation on their own.  Nonetheless, full
@@ -573,18 +572,24 @@ still a desirable property for the systems that can provide it.
 [CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations)
 is a (currently unimplemented) plan for a proclamation/certificate
 chain based structure which looks a lot like what we have discussed in
-this paper.  One major difference is that CapCert was targeting the
-[E language](http://erights.org/) primarily, whereas our Proclamation
-Chain design for Link Data Signatures targets linked data on the web
-more generally.  Otherwise the two systems are mostly similar.
+this paper with one interesting change: real programs may be embedded
+*in* the proclamations.
+This approach bridges the gap between the proclamation chain approach
+we have described in this paper and the capability based programming
+languages described in the previous section; proclamations can be
+shared over insecure channels while also removing some need for shared
+vocabulary on both ends.
+Even more excitingly, the kinds of composition we do not have but
+would like to have would be possible, such as the example given
+above of Alice allowing a Timer Service to back up her Home Directory
+to Cloud Store, without giving Timer Service access to either
+independently.
 
-One pleasant feature that both CapCert and LDS Proclamation Chains
-share is that the only secret that needs to be maintained in the
-system is that each entity must be able to keep their private keys
-private.  However, the invocations/proclamations/certificates
-themselves can be passed over an insecure transport at no risk of
-leaking usablity of the capability, since only granted entities
-are able to invoke, delegate, and further attenuate capabilities.
+It would be possible to build such a system with LDS Proclamation
+Chains by embedding a capability based programming language (with
+proper constraints on space and time for safety as well).
+This is a significant topic worth its own future paper.
+
 
 
 ## Conclusions
