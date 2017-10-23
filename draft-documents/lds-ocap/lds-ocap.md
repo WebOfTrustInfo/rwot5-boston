@@ -590,7 +590,16 @@ Chains by embedding a capability based programming language (with
 proper constraints on space and time for safety as well).
 This is a significant topic worth its own future paper.
 
+### Capabilities on Blockchains
 
+Finally, one piece of related work that we have not addressed but
+would like to address on a future paper is enabling capabilities on
+blockchains.  The examples we have given demonstrate capabilities that
+may exist environments where the only secrets that must be kept are
+the private keys of entities participating in the system.  We would
+like objects committed to a blockchain to be able to utilize
+capabilities despite not being able to hold secrets on the blockchain
+itself.  This is also a significant topic worth its own future paper.
 
 ## Conclusions
 
