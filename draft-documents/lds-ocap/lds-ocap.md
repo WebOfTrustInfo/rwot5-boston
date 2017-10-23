@@ -371,25 +371,6 @@ but did not exist in a linked data system as our proposal here does.
 Importantly, SPKI's authority is a broader form of access control, and for
 that reason carries some of the traditional problems of ACLs.
 
-### CapCert
-
-[CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations)
-is a (currently unimplemented) plan for a proclamation/certificate
-chain based structure which looks a lot like what we have discussed in
-this paper.  One major difference is that CapCert was targeting the
-[E language](http://erights.org/) primarily, whereas our Proclamation
-Chain design for Link Data Signatures targets linked data on the web
-more generally.  Otherwise the two systems are mostly similar.
-
-One pleasant feature that both CapCert and LDS Proclamation Chains
-share is that the only secret that needs to be maintained in the
-system is that each entity must be able to keep their private keys
-private.  However, the invocations/proclamations/certificates
-themselves can be passed over an insecure transport at no risk of
-leaking usablity of the capability, since only granted entities
-are able to invoke, delegate, and further attenuate capabilities.
-
-
 ### Macaroons
 
 [Macaroons](https://research.google.com/pubs/pub41892.html) are a
@@ -455,7 +436,6 @@ sounds very similar to how LDS Proclamation Chains work.)
 Overall Macaroons and LDS Proclamation Chains are both reasonable
 systems with different tradeoffs.  Implementers should be informed
 of these tradeoffs and make decisions accordingly.
-
 
 ### Lexical Scope as Capabilities
 
@@ -587,6 +567,24 @@ The majority of needs for a capability system are likely served by
 attenuation and delegation on their own.  Nonetheless, full
 composability within a capability's enclosure, as explored above, is
 still a desirable property for the systems that can provide it.
+
+### CapCert
+
+[CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations)
+is a (currently unimplemented) plan for a proclamation/certificate
+chain based structure which looks a lot like what we have discussed in
+this paper.  One major difference is that CapCert was targeting the
+[E language](http://erights.org/) primarily, whereas our Proclamation
+Chain design for Link Data Signatures targets linked data on the web
+more generally.  Otherwise the two systems are mostly similar.
+
+One pleasant feature that both CapCert and LDS Proclamation Chains
+share is that the only secret that needs to be maintained in the
+system is that each entity must be able to keep their private keys
+private.  However, the invocations/proclamations/certificates
+themselves can be passed over an insecure transport at no risk of
+leaking usablity of the capability, since only granted entities
+are able to invoke, delegate, and further attenuate capabilities.
 
 
 ## Conclusions
