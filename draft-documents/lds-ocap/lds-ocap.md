@@ -437,7 +437,7 @@ Overall Macaroons and LDS Proclamation Chains are both reasonable
 systems with different tradeoffs.  Implementers should be informed
 of these tradeoffs and make decisions accordingly.
 
-### Capability Based Programming Languages
+### Object Capability Programming Languages
 
 Up until this point in the paper we have focused on different
 substrates on which to implement capabilities which have all relied on
@@ -575,7 +575,7 @@ chain based structure which looks a lot like what we have discussed in
 this paper with one interesting change: real programs may be embedded
 *in* the proclamations.
 This approach bridges the gap between the proclamation chain approach
-we have described in this paper and the capability based programming
+we have described in this paper and the object capability programming
 languages described in the previous section; proclamations can be
 shared over insecure channels while also removing some need for shared
 vocabulary on both ends.
@@ -586,7 +586,7 @@ to Cloud Store, without giving Timer Service access to either
 independently.
 
 It would be possible to build such a system with LDS Proclamation
-Chains by embedding a capability based programming language (with
+Chains by embedding an object capability programming language (with
 proper constraints on space and time for safety as well).
 This is a significant topic worth its own future paper.
 
