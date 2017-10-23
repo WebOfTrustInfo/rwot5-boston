@@ -594,9 +594,9 @@ This is a significant topic worth its own future paper.
 
 Finally, one piece of related work that we have not addressed but
 would like to address on a future paper is enabling capabilities on
-blockchains.  There have already been
-[devastating attacks against smart contract languages on blockchains](https://medium.freecodecamp.org/a-hacker-stole-31m-of-ether-how-it-happened-and-what-it-means-for-ethereum-9e5dc29e33ce)
-that would not have occurred in a capabilities based environment.
+blockchains.  Motivating examples include
+[attacks against Etherium smart contracts](https://medium.freecodecamp.org/a-hacker-stole-31m-of-ether-how-it-happened-and-what-it-means-for-ethereum-9e5dc29e33ce)
+that would not have occurred in an object capabilities environment.
 
 The examples we have given demonstrate capabilities that
 may exist environments where the only secrets that must be kept are
