@@ -594,10 +594,14 @@ This is a significant topic worth its own future paper.
 
 Finally, one piece of related work that we have not addressed but
 would like to address on a future paper is enabling capabilities on
-blockchains.  The examples we have given demonstrate capabilities that
+blockchains.  There have already been
+[devastating attacks against smart contract languages on blockchains](https://medium.freecodecamp.org/a-hacker-stole-31m-of-ether-how-it-happened-and-what-it-means-for-ethereum-9e5dc29e33ce)
+that would not have occurred in a capabilities based environment.
+
+The examples we have given demonstrate capabilities that
 may exist environments where the only secrets that must be kept are
 the private keys of entities participating in the system.  We would
-like objects committed to a blockchain to be able to utilize
+like objects committed to a blockchain to be able to express
 capabilities despite not being able to hold secrets on the blockchain
 itself.  This is also a significant topic worth its own future paper.
 
