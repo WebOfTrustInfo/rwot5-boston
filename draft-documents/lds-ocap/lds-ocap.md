@@ -53,14 +53,16 @@ The initial condition looks like so:
 (A)lice also has a capability to send a message to (B)ob, and (B)ob
 has a capability to send a message to (D)ummy Bot.
 
-We've met our characters narratively, but let's see what they look
-like as linked data documents.
+Each of these characters has an associated linked data document that
+represents them within the system which make use of
+[JSON-LD](https://json-ld.org/) and
+[Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/).
 
 Here is Alice:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      // This is a DID, but it could as well be an https:// uri
      "id": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab",
@@ -70,6 +72,8 @@ Here is Alice:
      // Finally, a signature verification key Alice will be using
      // for her upload capability to the Cloud Storage system
      "publicKey": [{
+       // This has its own separate id because it is technically
+       // a separate document
        "id": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab#key-1",
        "owner": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab",
        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
@@ -79,7 +83,7 @@ Here is Bob:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:ee568de7-2970-4925-ad09-c685ab367b66",
      "type": "Person",
@@ -94,7 +98,7 @@ Here is Dummy Bot:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4",
      "type": "Service",
@@ -109,7 +113,7 @@ Finally, here is the Cloud Storage service:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:0b36c784-f9f4-4c1e-b76c-d821a4b32741",
      "type": "Service",
@@ -120,12 +124,12 @@ Finally, here is the Cloud Storage service:
        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
 ```
 
-Alice's capability to send a message to Bob is encoded in a
+Alice's capability to store an object in Cloud Store is encoded in a
 proclamation.  Let's look at what that proclamation looks like:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:0b36c7844941b61b-c763-4617-94de-cf5c539041f1",
      "type": "Proclamation",
@@ -155,12 +159,12 @@ files at a time.
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda",
      "type": "Proclamation",
      
-     // This new attenuated proclamation points to the prevoius one
+     // This new attenuated proclamation points to the previous one
      "parent": "did:example:0b36c7844941b61b-c763-4617-94de-cf5c539041f1",
 
      // Now we grant access to one of Bob's keys
@@ -224,7 +228,7 @@ the attenuated capability he already has!
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
      "type": "Proclamation",
@@ -325,12 +329,12 @@ additional parameters in the body:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
-                  "https://example.org/obcap/v1",
+                  "https://example.org/ocap/v1",
                   "http://schema.org"],
      "id": "did:example:2bdf6273-a52e-4cdf-991f-b5f000008829",
      "type": "Invocation",
 
-     // Dummy Bot is invoking the proclamation they have,
+     // Dummy Bot is invoking the proclamation it has,
      // but the whole chain will be checked for attenuation and
      // verification of access
      "cert": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
@@ -356,36 +360,16 @@ additional parameters in the body:
 [SPKI](http://world.std.com/~cme/html/spki.html) (and previously SDSI)
 is a key management project which aimed to resolve many of the issues
 (including around centralization) that the X.509 infrastructure
-introduced and developed into over time.  SPKI is also known to be
+introduced and developed into over time.  SPKI is
 [almost but not quite an object capability system](http://www.erights.org/elib/capability/ode/ode-pki.html).
+(See [From Capabilities To Financial Instruments](http://erights.org/elib/capability/ode/ode-bearer.html)
+and [Capability Myths Demolished](http://www.erights.org/elib/capability/duals/myths.html)
+for more information.)
 SPKI uses "certificates" (akin to "proclamations"[fn:1](#proclamation-terminology) here)
-to designate authority, similar to how we are doing so in this document,
+to express authority, similar to how we are doing so in this document,
 but did not exist in a linked data system as our proposal here does.
 Importantly, SPKI's authority is a broader form of access control, and for
 that reason carries some of the traditional problems of ACLs.
-However (as said in the [CapCert proposals](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations))
-SPKI got enough right in its time that it was
-["the only PKI/Certificate system ... that's good enough to criticize."](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Certificates),
-a quote from an analysis of SPKI to develop CapCert, which we discuss below.
-
-### CapCert
-
-[CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations)
-is a (currently unimplemented) plan for a proclamation/certificate
-chain based structure which looks a lot like what we have discussed in
-this paper.  One major difference is that CapCert was targeting the
-[E language](http://erights.org/) primarily, whereas our Proclamation
-Chain design for Link Data Signatures targets linked data on the web
-more generally.  Otherwise the two systems are mostly similar.
-
-One pleasant feature that both CapCert and LDS Proclamation Chains
-share is that the only secret that needs to be maintained in the
-system is that each entity must be able to keep their private keys
-private.  However, the invocations/proclamations/certificates
-themselves can be passed over an insecure transport at no risk of
-leaking usablity of the capability, since only granted entities
-are able to invoke, delegate, and further attenuate capabilities.
-
 
 ### Macaroons
 
@@ -400,7 +384,7 @@ smaller (a desirable property!) since rather than using public key
 cryptography for signatures, a simple HMAC is used.  Macaroons are
 thus passed around as bearer instruments over secure channels.  This
 leads to a tradeoff: macaroons are smaller in size than LDS
-Proclamation Chains, but unlike LDS Proclamation Chains can not be
+Proclamation Chains, but unlike LDS Proclamation Chains, cannot be
 sent or invoked over an insecure channel.  Unlike LDS Proclamation
 chains, macaroons cannot be stored on a blockchain or be publicly
 retrievable from the web.
@@ -453,30 +437,34 @@ Overall Macaroons and LDS Proclamation Chains are both reasonable
 systems with different tradeoffs.  Implementers should be informed
 of these tradeoffs and make decisions accordingly.
 
+### Object Capability Programming Languages
 
-### Lexical Scope as Capabilities
-
-In this section we introduce a capability system that is in many ways
-fairly dramatically different than any of the other systems discussed
-in this paper.  Readers who do not wish to go "into the weeds" may
-prefer to skip this section.
+Up until this point in the paper we have focused on different
+substrates on which to implement capabilities which have all relied on
+some sort of shared vocabulary between entities in the system.
+Another way to build capabilities is to build them at the layer of a
+programming language.  In addition to not requiring coordination on
+vocabulary from all entities in the system, this provides powerful
+compositional abilities which, as we will see, turn out to be highly
+desirable.
 
 In the
 [W7 Security Kernel](http://mumble.net/~jar/pubs/secureos/secureos.html),
-Jonathan Rees introduces an implementation of security capabilities on
-nothing other than a strict lexically scoped environment, enforced
-by the runtime of the system.
+Jonathan Rees introduces an implementation of object capabilities on
+nothing other than a strict lexically scoped environment, enforced by
+the runtime of the system.
 The language shown uses a cut-down variant of Scheme, though it can be
 implemented in any language that provides the same strict lexical scoping
 properties in a carefully bounded initial environment.
-(Indeed the [E language](http://erights.org/) uses strict lexical
-scoping as one key part of its capability system.)
+(This is the general mechanism for implementing capabilities at a
+programming language level.)
 The paper demonstrates all the same properties of capabilities we have
 shown here: delegation, attenuation, and so on.
 
-However, there is one thing which is possible in W7 that is not
-possible in any of the other systems we have discussed in this paper,
-including the LDS Proclamation Chains system we have proposed.
+However, there is one thing which is possible in W7 (and other similar
+systems) that is not possible in any of the other systems we have
+discussed in this paper, including the LDS Proclamation Chains system
+we have proposed.
 This is attenuation by composition in an enclosed environment.
 To see what this means and why it is desirable, let us consider an
 example.
@@ -534,7 +522,7 @@ diagram:
 ```
 
 
-In Rees' W7 / the lambda-calculus-obcap system, we could represent this
+In Rees' W7 / the lambda-calculus-ocap system, we could represent this
 like so:
 
 ``` scheme
@@ -572,19 +560,50 @@ There are two troubles here: making it clear how Timer Service is
 supposed to compose these capabilities in runTheseCombinedSomehow is
 not obvious, and even worse, there is nothing preventing Timer Service
 from running these individually since they are not properly enclosed,
-unlike in our W7/Scheme example earlier.  (It could be possible to
-embed a properly constrained W7-like language into the linked data
-document itself which could do the composition, and indeed
-[Smarm](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/smarm.md)
-may just be the system for that.  How to combine those systems is left
-as a hopefully not too brain-twisting exercise for the reader, or
-possibly the subject of a future paper.)
+unlike in our W7/Scheme example earlier.
 
 The majority of needs for a capability system are likely served by
 attenuation and delegation on their own.  Nonetheless, full
 composability within a capability's enclosure, as explored above, is
 still a desirable property for the systems that can provide it.
 
+### CapCert
+
+[CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations)
+is a (currently unimplemented) plan for a proclamation/certificate
+chain based structure which looks a lot like what we have discussed in
+this paper with one interesting change: real programs may be embedded
+*in* the proclamations.
+This approach bridges the gap between the proclamation chain approach
+we have described in this paper and the object capability programming
+languages described in the previous section; proclamations can be
+shared over insecure channels while also removing some need for shared
+vocabulary on both ends.
+Even more excitingly, the kinds of composition we do not have but
+would like to have would be possible, such as the example given
+above of Alice allowing a Timer Service to back up her Home Directory
+to Cloud Store, without giving Timer Service access to either
+independently.
+
+It would be possible to build such a system with LDS Proclamation
+Chains by embedding an object capability programming language (with
+proper constraints on space and time for safety as well).
+This is a significant topic worth its own future paper.
+
+### Capabilities on Blockchains
+
+Finally, one piece of related work that we have not addressed but
+would like to address on a future paper is enabling capabilities on
+blockchains.  Motivating examples include
+[attacks against Etherium smart contracts](https://medium.freecodecamp.org/a-hacker-stole-31m-of-ether-how-it-happened-and-what-it-means-for-ethereum-9e5dc29e33ce)
+that would not have occurred in an object capabilities environment.
+
+The examples we have given demonstrate capabilities that
+may exist environments where the only secrets that must be kept are
+the private keys of entities participating in the system.  We would
+like objects committed to a blockchain to be able to express
+capabilities despite not being able to hold secrets on the blockchain
+itself.  This is also a significant topic worth its own future paper.
 
 ## Conclusions
 
@@ -607,7 +626,7 @@ particularly:
 We can avoid these risks by using an object capability system such as
 the one described above.  Even more exciting is that by combining
 this system with [DIDs](https://w3c-ccg.github.io/did-spec/) we can
-build a fully decentralized object capability system to the web that
+build a fully decentralized object capability system for the web that
 is safe to use.
 
 <div id="footnotes">
