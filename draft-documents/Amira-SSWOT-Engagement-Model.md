@@ -3,14 +3,13 @@
 
 A Self-Sovereign Web of Trust Engagement Model
 
-Christopher Allen
-&lt;[*ChristopherA@LifeWithAlacrity.com*](mailto:ChristopherA@LifeWithAlacrity.com)&gt;\
 
 Joe Andrieu, Legendary Requirments, LLC,
 &lt;[*joe@legreq.com*](mailto:joe@legreq.com)&gt;
 
-Shannon Appelcline, Skotos Tech,
-&lt;[*shannona@skotos.net*](mailto:shannona@skotos.net)&gt;
+Shireen Mitchell, Stop Online Violence Against Women,
+&lt;[*digitalsista@gmail.com*](mailto:digitalsista@gmail.com)&gt;
+
 
 Lyre Calliope, [*@CaptainCalliope*](http://twitter.com/captaincalliope),
 &lt;[*lyre.calliope@gmail.com*](mailto:lyre.calliope@gmail.com)&gt;
@@ -34,14 +33,17 @@ Michael Haley, AlphaPoint,
 Pat McBennett, Mastercard,
 &lt;[*pat.mcbennett@mastercard.com*](mailto:pat.mcbennett@mastercard.com)&gt;
 
-Shireen Mitchell, Stop Online Violence Against Women,
-&lt;[*digitalsista@gmail.com*](mailto:digitalsista@gmail.com)&gt;
-
 Heather Vescent, The Purple Tornado,
 &lt;[*puissant@heathervescent.com*](mailto:puissant@heathervescent.com)&gt;
 
 Kaliya “Identity Woman” Young ,
 &lt;[*kaliya@identitywoman.net*](mailto:kaliya@identitywoman.net)&gt;
+
+Christopher Allen
+&lt;[*ChristopherA@LifeWithAlacrity.com*](mailto:ChristopherA@LifeWithAlacrity.com)&gt;\
+
+Shannon Appelcline, Skotos Tech,
+&lt;[*shannona@skotos.net*](mailto:shannona@skotos.net)&gt;
 
 **Introduction**
 
