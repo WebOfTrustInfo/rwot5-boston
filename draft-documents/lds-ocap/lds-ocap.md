@@ -569,7 +569,7 @@ still a desirable property for the systems that can provide it.
 
 ### CapCert
 
-[CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Proclamations)
+[CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Certificates)
 is a (currently unimplemented) plan for a proclamation/certificate
 chain based structure which looks a lot like what we have discussed in
 this paper with one interesting change: real programs may be embedded
