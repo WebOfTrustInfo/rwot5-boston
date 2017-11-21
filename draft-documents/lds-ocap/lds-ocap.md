@@ -337,7 +337,7 @@ additional parameters in the body:
      // Dummy Bot is invoking the proclamation it has,
      // but the whole chain will be checked for attenuation and
      // verification of access
-     "cert": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
+     "proclamation": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
 
      // The key Dummy Bot is using in this invocation
      "usingKey": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4#key-1",
@@ -547,7 +547,7 @@ the capabilities, for the sake of demonstration:
   {"type": "Invocation",
    "usingKey": <alice-key-1>,
    "method": "RunEvery",
-   "cert": <cert-id>,
+   "proclamation": <cert-id>,
    "secs": 30,
    /* But we would also need to clearly express how to combine these */
    "runTheseCombinedSomehow": [
