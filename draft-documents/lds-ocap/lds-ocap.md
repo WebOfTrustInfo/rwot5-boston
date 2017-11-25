@@ -1,4 +1,4 @@
-# Linked Data Signatures Proclamation Chains
+# Linked Data Capabilities
 
 By Christopher Allan Webber and Mark S. Miller
 
@@ -11,6 +11,8 @@ is a powerful system for ensuring the security of computing systems.
 In this paper, we explore layering an object capability model on top
 of Linked Data Signatures via chains of signed proclamations.
 <sup id="fnr.proclamation-terminology">[fn:1](#proclamation-terminology)</sup>
+We call this system "Linked Data Capabilities", or "ld-ocap" for
+short.
 
 The system we propose can work regardless of whether we are using
 https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/).
@@ -383,11 +385,11 @@ The biggest feature of Macaroons over our design is that messages are
 smaller (a desirable property!) since rather than using public key
 cryptography for signatures, a simple HMAC is used.  Macaroons are
 thus passed around as bearer instruments over secure channels.  This
-leads to a tradeoff: macaroons are smaller in size than LDS
-Proclamation Chains, but unlike LDS Proclamation Chains, cannot be
-sent or invoked over an insecure channel.  Unlike LDS Proclamation
-chains, macaroons cannot be stored on a blockchain or be publicly
-retrievable from the web.
+leads to a tradeoff: macaroons are smaller in size than Linked Data
+Capabilities, but unlike Linked Data Capabilities, cannot be sent or
+invoked over an insecure channel.  Unlike Linked Data Capabilities,
+macaroons cannot be stored on a blockchain or be publicly retrievable
+from the web.
 
 One further difference is that while any entity that holds on to a
 macaroon may delegate that macaroon to any other entity, not all
@@ -431,11 +433,11 @@ days.
 contains a short but underspecified section that outlines how
 Macaroons could be used with public keys instead of HMAC signed bearer
 instruments, and the design describe, while in very scant detail,
-sounds very similar to how LDS Proclamation Chains work.)
+sounds very similar to how Linked Data Capabilities work.)
 
-Overall Macaroons and LDS Proclamation Chains are both reasonable
-systems with different tradeoffs.  Implementers should be informed
-of these tradeoffs and make decisions accordingly.
+Overall Macaroons and lds-ocaps are both reasonable systems with
+different tradeoffs.  Implementers should be informed of these
+tradeoffs and make decisions accordingly.
 
 ### Object Capability Programming Languages
 
@@ -463,8 +465,8 @@ shown here: delegation, attenuation, and so on.
 
 However, there is one thing which is possible in W7 (and other similar
 systems) that is not possible in any of the other systems we have
-discussed in this paper, including the LDS Proclamation Chains system
-we have proposed.
+discussed in this paper, including the lds-ocaps system we have
+proposed.
 This is attenuation by composition in an enclosed environment.
 To see what this means and why it is desirable, let us consider an
 example.
@@ -539,9 +541,9 @@ capabilities and handle the composition of passing the returned value
 of one of the enclosed capabilities to the other, without exposing
 either individually outside of the enclosure.
 
-It does not appear we can do the same thing in LDS Proclamation
-Chains.  Here is a highly cut down invocation which attempts to embed
-the capabilities, for the sake of demonstration:
+It does not appear we can do the same thing in lds-ocaps.
+Here is a highly cut down invocation which attempts to embed the
+capabilities, for the sake of demonstration:
 
 ``` javascript
   {"type": "Invocation",
@@ -585,8 +587,8 @@ above of Alice allowing a Timer Service to back up her Home Directory
 to Cloud Store, without giving Timer Service access to either
 independently.
 
-It would be possible to build such a system with LDS Proclamation
-Chains by embedding an object capability programming language (with
+It would be possible to build such a system with Linked Data Capabilities
+by embedding an object capability programming language (with
 proper constraints on space and time for safety as well).
 This is a significant topic worth its own future paper.
 
