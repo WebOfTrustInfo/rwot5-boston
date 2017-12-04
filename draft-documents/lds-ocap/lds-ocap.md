@@ -51,7 +51,8 @@ The initial condition looks like so:
 <!-- at object capability level, use message
      at crypto level, use envelope, proclamation, messenger -->
 
-(A)lice has a file upload capability to the (C)loud storage system.
+(A)lice has a capability to the (C)loud storage system through which
+she can upload files.
 (A)lice also has a capability to send a message to (B)ob, and (B)ob
 has a capability to send a message to (D)ummy Bot.
 
@@ -137,9 +138,8 @@ proclamation.  Let's look at what that proclamation looks like:
      "type": "Proclamation",
      
      // The subject is who the capability operates on (in this case,
-     // the CloudStore object) and the method is what the capability does
+     // the CloudStore object)
      "subject": "did:example:0b36c784-f9f4-4c1e-b76c-d821a4b32741",
-     "method": "StoreObject",
 
      // We are granting access specifically to one of Alice's keys
      "grantedKey": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab#key-1",
@@ -155,9 +155,9 @@ proclamation.  Let's look at what that proclamation looks like:
         "signatureValue": "IOmA4R7TfhkYTYW8...CBMq2/gi25s="}}
 ```
 
-Now Alice wants to share this capability to Bob, but with a caveat
-(also known as an "attenuation"): Bob can only upload 50 Megabyte
-files at a time.
+Now Alice wants to share this capability to Bob, but with a couple of
+caveats (also known as an "attenuation"): Bob can only invoke the
+upload method, and can only upload 50 Megabyte files at a time.
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
@@ -172,9 +172,13 @@ files at a time.
      // Now we grant access to one of Bob's keys
      "grantedKey": "did:example:ee568de7-2970-4925-ad09-c685ab367b66#key-1",
 
-     // This proclamation *does* have a caveat: each upload can only be
-     // 50 Megabytes large.
+     // This proclamation *does* have caveats:
      "caveat": [
+       // Only the UploadFile method is allowed...
+       {"id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda#caveats/upload-only",
+        "type": "RestrictToMethod",
+        "method": "UploadFile"},
+       // ...and each upload can only be 50 Megabytes large.
        {"id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda#caveats/50-megs-only",
         "type": "RestrictUploadSize",
         // file limit here is in bytes, so 50 MB
@@ -340,6 +344,9 @@ additional parameters in the body:
      // but the whole chain will be checked for attenuation and
      // verification of access
      "proclamation": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
+
+     // The method being used
+     "method": "UploadFile",
 
      // The key Dummy Bot is using in this invocation
      "usingKey": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4#key-1",
