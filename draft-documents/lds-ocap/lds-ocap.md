@@ -1,6 +1,6 @@
 # Linked Data Capabilities
 
-By Christopher Allan Webber and Mark S. Miller
+By Christopher Lemmer Webber and Mark S. Miller
 
 ## Overview
 
