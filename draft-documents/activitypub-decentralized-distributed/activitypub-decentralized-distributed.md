@@ -1,4 +1,4 @@
-# ActivityPub
+# ActivityPub: from decentralized to distributed social networks
 
 *This paper was written originally for the 2017 Rebooting Web of Trust*
 *summit.*
