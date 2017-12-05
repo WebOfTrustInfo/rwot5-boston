@@ -710,7 +710,7 @@ Indeed, even the actor's `followers` is a `Collection` like this!</div>
 <div class="footdef"><sup><a id="fn.7" name="fn.7" class="footnum" href="#fnr.7">7</a></sup> Several decisions need to be made
 when storing signatures on objects which themselves reference other
 signed objects that may mutate, and this is
-[currently a topic of open discussion](https://github.com/w3c-dvcg/ld-signatures/issues/7).
+<a href="https://github.com/w3c-dvcg/ld-signatures/issues/7">currently a topic of open discussion</a>.
 This may motivate more work on
 append only systems and content addressed storage.
 Existing implementations which operate in a mutation-prone environment
@@ -721,19 +721,19 @@ revision seen.
 The latter two options may pose some challenge to highly relational
 systems which were not originally designed with signatures in mind.</div>
 
-<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> [GNU Ring](https://ring.cx/) is an interesting example of a peer-to-peer
+<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> <a href="https://ring.cx/">GNU Ring</a> is an interesting example of a peer-to-peer
 social network system where a user's identity is actually their
 fingerprint.  While not the first system to have this concept, it's
 very pleasant to see in action (and the interface is itself
 aesthetically pleasing); to build up your buddy list is quite
 literally to build your web of trust.</div>
 
-<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> There are an incredible number of [unicode hacks](http://www.unicode.org/Public/security/latest/confusables.txt),
+<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> There are an incredible number of <a href="http://www.unicode.org/Public/security/latest/confusables.txt">unicode hacks</a>,
 which can trick even the most careful of technical users as well.</div>
 
-<div class="footdef"><sup><a id="fn.10" name="fn.10" class="footnum" href="#fnr.10">10</a></sup> `https://securityns.example/` is an imaginary
+<div class="footdef"><sup><a id="fn.10" name="fn.10" class="footnum" href="#fnr.10">10</a></sup> <code>https://securityns.example/</code> is an imaginary
 json-ld context which is used only as a placeholder for the terms of
-`EncryptedEnvelope` and `encryptedMessage`.
+<code>EncryptedEnvelope</code> and <code>encryptedMessage</code>.
 Perhaps in the future terms along these lines (maybe with better names)
 would appear in one of the other contexts/namespaces that appear in
 this document.</div>
@@ -742,7 +742,9 @@ this document.</div>
 Receiving PGP-encrypted email means that a webmail interface would be
 unable to search through your messages.
 However, that does not mean searching is impossible; some programs like
-[mu](http://www.djcbsoftware.nl/code/mu) / [mu4e](https://www.djcbsoftware.nl/code/mu/mu4e.html) can index encrypted email locally and provide such a search
+<a href="http://www.djcbsoftware.nl/code/mu">mu</a> /
+<a href="https://www.djcbsoftware.nl/code/mu/mu4e.html">mu4e</a>
+can index encrypted email locally and provide such a search
 interface, on a user's local machine.</div>
 
 
