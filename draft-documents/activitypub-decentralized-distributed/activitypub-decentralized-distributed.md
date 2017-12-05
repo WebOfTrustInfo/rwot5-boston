@@ -39,10 +39,12 @@ client-server model system to a fully peer-to-peer system.
 
 ## ActivityPub overview
 
-<div class="center">
-*This section is borrowed from the ActivityPub standard's*
-*Overview section; if you are already familiar with ActivityPub*
-*then you may skip this section.*
+<p class="center">
+<em>
+This section is borrowed from the ActivityPub standard's
+Overview section; if you are already familiar with ActivityPub
+then you may skip this section.
+</em>
 </div>
 
 ActivityPub provides two layers:
