@@ -311,7 +311,7 @@ reasons.
 
 One common problem in federated social networks that support private
 interactions is that a conversation can become fragmented: if Ben is
-posting to private collection<sup id="fnr.5">[5](#fn.5)</sup> she has
+posting to private collection<sup id="fnr.6">[6](#fn.5)</sup> she has
 curated containing both his friends and coworkers, and members of coworkers
 can't see who is in the private family collection, when they
 address to include the family in the conversation they can't traverse
@@ -333,7 +333,7 @@ of knowing who was in the private collection to enable access for.
 
 This is a frequently requested feature in federated social networks,
 so we should ensure that the necessary public key infrastructure is
-provided.<sup id="fnr.6">[6](#fn.6)</sup>
+provided.<sup id="fnr.7">[7](#fn.7)</sup>
 
 ### An easier to use web of trust?
 
@@ -347,7 +347,7 @@ attend and organize, and even more difficult still is learning the
 system.
 While some work has been done in this area (for example with
 [Monkeysign](https://monkeysign.readthedocs.io/en/2.x/) and [Gibberbot](https://guardianproject.info/apps/gibber/)), it would be even better if building your
-trust network was incidental to participating in the network.<sup id="fnr.7">[7](#fn.7)</sup>
+trust network was incidental to participating in the network.<sup id="fnr.8">[8](#fn.8)</sup>
 
 To a certain extent, this could come "for free, with caveats" in
 ActivityPub deployments that exist today, where subscriptions and
@@ -367,7 +367,7 @@ Furthermore, a malicious actor can still trick users;
 a user may believe they are subscribing to
 `https://social.example/alyssa/`, but perhaps Mallet tricked them
 into subscribing to `https://social.example/alyssaa/`
-instead.<sup id="fnr.8">[8](#fn.8)</sup>
+instead.<sup id="fnr.9">[9](#fn.9)</sup>
 
 Happily there are other ways to encourage stronger trust networks.
 Carl Ellison's paper
@@ -402,7 +402,7 @@ of a user,  a user may provide  a public key on their  actor object to
 which only their own computer(s) hold the corresponding private key.
 Other actors on the network may then send an object encrypted to the
 actor's inbox.
-For example, an actor may receive the following object<sup id="fnr.9">[9](#fn.9)</sup>
+For example, an actor may receive the following object<sup id="fnr.10">[9](#fn.10)</sup>
 in their inbox:
 
 ``` json
@@ -446,7 +446,7 @@ tradeoffs:
     network, these kinds of side effects will break.
     The server will also be unable to provide additional features
     such as being able to have server-based indexing of messages
-    for easy search.<sup id="fnr.10">[10](#fn.10)</sup>
+    for easy search.<sup id="fnr.11">[11](#fn.11)</sup>
     
     In a "more peer-to-peer" system (as discussed in the
     Distributed identity section) this becomes less of an issue
