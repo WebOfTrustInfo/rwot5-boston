@@ -1,4 +1,4 @@
-# ActivityPub
+# ActivityPub: from decentralized to distributed social networks
 
 *This paper was written originally for the 2017 Rebooting Web of Trust*
 *summit.*
@@ -39,10 +39,12 @@ client-server model system to a fully peer-to-peer system.
 
 ## ActivityPub overview
 
-<div class="center">
-*This section is borrowed from the ActivityPub standard's*
-*Overview section; if you are already familiar with ActivityPub*
-*then you may skip this section.*
+<p class="center">
+<em>
+This section is borrowed from the ActivityPub standard's
+Overview section; if you are already familiar with ActivityPub
+then you may skip this section.
+</em>
 </div>
 
 ActivityPub provides two layers:
@@ -311,7 +313,7 @@ reasons.
 
 One common problem in federated social networks that support private
 interactions is that a conversation can become fragmented: if Ben is
-posting to private collection<sup id="fnr.5">[5](#fn.5)</sup> she has
+posting to private collection<sup id="fnr.6">[6](#fn.5)</sup> she has
 curated containing both his friends and coworkers, and members of coworkers
 can't see who is in the private family collection, when they
 address to include the family in the conversation they can't traverse
@@ -333,7 +335,7 @@ of knowing who was in the private collection to enable access for.
 
 This is a frequently requested feature in federated social networks,
 so we should ensure that the necessary public key infrastructure is
-provided.<sup id="fnr.6">[6](#fn.6)</sup>
+provided.<sup id="fnr.7">[7](#fn.7)</sup>
 
 ### An easier to use web of trust?
 
@@ -347,7 +349,7 @@ attend and organize, and even more difficult still is learning the
 system.
 While some work has been done in this area (for example with
 [Monkeysign](https://monkeysign.readthedocs.io/en/2.x/) and [Gibberbot](https://guardianproject.info/apps/gibber/)), it would be even better if building your
-trust network was incidental to participating in the network.<sup id="fnr.7">[7](#fn.7)</sup>
+trust network was incidental to participating in the network.<sup id="fnr.8">[8](#fn.8)</sup>
 
 To a certain extent, this could come "for free, with caveats" in
 ActivityPub deployments that exist today, where subscriptions and
@@ -367,7 +369,7 @@ Furthermore, a malicious actor can still trick users;
 a user may believe they are subscribing to
 `https://social.example/alyssa/`, but perhaps Mallet tricked them
 into subscribing to `https://social.example/alyssaa/`
-instead.<sup id="fnr.8">[8](#fn.8)</sup>
+instead.<sup id="fnr.9">[9](#fn.9)</sup>
 
 Happily there are other ways to encourage stronger trust networks.
 Carl Ellison's paper
@@ -402,7 +404,7 @@ of a user,  a user may provide  a public key on their  actor object to
 which only their own computer(s) hold the corresponding private key.
 Other actors on the network may then send an object encrypted to the
 actor's inbox.
-For example, an actor may receive the following object<sup id="fnr.9">[9](#fn.9)</sup>
+For example, an actor may receive the following object<sup id="fnr.10">[9](#fn.10)</sup>
 in their inbox:
 
 ``` json
@@ -446,7 +448,7 @@ tradeoffs:
     network, these kinds of side effects will break.
     The server will also be unable to provide additional features
     such as being able to have server-based indexing of messages
-    for easy search.<sup id="fnr.10">[10](#fn.10)</sup>
+    for easy search.<sup id="fnr.11">[11](#fn.11)</sup>
     
     In a "more peer-to-peer" system (as discussed in the
     Distributed identity section) this becomes less of an issue
@@ -708,7 +710,7 @@ Indeed, even the actor's `followers` is a `Collection` like this!</div>
 <div class="footdef"><sup><a id="fn.7" name="fn.7" class="footnum" href="#fnr.7">7</a></sup> Several decisions need to be made
 when storing signatures on objects which themselves reference other
 signed objects that may mutate, and this is
-[currently a topic of open discussion](https://github.com/w3c-dvcg/ld-signatures/issues/7).
+<a href="https://github.com/w3c-dvcg/ld-signatures/issues/7">currently a topic of open discussion</a>.
 This may motivate more work on
 append only systems and content addressed storage.
 Existing implementations which operate in a mutation-prone environment
@@ -719,19 +721,19 @@ revision seen.
 The latter two options may pose some challenge to highly relational
 systems which were not originally designed with signatures in mind.</div>
 
-<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> [GNU Ring](https://ring.cx/) is an interesting example of a peer-to-peer
+<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> <a href="https://ring.cx/">GNU Ring</a> is an interesting example of a peer-to-peer
 social network system where a user's identity is actually their
 fingerprint.  While not the first system to have this concept, it's
 very pleasant to see in action (and the interface is itself
 aesthetically pleasing); to build up your buddy list is quite
 literally to build your web of trust.</div>
 
-<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> There are an incredible number of [unicode hacks](http://www.unicode.org/Public/security/latest/confusables.txt),
+<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> There are an incredible number of <a href="http://www.unicode.org/Public/security/latest/confusables.txt">unicode hacks</a>,
 which can trick even the most careful of technical users as well.</div>
 
-<div class="footdef"><sup><a id="fn.10" name="fn.10" class="footnum" href="#fnr.10">10</a></sup> `https://securityns.example/` is an imaginary
+<div class="footdef"><sup><a id="fn.10" name="fn.10" class="footnum" href="#fnr.10">10</a></sup> <code>https://securityns.example/</code> is an imaginary
 json-ld context which is used only as a placeholder for the terms of
-`EncryptedEnvelope` and `encryptedMessage`.
+<code>EncryptedEnvelope</code> and <code>encryptedMessage</code>.
 Perhaps in the future terms along these lines (maybe with better names)
 would appear in one of the other contexts/namespaces that appear in
 this document.</div>
@@ -740,7 +742,9 @@ this document.</div>
 Receiving PGP-encrypted email means that a webmail interface would be
 unable to search through your messages.
 However, that does not mean searching is impossible; some programs like
-[mu](http://www.djcbsoftware.nl/code/mu) / [mu4e](https://www.djcbsoftware.nl/code/mu/mu4e.html) can index encrypted email locally and provide such a search
+<a href="http://www.djcbsoftware.nl/code/mu">mu</a> /
+<a href="https://www.djcbsoftware.nl/code/mu/mu4e.html">mu4e</a>
+can index encrypted email locally and provide such a search
 interface, on a user's local machine.</div>
 
 
