@@ -21,7 +21,7 @@ The following advanced readings have been prepared as primers, intended to give 
 Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
-* [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Lemmer Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
 * [Architectural Layering for Decentralized Identification](topics-and-advance-readings/Architectural-Layering-for-Decentralized-Identification.md) by Drummond Reed
 * [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](topics-and-advance-readings/byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
 * [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk

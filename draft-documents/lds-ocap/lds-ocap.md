@@ -1,6 +1,6 @@
-# Linked Data Signatures Proclamation Chains
+# Linked Data Capabilities
 
-By Christopher Allan Webber and Mark S. Miller
+By Christopher Lemmer Webber and Mark S. Miller
 
 ## Overview
 
@@ -11,6 +11,8 @@ is a powerful system for ensuring the security of computing systems.
 In this paper, we explore layering an object capability model on top
 of Linked Data Signatures via chains of signed proclamations.
 <sup id="fnr.proclamation-terminology">[fn:1](#proclamation-terminology)</sup>
+We call this system "Linked Data Capabilities", or "ld-ocap" for
+short.
 
 The system we propose can work regardless of whether we are using
 https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/).
@@ -49,7 +51,8 @@ The initial condition looks like so:
 <!-- at object capability level, use message
      at crypto level, use envelope, proclamation, messenger -->
 
-(A)lice has a file upload capability to the (C)loud storage system.
+(A)lice has a capability to the (C)loud storage system through which
+she can upload files.
 (A)lice also has a capability to send a message to (B)ob, and (B)ob
 has a capability to send a message to (D)ummy Bot.
 
@@ -135,9 +138,8 @@ proclamation.  Let's look at what that proclamation looks like:
      "type": "Proclamation",
      
      // The subject is who the capability operates on (in this case,
-     // the CloudStore object) and the method is what the capability does
+     // the CloudStore object)
      "subject": "did:example:0b36c784-f9f4-4c1e-b76c-d821a4b32741",
-     "method": "StoreObject",
 
      // We are granting access specifically to one of Alice's keys
      "grantedKey": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab#key-1",
@@ -153,9 +155,9 @@ proclamation.  Let's look at what that proclamation looks like:
         "signatureValue": "IOmA4R7TfhkYTYW8...CBMq2/gi25s="}}
 ```
 
-Now Alice wants to share this capability to Bob, but with a caveat
-(also known as an "attenuation"): Bob can only upload 50 Megabyte
-files at a time.
+Now Alice wants to share this capability to Bob, but with a couple of
+caveats (also known as an "attenuation"): Bob can only invoke the
+upload method, and can only upload 50 Megabyte files at a time.
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
@@ -170,9 +172,13 @@ files at a time.
      // Now we grant access to one of Bob's keys
      "grantedKey": "did:example:ee568de7-2970-4925-ad09-c685ab367b66#key-1",
 
-     // This proclamation *does* have a caveat: each upload can only be
-     // 50 Megabytes large.
+     // This proclamation *does* have caveats:
      "caveat": [
+       // Only the UploadFile method is allowed...
+       {"id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda#caveats/upload-only",
+        "type": "RestrictToMethod",
+        "method": "UploadFile"},
+       // ...and each upload can only be 50 Megabytes large.
        {"id": "did:example:f7412b9a-854b-47ab-806b-3ac736cc7cda#caveats/50-megs-only",
         "type": "RestrictUploadSize",
         // file limit here is in bytes, so 50 MB
@@ -339,6 +345,9 @@ additional parameters in the body:
      // verification of access
      "proclamation": "did:example:d2c83c43-878a-4c01-984f-b2f57932ce5f",
 
+     // The method being used
+     "method": "UploadFile",
+
      // The key Dummy Bot is using in this invocation
      "usingKey": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4#key-1",
 
@@ -383,11 +392,11 @@ The biggest feature of Macaroons over our design is that messages are
 smaller (a desirable property!) since rather than using public key
 cryptography for signatures, a simple HMAC is used.  Macaroons are
 thus passed around as bearer instruments over secure channels.  This
-leads to a tradeoff: macaroons are smaller in size than LDS
-Proclamation Chains, but unlike LDS Proclamation Chains, cannot be
-sent or invoked over an insecure channel.  Unlike LDS Proclamation
-chains, macaroons cannot be stored on a blockchain or be publicly
-retrievable from the web.
+leads to a tradeoff: macaroons are smaller in size than Linked Data
+Capabilities, but unlike Linked Data Capabilities, cannot be sent or
+invoked over an insecure channel.  Unlike Linked Data Capabilities,
+macaroons cannot be stored on a blockchain or be publicly retrievable
+from the web.
 
 One further difference is that while any entity that holds on to a
 macaroon may delegate that macaroon to any other entity, not all
@@ -431,11 +440,11 @@ days.
 contains a short but underspecified section that outlines how
 Macaroons could be used with public keys instead of HMAC signed bearer
 instruments, and the design describe, while in very scant detail,
-sounds very similar to how LDS Proclamation Chains work.)
+sounds very similar to how Linked Data Capabilities work.)
 
-Overall Macaroons and LDS Proclamation Chains are both reasonable
-systems with different tradeoffs.  Implementers should be informed
-of these tradeoffs and make decisions accordingly.
+Overall Macaroons and lds-ocaps are both reasonable systems with
+different tradeoffs.  Implementers should be informed of these
+tradeoffs and make decisions accordingly.
 
 ### Object Capability Programming Languages
 
@@ -463,8 +472,8 @@ shown here: delegation, attenuation, and so on.
 
 However, there is one thing which is possible in W7 (and other similar
 systems) that is not possible in any of the other systems we have
-discussed in this paper, including the LDS Proclamation Chains system
-we have proposed.
+discussed in this paper, including the lds-ocaps system we have
+proposed.
 This is attenuation by composition in an enclosed environment.
 To see what this means and why it is desirable, let us consider an
 example.
@@ -539,9 +548,9 @@ capabilities and handle the composition of passing the returned value
 of one of the enclosed capabilities to the other, without exposing
 either individually outside of the enclosure.
 
-It does not appear we can do the same thing in LDS Proclamation
-Chains.  Here is a highly cut down invocation which attempts to embed
-the capabilities, for the sake of demonstration:
+It does not appear we can do the same thing in lds-ocaps.
+Here is a highly cut down invocation which attempts to embed the
+capabilities, for the sake of demonstration:
 
 ``` javascript
   {"type": "Invocation",
@@ -585,8 +594,8 @@ above of Alice allowing a Timer Service to back up her Home Directory
 to Cloud Store, without giving Timer Service access to either
 independently.
 
-It would be possible to build such a system with LDS Proclamation
-Chains by embedding an object capability programming language (with
+It would be possible to build such a system with Linked Data Capabilities
+by embedding an object capability programming language (with
 proper constraints on space and time for safety as well).
 This is a significant topic worth its own future paper.
 

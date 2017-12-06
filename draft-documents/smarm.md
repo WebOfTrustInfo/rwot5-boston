@@ -1,6 +1,6 @@
 # Smarm: Requirements for a smart-signatures Scheme
 
-By Christopher Allan Webber and Christopher Allen
+By Christopher Lemmer Webber and Christopher Allen
 
 ## Overview
 
