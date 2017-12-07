@@ -4,9 +4,9 @@ By Christopher Lemmer Webber and Mark S. Miller
 
 ## Overview
 
-[Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/) bring
-a method of asserting integrity of linked data documents passed throughout
-the web.  The [object capability model](https://en.wikipedia.org/wiki/Object-capability_model)
+[Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/) enable
+a method of asserting the integrity of linked data documents that are passed throughout
+the web. The [object capability model](https://en.wikipedia.org/wiki/Object-capability_model)
 is a powerful system for ensuring the security of computing systems.
 In this paper, we explore layering an object capability model on top
 of Linked Data Signatures via chains of signed proclamations.
@@ -14,27 +14,27 @@ of Linked Data Signatures via chains of signed proclamations.
 We call this system "Linked Data Capabilities", or "ld-ocap" for
 short.
 
-The system we propose can work regardless of whether we are using
-https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/).
+The system we propose can work regardless of whether 
+https identifiers or [DIDs](https://w3c-ccg.github.io/did-spec/) are being used.
 Since DIDs work nicely with this system and add an additional layer of
 decentralization we use them for the URIs of this system.
 
-## Example scenario
+## Example Scenario
 
 Alice (A) has a direct capability to store files in a "Cloud Storage"
-system (C).  She would like to share this capability with Bob, but she
-is wary of Bob's fondness of storing high resolution video, so she
+system (C).  She would like to share this capability with Bob (B), but she
+is wary of Bob's fondness of storing high-resolution video, so she
 would like to add a constraint that he may only upload files that are
 no larger than 50 megabytes at a time.  Bob is excited to take
 advantage of this service because he has recently been playing with
 Dummy Bot (D), which automatically uploads some photos now and then.
 But Bob has heard mixed reviews of Dummy Bot and is worried that maybe
-Dummy Bot will malfunction.  He has decided that a 30 day window is
-good enough of a trial period to permit Dummy Bot to upload to the
-storage system so he can determine whether to renew at some future
+Dummy Bot will malfunction.  He has decided that a 30-day window is
+a sufficient trial period for permitingt Dummy Bot to upload to the
+storage system, so that he can determine whether to renew at some future
 date.
 
-The initial condition looks like so:
+The initial condition looks like this:
 
 ```
      .-.       .-.       .-.
@@ -57,7 +57,7 @@ she can upload files.
 has a capability to send a message to (D)ummy Bot.
 
 Each of these characters has an associated linked data document that
-represents them within the system which make use of
+represents them within the system, making use of
 [JSON-LD](https://json-ld.org/) and
 [Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/).
 
@@ -67,7 +67,7 @@ Here is Alice:
     {"@context": ["https://example.org/did/v1",
                   "https://example.org/ocap/v1",
                   "http://schema.org"],
-     // This is a DID, but it could as well be an https:// uri
+     // This is a DID, but it could as well be an https: uri //
      "id": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab",
      // This object is a person named Alice
      "type": "Person",
@@ -127,8 +127,8 @@ Finally, here is the Cloud Storage service:
        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\r\n..."}]}
 ```
 
-Alice's capability to store an object in Cloud Store is encoded in a
-proclamation.  Let's look at what that proclamation looks like:
+Alice's capability to store an object in the Cloud Store is encoded in a
+proclamation, which looks like this:
 
 ``` javascript
     {"@context": ["https://example.org/did/v1",
@@ -138,7 +138,7 @@ proclamation.  Let's look at what that proclamation looks like:
      "type": "Proclamation",
      
      // The subject is who the capability operates on (in this case,
-     // the CloudStore object)
+     // the Cloud Store object)
      "subject": "did:example:0b36c784-f9f4-4c1e-b76c-d821a4b32741",
 
      // We are granting access specifically to one of Alice's keys
@@ -192,7 +192,7 @@ upload method, and can only upload 50 Megabyte files at a time.
         "signatureValue": "..."}}
 ```
 
-We can now see in the diagram that Alice has created, and has access
+As this diagram demonstrates, Alice has created, and has access
 to, this attenuated capability.
 
 ```
@@ -209,7 +209,7 @@ to, this attenuated capability.
                  '-'
 ```
 
-But Bob cannot use this capability until he receives it.  Alice
+Bob cannot use this capability until he receives it.  Alice
 invokes her message sending capability between herself and Bob.
 
 ```
@@ -226,10 +226,10 @@ invokes her message sending capability between herself and Bob.
                  '-'
 ```
 
-Now Bob has access to upload 50MB or less files to the CloudStore.
+Now Bob has access to upload files sized 50MB or less to the Cloud Store.
 But he would prefer that Dummy Bot do uploads for him... well, for a
-month.  He'll see how it goes.  Luckily these capabilities are
-composable, and so Dummy Bot can create an attenuated capability out of
+month. He'll see how it goes. Luckily these capabilities are
+composable, and so Bob can create an attenuated capability out of
 the attenuated capability he already has!
 
 ``` javascript
@@ -260,7 +260,7 @@ the attenuated capability he already has!
         "signatureValue": "..."}}
 ```
 
-The capability graph now looks like so:
+The capability graph now looks like this:
 
 ```
      .-.          .-.         .-.
@@ -293,11 +293,11 @@ capability to Dummy Bot:
                   '-'
 ```
 
-Now Dummy Bot has a capability to upload files to CloudStore, but only
-files that are within 50 megabytes, and only for the next month. This
-is possible because Dummy Bot is authorized on the final proclamation,
-but the proclamation "chains upward" including both the immediate
-restriction/caveat within R2 on time but also the restriction/caveat
+Now Dummy Bot has a capability to upload files to Cloud Store, but only
+files that are sized 50 megabytes or less, and only for the next month. These multiple caveats
+are possible because Dummy Bot is authorized on the final proclamation,
+and the proclamation "chains upward", including both the immediate
+restriction/caveat within R2 on time and also the restriction/caveat
 in R1 on space!
 
 ```
@@ -330,7 +330,7 @@ Soon Dummy Bot takes a picture and uploads it:
                   '-'
 ```
 
-This is done through an `Invocation` on the proclamation, along with
+This is done through an `Invocation` on the proclamation, containing
 additional parameters in the body:
 
 ``` javascript
@@ -351,7 +351,7 @@ additional parameters in the body:
      // The key Dummy Bot is using in this invocation
      "usingKey": "did:example:5e0fe086-3dd7-4b9b-a25f-023a567951a4#key-1",
 
-     // Finally here's the base64 encoded file as part of the payload
+     // Here's the base64 encoded file as part of the payload
      "file": "nEOSQ7jbzBNg0Glup/FfeGDDzvLDvgEL36wcNpmbvKDgPy6+...",
 
      // Finally we sign this object with Dummy Bot's key
@@ -367,17 +367,17 @@ additional parameters in the body:
 ### SPKI/SDSI
 
 [SPKI](http://world.std.com/~cme/html/spki.html) (and previously SDSI)
-is a key management project which aimed to resolve many of the issues
-(including around centralization) that the X.509 infrastructure
-introduced and developed into over time.  SPKI is
+is a key-management project that aimed to resolve many of the issues
+(including those surrounding centralization) that the X.509 infrastructure
+introduced and developed into over time. SPKI is
 [almost but not quite an object capability system](http://www.erights.org/elib/capability/ode/ode-pki.html).
 (See [From Capabilities To Financial Instruments](http://erights.org/elib/capability/ode/ode-bearer.html)
 and [Capability Myths Demolished](http://www.erights.org/elib/capability/duals/myths.html)
 for more information.)
 SPKI uses "certificates" (akin to "proclamations"[fn:1](#proclamation-terminology) here)
-to express authority, similar to how we are doing so in this document,
-but did not exist in a linked data system as our proposal here does.
-Importantly, SPKI's authority is a broader form of access control, and for
+to express authority, similar to what we are doing in this document,
+but did not exist in a linked data system as this proposal does.
+Importantly, SPKI's authority is a broader form of access control and for
 that reason carries some of the traditional problems of ACLs.
 
 ### Macaroons
@@ -385,22 +385,22 @@ that reason carries some of the traditional problems of ACLs.
 [Macaroons](https://research.google.com/pubs/pub41892.html) are a
 credentials system that uphold most of the properties of capabilities.
 They support delegation and attenuation (with some constraints as to
-who can attenuate) also via a chain of signed messages, but there are
+who can attenuate), also via a chain of signed messages, but there are
 some key differences.
 
-The biggest feature of Macaroons over our design is that messages are
-smaller (a desirable property!) since rather than using public key
-cryptography for signatures, a simple HMAC is used.  Macaroons are
-thus passed around as bearer instruments over secure channels.  This
+The biggest advantage of Macaroons over our design is that messages are
+smaller (a desirable property!) because a simple HMAC is used for signing rather than public key
+cryptography. Macaroons are
+thus passed around as bearer instruments over secure channels. This
 leads to a tradeoff: macaroons are smaller in size than Linked Data
 Capabilities, but unlike Linked Data Capabilities, cannot be sent or
-invoked over an insecure channel.  Unlike Linked Data Capabilities,
+invoked over an insecure channel. Unlike Linked Data Capabilities,
 macaroons cannot be stored on a blockchain or be publicly retrievable
 from the web.
 
 One further difference is that while any entity that holds on to a
 macaroon may delegate that macaroon to any other entity, not all
-entities can attenuate macaroons.  To see why, let us look at our
+entities can attenuate macaroons. To see why, let us look at our
 final configuration between Alice, Bob, Dummy Bot, and Cloud Store:
 
 ```
@@ -425,34 +425,34 @@ held before passing to Dummy Bot without any specific permission.
 In Macaroons, Cloud Store and Alice must pre-arrange the shared key
 that Alice will use to attenuate the macaroon she holds before she can
 do so and successfully delegate to Bob (likewise for Bob to Dummy
-Bot).  The reason for this is that in verifying HMAC signatures Cloud
+Bot). The reason for this is that in verifying HMAC signatures Cloud
 Store must check the macaroon's signatures against a key that Alice
-and Cloud Store must both have... Alice to sign it, and Cloud Store to
-verify it.  Even if Alice and Cloud Store had prearranged a shared key
+and Cloud Store must both have... Alice to sign it and Cloud Store to
+verify it. Even if Alice and Cloud Store had prearranged a shared key
 to be used for attenuating macaroons, if Bob and Cloud Store had not
 done so there would be no way for Bob to further attenuate the
-capability before passing to Dummy Bot.  Bob may not prefer this to be
+capability before passing to Dummy Bot. Bob may not prefer this to be
 the case since Bob wanted to only give Dummy Bot access for thirty
 days.
 
 (Notably, the
 [Macaroons paper](https://research.google.com/pubs/pub41892.html)
 contains a short but underspecified section that outlines how
-Macaroons could be used with public keys instead of HMAC signed bearer
-instruments, and the design describe, while in very scant detail,
+Macaroons could be used with public keys instead of HMAC-signed bearer
+instruments; the design described, while scantly detailed,
 sounds very similar to how Linked Data Capabilities work.)
 
 Overall Macaroons and lds-ocaps are both reasonable systems with
-different tradeoffs.  Implementers should be informed of these
+different tradeoffs. Implementers should be informed of these
 tradeoffs and make decisions accordingly.
 
 ### Object Capability Programming Languages
 
-Up until this point in the paper we have focused on different
-substrates on which to implement capabilities which have all relied on
+Up until this point this paper has focused on different
+substrates on which to implement capabilities, which have all relied on
 some sort of shared vocabulary between entities in the system.
 Another way to build capabilities is to build them at the layer of a
-programming language.  In addition to not requiring coordination on
+programming language. In addition to not requiring coordination on
 vocabulary from all entities in the system, this provides powerful
 compositional abilities which, as we will see, turn out to be highly
 desirable.
@@ -462,20 +462,20 @@ In the
 Jonathan Rees introduces an implementation of object capabilities on
 nothing other than a strict lexically scoped environment, enforced by
 the runtime of the system.
-The language shown uses a cut-down variant of Scheme, though it can be
+The example language uses a cut-down variant of Scheme, though it could be
 implemented in any language that provides the same strict lexical scoping
 properties in a carefully bounded initial environment.
 (This is the general mechanism for implementing capabilities at a
 programming language level.)
-The paper demonstrates all the same properties of capabilities we have
-shown here: delegation, attenuation, and so on.
+The paper demonstrates all the same properties of capabilities 
+demonstrated here: delegation, attenuation, and so on.
 
-However, there is one thing which is possible in W7 (and other similar
-systems) that is not possible in any of the other systems we have
-discussed in this paper, including the lds-ocaps system we have
+However, there is one thing that is possible in W7 (and other similar
+systems) that is not possible in any of the other systems 
+discussed in this paper, including the lds-ocaps system herein
 proposed.
 This is attenuation by composition in an enclosed environment.
-To see what this means and why it is desirable, let us consider an
+To see what this means and why it is desirable, consider this
 example.
 
 We have the following initial state:
@@ -501,18 +501,19 @@ We have the following initial state:
            '-'
 ```
 
-(A)lice keeps her data in (H)ome Directory.  She would like to back it
+(A)lice keeps her data in (H)ome Directory. She would like to back it
 up to (C)loud Service, but she is afraid she will forget to back up
 regularly, so she would like to grant a capability to (T)imer Service to
-run the backup for her.  However, she would prefer that Timer Service
+run the backup for her. However, she would prefer that Timer Service
 not have access to actually read any of the contents of her data on Home
 Directory, and she does not want Timer Service to be able to write just
-anything to Cloud Store, only backups.  Effectively she would like to
+anything to Cloud Store, only backups. Effectively she would like to
 send Timer Service a new capability that *composes together* reading
 from Home Directory and writing to Cloud Store without giving access to
-either independently.  Here R represents the
-restricted-through-composition capability in this somewhat messy
-diagram:
+either independently. 
+
+Here R represents the
+restricted-through-composition capability:
 
 ```
            .-.
@@ -531,8 +532,7 @@ diagram:
 ```
 
 
-In Rees' W7 / the lambda-calculus-ocap system, we could represent this
-like so:
+In Rees' W7 / lambda-calculus-ocap system, this could be represented as:
 
 ``` scheme
 ;; Run in A's environment
@@ -546,10 +546,10 @@ like so:
 The advantage here is that the runtime is able to enclose the
 capabilities and handle the composition of passing the returned value
 of one of the enclosed capabilities to the other, without exposing
-either individually outside of the enclosure.
+either individually, outside of the enclosure.
 
-It does not appear we can do the same thing in lds-ocaps.
-Here is a highly cut down invocation which attempts to embed the
+It does not appear that lds-ocaps can do the same thing.
+Here is a highly cut down invocation that attempts to embed the
 capabilities, for the sake of demonstration:
 
 ``` javascript
@@ -569,10 +569,10 @@ There are two troubles here: making it clear how Timer Service is
 supposed to compose these capabilities in runTheseCombinedSomehow is
 not obvious, and even worse, there is nothing preventing Timer Service
 from running these individually since they are not properly enclosed,
-unlike in our W7/Scheme example earlier.
+unlike in the W7/Scheme example.
 
 The majority of needs for a capability system are likely served by
-attenuation and delegation on their own.  Nonetheless, full
+attenuation and delegation on their own. Nonetheless, full
 composability within a capability's enclosure, as explored above, is
 still a desirable property for the systems that can provide it.
 
@@ -580,11 +580,11 @@ still a desirable property for the systems that can provide it.
 
 [CapCert](http://wiki.erights.org/wiki/Capability-based_Active_Invocation_Certificates)
 is a (currently unimplemented) plan for a proclamation/certificate
-chain based structure which looks a lot like what we have discussed in
+chain-based structure that looks a lot like the system discussed in
 this paper with one interesting change: real programs may be embedded
 *in* the proclamations.
-This approach bridges the gap between the proclamation chain approach
-we have described in this paper and the object capability programming
+This approach bridges the gap between the proclamation-chain approach
+described in this paper and the object-capability programming
 languages described in the previous section; proclamations can be
 shared over insecure channels while also removing some need for shared
 vocabulary on both ends.
@@ -602,30 +602,30 @@ This is a significant topic worth its own future paper.
 ### Capabilities on Blockchains
 
 Finally, one piece of related work that we have not addressed but
-would like to address on a future paper is enabling capabilities on
-blockchains.  Motivating examples include
+would like to address in a future paper is enabling capabilities on
+blockchains. Motivating examples include
 [attacks against Etherium smart contracts](https://medium.freecodecamp.org/a-hacker-stole-31m-of-ether-how-it-happened-and-what-it-means-for-ethereum-9e5dc29e33ce)
 that would not have occurred in an object capabilities environment.
 
-The examples we have given demonstrate capabilities that
-may exist environments where the only secrets that must be kept are
-the private keys of entities participating in the system.  We would
+The examples provided here demonstrate capabilities that
+may exist in environments where the only secrets that must be kept are
+the private keys of entities participating in the system. We would
 like objects committed to a blockchain to be able to express
 capabilities despite not being able to hold secrets on the blockchain
-itself.  This is also a significant topic worth its own future paper.
+itself. This is also a significant topic worth its own future paper.
 
 ## Conclusions
 
-Linked Data Systems are powerful ways of building collaborative,
-expressive systems.  Today we are seeing Linked Data Systems crossing
+Linked Data Systems are powerful ways to build collaborative,
+expressive systems. Today we are seeing Linked Data Systems crossing
 not only the traditional web but even into systems like distributed
 ledger technologies and so on.  Unfortunately, security is frequently
 difficult on Linked Data Systems.
 
 For example, [SoLiD](https://solid.mit.edu/) directly uses and
 [ActivityPub](https://www.w3.org/TR/activitypub/) indirectly implies
-Access Control Lists.  Unfortunately these are are known to
-[plague systems with problems](http://www.hpl.hp.com/techreports/2009/HPL-2009-20.html),
+Access Control Lists. Unfortunately these are are known to
+[create problems in systems](http://www.hpl.hp.com/techreports/2009/HPL-2009-20.html),
 particularly:
 
  - excess authority leading to needless vulnerability
@@ -633,7 +633,7 @@ particularly:
  - lack of composability (including attenuation)
 
 We can avoid these risks by using an object capability system such as
-the one described above.  Even more exciting is that by combining
+the one described above. Even more exciting, by combining
 this system with [DIDs](https://w3c-ccg.github.io/did-spec/) we can
 build a fully decentralized object capability system for the web that
 is safe to use.
