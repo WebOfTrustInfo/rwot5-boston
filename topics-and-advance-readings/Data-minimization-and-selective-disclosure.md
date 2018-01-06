@@ -20,29 +20,30 @@ Our goal is to enable decision makers, particularly non-technical ones, to gain 
 
 To grasp the problem, here are three examples of how people would like privacy preserved in the process of sharing credentials.
 
-You attempt to login to an online service and are asked for your Facebook name. You know that the service may read from your Facebook account a broad range of data without your meaningful consent. You hesitate, since the service doesn't need everything in your Facebook account. What will it read today? What will it read in future? You are not sure. Is there a way to login with your Facebook data while revealing only a minimal amount of information? 
+Diego attempts to login to an online service and is asked forhis  Facebook name. He knows that the service may read from his Facebook account a broad range of data without meaningful consent on his part. Diego hesitates, since the service doesn't need everything in his Facebook account. Thoughts pass through his mind: What data will this service read in order to complete the login? What will it read in future? Is there a way for him to login with his Facebook data while revealing only a minimal amount of information? 
 
-You hand your driver's license to a bouncer to prove you are of drinking age. As he looks it over, you realize he is looking at your date of birth and home address. He only needs to know that you are over 21. Is there a way to disclose your approximate age without revealing your actual age, along with your home address and city of residence as well? 
+Selena hands her driver's license to a bouncer to prove she is of drinking age. As he looks it over, she sees him inspecting her date of birth and home address. He only needs to know that she is over 21. Is there a way to disclose that she is indeed old enough without revealing her actual age, along with her home address and city of residence as well? 
 
-In negotiations with a real estate agent to purchase a home, you reveal a letter from your bank stating your credit limit. You wanted to reveal its approximate amount only, but the agent insisted on verifying that the letter was authentic. You feel the agent now has the upper hand in the negotiation. Could you have revealed only an approximate amount, and reveal more details as the negotiations progress?
+In negotiations with a real estate agent to purchase a home, Proctor reveals a letter from his bank stating his credit limit. He wanted to reveal its approximate amount only, but the agent insisted on verifying that the letter was authentic. Proctor feels the agent now has the upper hand in the negotiation, as the letter reveals more than just its authenticity. Could he have revealed only an approximate amount, and reveal more details as the negotiations progress?
 
-Each story highlights a particular privacy enhancement: the first "data minimization," the second, "selective disclosure," and the third, "progressive trust." 
+Each story highlights the need for a particular privacy enhancement addressed in this paper: Diego's highlights the need for "data minimization," Selena's for "selective disclosure," and Proctor's for "progressive trust." 
 
 ## What are credentials and attributes?
-A credential is a statement of information relating to a subject, such as "my age." The precise definition from the W3C VC: A credential is a qualification, achievement, quality, or piece of information about an entity's background such as a name, government ID, payment provider, home address, or university degree. Such a credential describes a quality or qualities, property or properties of an entity which establish its existence and uniqueness. A credential has an issuer, inspector, subject and holder. 
+A credential is a statement of information relating to a subject, such as "my age." To be more precise, "a qualification, achievement, quality, or piece of information about an entity's background." Such a credential describes a quality or qualities, property or properties of an entity which establish its existence and uniqueness. A credential has an issuer, inspector, subject and holder. Examples include a name, government ID, payment provider, home address, or university degree. 
 
 An attribute is a value associated with a credential. For example, "January 1, 1980" is a date that could be an attribute associated with a birthday. 
 
 ## What are verifiable credentials?
-A verifiable credential is a credential that is effectively tamper-proof, and whose authenticity can be verified in an automated fashion.  A credential in-and-of-itself, as long as it is stored properly, does not need privacy enhancement. It is when the credential is verified that it is exposed to inspection and our privacy concerns are brought to bear. 
-
+A verifiable credential is a credential that is effectively tamper-proof, and whose authenticity can be verified in an automated fashion.  
 ## Do attributes need to be formatted for privacy-enhancement?
-Yes. The formatting of an attribute makes it more or less amenable to privacy-enhancing treatment. Privacy enhancement is much more efficient when standardized formats are used. 
+Privacy enhancement is made possible by the use of standardized formats. 
 
-The World Wide Web community has many ways of formatting data. Some were standardized to enable search engines to understand the information on web pages and provide richer search results. While unformatted data can be interpreted by using data extraction methods, these can be error prone because information can be represented in so many different ways. 
+Privacy becomes an issue when credentials are shared and inspected. It is when the credential is verified that it is exposed to inspection and our privacy concerns are brought to bear. It is then that machine processes can assist in privacy enhancement, provided that they can understand and work with the data in question. 
 
-## Do attributes need to be numeric?  
-While all electronic information is handled as numbers, there are different kinds of numbers. The ability of a system to enhance privacy depends on the kinds of numbers involved. 
+The World Wide Web community has standardized many data formats. Some were standardized to enable search engines to understand the information on web pages and provide richer search results. While unformatted data can be interpreted by using data extraction methods, these can be error prone because information can be represented in so many different ways. 
+
+## What is the role of numbers? Do attributes need to be numeric?  
+All electronic information is ultimately stored as numbers. The ability of a system to enhance privacy depends on the kinds of numbers involved. Current practice identifies three main kinds of numbers.
 
 * Nominal numbers answer the question, "what is the identifier?"
 * Ordinal numbers answer the question, "in what order?"
@@ -52,10 +53,13 @@ Numbers that name things are like the number 012 representing the letter, "A," a
 
 To illustrate why these differences between numbers are important, imagine you are buying a car, you open your bank account page and it says "52433". Is this number nominal, the name of your bank account? Is it ordinal, showing the 52,433rd transaction of the day? Or is it a quantity, perhaps your bank balance showing that you have $52,433.00? Privacy enhancement strategies will differ, depending on the numeric qualities. 
 
+Our ability to enhance privacy depends in the end on these differences in the kinds of numbers representing our credential attributes.
+
 ##Do we need cryptography?
 
-##The role of cryptography
-In privacy enhancement of credentials, some data parts are revealed while others are concealed. Concealment is achieved mostly by the art of cryptography, from the greek word "kryptos," meaning hidden, like in a crypt. Cryptography makes privacy enhancement possible in electronic communication. 
+Yes we do. Cryptography makes privacy enhancement possible in electronic communication. In privacy enhancement of credentials, some data parts are revealed while others are concealed. Concealment is achieved mostly by the art of cryptography, from the greek word "kryptos," meaning hidden, like in a crypt.
+
+(For the remainder of this paper, we use the short word "crypto" to refer to the use of cryptographic algorithms to achieve our privacy enhancing goals.)
 
 ### Crypto Goals 
 Privacy-enhancing cryptography has four primary goals.
@@ -65,20 +69,20 @@ Privacy-enhancing cryptography has four primary goals.
 * **Integrity**: the revealed part of the credential cannot be altered without such alteration being detected. Also known as validity, fidelity or verifiability. 
 * **Non-repudiation**: aka non-deniability, a credential's creator cannot deny at a later stage his or her involvement.
 
-### Crypto enablers
-Cryptography's ability to enhance privacy relies on a broad range of techniques, algorithms and protocols. For the purposes of this paper we can group them into three primary cryptographic enablers: secret management, difficulty levels, and zero knowledge. 
+### How does crypto Work?
+Crypto enables us to achieve our goals by means of clever application of three primary enablers: the management of secrets, the curation of puzzles of various levels of difficulty, and the use of zero knowledge protocols. This terminology, while highly simplified, will help the lay reader understand just how privacy enhancement works. 
 
-The three enablers can be explained by considering the "Where's Waldo?" visual puzzles. On each page of these books a distinctively dressed man in a striped hat appears at a stop on his "world-wide hike". Somewhere amid each densely illustrated crowded scene is Waldo and readers are asked to scour the page and locate the lost traveler. 
+Let's consider the "Where's Waldo?" series of visual puzzles to understand these three enablers. On each page of these books a distinctively dressed man in a striped hat appears at a stop on his "world-wide hike". Somewhere amid each densely illustrated crowded scene is Waldo and readers are asked to scour the page and locate the lost traveler. 
 
-* **Secret management**: The location of Waldo is a kind of secret: the illustrator knows it, and you don't. You could raid the publisher's offices and perhaps find the secret stored somewhere. Of course, once you find Waldo you could keep it secret by circling him in red and putting the book in your safe. Secrets in cryptography are usually called "keys," and a "private key" is a particular kind of secret that must be managed. 
-* **Difficulty**: Waldo puzzles are difficult to solve yet easy to verify. That's why it is a puzzle! You have to search everywhere and mistakenly eye many characters who look like Waldo before reaching a satisfactory finish and finding him. But checking if Waldo was found is rather simple. Just point to Waldo before a verifier and he can see--there he is. You did solve the puzzle correctly. This difference between the difficulty of solving as opposed to verifying is a core concept in computational complexity, and lies at the heart of cryptographic enablers. 
-* **Zero knowledge**: You can prove that you found Waldo without revealing the secret that you labored hard to uncover. Take a huge white rectangular piece of white cardboard that is much larger than the Where's Waldo illustration. Cut a hole exactly fitting Waldo, that reveals only his silhouette and nothing else. You can now show Waldo to any verifier: there he is! Yet the cardboard is so wide, hiding the book so well, a verifier has no idea where Waldo is on the page's illustration. A verifier can say without any doubt yes, you have indeed found Waldo, because Waldo is right there. you solved the puzzle and had someone verify that achievement, without revealing any knowledge of how to solve the puzzle yourself. This is a zero knowledge proof, an useful capability in privacy enhancement. 
+* **Secret management**: For the new reader, Waldo's location is a secret: the illustrator knows it, and the reader doesn't. One could raid the publisher's offices and perhaps find the secret stored somewhere. On the other hand, a reader can search and finally find Waldo. That reader could keepthe information secret by circling him in red and putting the book in a safe. Secrets in cryptography are usually called "keys," and a "private key" is a particular kind of secret that must be managed. 
+* **Difficulty**: Waldo puzzles are difficult to solve yet easy to verify. That's why it is a puzzle! The reader has to search everywhere and mistakenly eye many Waldo look-alike characters  before reaching a satisfactory finish and finding him. But checking if Waldo was found is rather simple. Just point to Waldo and a verifier can instantly see--there he is. This difference between the difficulty of solving as opposed to verifying is a core concept in computational complexity, and lies at the heart of cryptographic enablers. 
+* **Zero knowledge**: Anyone can prove that they found Waldo without revealing the secret of his actual location on the page. To do so, take a huge white rectangular piece of white cardboard that is much larger than the book. Cut a hole exactly fitting Waldo, that reveals only his silhouette and nothing else. One can now show Waldo to any verifier: there he is! Yet the cardboard is so wide, hiding the book so well, a verifier has no idea where Waldo is on the page's illustration. A verifier can say without any doubt yes, the reader has indeed found Waldo, because Waldo is right there. The puzzle was solved and someone verified the achievement, without revealing any knowledge of how to solve the puzzle. This is a zero knowledge proof, an useful capability in privacy enhancement. 
 
-This terminology, while highly simplified, will help the lay reader understand just how privacy enhancement works. For example, we may say: to enhance the privacy of an age credential (I am older than 21 years), the credential holder has a secret to manage. This secret key is applied to hide her birthday in various difficult mathematical puzzles. The inspector performs a zero knowledge proof on those puzzles and determines the credential is valid, without revealing her birthday. 
+Using this vocabulary we may say: to enhance the privacy of an age credential (I am older than 21 years), a credential holder has a secret to manage. This secret key is applied to hide her birthday in various difficult mathematical puzzles. The puzzles are crafted in such a way that it is easy to verify one's age, but quite difficult to determine the exact date of birth. The inspector performs a zero knowledge proof on those puzzles and determines the credential is valid, without revealing the birthdate itself.
 
 
-# Privacy enhancements
-We have three strategies for enhancing privacy while credential attributes are shared: data minimization, selective disclosure and progressive trust. Each strategy involves the use of cryptography, which in turn requires that the credentials and their attributes be formatted in specific ways.
+# Privacy enhancement strategies
+We have three strategies for enhancing privacy while credential attributes are shared: data minimization, selective disclosure and progressive trust. 
 
 ## Data minimization
 Data minimization is the act of limiting the amount of shared data strictly to the minimum necessary in order to successfully accomplish a task or goal. 
@@ -183,28 +187,30 @@ Bar->Janet: Have Loyalty Card
 ~~~~
 
 # Methods
-This section will show an implementation of verifiable credentials that allows for privacy enhancement of credential attributes. In order facilitate understanding of the implementation, we first provide a section providing a view of topics in number theory and cryptography.
+This section shows an implementation of verifiable credentials that allows for privacy enhancement of credential attributes. In order facilitate understanding of the implementation, we first provide a section providing a view of topics in number theory and cryptography.
 
 ## Background
-We begin with a brief overview of several concepts from number theory that serve as a foundation for the cryptography that enables selective disclosure.
+Cryptography is a huge field with highly specialized jargon, too much to cover here. But non-specialists would benefit from some understanding of relevant crypto in order to make informed decisions. This section describes basic concepts that enable users of verifiable credentials to understand the most critical cryptographic concepts. 
 
-Cryptography is a huge field with highly specialized jargon, too much to cover here. But non-specialists who use verified credentials need some understanding of cryptography in order to make informed decisions. The next section covers a set of basic concepts that enable users of verifiable credentials to understand the most critical cryptographic concepts. We present a curated list of topics progressing from the simple to the more complex. Notice how ideas are re-used and layered as read on. 
+We begin with a brief overview of several concepts from number theory that serve as a foundation for all crypto used in this process. This is a curated list of topics progressing from the simple to the more complex. Notice how ideas are re-used and layered as read on. 
 
 ### Number Theory
-Number theory refers to the study of the behavior of integer numbers such as 1, 2, 500. The following are behaviors of these numbers that make them useful in cryptography:
+Number theory refers to the study of the behavior of integer numbers such as 1, 2, 500. The following are behaviors of these numbers that make them useful for crypto:
 
 * Prime or not: A prime number is divisible by only itself and 1. 
-* One way function: A numerical function that takes a publicly known number, and without any secret information, computes a value. Given that value, it is hard to find the publicly known number. Like a one way street, computation goes only one way. 
-* Modular arithmetic, aka clock arithmetic: a system of arithmetic where numbers "wrap around" upon reaching a certain value—the modulus. A familiar use of modular arithmetic is in the 12-hour clock, in which the day is divided into 12-hour periods. If the time is 7:00 now, then 8 hours later it will be 3:00. 7 + 8 usualy equals 15, but this is not the answer because clock time "wraps around" every 12 hours. 
-* Groups and Finite Fields: A subset of all integers can form a group, which behaves in ways very useful to the performance of cryptography. Finite fields are types of groups that satisfy certain demanding properties. 
-* Discrete Logarithms: The logarithm log(b) of a is an exponent x such that b^x (b raised to the x exponent) = a. A discrete logarithm is a property for numbers in a group. Since there is no efficient method for computing discrete logarithms, they are very useful in cryptography. 
+* One way function: A numerical function that takes a publicly known number, and without any secret information, computes a value. Like a one way street, computation goes only one way. Given that value, it is hard to find the publicly known number. 
+* Modular arithmetic, aka clock arithmetic: a system of arithmetic where numbers "wrap around" upon reaching a certain value. A familiar use is in the 12-hour clock, in which our day is divided into 12-hour periods. If the time is 7:00 now, then 8 hours later it will be 3:00. 7 + 8 equals 15, but this is not the answer because clock time "wraps around" every 12 hours. 
+* Groups and Finite Fields: A subset of all integers can form a group, which behaves in ways very useful to the performance of cryptography. In extremely simplified terms, a group is a self-sufficient set of integers, and any possible manipulation has an answer from within the group. Finite fields are types of groups that satisfy certain demanding properties. 
+* Discrete Logarithms: A discrete logarithm is a property for numbers in a group. Since there is no efficient method for computing discrete logarithms, they are very useful in cryptography. (The logarithm log(b) of a is an exponent x such that b^x (b raised to the x exponent) = a.)
 * Quadratic Residues: Quadratic refers to 'squared' numbers, a number raised to the second exponential power. Quadratic residues are a useful property of squared numbers as they behave in modular arithmetic. 
 
-### The Cryptographic Zoo
+In crypto, these numeric properties are exploited to enable secret management, difficult puzzles that are easy to verify, and zero knowledge. 
 
-Let's meet the inhabitants of the cryptographic zoo, by name:
+### The Crypto Zoo
 
-* PKI, or "public and private keys": A person with a private key can, with the right software, participate in PKI (public key infrastructure) cryptography. PKI can enable all our objectives. Processes like "digital signature," "authentication," and "certificate validation," all use PKI commands which in turn require a private key. 
+Each crypto process is named, and as time goes on hundreds if not thousands of protocols, processes, algorithms and protocols accumulate. We present here a brief tour of the most significant ones in our field of verifiable credentials:
+
+* PKI, or "public and private keys": A person with a private key can, with the right software, participate in PKI (public key infrastructure) crypto. PKI processes like "digital signature," "authentication," and "certificate validation," all use PKI commands which in turn are locked to, or encumbered by, a private key that is kept secret. 
 * Elliptic-curve cryptography (ECC) is an approach to public-key cryptography based on the numeric structure of elliptic curves over finite fields. ECC is useful as it require smaller keys compared to non-ECC cryptography. There are many variants of ECC used including Edwards-curve Digital Signature Algorithm (EdDSA) which uses a variant of Schnorr signature based on Twisted Edwards curves.
 * Hash or message digest: One way functions, such as SHA 256. A Merkle tree is a set of many one way functions applied to a tree of data in which every leaf node is labelled with the hash of a data block and every non-leaf node is labelled with the cryptographic hash of the labels of its child nodes. 
 * Signature: A signature in this context is a use of PKI. A signature can prove authenticity, integrity and non-repudiation of a message since a valid digital signature gives a recipient reason to believe that the message was created by a known sender (authentication), that the sender cannot deny having sent the message (non-repudiation), and that the message was not altered in transit (integrity). Signatures enable every cryptographic objective except for confidentiality. There are many types of signature schemes in use including Digital Signature Algorithm (DSA), Camenisch-Lysyanskaya (CL) signatures, and Boneh–Lynn–Shacham (BLS) signatures. 
@@ -213,11 +219,13 @@ Let's meet the inhabitants of the cryptographic zoo, by name:
 * Cryptographic accumulators: one way membership functions that answer a query as to whether a potential candidate is a member of a set without revealing the individual members of the set. Similar to a one-way hash function, cryptographic accumulators generate a fixed-size digest representing an arbitrarily large set of values. Some further provide a fixed-size witness for any value of the set, which can be used together with the accumulated digest to verify its membership in the set.  
 * Commitments
 * Witness: The term has different applications in cryptography. In this paper a witness is a value used in a cryptographic accumulator. In bitcoin the unlocking signature is called the "witness data." 
-* Quantum Computing and Cryptography: as quantum computing is developed it poses a threat to the difficulty of puzzles. For example Shor's algorithm for integer factorization on q	uantum computers makes it much easier to discover a number's prime factors.
+* Quantum Computing and Cryptography: as quantum computing is developed it poses a threat to the difficulty of puzzles. For example Shor's algorithm for integer factorization on quantum computers makes it much easier to discover a number's prime factors.
 
 
 
 ## verifiable credentials in Sovrin
+(an implementation of verifiable credentials in Sovrin will go here)
+
 ## Indy SDK
 
 
