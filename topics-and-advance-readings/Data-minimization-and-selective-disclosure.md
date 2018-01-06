@@ -20,7 +20,7 @@ Our goal is to enable decision makers, particularly non-technical ones, to gain 
 
 To grasp the problem, here are three examples of how people would like privacy preserved in the process of sharing credentials.
 
-Diego attempts to login to an online service and is asked forhis  Facebook name. He knows that the service may read from his Facebook account a broad range of data without meaningful consent on his part. Diego hesitates, since the service doesn't need everything in his Facebook account. Thoughts pass through his mind: What data will this service read in order to complete the login? What will it read in future? Is there a way for him to login with his Facebook data while revealing only a minimal amount of information? 
+Diego attempts to login to an online service and is asked for his Facebook name. He knows that the service may read from his Facebook account a broad range of data without meaningful consent on his part. Diego hesitates, since the service doesn't need everything in his Facebook account. Thoughts pass through his mind: What data will this service read in order to complete the login? What will it read in future? Is there a way for him to login with his Facebook data while revealing only a minimal amount of information? 
 
 Selena hands her driver's license to a bouncer to prove she is of drinking age. As he looks it over, she sees him inspecting her date of birth and home address. He only needs to know that she is over 21. Is there a way to disclose that she is indeed old enough without revealing her actual age, along with her home address and city of residence as well? 
 
