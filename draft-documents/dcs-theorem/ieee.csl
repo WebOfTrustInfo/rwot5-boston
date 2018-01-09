@@ -172,11 +172,12 @@
         <choose>
           <if variable="URL">
             <group delimiter=". ">
-              <text term="online" prefix="[" suffix="]" text-case="capitalize-first"/>
-              <group delimiter=": ">
+              <!-- <text term="online" prefix="[" suffix="]" text-case="capitalize-first"/> -->
+              <!-- <group delimiter=": ">
                 <text term="available at" text-case="capitalize-first"/>
                 <text variable="URL"/>
-              </group>
+              </group> -->
+              <text variable="URL"/>
               <group prefix="[" suffix="]" delimiter=": ">
                 <text term="accessed" text-case="capitalize-first"/>
                 <date variable="accessed">
