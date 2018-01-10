@@ -1,12 +1,18 @@
 ---
+# default latex template: https://github.com/jgm/pandoc-templates/blob/master/default.latex
 title: "\\textbf{The DCS Theorem}"
-author: Greg Slepak
-date: \small October 4, 2017
-abstract: "We present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems cannot scale to support the transactional demands of centralized consensus systems, and therefore any _single system_ can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously."
-# output: pdf_document
+# The author is specified in header-includes because the line break doesn't work otherwise
+# author: Greg Slepak^\dag^, Anya Petrova
+# author: Greg Slepak \\ \href{mailto:hi@okturtles.com}{hi@okturtles.com} \and Anya Petrova \\ \href{mailto:a.petrova.ds@gmail.com}{a.petrova.ds@gmail.com}
+# date: \small ^\dag^okTurtles Foundation, USA
+date: October 4, 2017
+abstract: "Blockchain design involves many tradeoffs, and much debate has focused on tradeoffs related to scaling parameters such as blocksize. To address some of the confusion around this subject, we present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems, like blockchains, can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously. We then describe two methods for getting around the limitations suggested by the triangle."
+# https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc-pdf
 output:
   pdf_document:
     latex_engine: xelatex
+    number_sections: true
+# secnumdepth: 2
 colorlinks: true
 linkcolor: blue
 urlcolor: blue
@@ -50,6 +56,8 @@ header-includes:
     {}
   - \theoremstyle{definition}
   - \newtheorem*{defn}{Definition}
+  - \urlstyle{tt}
+  - \author{Greg Slepak \\ \href{mailto:hi@okturtles.com}{\texttt{hi@okturtles.com}} \and Anya Petrova \\ \href{mailto:a.petrova.ds@gmail.com}{\texttt{a.petrova.ds@gmail.com}}}
 
 
 # had to `brew install pandoc-citeproc` and download ieee.csl
@@ -66,14 +74,14 @@ link-citations: true
 bibliography: dcs.bib
 ---
 
-\begin{textblock}{3}(0,0)
+<!-- \begin{textblock}{3}(0,0)
 \LARGE DRAFT
-\end{textblock}
+\end{textblock} -->
 
-## Definitions
+# Definitions
 \label{sec:defs}
 
-A _system_ is defined as any set of components (see \hyperref[sec:scope]{Scope}) following _precise rules_ in order to provide service(s) to the users of the system. These services constitute the system's _intended behavior_.
+A _system_ is defined as any set of components (see \hyperref[sec:scope]{Decentralization Scope}) following _precise rules_ in order to provide service(s) to the users of the system. These services constitute the system's _intended behavior_.
 
 In other words, a system $S$ consists of a set of components, called its _scope_ $\{S\}$,  and a program ("state transition function", $f_S$), that together define the system's _intended behavior_, which means: upon receipt of message $m$, $S$ uses $f_S$ to update the internal state from $s$ to $s^\prime$ and send back reply $y$ within a time interval $S_\tau$.
 
@@ -89,13 +97,13 @@ $$
 
 We note, additionally:
 
-- The _scope_ $\{S\}$ may change over time, but there are always several components of a consistent _type_ (i.e. "all systems always have at least one _CPU_, one _developer_, and one _user_")
-- The system's state $s$ includes all data necessary for the system to compute $f_S$ given a message $m$
-- $S$ is considered _compromised_ if it fails to perform its intended behavior within the interval $S_\tau$
+- The _scope_ $\{S\}$ may change over time, but there are always several components of a vital type (i.e. "all systems always have at least one _CPU_, one _developer_, and one _user_").
+- The system's state $s$ includes all data necessary for the system to compute $f_S$ given a message $m$. The system may limit messages to those that are authorized in some way (in order to prevent denial-of-service).^[For decentralized systems, this is okay as long as there is no central authority determining who is or isn't authorized.]
+- $S$ is considered _compromised_ if it fails to perform its intended behavior within the interval $S_\tau$.
 
 We will proceed to prove that any single such system may possess, at most, two of three properties:
 
-\clearpage
+<!-- \clearpage -->
 
 \begin{figure}
   \centering
@@ -107,25 +115,44 @@ We will proceed to prove that any single such system may possess, at most, two o
   \vspace{0.2cm}
 \end{figure}
 
-- **Consensus** means the system's state, $s$ is a _shared state_ that is updated by nodes running a _consensus algorithm_ over a network, and that furthermore, the output of _consensus algorithm_ determines the network's accepted output of $f_S$, and whether or not $f_S$ completes within $S_\tau$.
+\label{sec:triangle}
+
+- **Consensus** means the system uses a collective decision-making process ("consensus algorithm") to update the system's state, $s$, which is shared by all _\hyperref[sec:consensus]{consensus participants}_. The result of the consensus algorithm determines the network's accepted output of $f_S$, and whether or not $f_S$ completes within $S_\tau$.
 - **Scale** means the system is capable of handling the transactional demands of any competing system providing the same service to the same arbitrary set of users across the globe (_"at scale"_).^[Examples of "services" include: streaming video, sending messages, maintaining balances on a ledger, etc.]
-- **Decentralized** means the system has no _single point of failure or control_ (SPoF). Another way to state this is: the system continues to perform its intended behavior if any single element is removed from $\{S\}$, and no single component in $\{S\}$ has the power to redefine $f_S$ on its own.
+- **Decentralized** means the system has no _single point of failure or control_ (SPoF). Another way to state this is: if any single element is removed from $\{S\}$, the system continues to perform its intended behavior, and no single component in $\{S\}$ has the power to redefine $f_S$ on its own.
 
-Systems whose intended behavior can be modified without the consent of their users are considered _centralized_ due to the presence of a central point of control over the definition of the system.
+## Consensus participants and "full" consensus
+\label{sec:consensus}
 
-## *Decentralization Scope* & *Relativity of Decentralization*
+The concept of a "consensus participant" is sometimes confused with the concept of a "validator", and in order to understand what the DCS Triangle is saying it's necessary to understand the difference between the two.
+
+Every consensus process has three ingredients: voters (consensus participants), voting rules, and the votes themselves.
+
+In distributed systems, the job of a _validator_ is to verify that the voting rules were followed, accepting the outcome of the vote if that is so, and rejecting the outcome otherwise. For example, in the physical world a validator might be responsible for verifying ballot forms were filled out correctly and were cast by registered voters only, but beyond that they do not (generally speaking) have the ability to influence the outcome of the vote.
+
+Consensus participants, on the other hand, are the voters themselves, and their job is to not only ensure that voting rules are followed, but to cast a vote on some decision.
+
+In Bitcoin, for example, "miners" are consensus participants whose job is to vote on which transactions are accepted into the blockchain, whereas non-mining "full nodes" are validators only, and their job is to ensure that miners do not produce invalid blocks.
+
+\begin{defn}
+$Consensus\ participants$ are independent entities who each maintain a complete copy of a system's state, and together vote on updates to this shared state.
+\end{defn}
+
+The notion of a "complete copy of a system's state" is of utmost importance for our proof. In other words, our proof focuses specifically on the strongest notion of "consensus", where each consensus participant has full knowledge of the entire system state, and therefore is able to cast a vote without needing to trust any other participant.
+
+To emphasize this notion of consensus over weaker forms, we'll refer to it as _full_ consensus in our theorem.
+
+In *\hyperref[AppendixA]{§3 - Getting around the DCS Triangle}*, we'll explore how, by loosening this requirement and treating "consensus" as a spectrum of trust assumptions, it may be possible to design decentralized consensus systems that scale with "good-enough-consensus".
+
+## Decentralization *scope* & *relativity*
 \label{sec:scope}
 
-Implicit in our definition of a _decentralized system_ is the idea that the system is not compromised. A non-functioning system does not fulfill its intended behavior, and therefore, by our definition, is not decentralized.
+Implicit to our definition of a _decentralized system_ is the idea that the system is not compromised. A non-functioning system does not fulfill its intended behavior, and therefore, by our definition, is not decentralized.
 
 Imagine a decentralized system $S$, whose intended behavior (its purpose) is to maintain the integrity of a database while being responsive to queries. It does so by attempting to eliminate all single points of failure within a given _scope._
 
-<!--
-> **Definition.** The ***scope*** of a system refers to all subcomponents and all entities "reasonably relevant" to a system's functioning.
--->
-
 \begin{defn}
-The $scope$ of a system refers to all subcomponents and all entities "reasonably relevant" to a system's functioning.
+The $scope$ of a system refers to all subcomponents and all entities reasonably relevant to a system's functioning.
 \end{defn}
 
 If we consider the scope of our "decentralized" database to be a computer with two CPUs and two hard disks (one primary, another backup), then we can say $S$ is "decentralized" at $t=0$ (has no single point of failure). However, if at $t=1$ one of the hard disk fails, it is no longer decentralized since now there does exist a single component capable of compromising the entire system.
@@ -140,29 +167,33 @@ The narrowing and enlarging of the scope is called the _relativity of decentrali
 
 ## Computational throughput of consensus systems
 
-The _computational throughput_ $T(S)$ of any consensus system depends on three factors:
+\begin{defn}
+The $computational\ throughput$ of a consensus system refers to the rate at which the system updates its state by processing all input messages.
+\end{defn}
 
-1. The computational power of each _consensus participant_ (those able to select transactions which are _written_ to the shared state).^[Note that participants who are only allowed to _verify_ state, but not participate in _creating_ it, are not considered consensus _participants_. Instead, they are called state _validators_.]
-2. The amount of time the consensus algorithm considers messages to be lost (the _timeout_ period).
-3. The consensus _threshold_ the consensus algorithm uses to decide whether consensus has been reached (e.g. "how big of a quorum is required").
+We'll use the shorthand $T(S)$ to represent this concept and note three factors that determine its value:
+
+1. The _computational power_^[This refers to all computational requirements relevant for consensus participation, such as bandwidth, data storage, and processing speed.] of each consensus participant.
+2. The amount of time after which the consensus algorithm considers messages to be lost (the _timeout_ period).
+3. The consensus _threshold_ that decides when consensus has been reached (i.e. "how big of a quorum is required").
 
 Note that if the computational power of a consensus participant is significantly less than that of the other participants, they are more likely to be excluded from the deciding quorum for several reasons:
 
 - If there are no network partitions to determine otherwise, fast consensus participants will process messages more quickly and therefore will be first to create a quorum.
-- If there are enough fast consensus participants to create a large enough quorum to exceed the system's consensus threshold, then there is no need to wait for the slow participants to move the system forward.
+- If there are enough fast consensus participants to create a large enough quorum to exceed the system's consensus threshold, then there is no need to wait for the remaining votes of the slow participants.
 - Slow consensus participants are more likely than fast consensus participants to hit the system's timeout period for processing and responding to messages, and therefore are more at risk of being excluded from the consensus process entirely.
 
-Therefore, $T(S)$ is a function that is _limited by the slowest consensus participants not excluded in the deciding quorum._
+Therefore, $T(S)$ is a function that is limited by the slowest consensus participants not excluded in the deciding quorum.
 
 ## Coordination costs
 
-Relevant for our proof is the notion of _coordination costs_, or the difficulty for one entity to engage another and work toward a common goal.
+Relevant for our proof is the notion of _coordination costs_, or the difficulty for one entity to engage another and work toward a common goal, because that can result in the formation of a cartel, which in turn violates the requirement that consensus participants be _independent_.
 
-For example, when Bitcoin was first launched, it would be difficult for any miner to find enough collaborating miners to create a cartel with 51%+ of the hash power, simply because there were many "relevant miners" (consensus participants) distributed all over the world.
+For example, when Bitcoin was first launched, it would be difficult for any miner to find enough collaborating miners to create a cartel with >50% of the hash power, simply because there were many "relevant miners" (consensus participants) distributed all over the world.
 
-Today, however, there are significantly fewer consensus participants in Bitcoin, and it is much easier to (1) identify them, and (2) bring them together in a single room to coordinate around some goal. Therefore, we say the coordination costs are lower today than before.
+Today, however, there are significantly fewer consensus participants in Bitcoin, and it is much easier to (1) identify them, and (2) bring them together to coordinate around some goal. Therefore, we say the coordination costs are lower today than before.
 
-We can approximate the coordination costs $C(S)$ of any consensus system as simply the number of consensus participants:
+We can approximate the coordination costs $C(S)$ of any consensus system simply as the number of consensus participants:
 
 $$C(S) = \mathtt{num\_consensus\_participants}(\{S\})$$
 
@@ -175,7 +206,7 @@ $$C(S) = \mathtt{num\_consensus\_participants}(\{S\})$$
   	    xmin=-0.1, xmax=5.1, ymin=-0.1, ymax=5.1,
   	%   axis equal image,
   	    set layers,
-  	    xlabel=Population of users,
+  	    xlabel=Population of potential users,
   	%    xlabel style={scale=0.7},
   	    xticklabels={},
   	    xtick=\empty, ytick=\empty,
@@ -194,32 +225,52 @@ $$C(S) = \mathtt{num\_consensus\_participants}(\{S\})$$
   	\end{pgfonlayer}
   	\end{axis}
     \end{tikzpicture}
-    \caption{TODO: explain / elaborate on this figure and perhaps show system dynamic.}
+    \caption{If $S_1$ is a decentralized consensus system, the DCS Theorem states that as the number of users increases (red circle), the number of consensus participants decreases (green circle).}
 \end{figure}
 
-## Proof
-
-<!-- \begin{theorem}
-Decentralized consensus systems that scale to meet the demands of competing (and functionally equivalent) centralized consensus systems, become centralized.
-\end{theorem} -->
+# Proof
 
 \begin{theorem}
-A consensus system that is decentralized initially, tends toward centralization as it scales to meet the demands of competing (and functionally equivalent) centralized consensus systems.
+Decentralized consensus systems centralize at scale when consensus participants maintain full consensus over the entire state of the system.
 \end{theorem}
 
 We begin with the following axioms accepted as true:
 
 \begin{axiom}
-\label{AxCompPow}
-In any sufficiently large population (at scale), individual access to computational power is not distributed uniformly. Most individuals have access to average computational power, and a few have access to large amounts.
+\label{Ax1}
+In any sufficiently large population (at scale), individual access to computational power is distributed unequally. Most have access to average computational power, and a few have access to large amounts.
 \end{axiom}
+
+Justification: empirically true.
+
+\begin{axiom}
+\label{Ax2}
+For any two systems offering the same service to the same large population, the transactional demands of the average user converge at scale.
+\end{axiom}
+
+Justification: follows from central limit theorem and the law of large numbers.
+
+\begin{axiom}
+\label{Ax3}
+Most users of a system do not have the computational power required to store and process all of the messages generated by all of the users of that system at scale.
+\end{axiom}
+
+Justification: empirically true.^[And perhaps provably true, though such a proof is beyond the scope of this paper.]
+
+From those axioms, we derive the following lemmas:
+
+\begin{lemma}
+\label{Lem1}
+Let $S$ be a decentralized consensus system whose consensus participants maintain full consensus over the system's state. Let $T(S)$ refer to its computational throughput and $c$ refer to the average computational power of all historical consensus participants at any relevant instant in time. At scale, $T(S)$ exceeds $c$, and the more users $S$ obtains, the more $T(S)$ exceeds $c$.
+\end{lemma}
 
 \begin{figure}
 
     \centering
     \begin{tikzpicture}
-    \begin{axis}[domain  = 0.97:2.3,
+    \begin{axis}[domain  = 1:2,
                  samples = 100,
+                 clip = false,
                  xmin    = 1,
                  xmax    = 2,
                  ymin    = 0,
@@ -228,48 +279,36 @@ In any sufficiently large population (at scale), individual access to computatio
                  xtick   = \empty,
                  xlabel  = {Throughput capability},
                  ylabel  = {\# users with capability},
-                 xlabel near ticks,
+                 xlabel shift = {12pt},
+                 % xlabel near ticks,
                  ylabel near ticks,
                  set layers,
                 ]
-      \addplot[thick, samples=400] {1/x^5};      
-      \node[anchor = south] at (rel axis cs:0.94,0) {fast};
-      \node[anchor = south] at (rel axis cs:0.07,0) {slow};  
+      \addplot[thick, samples=400] {1/x^5};
+      % this requires clip=false
+      \node [anchor=near xticklabel] at (xticklabel cs:0.05) {slow};
+      \node [anchor=near xticklabel] at (xticklabel cs:0.95) {fast};
     \end{axis}
+    % we can optionally do it this other way if clip=false isn't set.
+    % \node at (rel axis cs:0.03,-.04) {slow};
+    % \node at (rel axis cs:0.91,-.04) {fast};
     \end{tikzpicture}
-    \caption{Visualization of (Axiom~\ref{AxCompPow}).}
+    \caption{Visualization of (Axiom~\ref{Ax1}).}
 \label{fig:CP}
 \end{figure}
 
-\begin{axiom}
-\label{AxDmd}
-In any two systems offering the same service to the same large population, the transactional demands of the average user converge at scale.
-\end{axiom}
-
-From those axioms, we derive the following lemmas:
-
-\begin{lemma}
-\label{LemTxn}
-Let $S_1$ and $S_2$ be consensus systems offering the same service to the same population of users at scale. Let $N$ be a function returning the number of users of a given system. If $N(S_1) > N(S_2)$, and if both systems remain uncompromised as they gain users, then $T(S_1) > T(S_2)$ converges to a true statement as the value $N(S_1) - N(S_2)$ increases.
-\end{lemma}
-
 \begin{proof}
-This follows directly from (Axiom~\ref{AxDmd}) and from the assertion that both systems remain uncompromised (indicating they are indeed processing messages on time as they gain more users).
+This follows directly from Axiom \ref{Ax1}, \ref{Ax3}, and our definition of a decentralized system, which includes the \hyperref[sec:scope]{understanding} that for a system to be considered decentralized, it must be uncompromised, and that in turn means it successfully processes all authorized\footnote{See footnote 1 on page 1.} messages from new users within some interval $S_t$. For it to do this, $T(S)$ must exceed $c$, per (Axiom~\ref{Ax1}) and (Axiom~\ref{Ax3}).
 \end{proof}
 
 \begin{lemma}
-\label{LemCP}
-Let $S$ be a decentralized consensus system with a growing number of users. The number of users who can act as consensus participants decreases, and therefore, $C(S)$, decreases at scale.
+\label{Lem2}
+Let $S$ be a consensus system as in (Lemma~\ref{Lem1}). The coordination costs for $S$, $C(S)$, decrease at scale.
 \end{lemma}
 
 \begin{proof}
-As a system $S$ gains more users the throughput of the system, $T(S)$ increases, per (Lemma~\ref{LemTxn}). By (Axiom~\ref{AxCompPow}), the number of individuals capable of handling that throughput decreases. Since $S$ starts out decentralized, there does not exist a single entity controlling who the participants are, and therefore some users who previously chose to play the role consensus participants are no longer able to process messages fast enough to participate in consensus. Therefore $C(S)$ decreases as well.
-\end{proof}
-
-\begin{lemma}
-\label{LemCoord}
-Let $S$ be a decentralized consensus system. Coordination costs for $S$ decrease at scale.
-\end{lemma}
+This follows directly from our proof for (Lemma~\ref{Lem1}) and our definition of $C(S)$. The more $S$ scales, the more $T(s)$ exceeds $c$, and the fewer potential consensus participants are able to participate in consensus. This, in turn, makes it easier for the remaining consensus participants to identify and coordinate with each other.
+\end{proof}<!-- Figure~\ref{fig:CPS} visualizes this point.-->
 
 <!--
 \begin{figure}
@@ -308,337 +347,78 @@ Let $S$ be a decentralized consensus system. Coordination costs for $S$ decrease
 \end{figure}
 -->
 
-\begin{proof}
-For our proof we are only interested in what happens to decentralized consensus systems at scale. By (Lemma~\ref{LemCP}) and our definition of $C(S)$, it directly follows that the coordination costs of decentralized consensus systems decrease at scale because there are fewer consensus participants, which makes it easier for consensus participants to identify each other.
-\end{proof}<!-- Figure~\ref{fig:CPS} visualizes this point.-->
-
 \begin{lemma}
-\label{LemCensor}
-Let $S$ be a decentralized consensus system. The probability that $\{S\}$ contains a cartel capable of colluding to censor transactions increases at scale, and therefore $S$ tends toward centralization.
+\label{Lem3}
+Let $S$ be a consensus system as in (Lemma~\ref{Lem1}). The probability that $\{S\}$ contains a colluding group capable of censoring transactions increases at scale, and therefore $S$ tends toward centralization at scale.
 \end{lemma}
 
 \begin{proof}[Proof of the Main Theorem]
-Per (Lemma~\ref{LemCoord}), fewer consensus participants means the probability of a colluding group (cartel) increases. If a cartel coordinates to successfully compromise consensus, the system is no longer decentralized (per our \hyperref[sec:defs]{definitions} of consensus and decentralized). If it is easier for consensus participants to identify each other, it follows that it is easier for anyone to identify a quorum of consensus participants. Either a successful attempt at coercing this quorum, or a successful attempt at collusion would represent system failure. In decentralized systems, system failure indicates there was a single point of failure (see example in \hyperref[sec:scope]{Scope}). Therefore, the probability of centralization increases.
+The final lemma restates our original theorem. As coordination costs decrease (Lemma~\ref{Lem2}), the probability of a colluding group (a cartel) increases. The presence of a cartel capable of controlling consensus represents a single point of failure \emph{capable} of preventing the system from fulfilling its intended purpose. The definition of a centralized system is one that has a single point of failure. Therefore, we've shown that the probability of the initially decentralized system becoming centralized increases at scale.
+
+It is also worth considering our definition of \hyperref[sec:triangle]{scale} and the implications of (Axiom~\ref{Ax2}). Per (Axiom~\ref{Ax2}), when a decentralized consensus system $S_1$ scales to the size of a similar centralized consensus system $S_2$, it will experience the same transactional demands as $S_2$. However, $S_2$ may scale to a size that would guarantee cartel formation in $S_1$ if it were to scale to the same size. Therefore, $S_1$ cannot scale to such a size while remaining decentralized, and therefore $S_1$ cannot satisfy our definition of scale.
 \end{proof}
+
 
 <!--
 https://tex.stackexchange.com/questions/43610/plotting-bell-shaped-curve-in-tikz-pgf
 https://tex.stackexchange.com/questions/352933/drawing-a-normal-distribution-graph
 -->
 
-## Acknowledgements
+# Getting around the DCS Triangle
+\label{AppendixA}
 
-The author would like to thank Anya Petrova for her assistance with the paper and feedback on the proof.
+As mentioned, the DCS triangle applies to systems employing "full consensus", or in other words, when all consensus participants are required to fully and independently verify the entire state of the system.
 
-<!--
-## OLD STUFF - Outdated brain dumps [To be deleted]
+It may be possible to "get around" the DCS Triangle by relaxing our definition of consensus. In this section we'll consider two such approaches.
 
-\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
-}
-\begin{tikzpicture}
+## Combining DC and DS systems
 
-\begin{axis}[no markers, domain=0:10, samples=100,
-axis lines*=left, xlabel=Computational power, ylabel=Node count,
-height=6cm, width=10cm, ytick=\empty,
-enlargelimits=false, clip=false, axis on top,
-grid = major]
-\addplot [fill=cyan!20, draw=none, domain=-3:3] {gauss(0,1)} \closedcycle;
-\addplot [fill=blue!20, draw=none, domain=2:3] {gauss(0,1)} \closedcycle;
-\end{axis}
-\end{tikzpicture}
+Let us suppose we have a DC-system that we wish to scale while preserving its decentralization. An example of such a system is Bitcoin.[@Bitcoin2008]
 
+Per the triangle, we know that increasing the system's throughput, $T(S)$, via any mechanism that requires all consensus participants to process the additional data, will result in a reduction in the number of independent consensus participants. And so, instead, we may choose to pair our DC-system with a DS-system in some clever way.
 
-Our definitions do not allow us to write a definitive proof but they do allow for a probabilistic proof. Similarly, the choice of scope cannot be clearly defined for arbitrary systems, but must be arrived at by probability of what is "likely" to be a "reasonable" or "characteristic" scope of these systems.
+\begin{figure}
 
-So we start with a simple model of two systems of 1000 nodes in consensus with each other and of random compute power and observe:
-
-1. High throughput (scale) implies few elite consensus nodes, no matter how they're arrived at.
-2. Few consensus nodes implies low coordination costs.
-3. Low coordination costs implies higher probability of failure (censorship).
-4. High coordination costs + more consensus participants implies lower probability of failure (censorship) and also no scale.
-
-The power to exclude slow nodes, must not exist in decentralized systems.
-
-- The more users a system has the more valuable it is
-- The more valuable a system is the higher the reward is for controlling it
-- The lower coordination costs the easier it is to control a system
-- The more valuable a system is, the more incentive there is for a controlling group to censor it, and the cost of not censoring it is high
-- If a system has scale it is more valuable than a system that does not have scale.
-
-If the coordination costs are sufficiently low enough (define, possibly with an assumption), and the $rewards-costs$ (profit) for colluding are high enough (define, possibly with an assumption), then the consensus group acts as a single entity with high probability, creating a single point of failure. At the very least, we can be _certain_ that it is _much more likely_ to act as a single entity than in a situation where coordination costs are high.
-
-This is a "probabilistic analysis" (and not a very specific one) — not a proof.
-
-## Relationship between consensus and $f_S$
-
-We have, up to this point, made it very clear that for $f_S$ to remain uncompromised and fulfill its _intended behavior_, it must produce expected output in a reasonable time. If it fails, it ceases to fit our definition of being a single, unique and consistently identifiable system.
-
-There is, in other words, the opportunity for users of the system to at one point see system A that processes their transactions, behaves as they expect, and moments later experience a _functionally different_ system B that ignores their messages or otherwise behaves entirely differently.
-
-The presence of a consensus algorithm in $S$ introduces a dangerous hazard into our definitions and assumptions. Various results from distributed systems, like the FLP impossibility result and the CAP theorem, point out that distributed systems cannot always fulfill this demand. Messages can be dropped due to mysterious network outages, etc.
-
-Under these circumstances it is not always possible for the system to maintain a single consistent shared state, even in highly centralized, controlled environments.
-
-Furthermore, in a _decentralized_ system that employs consensus, there cannot be a gatekeeper that decides who the consensus participants are, for such a gatekeeper would have the potential to remove all participants, or choose only participants who suddenly ignore the messages of existing users, and therefore they would represent a single point of failure.
-
-The intuition behind our theorem is that in order for a consensus system to be decentralized, it must be more permissive as to who the consensus participants are, this permissiveness reduces the transaction capacity of the system as a whole (not everyone can run a data center at home).
-
-The difference between a "_distributed_ consensus system" and a "_decentralized_ consensus system" is implied in the name. Decentralized consensus systems do not have a "center" deciding who the consensus participants are allowed to be.
-
-
-## Proof stuff
-
--------
-
-with $n_t$ nodes at time $t$, all running $f_S$, and a second similar system $S_2$, except unlike $S_1$, the system employs a _consensus algorithm_ to update its shared state.
-
-Each system has At time $t_0$, running on $n$ nodes, where the _average computational power_ of nodes is $c_{t_0}$.
-
-We define the _transactional capacity_ of a system, $T_c(S)$, as the maximum transaction rate a system can sustain _at scale_ without dropping messages.
-
-Note the
-
-Consider a universe $U$ consisting of $n$ entities, each of which we will label $e_i$.
-
-Within $U$ we define a system $S$ that has a consensus process, meaning that the system's participants come to agreement about the system's state $state(S)$ at interval $\tau$.
-
-Each consensus participant bears a computational load $c$ that is a function of the number of users that are sending messages through the system.
-
-So the system $S$ has:
-
-- $n_u$ number of users, each of which is sending some number of transactions per day. For simplicity's sake we will assume that each user sends an average of $X$ transactions per day.
-- $n_c$ number of consensus participants, each bearing a load $c_c$ that is a function of $n_u$, likely with some cap beyond which the system simply begins adding transactions to a backlog.
-
-Each user has a computational capacity of $c_u$. The condition $c_u=c_c$ means that all users of the system, including consensus participants, have equal computational capacity. We note that each additional new user added to the system increases the number of transactions that the system has to process, and that there exists a number beyond which the transactional load exceeds $c_u$. At that point, any additional users added to the system will result in transactions being added to a backlog.
-
-To clear the backlog, either the number of users has to go down, or the computational capability of each consensus participant has to go up.
-
-Increasing the computational capacity of consensus participants while preserving $c_u=c_c$ implies a simultaneous forced hardware upgrade of all users of the system. At global scale, this is unheard of. Hardware upgrades do happen, but they are not simultaneously enforced globally. Therefore there now exists the condition that $c_c > c_u$, meaning that not all users can participate in the consensus process any longer.
-
-If the system gains users at a rate that exceeds the rate at which users of the system can upgrade their computational capacity, then $n_c / n_u$ will continue to become smaller and smaller.
-
-We further note, that even if global computational capacity upgrades kept pace with the number of new users entering the system, each new _consensus participant_ adds $t(n_c)$ _additional_ time to the amount of time it takes consensus participants to reach consensus. We note that physics puts an upper bound on the amount of time it takes messages to propagate through the system, and therefore there exists an upper theoretically limit to the number of consensus participants, even assuming infinite computational capacity.
-
-If $\sum t(n_c) > \tau$, the system will again have a backlog of messages.
-
-Therefore we note two types of limits:
-
-- A fundamental physical limit based on the speed of light that exists irrespective of computational power and is a function purely of $n_c$
-- A practical limit that is a function of $n_c$, the rate at which computational upgrades occur in the system ($R_c$), and the rate at which users are added to the system ($R_u$).
-
-We note that these limits only exist when there is a need for consensus. If there are no consensus participants (because there is no consensus), then transaction limit of the system is now "parallelized" instead of "serialized".
-
-We note that if the ratio $R_c / R_u$ is such that new users are joining the system faster than they are able to upgrade their hardware to meet the increasing computational demands of consensus, then $n_c$, the number of consensus participants, becomes increasingly smaller with respect to $n_u$.
-
-Here is a graph using Moore's law:
-
-If we attempt to scale the system quickly, the triangle says that we will either lose Consensus or Decentralization. Why?
-
-Well, if the system remains decentralized ...
-
-If the system has consensus then ...
-
-We see that as time goes on, the system is no longer able represent each user. In effect they are not "counted", and therefore $D_2$ is never met. If only 1% of users can participate in consensus, then there is no way to "count" their votes. Whether the system uses Proof-of-work or Proof-of-stake is irrelevant, because consensus participants determine which transactions are allowed to be "heard" (included) in the consensus-process, and they are free to simply ignore any "votes" of non-consensus participants.
-
-## Characteristics of decentralized systems
-
-Note that our definition of _decentralized_ necessarily implies various characteristics about the system.
-
-#### Permissionless
-
-Permission to run $f_S$ implies the existence of a gatekeeper (or gatekeepers). In practice this can manifest as closed source software, licenses, DRM, etc.
-
-In our terminology, "at scale" means the system must support a global and _arbitrary_ set of users. This means, if the system operates at scale,
-
-## Appendix A: The "DSS" Triangle
-
-Scale-Security-Decentralization. Just another name for the same thing, but poorly defined.
-
-## Appendix B: Examples of all three types of systems
-
-Decentralized consensus:
-Centralized consensus:
-
-
-## Appendix C: Errata from "Slepak's Triangle"
-
-- Note name change
-- Note I meant subset not superset
-
-## Characteristics of decentralized systems
-
-To understand the proof, we must understand the characteristics of decentralized systems.
-
-### Low-cost of participation
-
-Decentralized systems typically have a low-cost of participation. In other words, little effort is needed to use the system, and anyone can play any role.
-
-High costs usually point to the existence of a privileged entity with the power to exclude others from participation (a form of censorship). Such an entity represents a single point of failure ($D_1$) that could prevent the system from fulfilling its intended purpose for most of its users.
-
-### Permissionless and inclusive
-\label{sec:inclusive}
-
-Our definition for decentralization means there is no trusted third-party deciding who can or cannot participate. Anyone around the world can join the system as long as they meet very basic resource requirements (e.g. an Internet connection).
-
-Gatekeepers represent a central point of control, a violation of $D_1$ and $D_2$.
-
-Most importantly, decentralized systems do not exclude inefficient participants. Rather, they go out of their way to ensure the most amount of participation. This is what keeps decentralized systems decentralized, as otherwise economies of scale will push the cost of participation up until a controlling group emerges, creating a single point of failure ($D_1$), along with the ability for that group to dictate behavior to the rest of the system ($D_2$).
-
-This does not imply that decentralized systems are slow, but it does mean that decentralized **consensus** systems are _always_ significantly slower than their centralized counterparts.
-
-### Censorship-resistant
-
-The permissionless nature of decentralized systems, and their lack of a central point of control or failure, means they inherently resist all attempts at censorship.
-
-### Can centralize over time
-
-_Protocols_ and _implementations of protocols_ are two different things. A protocol can only provide _the ability_ for a decentralized system to exist, it does not provide a guarantee.
-
-All decentralized systems, even those without consensus, can be centralized if steps are not taken to combat their centralization. Single points of failure are likely to emerge as the system gains more users and interacts with the systems around it.
-
-Decentralized systems _involving consensus_ are especially vulnerable to centralization. An increase in the number of users represents two fundamental obstacles to their decentralization:
-
-1. The system's shared resource becomes more valuable as it gains users, which increases the reward for successfully compromising the system. Furthermore, the system acts as a threat to the value managed (or monopolized) by established centralized players. Combined, these factors incentivize attackers to either find or create a single point of failure in the new system.
-2. More users means more diversity of opinion over the system's future direction and the fate of its shared resource. Simultaneously, it becomes more difficult to distinguish real users from fake sybils or deliberate attempts at sabotage. As the distance between the system's maintainers and its average user increases, so too do misunderstandings. It becomes increasingly likely that _any_ decision over the fate of the system will result in the alienation of a significant fraction of users.
-
-## Examples
-
-## A Narrow Proof
-
-We will construct a proof based on our very narrow definition of the term **"mainstream"**, which—it must be emphasized—we feel is _reasonably close but not identical to_ various colloquial understandings of the term.
-
-It is important to understand what we _are not_ asserting:
-
-- We **do not assert** that it is impossible for a decentralized consensus system to reach mainstream adoption. It is certainly possible:
-  -  One could create a second system along the _decentralized-mainstream_ edge of the triangle and tie it to the first. This is what Bitcoin's Lightning network does.
-  - It might be possible to connect multiple decentralized-consensus systems to each other while maintaining the decentralization of the system-of-systems, although this is still unproven. This is what the Mauve paper[2] and Tree-Chains[3] attempt to do.
-  - More extreme measures include reducing the world's population to the point where "Mainstream" means "10 people" and therefore the difference between decentralized consensus systems and their centralized counterparts is negligible.
-- We **do not assert** that decentralized consensus systems of _the future_ cannot compete with the centralized systems of _the present._ Certainly, as technology improves around the world the performance all systems improves. However, if one were to bring technology from the future to the present, that technology would improve the performance of centralized systems just the same.
-
-### The proof
-
-We will construct our proof by making three assertions:
-
-1. _Decentralized consensus systems_ cannot process information as quickly as their centralized counterparts.
-2. _Decentralized consensus systems_ have an upper user limit, which, if exceeded, makes the system increasingly centralized.
-3. If the previous two assertions are true, the triangle holds.
-
-#### 1. Decentralized consensus systems are slower
-
-TODO: read:
-- https://jvns.ca/blog/2016/11/19/a-critique-of-the-cap-theorem/
-- https://www.cs.cornell.edu/courses/cs614/2006fa/Slides/FLP_and_Paxos.pdf
-- http://book.mixu.net/distsys/abstractions.html
-
-A consensus system $S$, whether it is decentralized or not, is comprised of consensus participants $p$ (nodes). As before, the time it takes for those nodes to come to consensus on the system's state is its _period_, $\tau$.
-
-The difference between a centralized consensus system $\Bbb{C}$, and a decentralized consensus system $\Bbb{D}$, is that membership in $\Bbb{D}$ is not pre-determined. In other words, the members $p \in \Bbb{D}$ are not specified by any single entity (that is what it means for the system to be _permissionless_ and _inclusive_). Otherwise, the system \hyperref[sec:inclusive]{would violate} $D_1$ and $D_2$.
-
-At the same time, the inclusive nature of the decentralized consensus system cannot mean that any single participant is capable of preventing consensus. If that were the case, the system would again violate $D_1$ and $D_2$.
-
-We observe that in both $\Bbb{C}$ and $\Bbb{D}$, each participant $p$ takes _validation time_ $V_p$ to process and validate the messages it receives (determined by its computation capability), and adds an additional coordination cost/overhead $O_p$ to $\tau$, the amount of time it takes the system to reach consensus (determined by the connections between participants).
-
-Next, we say that the system reaches consensus once some threshold (greater than 50%) of participants agree on the system's state.
-
-We define $M$ as the set of messages the system can process during $\tau$.
-
-Clearly, given two systems, $S_1$ and $S_2$, identical in all respects except by the speed with which members process and relay messages, the system whose members are slower will process fewer messages.
-
-Now, let us consider two hypothetical "fastest possible" systems, $\Bbb{C}$ (centralized) and $\Bbb{D}$ (decentralized).
-
-Let us consider $\Bbb{C}$ first. We note that if the system did not employ consensus (e.g. $N=1$), then the speed at which the system could process messages would be fully determined by $V_{p_0}$, and therefore $p_0$ would have to represent the "fastest available hardware" for a single node.
-
-Extending this to $\Bbb{C}$, where $N \ge 2$, we observe that for any given $M$, the "fastest possible" centralized consensus system would have to consist of some optimal number of nodes, $N$, beyond which the coordination costs incurred by adding an extra node reduce the system's performance as a whole.
-
-Therefore a lower-bound for $\tau$ is defined as:
-
-$$\tau \ge \sum_{i=0}^N (p_i)$$
-
-Given the same high transactional demands (e.g. 1 million messages), we denote $\Bbb{C}_\tau$ as the time taken by the fastest possible centralized consensus system to process those messages, and $\Bbb{D}_\tau$ as the time taken by the fastest possible decentralized system.
-
-
-
-How do we know when the system has reached consensus to begin with?
-
-We can start with the trivial case of there being a _leader_ node, $p_1$, that determines the value that the system is coming to agreement on. Obviously, if $p_1$ is faulty, the system will never reach consensus because all the other nodes depend up on it.
-
-Since each node in the system
-
-As \hyperref[sec:inclusive]{mentioned}, decentralized systems must be _permissionless_ and _inclusive_, otherwise they violate $D_1$ and $D_2$.
-
-This coordination cost increases as more nodes are added as participants in the consensus.
-
-If consensus is added on top of a decentralized system, the requirement for inclusivity does not go away. Thus the system must allow even "inefficient" participants to participate.
-
-A _centrally managed_ distributed system can ensure that all consensus participants meet a certain minimum processing capabilities by virtue of there being a single point of control over the system (a single point of failure). Decentralized consensus systems do not have this single point of failure, but in giving it up they also give up the efficiency gains
-
-As suggested by Liebig's law of the minimum^[https://en.wikipedia.org/wiki/Liebig%27s_law_of_the_minimum], and as demonstrated by Croman _et. al._[@Croman2015] in their analysis of blockchain scaling, the growth (or size) of a decentralized consensus system is limited by the scarcest resource.
-
-#### 2. Decentralized consensus systems have an upper user limit
-
-If the system enforces high resource requirements on participants in the pursuit of higher throughput, then the system become becomes increasingly centralized and the likelihood of central points of failure increases.
-
-More users are forced to trust an increasingly smaller group to determine what the state of the system is. A deadly mixture emerges:
-
-1. Reality starts to diverge from marketing claims the so-called "decentralized" system.
-2. Simultaneously, the system's advocates point to "cheaper fees" due to "increased capacity".
-3. News of "progress" and "cheaper fees" in this "decentralized" system attracts more users.
-
-In reality, while _using_ the system may be less expensive, _participating_ in the system as an equally privileged node becomes significantly more expensive. The "increase" in capacity is also illusory, for by now the system has long exceeded its tolerable capacity for maintaining its decentralization.^[Threat of DDoS also goes up.]
-
-<!-- \clearpage -->
-<!--
-A feedback "death spiral" occurs:
-<!--
-https://tex.stackexchange.com/questions/2275/keeping-tables-figures-close-to-where-they-are-mentioned -->
-<!--
-\begin{figure}[H] % REQUIRED! or else "pandoc Paragraph ended before was complete"
-\centering
-% https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html
-\tikzstyle{block} = [rectangle, draw, text width=10em, text centered, rounded corners, minimum height=2em]
-\tikzstyle{line} = [draw, -latex']
-\begin{tikzpicture}[node distance = 1.3cm, auto]
-% \begin{tikzpicture}[node distance = 2cm]
-  \node [block] (users) {more users};
-
-TODO: Maybe make next node "increase the capacity!"
-  \node [block, below of=users, xshift=3.5cm] (demands) {harder to participate in consensus};
-  \node [block, below of=demands, xshift=-3.5cm] (fewer) {fewer consensus participants};
-  \node [block, above of=fewer, xshift=-3.5cm] (capacity) {more “fake capacity”};
-  \path [line] (users) -- (demands);
-  \path [line] (demands) -- (fewer);
-  \path [line] (fewer) -- (capacity);
-  \path [line] (capacity) -- (users);
-\end{tikzpicture}
-% \caption{}
+    \centering
+    \begin{tikzpicture}
+    \draw (0,0) node[anchor=north east]{\textbf D} -- (1,2) node[anchor=south]{S} -- (2,0) node[anchor=north west]{\textbf C} -- (0,0);
+    \draw [line width=3pt,cap=round,xshift=0.2cm] (0,0) -- (1.6,0);
+    \draw (3.5,1) node {\textbf +};
+    \draw [dashed,yshift=-0.25cm] (2.6,0) -- (4.4,0);
+    \draw [xshift=5cm] (0,0) node[anchor=north east]{C} -- (1,2) node[anchor=south]{\textbf S} -- (2,0) node[anchor=north west]{\textbf D} -- (0,0);
+    \draw [xshift=5cm,line width=3pt,cap=round,rotate around={-63.435:(2,0)}] (0,0) -- (1.8,0);
+    \end{tikzpicture}
 \end{figure}
 
-The Croman work expanded on prior research [@??] and showed that global bandwidth is, at present, the scarcest resource limiting Bitcoin's growth. Further, it shows that 4MB is the absolute.
+Our DS-system will give us the scale we're looking for, while our DC-system provides a stable and secure source of "ultimate truth" on an as-needed basis. We can connect the two systems in such a way that our DS-system only requires consensus in rare moments, and when it does it may communicate with our DC-system.
 
-#### 3. Given (1) and (2), the triangle holds
+The Lightning Network[@Poon2016] is a real-world example of such a pairing.
 
-## Appendix A: Choosing a safe redefinition threshold
-\label{sec:a}
+## Combining multiple DC systems
 
-Link to flocking study and point out how 95% creates a central point of failure.
+Yet another possibility is to combine multiple DC systems to create a super-system of DC _groups_.
 
-The more value being considered / the more potential harm, the higher the threshold must be.
+This approach explores a middle-ground within the DCS triangle, and is the approach taken by systems like OmniLedger.[@Eleftherios2017]
 
-Because not all users can vote, because forks are high-stakes irreversible decisions[@Slepak2016], and because a split vote indicates strong community indecision/disagreement, it is usually better to use a higher threshold.
+\begin{figure}
 
-The reason for very high thresholds is due to the fact that most users of the system will be unable to vote because there's no way to safely "count" their votes.
+    \centering
+    \begin{tikzpicture}
+    % See "tikz pgf manual.pdf" for info on options
+    % \draw is an abbreviation for \path[draw]
+    % \shade is an abbreviation for \path[shade]
+    % \shadedraw is an abbreviation for \path[shade,draw]
+    \shadedraw[top color=gray!30, middle color=white, shading angle=180] (0,0) node[anchor=north east]{Consensus} -- (1,2) node[anchor=south]{Scale} -- (2,0) node[anchor=north west]{Decentralized} -- (0,0);
+    \draw[->,thick] (1,0.3) -- (1,1.6);
+    \end{tikzpicture}
+\end{figure}
 
-Now we instantly see a relationship between Consensus and $D_2$. We also observe that "users" is ambiguous. In Bitcoin, is it token holders? Is it miners? Developers? How do you measure these?
+Also known as _sharding,_ each group (or _shard_) of consensus participants no longer has complete knowledge of the entire system state, and therefore must (at least partially) trust the other consensus groups. Transparency techniques, such as merkle tree logs, make it possible to minimize the amount of "faith" groups must place in each other.
 
-However, we have a serious problem: we can't measure whether we've reached the threshold beyond ~150 users! We only assume we can. OTOH, with certain hierarchical counting methods, where there is both transparency and everyone is incentivized to verify that the vote is accurate, maybe you can. E.g. CNN had a centralized website showing the numbers for various precincts reporting in, and each presinct can check that their number is accurately represented. With CONIKS and/or PoW, it maybe be possible to use such a method to count more people.
+Overall system consensus is progressively "sacrificed" as the system scales, but only in small, manageable increments. If the system does not need much inter-group consensus, it can scale significantly without issue. If necessary, a DS-system can be added for additional scale.
 
-One way to get around this limit is to reduce the amount of information-flux/change that the system is expected to handle. We can do this by making the system immutable (or mostly immutable). For example, religions are systems too, and they are capable of supporting so many "users" precisely because they are based on texts that are widely distributed and not only do not change, but are explicitly expected _not_ to change.
+# Acknowledgements
 
-It's 75% of *users* not stake or CPU!
-
-PoS voting doesn't count if stake is centralized, and by Zipfs law we can expect it to be. Same for PoW.
-
-A human being physically cannot verify a vote count involving more people than what they can visually distinguish in their visual field of view without running into the Sybil attack or PoS (e.g. $1-1-vote).
--->
+Thanks to Trent McConaghy and Andrea Devers for their feedback.
 
 # References
