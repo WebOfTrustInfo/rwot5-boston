@@ -30,7 +30,7 @@ advantage of this service because he has recently been playing with
 Dummy Bot (D), which automatically uploads some photos now and then.
 But Bob has heard mixed reviews of Dummy Bot and is worried that maybe
 Dummy Bot will malfunction.  He has decided that a 30-day window is
-a sufficient trial period for permitingt Dummy Bot to upload to the
+a sufficient trial period for permitting Dummy Bot to upload to the
 storage system, so that he can determine whether to renew at some future
 date.
 
@@ -67,7 +67,7 @@ Here is Alice:
     {"@context": ["https://example.org/did/v1",
                   "https://example.org/ocap/v1",
                   "http://schema.org"],
-     // This is a DID, but it could as well be an https: uri //
+     // This is a DID, but it could as well be an https: uri
      "id": "did:example:83f75926-51ba-4472-84ff-51f5e39ab9ab",
      // This object is a person named Alice
      "type": "Person",
@@ -384,8 +384,8 @@ that reason carries some of the traditional problems of ACLs.
 
 [Macaroons](https://research.google.com/pubs/pub41892.html) are a
 credentials system that uphold most of the properties of capabilities.
-They support delegation and attenuation (with some constraints as to
-who can attenuate), also via a chain of signed messages, but there are
+They also support delegation and attenuation (with some constraints as to
+who can attenuate) via a chain of signed messages, but there are
 some key differences.
 
 The biggest advantage of Macaroons over our design is that messages are
