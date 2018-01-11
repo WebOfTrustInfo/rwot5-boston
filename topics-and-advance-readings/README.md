@@ -27,7 +27,7 @@ Here are the rest of the advance readings to date:
 * [Blockchain Based Digital Signatures: Admissibility and Enforceability](Blockchain-Based-Digital-Signatures--Admissibility-and-Enforceability.md) by Dazza Greenwood
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](credential-handler-api.md) by Dave Longley and Manu Sporny
-* [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
+* [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [Decentralized Identifier Tooling](credential-handler-api.md) by Dave Longley & Manu Sporny
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
 * [DID Tooling](did-tooling.md) by Manu Sporny and Matt Collier
