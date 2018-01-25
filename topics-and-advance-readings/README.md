@@ -19,7 +19,7 @@ The following advanced readings have been prepared as primers, intended to give 
 Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](RWOT-User-Story.md) by Christopher Allen
-* [ActivityPub: from decentralized to distributed social networks](activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [ActivityPub: from decentralized to distributed social networks](activitypub-decentralized-distributed.md) by Christopher Lemmer Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
 * [Architectural Layering for Decentralized Identification](Architectural-Layering-for-Decentralized-Identification.md) by Drummond Reed
 * [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
 * [BFTKV DID Method Specification](BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
@@ -27,7 +27,7 @@ Here are the rest of the advance readings to date:
 * [Blockchain Based Digital Signatures: Admissibility and Enforceability](Blockchain-Based-Digital-Signatures--Admissibility-and-Enforceability.md) by Dazza Greenwood
 * [BTCR DIDs and DDOs](btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](credential-handler-api.md) by Dave Longley and Manu Sporny
-* [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
+* [Data Minimization and Selective Disclosure](Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [Decentralized Identifier Tooling](credential-handler-api.md) by Dave Longley & Manu Sporny
 * [DID for the 3D Web](did-3d-web.md) by Alberto Elias
 * [DID Tooling](did-tooling.md) by Manu Sporny and Matt Collier

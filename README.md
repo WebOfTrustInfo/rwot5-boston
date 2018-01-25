@@ -21,7 +21,7 @@ The following advanced readings have been prepared as primers, intended to give 
 Here are the rest of the advance readings to date:
 
 * [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
-* [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Allan Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
+* [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Lemmer Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
 * [Architectural Layering for Decentralized Identification](topics-and-advance-readings/Architectural-Layering-for-Decentralized-Identification.md) by Drummond Reed
 * [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](topics-and-advance-readings/byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
 * [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
@@ -29,7 +29,7 @@ Here are the rest of the advance readings to date:
 * [Blockchain Based Digital Signatures: Admissibility and Enforceability](topics-and-advance-readings/Blockchain-Based-Digital-Signatures--Admissibility-and-Enforceability.md) by Dazza Greenwood
 * [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
 * [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
-* [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberg
+* [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
 * [Decentralized Identifier Tooling](topics-and-advance-readings/credential-handler-api.md) by Dave Longley & Manu Sporny
 * [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
 * [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
