@@ -55,7 +55,7 @@ To illustrate why these differences between numbers are important, imagine you a
 
 Our ability to enhance privacy depends in the end on these differences in the kinds of numbers representing our credential attributes.
 
-##Do we need cryptography?
+## Do we need cryptography?
 
 Yes we do. Cryptography makes privacy enhancement possible in electronic communication. In privacy enhancement of credentials, some data parts are revealed while others are concealed. Concealment is achieved mostly by the art of cryptography, from the greek word "kryptos," meaning hidden, like in a crypt.
 
@@ -250,8 +250,8 @@ Each crypto process is named, and as time goes on hundreds if not thousands of p
 * 𝓶<sub>2</sub> = 𝓗𝓪𝓼𝓱 ( 𝓐<sub>𝓲</sub>  || 𝓤<sub>𝓲</sub> )
 * 256-bit integer representations of each of the attributes: 𝓶<sub>3</sub> , . . . , 𝓶<sub>𝓵</sub> 
 * 𝓷<sub>0</sub> = nonce
-##### Issuer sends 𝓷0 to Prover
-##### Prover receives 𝓷0 and does the following:
+##### Issuer sends 𝓷<sub>0</sub> to Prover
+##### Prover receives 𝓷<sub>0</sub> and does the following:
 * Retrieves Issuer’s public key 𝓹𝓴<sub>𝓬</sub>
 * Retrieves Issuer’s proof of correctness
 * Generates:
