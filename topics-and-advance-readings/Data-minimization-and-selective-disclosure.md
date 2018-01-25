@@ -223,19 +223,19 @@ Each crypto process is named, and as time goes on hundreds if not thousands of p
 
 
 
-## verifiable credentials in Sovrin
+## Verifiable Credentials in Sovrin
 ### Issuer setup
 #### Compute
 * Random 𝓹', 𝓺', 1024 bit prime numbers such that 𝓹 = 2𝓹' + 1 and 𝓺 = 2𝓺' + 1 are both 1024 bit prime numbers. 
 𝓷 = 𝓹𝓺.
 * Random quadratic residue: 𝓢 mod 𝓷
-* Random 𝓧<sub>𝓩</sub>, 𝓧<sub>𝓡1</sub>, . . . , 𝓧<sub>𝓡𝓵</sub> ∈ [2: 𝓹'𝓺' - 1], where 𝓵 is the number of attributes in the credential.
+* Random 𝓧<sub>𝓩</sub>, 𝓧<sub>𝓡1</sub>, . . . , 𝓧<sub>𝓡𝓵</sub> ∈ \[2: 𝓹'𝓺' - 1\], where 𝓵 is the number of attributes in the credential.
 * 𝓩 = 𝓢<sup>𝓧𝓩</sup> mod 𝓷
 * 𝓡<sub>𝓲</sub> = 𝓢<sup>𝓧𝓡𝓲</sup> mod 𝓷, 1 ≤ 𝓲  ≤ 𝓵
 * Issuer private key 𝓼𝓴<sub>𝓬</sub> =  𝓹'𝓺'
 * Issuer public key 𝓹𝓴<sub>𝓬</sub> = {𝓷, 𝓢, 𝓩, 𝓡<sub>1</sub>, . . . , 𝓡<sub>𝓵</sub> }
 #### Proof of Correctness
-* Random 𝓧'<sub>𝓩</sub>, 𝓧'<sub>𝓡1</sub>, . . . , 𝓧'<sub>𝓡𝓵</sub> ∈ [2: 𝓹'𝓺' - 1]
+* Random 𝓧'<sub>𝓩</sub>, 𝓧'<sub>𝓡1</sub>, . . . , 𝓧'<sub>𝓡𝓵</sub> ∈ \[2: 𝓹'𝓺' - 1\]
 * 𝓩' = 𝓢<sup>𝓧'𝓩</sup> mod 𝓷
 * 𝓡'<sub>𝓲</sub> = 𝓢<sup>𝓧'𝓡𝓲</sup> mod 𝓷, 1 ≤ 𝓲  ≤ 𝓵
 * 𝓬  = 𝓗𝓪𝓼𝓱 ( 𝓩 || 𝓡<sub>1</sub> || . . . || 𝓡<sub>𝓵</sub> || 𝓩' || 𝓡'<sub>1</sub> || . . . || 𝓡'<sub>𝓵</sub> )
