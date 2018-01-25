@@ -224,7 +224,51 @@ Each crypto process is named, and as time goes on hundreds if not thousands of p
 
 
 ## verifiable credentials in Sovrin
-(an implementation of verifiable credentials in Sovrin will go here)
+### Issuer setup
+#### Compute
+* Random 𝓹', 𝓺', 1024 bit prime numbers such that 𝓹 = 2𝓹' + 1 and 𝓺 = 2𝓺' + 1 are both 1024 bit prime numbers. 
+𝓷 = 𝓹𝓺.
+* Random quadratic residue: 𝓢 mod 𝓷
+* Random 𝓧<sub>𝓩</sub>, 𝓧<sub>𝓡1</sub>, . . . , 𝓧<sub>𝓡𝓵</sub> ∈ [2: 𝓹'𝓺' - 1], where 𝓵 is the number of attributes in the credential.
+* 𝓩 = 𝓢<sup>𝓧𝓩</sup> mod 𝓷
+* 𝓡<sub>𝓲</sub> = 𝓢<sup>𝓧𝓡𝓲</sup> mod 𝓷, 1 ≤ 𝓲  ≤ 𝓵
+* Issuer private key 𝓼𝓴<sub>𝓬</sub> =  𝓹'𝓺'
+* Issuer public key 𝓹𝓴<sub>𝓬</sub> = {𝓷, 𝓢, 𝓩, 𝓡<sub>1</sub>, . . . , 𝓡<sub>𝓵</sub> }
+#### Proof of Correctness
+* Random 𝓧'<sub>𝓩</sub>, 𝓧'<sub>𝓡1</sub>, . . . , 𝓧'<sub>𝓡𝓵</sub> ∈ [2: 𝓹'𝓺' - 1]
+* 𝓩' = 𝓢<sup>𝓧'𝓩</sup> mod 𝓷
+* 𝓡'<sub>𝓲</sub> = 𝓢<sup>𝓧'𝓡𝓲</sup> mod 𝓷, 1 ≤ 𝓲  ≤ 𝓵
+* 𝓬  = 𝓗𝓪𝓼𝓱 ( 𝓩 || 𝓡<sub>1</sub> || . . . || 𝓡<sub>𝓵</sub> || 𝓩' || 𝓡'<sub>1</sub> || . . . || 𝓡'<sub>𝓵</sub> )
+* 𝓧''<sub>𝓩</sub> = 𝓧'<sub>𝓩</sub> + 𝓬 𝓧<sub>𝓩</sub>
+* 𝓧''<sub>𝓡𝓲</sub> = 𝓧'<sub>𝓡𝓲</sub> + 𝓬 𝓧<sub>𝓡𝓲</sub> , 1 ≤ 𝓲  ≤ 𝓵
+##### The Claim Def is comprised of the public key and the proof of correctness
+### Issuing a Credential
+#### For each credential
+##### Issuer computes:
+* 𝓐<sub>𝓲</sub> = accumulator index
+* 𝓤<sub>𝓲</sub> = user index
+* 𝓶<sub>2</sub> = 𝓗𝓪𝓼𝓱 ( 𝓐<sub>𝓲</sub>  || 𝓤<sub>𝓲</sub> )
+* 256-bit integer representations of each of the attributes: 𝓶<sub>3</sub> , . . . , 𝓶<sub>𝓵</sub> 
+* 𝓷<sub>0</sub> = nonce
+##### Issuer sends 𝓷0 to Prover
+##### Prover receives 𝓷0 and does the following:
+* Retrieves Issuer’s public key 𝓹𝓴<sub>𝓬</sub>
+* Retrieves Issuer’s proof of correctness
+* Generates:
+    * 𝓶<sub>1</sub> = pedersen commitment of claim link secret
+    * Random 𝓿', 𝓿'', 𝓶'<sub>1</sub>
+* 𝓷<sub>1</sub> = nonce
+##### Prover verifies the Issuer’s proof of correctness:
+* 𝓩^ = 𝓩<sup>𝓬</sup>𝓢<sup>𝓧''𝓩</sup> mod 𝓷
+* 𝓡^<sub>𝓲</sub> = 𝓡<sub>𝓲</sub><sup>𝓬</sup>𝓢<sup>𝓧''𝓡𝓲</sup> mod 𝓷, 1 ≤ 𝓲  ≤ 𝓵
+* Verifies 𝓬 = 𝓗𝓪𝓼𝓱 ( 𝓩 || 𝓡<sub>1</sub> || . . . || 𝓡<sub>𝓵</sub> || 𝓩^ || 𝓡^<sub>1</sub> || . . . || 𝓡^<sub>𝓵</sub> )
+##### Prover computes:
+* 𝓤 =  𝓢<sup>𝓿’</sup>𝓡<sub>1</sub><sup>𝓶1</sup> mod 𝓷
+* 𝓤’ =  𝓢<sup>𝓿’’</sup>𝓡<sub>1</sub><sup>𝓶’1</sup> mod 𝓷
+* 𝓬’ = 𝓗𝓪𝓼𝓱 ( 𝓤 || 𝓤’ || 𝓷<sub>0</sub> )
+* 𝓿^ = 𝓿’’ + 𝓬’𝓿’
+* 𝓶^<sub>1</sub> = 𝓶’<sub>1</sub> + 𝓬’𝓶<sub>1</sub>
+##### Prover sends 𝓟 = { 𝓤, 𝓬’, 𝓿^, 𝓶^<sub>1</sub>, 𝓷<sub>1</sub> } to the Issuer
 
 ## Indy SDK
 
