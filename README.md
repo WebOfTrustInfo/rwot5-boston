@@ -9,61 +9,33 @@ _Please see the [Web of Trust Info website](http://www.weboftrust.info/) for mor
 In advance of the design workshop, all participants produced a one-or-two page topic paper to be shared with the other attendees on either:
 
 * A specific problem that they wanted to solve with a web-of-trust solution, and why current solutions (PGP or CA-based PKI) can't address the problem?
-* A specific solution related to the web-of-trust that you'd like others to use or contribute to?
+*  A specific solution related to the web-of-trust that you'd like others to use or contribute to?
 
-The following advanced readings have been prepared as primers, intended to give you a foundation in some of the topics that may be discussed at the design workshop:
+Please see the [Advance Readings README](topics-and-advance-readings/README.md) for a listing of all of the papers.
 
-* [A Primer on Functional Identity](topics-and-advance-readings/functional-identity-primer.md) by Joe Andrieu
-* [A Primer on Self-Sovereign identity](topics-and-advance-readings/self-sovereign-identity-primer.md) by Christopher Allen & Shannon Appelcline
-* [DID Primer](topics-and-advance-readings/did-primer.md) by Drummond Reed & Manu Sporny
-* [A Verifiable Claims Primer](topics-and-advance-readings/verifiable-claims-primer.md) by Manu Sporny
+## Completed Papers
 
-Here are the rest of the advance readings to date:
+The design workshop met its goal of three to five white papers with four to-date, and others ongoing.
 
-* [#RebootingWebOfTrust User Story & Tech Concept](topics-and-advance-readings/RWOT-User-Story.md) by Christopher Allen
-* [ActivityPub: from decentralized to distributed social networks](topics-and-advance-readings/activitypub-decentralized-distributed.md) by Christopher Lemmer Webber ([PDF version](https://gitlab.com/dustyweb/talks/blob/master/activitypub/rwot/even_more_distributed_activitypub.pdf))
-* [Architectural Layering for Decentralized Identification](topics-and-advance-readings/Architectural-Layering-for-Decentralized-Identification.md) by Drummond Reed
-* [BFTKV: Byzantine Fault Tolerant Web of Trust based Key-Value Storage](topics-and-advance-readings/byzantine-fault-tolerant-web-of-trust-based-key-value-storage.md) by Ercan Ozturk
-* [BFTKV DID Method Specification](topics-and-advance-readings/BFTKV-DID-Method-Specification.pdf) by Ercan Ozturk
-* [Biometric transaction signing on blockchain](topics-and-advance-readings/Biometric-transaction-signing-on-blockchain.md) by John Callahan & Virgil Tornoreanu
-* [Blockchain Based Digital Signatures: Admissibility and Enforceability](topics-and-advance-readings/Blockchain-Based-Digital-Signatures--Admissibility-and-Enforceability.md) by Dazza Greenwood
-* [BTCR DIDs and DDOs](topics-and-advance-readings/btcr-dids-ddos.md) by Kim Hamilton Duffy
-* [Credential Handler API](topics-and-advance-readings/credential-handler-api.md) by Dave Longley and Manu Sporny
-* [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
-* [Decentralized Identifier Tooling](topics-and-advance-readings/credential-handler-api.md) by Dave Longley & Manu Sporny
-* [DID for the 3D Web](topics-and-advance-readings/did-3d-web.md) by Alberto Elias
-* [DID Tooling](topics-and-advance-readings/did-tooling.md) by Manu Sporny and Matt Collier
-* [First XDI Link Contract between "btcr" DID and "sov" DID](topics-and-advance-readings/first-xdi-link-contract-between-btcr-did-and-sov-did.md) by Markus Sabadello
-* [Framework for the Comparison of Identity Systems](topics-and-advance-readings/Framework-for-Comparison-of-Identity-Systems.md) by Kyle Den Hartog
-* [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper
-* [The Horcrux protocol: Biometric credentials as high-privacy verifiable claims](topics-and-advance-readings/Biometric-credentials-as-high-privacy-verifiable-claims.md) by John Callahan & Asem Othman
-* [Hub Asset Access Control System - Intent](topics-and-advance-readings/DIF-Hub-Permissions-RWOT-Intent.md) by Daniel Buchner
-* [Hypercerts: Blockcerts Revocation Improvements](topics-and-advance-readings/hypercerts-blockcerts_revocation.md) by João Santos and Kim Hamilton Duffy
-* [Identifying stakeholders' challenges in the digital economy](topics-and-advance-readings/Identifying-challenges-in-the-digital-economy.md) by Irene Hernandez
-* [Open Badges (and Blockcerts) as Verifiable Claims](topics-and-advance-readings/open-badges-as-verifiable-claims.md) by Kim Hamilton Duffy and Nate Otto
-* [Owned vs. Unowned Claims and Self-Sovereign Identity](topics-and-advance-readings/owned-vs-unowned-claims-and-ssi.md) by Natalie Smolenski
-* [Recommendations for Decentralized Key Management Systems](topics-and-advance-readings/dkms-recommendations.md) by Michael Lodder
-* [Trust Objects: Enabling Advanced Reputation Services on the Web of Trust](topics-and-advance-readings/trust-objects-rough-draft.pdf) by Moses Ma & Dr. Rutu Mulka
-* [Veres One DID Method Specification](topics-and-advance-readings/veres-one-did-method.md) by Manu Sporny, Dave Longley, and Matt Collier
-* [Verifiable Claims of Impact](topics-and-advance-readings/verifiable-claims-of-impact.md) by Cedric Franz & Dr. Shaun Conway
-* [Visa? Really?](topics-and-advance-readings/Visa-Really.md) by Kaliya Identity Woman
-* [Data Minimization and Selective Disclosure](topics-and-advance-readings/Data-minimization-and-selective-disclosure.md) by Lionel Wolberger
-* [HIE of One Loop: A Patient-Controlled Independent Health Record](topics-and-advance-readings/Loop-white-paper.pdf) by Adrian Gropper, MD and the Loop Project Team
+## [*ActivityPub: From Decentralized to Distributed Social Networks*](final-documents/activitypub-decentralized-distributed.pdf) [(Text)](final-documents/activitypub-decentralized-distributed.md)
+#### by Christopher Lemmer Webber & Manu Sporny
 
-## Other Readings of Interest
+> An overview of the W3C ActivityPub protocol.
 
-Following are some of the finished papers from past design shops. They're good reading to understand who we are and what our priorities and goals are:
+## [*Identity Hubs Capabilities Perspective*](final-documents/identity-hubs-capabilities-perspective.pdf) [(Text)](final-documents/identity-hubs-capabilities-perspective.md)
+#### by Adrian Gropper, Drummond Reed & Mark S. Miller
 
-* [Rebranding the Web of Trust](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust/blob/master/final-documents/rebranding-web-of-trust.pdf) — What is the Webof Trust? A quick overview. _RWOT1_
-   * [DID Implementer's Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2016/blob/master/final-documents/did-implementer-draft-10.pdf) — The draft for decentralized identifiers, the most robust and complete spec to come out of our design shops. _RWOT3_
-   * [Satisfying Real-World Use Cases](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust/blob/master/final-documents/satisfying-real-world-use-cases.pdf) — Digital identity in the real-world. _RWOT1_
-   * [Identity Crisis: Identity through Correlation](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop/blob/master/final-documents/identity-crisis.pdf) — An alternative way to look at identity. _RWOT2_
-   * [HIE of One Blockchain](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop/blob/master/final-documents/physician-patient-relationship.pdf) — Identity and the physician-patient relationship. _RWOT2_
-   * [Smart Consent Protocol](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2016/blob/master/final-documents/smart-consent-protocol.pdf) — COALA and Consent Receipts. _RWOT3_
+> Identity Hubs as currently proposed in the Decentralized Identity Foundation (DIF) are a subset of a general Decentralized Identifier (DID) based user-controlled agent, based on ACLs rather than an object-capabilities (ocap) architecture. Transitioning the Hubs design to an ocap model can be achieved by introducing an UMA authorization server as the control endpoint.
 
-You may also wish to read Christopher Allen's core article on self-sovereign identity:
+## [*Linked Data Capabilities*](final-documents/lds-ocap.pdf) [(Text)](final-documents/lds-ocap.md)
+#### Christopher Lemmer Webber & Mark S. Miller
 
-* [The Path to Self-Sovereign Identity](http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html) — Ten principles of self-sovereign identity. _Life with Alacrity_
+> Linked Data Signatures enable a method of asserting the integrity of linked data documents that are passed throughout the web. The object capability model is a powerful system for ensuring the security of computing systems. 
+
+## [*Veres One DID Method*](final-documents/did-method-veres-one.pdf) [(Text)](final-documents/did-method-veres-one.md)
+#### by Manu Sporny & Dave Longley
+
+> The Veres One Ledger is a permissionless public ledger designed specifically for the creation and management of decentralized identifiers (DIDs). This specification defines how a developer may create and update DIDs in the Veres One Ledger.
 
 ## Complete Rebooting the Web of Trust Listing
 
