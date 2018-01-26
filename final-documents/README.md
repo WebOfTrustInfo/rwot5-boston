@@ -1,1 +1,6 @@
-This will be the directory where PDFs and DOCXes of the final documents produced at RWOT5 are available.
+# Rebooting the Web of Trust V (Fall 2017) Final Papers
+
+## [*ActivityPub: From Decentralized to Distributed Social Networks*](activitypub-decentralized-distributed.pdf) [(Text)](activitypub-decentralized-distributed.md)
+#### by Christopher Webber & Manu Sporny
+
+> An overview of the W3C ActivityPub protocol.
