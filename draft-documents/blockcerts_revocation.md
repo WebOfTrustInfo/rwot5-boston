@@ -1,9 +1,8 @@
 [![](https://img.shields.io/badge/In%20progress--yellow.svg)]()
-# DIDs for Blockcerts' Certificate Revocation
-
-By João Santos (Instituto Superior Técnico) and Kim Hamilton Duffy (Learning Machine)
 
 # A Decentralized Approach to Blockcerts Certificate Revocation
+
+By João Santos (Instituto Superior Técnico) and Kim Hamilton Duffy (Learning Machine)
 
 ## Abstract
 
