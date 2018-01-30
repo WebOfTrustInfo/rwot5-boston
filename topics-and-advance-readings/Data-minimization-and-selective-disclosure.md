@@ -271,7 +271,8 @@ Each crypto process is named, and as time goes on hundreds if not thousands of p
 ##### Prover sends 𝓟 = { 𝓤, 𝓬’, 𝓿^, 𝓶^<sub>1</sub>, 𝓷<sub>1</sub> } to the Issuer
 
 ## Indy SDK
-
+* [Verifiable Credentials Code](https://github.com/hyperledger/indy-sdk/blob/master/libindy/src/api/anoncreds.rs)
+* [Verifiable Credentials Example Usage in Python](https://github.com/hyperledger/indy-sdk/blob/master/samples/python/src/anoncreds.py)
 
 # Appendix
 
