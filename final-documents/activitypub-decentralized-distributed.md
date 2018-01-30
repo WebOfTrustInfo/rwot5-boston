@@ -70,7 +70,7 @@ has:
 -   An **inbox**:  How they get messages from the world
 -   An **outbox**: How they send messages to others
 
-![img](./static/tutorial-1.png "Actor with inbox and outbox")
+![img](./images/activitypub/tutorial-1.png "Actor with inbox and outbox")
 
 These are endpoints, or really, just URLs which are listed in the
 ActivityPub actor's ActivityStreams description.
@@ -114,7 +114,7 @@ her!
 Luckily these "inbox" and "outbox" things can help us out.
 They both behave differently for GET and POST.
 
-![img](./static/tutorial-2.png "Actor with messages flowing from rest of world to inbox and from outbox to rest of world")
+![img](./images/activitypub/tutorial-2.png "Actor with messages flowing from rest of world to inbox and from outbox to rest of world")
 
 So the full workflow is:
 
@@ -152,7 +152,7 @@ Here's the message she composes, as an ActivityStreams object:
 This is a note addressed to Ben.
 She POSTs it to her outbox.
 
-![img](./static/tutorial-3.png "Actor posting message to outbox")
+![img](./images/activitypub/tutorial-3.png "Actor posting message to outbox")
 
 Since this is a non-activity object, the server recognizes that this is
 an object being newly created, and does the courtesy of wrapping it in
@@ -178,14 +178,14 @@ Person.)
 Alyssa's server looks up Ben's ActivityStreams actor object, finds his
 inbox endpoint, and POSTs her object to his inbox.
 
-![img](./static/tutorial-4.png "Server posting to remote actor's inbox")
+![img](./images/activitypub/tutorial-4.png "Server posting to remote actor's inbox")
 
 Technically these are two separate steps&#x2026; one is client-to-server
 communication, and one is server-to-server communication (federation).
 But, since we're using them both in this example, we can abstractly
 think of this as being a streamlined submission from outbox to inbox.
 
-![img](./static/tutorial-5.png "Note flowing from one actor's outbox to other actor's inbox")
+![img](./images/activitypub/tutorial-5.png "Note flowing from one actor's outbox to other actor's inbox")
 
 A while later, Alyssa checks what new messages she's gotten.
 Her phone polls her inbox via GET, and amongst a bunch of cat videos
