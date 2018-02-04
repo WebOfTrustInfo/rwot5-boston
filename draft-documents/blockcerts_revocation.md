@@ -1,6 +1,6 @@
 [![](https://img.shields.io/badge/In%20progress--yellow.svg)]()
 
-# A Decentralized Approach to Blockcerts Certificate Revocation
+# A Decentralized Approach to Blockcerts Credential Revocation
 
 By João Santos (Instituto Superior Técnico) and Kim Hamilton Duffy (Learning Machine)
 
@@ -33,7 +33,7 @@ An _issuer_ issues a record of _recipient_'s accomplishment (_credential_) on a 
 
 ### Why Revocation is Important
 
-There are several reasons for a credential to be revoked. Let us look at two examples, going back to the example of Alice and Bob:
+There are several reasons for a credential to be revoked. Let us look at reasons why Alice and Bob might want to revoke Alice's credential.
 1. Let us assume that some time after issuing the credential Bob notices an inaccuracy in Alice's achievement. At this point he may want to revoke the credential he issued Alice.
 2. Similar to the example above, let us assume that some time after the issuance of the credential, Alice learns new information about Bob that makes her no longer want to be associated with him. She may wish to revoke the credential she received.
 
@@ -47,31 +47,66 @@ The goal of this proposal is to outline an approach to revocation that has bette
 - Preserving privacy as least as well as the current method used in Blockcerts (more details in [Privacy](#Privacy))
 - Scaling cost with number of revocations, not number of recipients
 
-The approach described here is not intended to address all revocation scenarios. The intent is to allow issuer and recipient revocation in order to increase recipient control. Longer term solutions would have different characteristics, such as requiring the recipient (or a trusted guardian) to be part of the credential exchange, to enable the recipient to selectively reveal parts of the credential.
-
-This approach also doesn't cover another improvement to identity being addressed in the Blockcerts standard, described in Context and Future Directions (#Context-and-Future-Directions).
+The approach described here is not intended to address all revocation scenarios. The intent is to allow issuer and recipient revocation in order to increase recipient control and improve auditability of revocation events. Longer term solutions could have improved privacy characteristics, described in [Context and Future Directions](#Context-and-Future-Directions).
 
 ## Issuing, Revoking, and Verifying
 
-This section describes a way of issuing and revoking Blockcerts by leveraging Ethereum smart-contracts.
+This section describes a way of issuing, revoking, and verifying Blockcerts by leveraging Ethereum smart-contracts. This extends the Blockcerts reference implementations described in 
+
+- [Blockcerts issuing](https://github.com/blockchain-certificates/cert-issuer#how-batch-issuing-works)
+- [Blockcerts verification](https://github.com/blockchain-certificates/cert-verifier-js#verification-process)
+
 
 ![Issuing and Verification](https://github.com/blockchain-certificates/assets/blob/master/issuing_verification.png?raw=true)
 
 ### Issuing
 
-We assume that the Issuer knows each receiver's Ethereum address.
+We assume that the Issuer knows each receiver's Ethereum address to be included in the credential.
 
 #### Creating a Credential Batch
 
-First, the issuer generates a batch of credentials using [cert-tools](https://github.com/blockchain-certificates/cert-tools). To support the revocation method described in this proposal, the smart contract's address and ABI are included in the credential to be part of the hashed input of the batch's Merkle Tree. This is critical because otherwise the proper revocation contract could be spoofed.
+First the issuer instantiates an Blockcerts issuance smart contract, which we'll refer to as the "issuance contract". This will eventially include the batch's Merkle root and list of revoked credentials. For the moment, we only need the issuance contract address and its Application Binary Interface (ABI), which will be embedded in each recipient's credential.
 
-In our prototypes, we included the full ABI for convenience. Eventually the contracts can be standardized; for examplem, other variants could support only-issuer revocation, per-issuer revocation rules, etc. In this case, only an address and reference to the contract ABI used for the credential need to be included.
+To embed the contract address and ABI in each credential, we extend the Blockcerts [cert-tools](https://github.com/blockchain-certificates/cert-tools) utility, which generates Blockcerts-formatted credentials ready for blockchain issuance. The following abbreviated excerpt shows the important changes in the credentials after `cert-tools` is finished:
+
+- New verification type, for now called `BlockcertsVerification2018`
+- Addition of the `contractAddress`
+- Addition of the contract `abi`
+
+
+```
+{
+  "type": "Assertion",
+  ...
+  "badge": {
+    ...
+    "issuer": {
+      "id": "https://www.blockcerts.org/samples/2.0/issuer-testnet.json",
+      "type": "Profile",
+      ...
+      "revocationList": null
+    },
+  },
+  "verification": {
+    "type": "BlockcertsVerification2018",
+    "contractAddress": "0x8efce4923b3238a747e3ee0f725da50bc245142d",
+    "abi": [ 
+       ...
+    ]
+  }
+}
+```
+
+It's important that the issuance contract's address and ABI are included in the credential to be part of the hashed input of the batch's Merkle Tree, because otherwise the proper revocation contract could be spoofed.
+
+In our prototypes, we included the full ABI for convenience. Eventually the contracts can be standardized; for example, other variants could support only-issuer revocation, per-issuer revocation rules, etc. Doing so would mean only the contract address and reference to the contract ABI would need to be included in the credential.
 
 #### Issuing a Credential Batch
 
-The issuer now issues the credential batch on the blockchain using [cert-issuer](https://github.com/blockchain-certificates/cert-issuer). However, after forming the Merkle Tree of the certificate hashes, the issuer updates the issuance batch contract (TODO: be consistent on terms) with the batch's merkle root. Note that the issuer does not need to issue to the Bitcoin blockchain unless Bitcoin is specifically desired.
+The issuer now issues the credential batch on the blockchain using [cert-issuer](https://github.com/blockchain-certificates/cert-issuer). However, after forming the Merkle Tree of the credential hashes, the issuer updates the issuance  contract as follows.
 
-Cert-issuer updates the issuance batch contract as follows. The specific  `CertificateInstance` (created in the previous step) is updated with the following content, where `merkleRoot` is the batch's Merkle root and `issuerId` is the Issuer's Ethereum address:
+- Set `merkleRoot` to the batch's Merkle root
+- Set `issuerId` to the Issuer's Ethereum address
 ```
 {
     merkleRoot = "0x0043...",
@@ -83,13 +118,15 @@ Cert-issuer updates the issuance batch contract as follows. The specific  `Certi
 
 (`batchRevocationStatus` and `individualRevokedList` fields are explained in the [Revoking](#revoking-a-credential) section.)
 
-Updating the contract with this data results in the batch "issuance" on the Ethereum blockchain. Cert-issuer inserts a signature ("receipt") into each Blockcert. The new receipt contains the Ethereum contract's address where the Blockcert has been issued, the Merkle Proof (root+proof), and the Blockcert's hash. 
+This update records the issuance of the credential batch (via its Merkle root) on the Ethereum blockchain. _Note that the issuer does not need to issue to the Bitcoin blockchain unless Bitcoin is specifically desired. We omit that here_
+
+After blockchain issuance, cert-issuer embeds the signature ("receipt") into each Blockcert, so that each recipient can prove their credential is part of the batch. As usual, the receipt contains the current Blockcert's expected hash and Merkle proof (the path from the credential hash to the value on the blockchain). However, instead of the Bitcoin transaction id (as used in the current reference implementation) cert-issuer records the transaction id of the above issuance contract update.
 
 Aditionally a link to an Ethereum blockchain explorer can be added, which would allow for the Blockcert's issuance/revocation status to be checked in real time by querying the contract, without the need to run an Ethereum node.
 
 ### Revoking a Credential
 
-`batchRevocationStatus` keeps track of the batch's revocation status and can only by changed by the Issuer. The `individualRevokedList` is what allows for individual certificates to be revoked. Anyone can append an item to this list, which can be seen as a claim. 
+`batchRevocationStatus` keeps track of the batch's revocation status and can only by changed by the Issuer. The `individualRevokedList` is what allows for individual credentials to be revoked. Anyone can append an item to this list, which can be seen as a claim. 
 
 Extending the example above, let's assume user _Alice_, whose Ethereum address is `0xew3428376...` makes a revocation statement about the Blockcert with `certificateId = "0x353456354..."`. It would be up to the verifying party (who is verifying Blockcert `0x353456354...`) to check whether Alice's claim is valid; that is, to check whether Alice is authorized to revoke the Blockcert in question. This can be done by checking the Blockcert's `authorizedRevokingParties` for Alice's Ethereum Wallet address.
 
