@@ -85,7 +85,7 @@ Using this vocabulary we may say: to enhance the privacy of an age credential (I
 We have three strategies for enhancing privacy while credential attributes are shared: data minimization, selective disclosure and progressive trust. 
 
 ## Data minimization
-Data minimization is the act of limiting the amount of shared data strictly to the minimum necessary in order to successfully accomplish a task or goal. 
+Data minimization is a policy of minimum data collection and/or access for maximum value: limiting the amount of shared data strictly to the minimum necessary in order to successfully accomplish a task or goal.
 
 Minimization has three types:
 
