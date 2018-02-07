@@ -189,15 +189,9 @@ We'll focus on a few aspects:
 - Discoverability of credential content
 - Discoverability of other credential recipient addresses
 
-Because the contract does not list any recipient addresses, the only time an address is revealed is if the recipient revokes their credential (it won't be revealed if the issuer revokes it). Some third party scanning the contract could obtain credential IDs from the contract, but there is in general no way to look up credential contents from an ID, unless the issuer and recipient mutually agree. 
+Because the contract does not list any recipient addresses -- it only lists revoked credential UIDs, which are intended to be unique and non-correlatable -- the only time an address is revealed is if the recipient revokes their credential; it won't be revealed if the issuer revokes it. Some third party scanning the contract could obtain credential IDs from the contract, but there is in general no way to look up credential contents from an ID, unless the issuer and recipient mutually agree. 
 
-There is the concern that correlation could be performed on an address. Because of this, recipients are encouraged to provide new addresses for each credential. Note that the recipient may want to "advertise" a certain credential or curate groups of credentials, but there are better ways to achieve this than reuse of addresses for credentials.
-
-Because the verification revocation check asks for all revoked credential UIDs, this avoids forms of tracking during verification where the credential UID is passed as a parameter. Again, this is only revealed when a credential is revoked.
-
-Credential UIDs themselves are intended to be unique and non-correlatable. 
-
-The primary tracking concern is that a verifier records credential status; i.e. a record of which credentials had verification requests and the status (revoked or not). Worse, an insecure verifier could store the uploaded credential contents. This is avoided by using secure verifiers, or simply running one's own.
+There is the concern that correlation could be performed on an address. Because of this, recipients are encouraged to provide new addresses for each credential. Note that the recipient may want to "advertise" a certain credential or curate groups of credentials, but there are better ways to achieve this than reuse of addresses for credentials. 
 
 ### Data Minimization and Selective Disclosure
 
