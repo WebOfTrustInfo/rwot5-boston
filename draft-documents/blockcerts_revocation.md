@@ -164,7 +164,7 @@ This approach describes a means of allowing either recipient or issuer to revoke
 
 We originally considered a permissioned approach to revocation. For example, since we know the issuer and recipient Ethereum addresses, we could enforce in the contract that the caller is in a valid list. However, this would allow anyone inspecting the contract to see all recipient Ethereum addresses -- not just the revoked ones. this violates the goal of being _at least_ as privacy preserving as the current Blockcerts revocation method (more in [Privacy](#Privacy)). 
 
-Instead, we opted to allow any contract caller to submit a revocation claim, which may or may not be ignored by a verifier. The verifier must ignore any revocation claim from a message sender that is not in the credential's `authorizedRevokingParties` list. Spam no-op revocation claims are discouraged because parties must spend gas to revoke.
+Instead, we opted to allow any contract caller to submit a revocation claim, which may or may not be ignored by a verifier. The verifier must ignore any revocation claim from a message sender that is not in the credential's `authorizedRevokingParties` list. Spam no-op revocation claims are discouraged because parties must spend money to revoke.
 
 ### Credential States
 
