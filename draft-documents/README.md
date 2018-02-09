@@ -4,9 +4,9 @@ The following docs may be coming out of the
 ## Major Papers
 Name | Lead | Link | Status
 ---|---|---|---
-Activity Pub Update | Chris W. | [Fina](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/activitypub-decentralized-distributed.pdf) | **Posted**
+Activity Pub Update | Chris W. | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/activitypub-decentralized-distributed.pdf) | **Posted**
 Amira: RWOT Use Case | Joe A. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/Amira-SSWOT-Engagement-Model.md) | Meeting
-Blockcerts Revocation with DIDs | Kim | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/blockcerts_revocation.md) | Re-Queried
+Blockcerts Revocation with DIDs | Kim | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/blockcerts-revocation.pdf)| **Posted**
 Breaking (Down) the Law | Dazza | [Notes](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/tree/master/draft-documents/BreakingDownAndConnectingLawAndTech) | Re-Queried
 Data Minimization & Selective Disclosure | Lionel | [Outline](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DataMinimization/Data%20Minimzation%20and%20Selective%20Disclosure.md) | In Progress
 DCS Triangle | Greg S. | [Draft](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/dcs-theorem/The-DCS-Theorem.pdf) | Final Edits
