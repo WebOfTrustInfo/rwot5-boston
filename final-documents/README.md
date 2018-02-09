@@ -6,7 +6,7 @@
 > An overview of the W3C ActivityPub protocol.
 
 ## [*A Decentralized Approach to Blockcerts Credential Revocation*](blockcerts-revocation.pdf) [(Text)](blockcerts-revocation.md)
-## João Santos & Kim Hamilton Duffy
+#### by João Santos & Kim Hamilton Duffy
 
 > Blockcerts are blockchain-anchored credentials with a verification process designed to be decentralized and trustless. This proposal describes an alternate method of issuing Blockcerts using Ethereum, which allows for a new form of revocation by either the issuer or the recipient.
 
