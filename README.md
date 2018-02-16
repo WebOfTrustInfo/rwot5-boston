@@ -22,6 +22,11 @@ The design workshop met its goal of three to five white papers with four to-date
 
 > An overview of the W3C ActivityPub protocol.
 
+## [*A Decentralized Approach to Blockcerts Credential Revocation*](final-documents/blockcerts-revocation.pdf) [(Text)](final-documents/blockcerts-revocation.md)
+#### by João Santos & Kim Hamilton Duffy
+
+> Blockcerts are blockchain-anchored credentials with a verification process designed to be decentralized and trustless. This proposal describes an alternate method of issuing Blockcerts using Ethereum, which allows for a new form of revocation by either the issuer or the recipient.
+
 ## [*Identity Hubs Capabilities Perspective*](final-documents/identity-hubs-capabilities-perspective.pdf) [(Text)](final-documents/identity-hubs-capabilities-perspective.md)
 #### by Adrian Gropper, Drummond Reed & Mark S. Miller
 
