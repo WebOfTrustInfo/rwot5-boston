@@ -1,5 +1,3 @@
-[![](https://img.shields.io/badge/In%20progress--yellow.svg)]()
-
 # A Decentralized Approach to Blockcerts Credential Revocation
 
 By João Santos (Instituto Superior Técnico) and Kim Hamilton Duffy (Learning Machine)
