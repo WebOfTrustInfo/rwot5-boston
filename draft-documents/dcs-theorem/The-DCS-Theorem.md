@@ -5,7 +5,8 @@ title: "\\textbf{The DCS Theorem}"
 # author: Greg Slepak^\dag^, Anya Petrova
 # author: Greg Slepak \\ \href{mailto:hi@okturtles.com}{hi@okturtles.com} \and Anya Petrova \\ \href{mailto:a.petrova.ds@gmail.com}{a.petrova.ds@gmail.com}
 # date: \small ^\dag^okTurtles Foundation, USA
-date: October 4, 2017
+# date: October 4, 2017
+date: \small Rebooting Web of Trust V, Oct. 4, 2017, Boston, MA.
 abstract: "Blockchain design involves many tradeoffs, and much debate has focused on tradeoffs related to scaling parameters such as blocksize. To address some of the confusion around this subject, we present a probability proof of the _DCS Triangle_ [@McConaghy2016][@SlepaksTriangle]. We use the triangle to show decentralized consensus systems, like blockchains, can have _Decentralization_, _Consensus_, or _Scale_, but not all three properties simultaneously. We then describe two methods for getting around the limitations suggested by the triangle."
 # https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc-pdf
 output:
@@ -126,9 +127,9 @@ We will proceed to prove that any single such system may possess, at most, two o
 
 The concept of a "consensus participant" is sometimes confused with the concept of a "validator", and in order to understand what the DCS Triangle is saying it's necessary to understand the difference between the two.
 
-Every consensus process has three ingredients: voters (consensus participants), voting rules, and the votes themselves.
+Every consensus process has three ingredients: voters (consensus participants), voting rules (enforced by _validators_), and the votes themselves.
 
-In distributed systems, the job of a _validator_ is to verify that the voting rules were followed, accepting the outcome of the vote if that is so, and rejecting the outcome otherwise. For example, in the physical world a validator might be responsible for verifying ballot forms were filled out correctly and were cast by registered voters only, but beyond that they do not (generally speaking) have the ability to influence the outcome of the vote.
+In distributed systems, the job of validators is to verify that the voting rules were followed, accepting the outcome of the vote if that is so, and rejecting the outcome otherwise. For example, in the physical world a validator might be responsible for verifying ballot forms were filled out correctly and were cast by registered voters only, but beyond that they do not (generally speaking) have the ability to influence the outcome of the vote.
 
 Consensus participants, on the other hand, are the voters themselves, and their job is to not only ensure that voting rules are followed, but to cast a vote on some decision.
 
@@ -298,7 +299,7 @@ Let $S$ be a decentralized consensus system whose consensus participants maintai
 \end{figure}
 
 \begin{proof}
-This follows directly from Axiom \ref{Ax1}, \ref{Ax3}, and our definition of a decentralized system, which includes the \hyperref[sec:scope]{understanding} that for a system to be considered decentralized, it must be uncompromised, and that in turn means it successfully processes all authorized\footnote{See footnote 1 on page 1.} messages from new users within some interval $S_t$. For it to do this, $T(S)$ must exceed $c$, per (Axiom~\ref{Ax1}) and (Axiom~\ref{Ax3}).
+This follows directly from Axiom \ref{Ax1}, \ref{Ax3}, and our definition of a decentralized system, which includes the \hyperref[sec:scope]{understanding} that for a system to be considered decentralized, it must be uncompromised, and that in turn means it successfully processes all authorized\footnote{See footnote 1.} messages from new users within some interval $S_t$. For it to do this, $T(S)$ must exceed $c$, per (Axiom~\ref{Ax1}) and (Axiom~\ref{Ax3}).
 \end{proof}
 
 \begin{lemma}
@@ -420,5 +421,7 @@ Overall system consensus is progressively "sacrificed" as the system scales, but
 # Acknowledgements
 
 Thanks to Trent McConaghy and Andrea Devers for their feedback.
+
+This paper was produced as part of the **Rebooting the Web of Trust V** design workshop, an effort to improve the Internet's security and trust infrastructure, produced by Christopher Allen, co-author of the SSL/TLS web standard. If you have any comments, thoughts, or expansions on this paper, please post them to the GitHub issues page.\footnote{\url{https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/issues}}
 
 # References
