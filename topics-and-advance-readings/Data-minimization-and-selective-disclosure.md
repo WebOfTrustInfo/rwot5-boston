@@ -224,16 +224,16 @@ Each crypto process is named, and as time goes on hundreds if not thousands of p
 
 
 ## Verifiable Credentials in Sovrin
-To show the "cryptographic zoo" in operation, below is a detailed flow of verified credentials as implemented by Sovrin, a non-profit organization dedicated to managing a decentralized, public network for the purposes of self-sovereign identity. 
+Below is some of the detailed mathematics involved in issuing a verifiable credential as implemented by Sovrin, a non-profit organization dedicated to managing a decentralized, public network for the purposes of self-sovereign identity.
 
 ### Issuer setup
-The following setup is a necessary precursor to issuing a privacy-preserving credential.  
+The following setup is a necessary precursor to issuing a privacy-preserving credential.
 
 #### Compute
 Perform the mathematical calculations required to curate the essential ingredients of the operations we are about to perform. Some of these results like the private keys are very sensitive and must be kept secret by the credential holder; others are to be shared.
 
-* Random 𝓹', 𝓺', 1024 bit prime numbers such that 𝓹 = 2𝓹' + 1 and 𝓺 = 2𝓺' + 1 are both 1024 bit prime numbers. 
-𝓷 = 𝓹𝓺.
+* Random 𝓹', 𝓺', 1024 bit prime numbers such that 𝓹 = 2𝓹' + 1 and 𝓺 = 2𝓺' + 1 are both 1024 bit prime numbers.
+* 𝓷 = 𝓹𝓺.
 * Random quadratic residue: 𝓢 mod 𝓷
 * Random 𝓧<sub>𝓩</sub>, 𝓧<sub>𝓡1</sub>, . . . , 𝓧<sub>𝓡𝓵</sub> ∈ \[2: 𝓹'𝓺' - 1\], where 𝓵 is the number of attributes in the credential.
 * 𝓩 = 𝓢<sup>𝓧𝓩</sup> mod 𝓷
@@ -242,7 +242,7 @@ Perform the mathematical calculations required to curate the essential ingredien
 * Issuer public key 𝓹𝓴<sub>𝓬</sub> = {𝓷, 𝓢, 𝓩, 𝓡<sub>1</sub>, . . . , 𝓡<sub>𝓵</sub> }
 
 #### Proof of Correctness
-As a result of the above computations, we then curate the following. This proof, along with the public keys, is the computational algorithm that will be used to validate the credential. 
+As a result of the above computations, we then curate the following. This proof, along with the public keys, is the computational algorithm that will be used to validate the credential.
 
 * Random 𝓧'<sub>𝓩</sub>, 𝓧'<sub>𝓡1</sub>, . . . , 𝓧'<sub>𝓡𝓵</sub> ∈ \[2: 𝓹'𝓺' - 1\]
 * 𝓩' = 𝓢<sup>𝓧'𝓩</sup> mod 𝓷
@@ -251,13 +251,13 @@ As a result of the above computations, we then curate the following. This proof,
 * 𝓧''<sub>𝓩</sub> = 𝓧'<sub>𝓩</sub> + 𝓬 𝓧<sub>𝓩</sub>
 * 𝓧''<sub>𝓡𝓲</sub> = 𝓧'<sub>𝓡𝓲</sub> + 𝓬 𝓧<sub>𝓡𝓲</sub> , 1 ≤ 𝓲  ≤ 𝓵
 
-##### The Claim Def is comprised of the public key and the proof of correctness
+##### The Cred Def is comprised of the public key and the proof of correctness, this is published to the distributed ledger
 
 ### Issuing a Credential
 With setup complete, we can now issue the credential in a privacy-preserving manner.
 
 #### For each credential
-For each claim presented in the credential, perform the following operations. 
+For each credential issued, perform the following operations.
 
 ##### Issuer computes:
 A cryptographic accumulator is constructed in order to enable zero knowledge queries further on. It is a one way membership function, including the claim in the membership set. The operation can then answers a query as to whether a potential candidate is a member of a set without revealing the individual members of the set.
@@ -265,14 +265,14 @@ A cryptographic accumulator is constructed in order to enable zero knowledge que
 * 𝓐<sub>𝓲</sub> = accumulator index
 * 𝓤<sub>𝓲</sub> = user index
 * 𝓶<sub>2</sub> = 𝓗𝓪𝓼𝓱 ( 𝓐<sub>𝓲</sub>  || 𝓤<sub>𝓲</sub> )
-* 256-bit integer representations of each of the attributes: 𝓶<sub>3</sub> , . . . , 𝓶<sub>𝓵</sub> 
+* 256-bit integer representations of each of the attributes: 𝓶<sub>3</sub> , . . . , 𝓶<sub>𝓵</sub>
 * 𝓷<sub>0</sub> = nonce
 
 ##### Issuer sends 𝓷<sub>0</sub> to Prover
-This nonce is provided to prevent replay attacks. (<<IMPROVE SCAFFOLD<<)
+This nonce is provided to the Prover for calculation of the Prover's proof of correctness.
 
-##### Prover receives 𝓷<sub>0</sub> and does the following:
-The prover aggregates and prepares public keys for use in validating the signatures. The prover also commits to a chosen value while keeping it temporarily hidden, making the calculation binding. 
+##### Prover receives 𝓷<sub>0</sub> and computes the following:
+The prover aggregates and prepares public keys for use in validating the signatures. The prover also commits to a chosen value while keeping it temporarily hidden, making the calculation binding.
 
 * Retrieves Issuer’s public key 𝓹𝓴<sub>𝓬</sub>
 * Retrieves Issuer’s proof of correctness
@@ -297,20 +297,51 @@ The prover aggregates and prepares public keys for use in validating the signatu
 
 ##### Prover sends 𝓟 = { 𝓤, 𝓬’, 𝓿^, 𝓶^<sub>1</sub>, 𝓷<sub>1</sub> } to the Issuer
 
-## Indy SDK
+##### Issuer verifies Prover setup
+* Computes 𝓤^ = 𝓤<sup>-𝓬</sup>𝓢<sup>𝓿^</sup>𝓡<sub>1</sub><sup>𝓶^<sub>1</sub></sup> mod 𝓷
+* Verifies 𝓬’ = 𝓗𝓪𝓼𝓱 ( 𝓤 || 𝓤^ || 𝓷<sub>0</sub> )
+##### Issuer signs the credential by computing the following:
+* 𝓠 = 𝓩 / (𝓤𝓢<sup>𝓿*</sup>𝓡<sub>2</sub><sup>𝓶2</sup>𝓡<sub>3</sub><sup>𝓶3</sup> ··· 𝓡<sub>𝓵</sub><sup>𝓶𝓵</sup> )  mod 𝓷
+* 𝓭 = 𝓮<sup>-1</sup> mod 𝓹’𝓺’
+* 𝓐 = 𝓠<sup>𝓭</sup> mod 𝓷
+* 𝓐’ = 𝓠<sup>𝓻</sup> mod 𝓷
+* 𝓬’’ = 𝓗𝓪𝓼𝓱 (𝓠 || 𝓐 || 𝓐’|| 𝓷<sub>1</sub> )
+* 𝓼<sub>𝓮</sub> = (𝓻 - 𝓬’’𝓮<sup>-1</sup>) mod 𝓹’𝓺’
+##### Issuer sends 𝓞 = {𝓐, 𝓮, 𝓿*, 𝓼<sub>𝓮</sub>, 𝓬’’, 𝓶<sub>2</sub>, . . . , 𝓶<sub>𝓵</sub> } to the prover
+##### Prover receives 𝓞 and does the following:
+###### Computes
+* 𝓿 = 𝓿’ + 𝓿*
+* 𝓠’ = 𝓩 / (𝓢<sup>𝓿</sup>𝓡<sub>2</sub><sup>𝓶2</sup>𝓡<sub>3</sub><sup>𝓶3</sup> ··· 𝓡<sub>𝓵</sub><sup>𝓶𝓵</sup> )  mod 𝓷
+* 𝓭’ = 𝓬’’ + 𝓼<sub>𝓮</sub> 𝓮
+* 𝓐^ = 𝓐<sup>𝓭’</sup>𝓢<sup>𝓿’𝓼𝓮</sup> mod 𝓷
 
+###### Verifies
+* 𝓮 is prime and 2<sup>596</sup> ≤ 𝓮 ≤ 2<sup>596</sup> + 2<sup>119</sup>
+* 𝓠’ = 𝓐<sup>𝓮</sup> mod 𝓷
+* 𝓬’’ =  𝓗𝓪𝓼𝓱 (𝓠’ || 𝓐 || 𝓐^ || 𝓷<sub>1</sub> )
+###### Stores Primary Claim ({𝓶<sub>1</sub>, . . . , 𝓶<sub>𝓵</sub>}, 𝓐, 𝓮, 𝓿)
+
+
+
+
+
+
+
+## Indy SDK
+* [Verifiable Credentials Code](https://github.com/hyperledger/indy-sdk/blob/master/libindy/src/api/anoncreds.rs)
+* [Verifiable Credentials Example Usage in Python](https://github.com/hyperledger/indy-sdk/blob/master/samples/python/src/anoncreds.py)
 
 # Appendix
 
 Interviews regarding data minimization, selective disclosure and progressive trust.
 
-This section contains definitions we collected that we considered in the formation of our definition above. 
+This section contains definitions we collected that we considered in the formation of our definition above.
 
 ## Data Minimization
-Definitions of data minimization that we considered in the formation of our definition above. 
+Definitions of data minimization that we considered in the formation of our definition above.
 
 * GDPR Rec.39; Art.5(1)(c) definition: “The personal data should be adequate, relevant and limited to what is necessary for the purposes for which they are processed. This requires, in particular, ensuring that the period for which the personal data are stored is limited to a strict minimum. Personal data should be processed only if the purpose of the processing could not reasonably be fulfilled by other means.”
-* Reducing your overall footprint of data outside of your control. Can be accomplished by using selective disclosure. 
+* Reducing your overall footprint of data outside of your control. Can be accomplished by using selective disclosure.
 * Adequate, relevant and non-excessive.
 * Reducing the amount of data you are sending in a payload to only the one is needed. That prevents leakage of confidential information.
 * Providing people with the information they need without revealing non necessary info. If I need to prove if I am old enough without revealing an actual birthdate.
@@ -318,22 +349,22 @@ Definitions of data minimization that we considered in the formation of our defi
 * Mathematical – finding a way to express the data that you wish as an equation related to the data you have.
 * Minimizing the amount of data to achieve your goal or communicate what you need to.
 * Designing systems to operate efficiently in order to maximize privacy.
-* Choosing to only share the minimal amount of data about yourself or something during an interaction. 
-* Trying to keep the amount of info that is being disclosed as limited as possible to the requirements of the vulnerability. The minimum is what is will lead them to move to action. 
-* Always happens in a context: a relationship where the two parties are considering interacting in some way. Sending only the signals that I want to send and that are needed by the other party, hem to interact with me in a particular 
+* Choosing to only share the minimal amount of data about yourself or something during an interaction.
+* Trying to keep the amount of info that is being disclosed as limited as possible to the requirements of the vulnerability. The minimum is what is will lead them to move to action.
+* Always happens in a context: a relationship where the two parties are considering interacting in some way. Sending only the signals that I want to send and that are needed by the other party, hem to interact with me in a particular
 * The least amount of data needed for a system to function
-* Collecting the least amount of date for the highest outcome. 
-* Also known as minimal disclosure, data minimization is the principle of using the least amount of data to accomplish a transaction. This is incumbent on all three parties in an exchange. The holder should attempt to share the minimum. The issuer needs to create attributes designed for composition and minimal use, as opposed to monolithic credentials with all the data. The verifier needs to ask only for what they need. The motivation to minimize data is that unneeded data is potentially “toxic.” 
+* Collecting the least amount of date for the highest outcome.
+* Also known as minimal disclosure, data minimization is the principle of using the least amount of data to accomplish a transaction. This is incumbent on all three parties in an exchange. The holder should attempt to share the minimum. The issuer needs to create attributes designed for composition and minimal use, as opposed to monolithic credentials with all the data. The verifier needs to ask only for what they need. The motivation to minimize data is that unneeded data is potentially “toxic.”
 
 ## Selective Disclosure
 
-Definitions of selective disclosure that we considered in the formation of our definition above. 
+Definitions of selective disclosure that we considered in the formation of our definition above.
 
 * Ability to decide what info you give and how it can be used.
-* Smart disclosure, allows to select what information to give based on logic. 
-* Blind search. You can decide who gets to see what. 
+* Smart disclosure, allows to select what information to give based on logic.
+* Blind search. You can decide who gets to see what.
 * Means by which we achieve data minimization. Form of policies. Ability to mask attributes that you do not have to share.
-* Relates to mathematical definition – the computational ability to reveal only parts of your data profile. 
+* Relates to mathematical definition – the computational ability to reveal only parts of your data profile.
 * Act of communicating or revealing only what you intend to, and not any peripheric data
 * Having granular control over the ways in which data is shared
 * Is a pattern for user interfaces allowing people to choose what to share about them during an interaction
@@ -343,18 +374,18 @@ Definitions of selective disclosure that we considered in the formation of our d
 
 ## Progressive Trust
 
-Definitions of progressive trust that we considered in the formation of our definition above. Note that we included definitions of progressive trust and progressive disclosure as well. 
+Definitions of progressive trust that we considered in the formation of our definition above. Note that we included definitions of progressive trust and progressive disclosure as well.
 
-* Procedure for increasing revelation of relevant data as the communication proceeds. As we continue to communicate we decide to reveal more information. It becomes more generous as trust builds. 
+* Procedure for increasing revelation of relevant data as the communication proceeds. As we continue to communicate we decide to reveal more information. It becomes more generous as trust builds.
 * Being able to reveal more data as you need to given certain conditions
 * Information is disclosed as needed when needed.
-* You can choose to increase the amount of data you disclose over time as needed. 
-* Taking as little vulnerability as possible at the beginning, then gaining information and becoming willing to take on additional vulnerability by revealing more information. 
-* Trust is built through step by step interactions where we start making ourselves vulnerable in a very small way and we observe how this works out. Based on results we consider making ourselves further vulnerable or not. It is about increasing levels of familiarity and prediction making (I am better able to predict your behavior). 
+* You can choose to increase the amount of data you disclose over time as needed.
+* Taking as little vulnerability as possible at the beginning, then gaining information and becoming willing to take on additional vulnerability by revealing more information.
+* Trust is built through step by step interactions where we start making ourselves vulnerable in a very small way and we observe how this works out. Based on results we consider making ourselves further vulnerable or not. It is about increasing levels of familiarity and prediction making (I am better able to predict your behavior).
 * Releasing information as needed
-* Escalation of the previous steps (data minimization, selective disclosure) in line with the value increasing. 
-* Purpose binding is the auditable use of data, so I can audit the use of my data and determine that it was used for the purposes declared. Progressive trust is the feeling of assurance and safety that develops over time, based on a history of data used only for its bound purposes, and so based on this feeling a data holder will be ready to share more data or other data, if at some point in the relationship this other data is requested. 
-* Trust is required when you depend on the actions of someone who you can't control. 
+* Escalation of the previous steps (data minimization, selective disclosure) in line with the value increasing.
+* Purpose binding is the auditable use of data, so I can audit the use of my data and determine that it was used for the purposes declared. Progressive trust is the feeling of assurance and safety that develops over time, based on a history of data used only for its bound purposes, and so based on this feeling a data holder will be ready to share more data or other data, if at some point in the relationship this other data is requested.
+* Trust is required when you depend on the actions of someone who you can't control.
 
 # References:
  * [Data Minimization and Selective Disclosure Repo] (https://github.com/w3c-ccg/data-minimization)
@@ -362,4 +393,3 @@ Definitions of progressive trust that we considered in the formation of our defi
  * 2010 Pfitzmann, Hansen. [A terminology for talking about privacy by data minimization: Anonymity, Unlinkability, Undetectability, Unobservability, Pseudonymity, and Identity Management] (https://www.researchgate.net/publication/234720523_A_terminology_for_talking_about_privacy_by_data_minimization_Anonymity_Unlinkability_Undetectability_Unobservability_Pseudonymity_and_Identity_Management)
  * 2013 Cooper, Tschofenig, Aboba, Peterson, Morris, Hansen, Smith, Janet. [RFC6973] (https://tools.ietf.org/html/rfc6973). The draft can also be helpful, "This document focuses on introducing terms used to describe privacy properties that support data minimization." 2012 Hansen, Tschofenig, Smith, Cooper. Privacy Terminology and Concepts. Network Working Group Internet-Draft Expires: September 13, 2012. https://tools.ietf.org/html/draft-iab-privacy-terminology-01
  * Redaction Signature Suite 2016, Draft Community Group Report 26 June 2017. Longley, Sporny. Link: https://w3c-dvcg.github.io/lds-redaction2016/ "This specification describes the Redaction Signature Suite created in 2016 for the Linked Data Signatures specification. It enables a sender to redact information in a message without invalidating the digital signature."
-
