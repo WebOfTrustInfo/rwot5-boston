@@ -224,7 +224,7 @@ Each crypto process is named, and as time goes on hundreds if not thousands of p
 
 
 ## Verifiable Credentials in Sovrin
-To show the "cryptographic zoo" in operation, below is a detailed flow of verified credentials as implemented by Sovrin, a non-profit organization dedicated to managing a decentralized, public network for the purposes of self-sovereign identity. 
+Below is some of the detailed mathematics involved in issuing a verifiable credential as implemented by Sovrin, a non-profit organization dedicated to managing a decentralized, public network for the purposes of self-sovereign identity.
 
 ### Issuer setup
 The following setup is a necessary precursor to issuing a privacy-preserving credential.
@@ -233,7 +233,7 @@ The following setup is a necessary precursor to issuing a privacy-preserving cre
 Perform the mathematical calculations required to curate the essential ingredients of the operations we are about to perform. Some of these results like the private keys are very sensitive and must be kept secret by the credential holder; others are to be shared.
 
 * Random 𝓹', 𝓺', 1024 bit prime numbers such that 𝓹 = 2𝓹' + 1 and 𝓺 = 2𝓺' + 1 are both 1024 bit prime numbers.
-𝓷 = 𝓹𝓺.
+* 𝓷 = 𝓹𝓺.
 * Random quadratic residue: 𝓢 mod 𝓷
 * Random 𝓧<sub>𝓩</sub>, 𝓧<sub>𝓡1</sub>, . . . , 𝓧<sub>𝓡𝓵</sub> ∈ \[2: 𝓹'𝓺' - 1\], where 𝓵 is the number of attributes in the credential.
 * 𝓩 = 𝓢<sup>𝓧𝓩</sup> mod 𝓷
@@ -251,13 +251,13 @@ As a result of the above computations, we then curate the following. This proof,
 * 𝓧''<sub>𝓩</sub> = 𝓧'<sub>𝓩</sub> + 𝓬 𝓧<sub>𝓩</sub>
 * 𝓧''<sub>𝓡𝓲</sub> = 𝓧'<sub>𝓡𝓲</sub> + 𝓬 𝓧<sub>𝓡𝓲</sub> , 1 ≤ 𝓲  ≤ 𝓵
 
-##### The Claim Def is comprised of the public key and the proof of correctness
+##### The Cred Def is comprised of the public key and the proof of correctness, this is published to the distributed ledger
 
 ### Issuing a Credential
 With setup complete, we can now issue the credential in a privacy-preserving manner.
 
 #### For each credential
-For each claim presented in the credential, perform the following operations.
+For each credential issued, perform the following operations.
 
 ##### Issuer computes:
 A cryptographic accumulator is constructed in order to enable zero knowledge queries further on. It is a one way membership function, including the claim in the membership set. The operation can then answers a query as to whether a potential candidate is a member of a set without revealing the individual members of the set.
@@ -269,9 +269,9 @@ A cryptographic accumulator is constructed in order to enable zero knowledge que
 * 𝓷<sub>0</sub> = nonce
 
 ##### Issuer sends 𝓷<sub>0</sub> to Prover
-This nonce is provided to prevent replay attacks. (<<IMPROVE SCAFFOLD<<)
+This nonce is provided to the Prover for calculation of the Prover's proof of correctness.
 
-##### Prover receives 𝓷<sub>0</sub> and does the following:
+##### Prover receives 𝓷<sub>0</sub> and computes the following:
 The prover aggregates and prepares public keys for use in validating the signatures. The prover also commits to a chosen value while keeping it temporarily hidden, making the calculation binding.
 
 * Retrieves Issuer’s public key 𝓹𝓴<sub>𝓬</sub>
@@ -296,6 +296,36 @@ The prover aggregates and prepares public keys for use in validating the signatu
 * 𝓶^<sub>1</sub> = 𝓶’<sub>1</sub> + 𝓬’𝓶<sub>1</sub>
 
 ##### Prover sends 𝓟 = { 𝓤, 𝓬’, 𝓿^, 𝓶^<sub>1</sub>, 𝓷<sub>1</sub> } to the Issuer
+
+##### Issuer verifies Prover setup
+* Computes 𝓤^ = 𝓤<sup>-𝓬</sup>𝓢<sup>𝓿^</sup>𝓡<sub>1</sub><sup>𝓶^<sub>1</sub></sup> mod 𝓷
+* Verifies 𝓬’ = 𝓗𝓪𝓼𝓱 ( 𝓤 || 𝓤^ || 𝓷<sub>0</sub> )
+##### Issuer signs the credential by computing the following:
+* 𝓠 = 𝓩 / (𝓤𝓢<sup>𝓿*</sup>𝓡<sub>2</sub><sup>𝓶2</sup>𝓡<sub>3</sub><sup>𝓶3</sup> ··· 𝓡<sub>𝓵</sub><sup>𝓶𝓵</sup> )  mod 𝓷
+* 𝓭 = 𝓮<sup>-1</sup> mod 𝓹’𝓺’
+* 𝓐 = 𝓠<sup>𝓭</sup> mod 𝓷
+* 𝓐’ = 𝓠<sup>𝓻</sup> mod 𝓷
+* 𝓬’’ = 𝓗𝓪𝓼𝓱 (𝓠 || 𝓐 || 𝓐’|| 𝓷<sub>1</sub> )
+* 𝓼<sub>𝓮</sub> = (𝓻 - 𝓬’’𝓮<sup>-1</sup>) mod 𝓹’𝓺’
+##### Issuer sends 𝓞 = {𝓐, 𝓮, 𝓿*, 𝓼<sub>𝓮</sub>, 𝓬’’, 𝓶<sub>2</sub>, . . . , 𝓶<sub>𝓵</sub> } to the prover
+##### Prover receives 𝓞 and does the following:
+###### Computes
+* 𝓿 = 𝓿’ + 𝓿*
+* 𝓠’ = 𝓩 / (𝓢<sup>𝓿</sup>𝓡<sub>2</sub><sup>𝓶2</sup>𝓡<sub>3</sub><sup>𝓶3</sup> ··· 𝓡<sub>𝓵</sub><sup>𝓶𝓵</sup> )  mod 𝓷
+* 𝓭’ = 𝓬’’ + 𝓼<sub>𝓮</sub> 𝓮
+* 𝓐^ = 𝓐<sup>𝓭’</sup>𝓢<sup>𝓿’𝓼𝓮</sup> mod 𝓷
+
+###### Verifies
+* 𝓮 is prime and 2<sup>596</sup> ≤ 𝓮 ≤ 2<sup>596</sup> + 2<sup>119</sup>
+* 𝓠’ = 𝓐<sup>𝓮</sup> mod 𝓷
+* 𝓬’’ =  𝓗𝓪𝓼𝓱 (𝓠’ || 𝓐 || 𝓐^ || 𝓷<sub>1</sub> )
+###### Stores Primary Claim ({𝓶<sub>1</sub>, . . . , 𝓶<sub>𝓵</sub>}, 𝓐, 𝓮, 𝓿)
+
+
+
+
+
+
 
 ## Indy SDK
 * [Verifiable Credentials Code](https://github.com/hyperledger/indy-sdk/blob/master/libindy/src/api/anoncreds.rs)
