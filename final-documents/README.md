@@ -5,6 +5,11 @@
 
 > An overview of the W3C ActivityPub protocol.
 
+## [*The DCS Theorem*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/dcs-theorem/The-DCS-Theorem.pdf)
+#### by Greg Slepak & Anya Petrova
+
+> A probability proof of the DCS Triangle. Why can't decentralized consensus systems have all three of decentralization, consensus, and scale? Plus, two methods for getting around these limitations.
+
 ## [*A Decentralized Approach to Blockcerts Credential Revocation*](blockcerts-revocation.pdf) [(Text)](blockcerts-revocation.md)
 #### by João Santos & Kim Hamilton Duffy
 
