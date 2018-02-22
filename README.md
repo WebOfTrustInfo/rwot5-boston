@@ -27,6 +27,11 @@ The design workshop met its goal of three to five white papers with four to-date
 
 > Blockcerts are blockchain-anchored credentials with a verification process designed to be decentralized and trustless. This proposal describes an alternate method of issuing Blockcerts using Ethereum, which allows for a new form of revocation by either the issuer or the recipient.
 
+## [*The DCS Theorem*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/dcs-theorem/The-DCS-Theorem.pdf)
+#### by Greg Slepak & Anya Petrova
+
+> A probability proof of the DCS Triangle. Why can't decentralized consensus systems have all three of decentralization, consensus, and scale? Plus, two methods for getting around these limitations.
+
 ## [*Identity Hubs Capabilities Perspective*](final-documents/identity-hubs-capabilities-perspective.pdf) [(Text)](final-documents/identity-hubs-capabilities-perspective.md)
 #### by Adrian Gropper, Drummond Reed & Mark S. Miller
 
