@@ -4,7 +4,7 @@ In Which We Describe Data Minimization, Selective Disclosure and Progressive Tru
 
 Contributors:
 
-* Lionel Wolberger, Playscape
+* Lionel Wolberger, Platin.io
 * Brent Zundel, Evernym/Sovrin
 * Zachary Larson, Independent
 * Irene Hernandez, Independent 
