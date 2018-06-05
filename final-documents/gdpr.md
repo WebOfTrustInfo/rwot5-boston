@@ -397,8 +397,7 @@ permissioned-public blockchains. It is our strong belief that there will
 not be one Blockchain to rule them all, but a spectrum of solutions to
 choose from, which we summarize in the Figure below.
 
-![](Pictures/100002010000038A000000CA5BFA0CF2FD8543EF.png){width="6.5in"
-height="1.4445in"}
+![](images/gdpr-pic.png)
 
 Given such a model, we can compare how GDPR requirements can map into
 what Blockchain-based solution may offer.
