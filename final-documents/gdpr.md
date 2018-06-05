@@ -606,29 +606,29 @@ opt in for discounts and other sales promotions from local businesses.
 
 \[7\][*https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663*](https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663)
 
-\[4\]
+\[8\]
 [*https://en.wikipedia.org/wiki/Federated\_identity*](https://en.wikipedia.org/wiki/Federated_identity)
 
-\[5\]
+\[9\]
 [*https://en.wikipedia.org/wiki/Privacy\_by\_design*](https://en.wikipedia.org/wiki/Privacy_by_design)
 
-\[6\] [*https://www.w3.org/2017/vc/WG/*](https://www.w3.org/2017/vc/WG/)
+\[10\] [*https://www.w3.org/2017/vc/WG/*](https://www.w3.org/2017/vc/WG/)
 
-\[7\]
+\[11\]
 [*http://hyperledger-fabric.readthedocs.io/en/release/channels.html*](http://hyperledger-fabric.readthedocs.io/en/release/channels.html)
 
-\[8\]
+\[12\]
 [*https://sawtooth.hyperledger.org/docs/core/nightly/0-8/examples/private\_utxo/private\_utxo\_transaction\_family.html*](https://sawtooth.hyperledger.org/docs/core/nightly/0-8/examples/private_utxo/private_utxo_transaction_family.html)
 
-\[9\] https://www.hyperledger.org/projects/hyperledger-indy
+\[13\] https://www.hyperledger.org/projects/hyperledger-indy
 
-^\[10\]^[
+^\[14\]^[
 ](http://www.thedrum.com/news/2017/10/05/what-does-the-eu-s-privacy-reform-mean-us-marketers-and-what-should-you-do-now)[*http://www.thedrum.com/news/2017/10/05/what-does-the-eu-s-privacy-reform-mean-us-marketers-and-what-should-you-do-now*](http://www.thedrum.com/news/2017/10/05/what-does-the-eu-s-privacy-reform-mean-us-marketers-and-what-should-you-do-now)
 
-^\[11\]^[
+^\[15\]^[
 ](https://www.mparticle.com/blog/what-gdpr-means-for-data-driven-marketing)[*https://www.mparticle.com/blog/what-gdpr-means-for-data-driven-marketing*](https://www.mparticle.com/blog/what-gdpr-means-for-data-driven-marketing)
 
-^\[12\]^[
+^\[16\]^[
 ](http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html)[*http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html*](http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html)
 
 
