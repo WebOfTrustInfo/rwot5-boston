@@ -201,7 +201,7 @@ for this to actually happen. The community focused on user-centric
 identity and personal data control has several times produced guiding
 rules or principles that also align with the vision of GDPR and actually
 influenced its authors. In 2005 Kim Cameron defined Laws of Identity, In
-2010 during the same week while Phil Windley[^1] and Kaliya Young[^2]
+2010 during the same week while Phil Windley\[3\] and Kaliya Young\[4\]
 each posted created Personal Data Ecosystem principles.
 
 Several years ago new term gained traction“self-sovereign identity”.
@@ -209,8 +209,8 @@ Devon Lefretto first used the term Self-Sovereign Authority within the
 VRM community in 2011 and in that context worked to articulate its
 meaning. References to Self-Sovereign Identity appear in 2015 by John
 Edge founder of ID2020. Devon Lofretto published a post defining the
-term in February 2016[^3]. Christopher Allen circulated ideas about a
-set of principles and published them in the spring of 2016.\[3\].
+term in February 2016\[5\]. Christopher Allen circulated ideas about a
+set of principles and published them in the spring of 2016.\[6\].
 
 The W3C standardization body has a Verifiable Claims Working Group,
 which focuses on the API definitions. While Self-Sovereign identity is
@@ -288,9 +288,9 @@ yet to see a universal approach acceptable on a global scale.
 
 In May 2017, a new movement was started: creating a space for
 organizations to develop fundamental primitives, protocols and tools for
-an interoperable ecosystem under the umbrella of [*Decentralized
+an interoperable ecosystem under the umbrella of Decentralized
 Identity
-Foundation*](https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663).
+Foundation\[7\].
 We no longer live in a world which accepts Big Brother approach of
 storing all information about everyone in one place. However, a huge
 paradigm shift needs to happen when moving from a centralized registry
@@ -309,7 +309,7 @@ endpoints. With that, a trusted interaction can be started with an
 entity. Unlike in a traditional model, where identity management system
 relies on a centralized authority that provides cryptographic trust
 verification, in a DID world we need a federated identity
-management\[4\]. Following the dictums of Privacy by Design\[5\], each
+management\[8\]. Following the dictums of Privacy by Design\[9\], each
 entity may have as many DIDs as necessary, to respect the entity’s
 desired separation of identities, personas and contexts.
 
@@ -349,7 +349,7 @@ interacting with people who do not need that information. Moreover, it
 is hard to prove your qualification over the internet: driver’s license,
 proof of age, education qualification is not easily verifiable. The
 purpose of verifiable claims is to resolve these twin issues. This is
-what the W3C Verifiable Claims Working Group\[6\] is focusing on. 150+
+what the W3C Verifiable Claims Working Group\[10\] is focusing on. 150+
 individuals and organizations are now planning how to create, store,
 transmit and verify digital credentials via the Internet.
 
@@ -460,9 +460,9 @@ we can create permissioned Blockchain and confidential transactions, one
 can also create channels where only parties involved in the exchange of
 the information know the content of it, while the outside world
 acknowledges that such a transaction occurred. This is done in case of
-Hyperledger Fabric Channels\[7\] or Hyperledger Sawtooth’s Private
+Hyperledger Fabric Channels\[11\] or Hyperledger Sawtooth’s Private
 UTXO Transaction
-Family\[8\].
+Family\[12\].
 There are also many more ways to do this, depending on the technology
 chosen.
 
@@ -490,7 +490,7 @@ Using DIDs and Verifiable Claims, we can create a solution that puts the
 users in charge and control of their identity, a wallet of attestations
 and information about them that only they are responsible for. This is
 what Hyperledger
-Indy\[9\] is
+Indy\[13\] is
 focusing on: creating a Blockchain so that the identities can be kept in
 a secure storage and the Blockchain can serve as a common reference to
 the records, rather than storage for the data itself. By having a single
@@ -554,7 +554,7 @@ Today there are many third-party entities who collect and sell user data
 without permission. However, violation of privacy seems to be most
 rampant within the digital advertising industry. Some American companies
 think GDPR won’t apply to them, but this European legislation will have
-truly global impact. The Drum^\[10\]^ describes how GDPR applies to
+truly global impact. The Drum^\[14\]^ describes how GDPR applies to
 digital marketers in the United States. The most relevant requirements
 include requiring consent for data processing, anonymizing collected
 data to protect privacy, which can be easily done with DIDs, providing
@@ -564,7 +564,7 @@ protection officer to oversee GDPR compliance.
 
 The movement towards proactive introduction of GDPR-compliant standards
 has already started. A good example are media buying agencies and their
-demand-side platforms like mParticle.^\[11\]^ A PwC Pulse Survey^\[12\]^
+demand-side platforms like mParticle.^\[15\]^ A PwC Pulse Survey^\[16\]^
 that studied how much US Companies are spending on GDPR compliance
 showed that over half of US multinationals say GDPR is their top
 data-protection priority, and information security enhancement is a top
@@ -587,24 +587,24 @@ For example, anonymously sharing a device’s location drastically
 improves relevance of recommended content and/or services. Users might
 opt in for discounts and other sales promotions from local businesses.
 
+## Endnotes
+
 \[1\]
 [*http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\#d1e3265-1-1*](http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e3265-1-1)
 
 \[2\]
 [*https://www.chinalawinsight.com/2018/02/articles/corporate/antitrust-competition/the-wise-and-informed-adapts-to-the-changing-time-and-circumstances-discussing-the-issues-on-information-technology-personal-information-security-specification-from-a-pract/*](https://www.chinalawinsight.com/2018/02/articles/corporate/antitrust-competition/the-wise-and-informed-adapts-to-the-changing-time-and-circumstances-discussing-the-issues-on-information-technology-personal-information-security-specification-from-a-pract/)
 
-[^1]: ^^ PDX Principles
-    http://www.windley.com/archives/2010/09/pdx\_principles.shtml
+\[3\] [*http://www.windley.com/archives/2010/09/pdx\_principles.shtml*](http://www.windley.com/archives/2010/09/pdx\_principles.shtml)
 
-[^2]: ^^
-    https://identitywoman.net/vision-principles-for-the-personal-data-ecosystem/
+\[4\] [*https://identitywoman.net/vision-principles-for-the-personal-data-ecosystem/*](https://identitywoman.net/vision-principles-for-the-personal-data-ecosystem/)
 
-[^3]: ^^ https://www.moxytongue.com/2016/02/self-sovereign-identity.html
+\[5\] [*https://www.moxytongue.com/2016/02/self-sovereign-identity.html*](https://www.moxytongue.com/2016/02/self-sovereign-identity.html)
 
-https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663
-
-\[3\]
+\[6\]
 [*http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html*](http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html)
+
+\[7\][*https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663*](https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663)
 
 \[4\]
 [*https://en.wikipedia.org/wiki/Federated\_identity*](https://en.wikipedia.org/wiki/Federated_identity)
