@@ -1,19 +1,8 @@
-[]{#anchor}**When GDPR becomes real, and Blockchain is no longer Fairy
-Dust**
+# When GDPR becomes real, and Blockchain is no longer Fairy Dust
 
-[]{#anchor-1}
+#### by Marta Piekarska (Linux Foundation), Michael Lodder (Evernym), Zachary Larson (Economic Space Agency), Kaliya Young (Identity Woman)
 
-[]{#anchor-2}**docs.Authors:**
-
-Marta Piekarska (Linux Foundation)
-
-Michael Lodder (Evernym)
-
-Zachary Larson (Economic Space Agency)
-
-Kaliya Young (Identity Woman)
-
-[]{#anchor-3}**Abstract**
+## Abstract
 
 The General Data Protection Regulation (GDPR), enacted by the European
 Parliament in 2016, was designed to give users more control and rights
@@ -29,7 +18,7 @@ and finally explains why distributed ledger technology may offer an
 opportunity for enterprises to simplify data management solutions that
 are GDPR compliant.
 
-[]{#anchor-4}**GDPR Requirements**
+## GDPR Requirements
 
 Existing infrastructure has data processors housing personal data and
 continually collecting more. A person may not know what is known about
@@ -58,91 +47,88 @@ data. The current infrastructure doesn’t enable just-in-time access that
 would enable them to get access to what they need, when they need it,
 without storing the data themselves.
 
-GDPR[*\[1\]*](http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e3265-1-1)
-is composed of articles that outline the rights of individuals and
+GDPR\[1\] is composed of articles that outline the rights of individuals and
 requirements of data processors. The following is a brief summary of
 rights granted to individuals:
 
-* *
-
-● *Article 6*: Lawfulness of processing. Processing personal data is
+   * *Article 6*: Lawfulness of processing. Processing personal data is
 generally forbidden if it is not expressly allowed by law or if the
 impacted persons have not consented to processing these data.
 
-● *Article 7: *The right of consent. The individual must consent to
+   * *Article 7: *The right of consent. The individual must consent to
 personal data being collected and can rescind that consent at any time.
 
-● *Article 12*: The right to ask questions about use of personal data
+   * *Article 12*: The right to ask questions about use of personal data
 and to seek redress if questions are not answered in a clear, concise,
 timely manner.
 
-● *Articles 13 & 14*: The right to know how personal data is used at the
+   * *Articles 13 & 14*: The right to know how personal data is used at the
 time of collection and the length of time for which it will be stored
 and contact information for the collecting party.
 
-● *Article 15*: The right to access the personal data that is being
+   * *Article 15*: The right to access the personal data that is being
 processed.
 
-● *Article 16*: The right to have incorrect personal data rectified.
+   * *Article 16*: The right to have incorrect personal data rectified.
 
-● *Article 17*: The right to have personal data erased when it is no
+   * *Article 17*: The right to have personal data erased when it is no
 longer necessary for the purposes for which they were collected and
 there is no legal ground for their maintenance.
 
-● *Article 18*: The right to restrict data processing where the data is
+   * *Article 18*: The right to restrict data processing where the data is
 inaccurate, its collection unlawful, or its processing no longer
 required.
 
-● *Article 19*: The data collecting party must inform all additional
+   * *Article 19*: The data collecting party must inform all additional
 data processors with whom it shares personal data to cease processing
 data that has been rectified or erased.
 
-● *Article 20*: The right to receive their personal data in a
+   * *Article 20*: The right to receive their personal data in a
 structured, commonly-used, machine-readable format which they can freely
 share with other data processors.
 
-● *Article 21*: The right to object to personal data being used to
+   * *Article 21*: The right to object to personal data being used to
 profile or market to them.
 
-● *Article 22*: The right to not be subject to legal outcomes that rely
+   * *Article 22*: The right to not be subject to legal outcomes that rely
 solely on automated data processing.
 
-● *Article 25: *The right to have the minimal amount of data stored as
+   * *Article 25: *The right to have the minimal amount of data stored as
 necessary for data processors to do their work.
 
-● *Article 77: *The right to file a complaint against non-compliant data
+   * *Article 77: *The right to file a complaint against non-compliant data
 processors.
 
-● *Article 80: *The right to have a legal representative for actions
+   * *Article 80: *The right to have a legal representative for actions
 against data processors.
 
 The following is a brief summary of obligations for data processors:
 
-● *Article 24: *Must be able to demonstrate all processing and handling
+   * *Article 24: *Must be able to demonstrate all processing and handling
 is in compliance.
 
-● *Article 28: *Must notify data owners when data will be shared with
+   * *Article 28: *Must notify data owners when data will be shared with
 other processors.
 
-● *Article 29: *Must only process authorized data for authorized
+   * *Article 29: *Must only process authorized data for authorized
 purposes.
 
-● *Article 30: *Must maintain a record of all data processing activity.
+   * *Article 30: *Must maintain a record of all data processing activity.
 The record must include who processed it, what was processed, where it
 was processed or transferred, when it will be erased, and the security
 measures in place when it was done.
 
-● *Article 32: *Must protect the data using pseudonymization and
+   * *Article 32: *Must protect the data using pseudonymization and
 encryption. They must ensure those measures are tested regularly and
 they can recover in the event of failures.
 
-● *Article 33: *Must notify data owners and other data processors in the
+   * *Article 33: *Must notify data owners and other data processors in the
 event of a breach within 72 hours of first having become aware of the
 breach.
 
-● *Article 37: *Must appoint a data protection officer.
+   * *Article 37: *Must appoint a data protection officer.
 
-● *Article 50: *The transfer of data must only happen to countries
+   * *Article 50: *The transfer of data must only happen to countries
 deemed as having adequate data protection laws.
 
 The legal language must be translated into the technical requirements.
@@ -158,41 +144,41 @@ impact assessment. It is important to note that these rules apply to
 both controllers and processors — 'clouds' will not be exempt from GDPR
 enforcement.
 
-[]{#anchor-5}**Technical Requirements**
+### Technical Requirements
 
 GDPR mandates in order to ensure a complete solution that protects the
 user, or data subject, and restricting enterprises can be summarized in
 the following points.
 
-● *Availability*: The user should always have access to their data, no
+   * *Availability*: The user should always have access to their data, no
 matter if it is stored locally or remotely. The data should be protected
 from leakages or attacks because it affects availability.
 
-● *Completeness:* Data and any event regarding its collection and
+   * *Completeness:* Data and any event regarding its collection and
 processing should be recorded.
 
-● *Confidentiality*: Only parties involved in the exchange of data
+   * *Confidentiality*: Only parties involved in the exchange of data
 should be able to see details of that transaction.
 
-● *Correctness:* The accuracy of data recorded should be assured.
+   * *Correctness:* The accuracy of data recorded should be assured.
 
-● *Immutability:** ***There should be no possibility of changing
+   * *Immutability:* There should be no possibility of changing
 historical logs.
 
-● *Integrity**:*** The content of the data store should be protected
+   * *Integrity:* The content of the data store should be protected
 from malicious or unintentional changes.
 
-● *Interoperability*: Users should be able to combine data coming from
+   * *Interoperability*: Users should be able to combine data coming from
 various sources.
 
-● *Non-repudiation**:*** Interaction with any data should not be
+   * *Non-repudiation:* Interaction with any data should not be
 deniable at later points in time.
 
-● *Rectification & Erasure:* Users must be able to change or erase their
+   * *Rectification & Erasure:* Users must be able to change or erase their
 personal data. They must also be able to make corrections of erroneous
 data.
 
-● *Traceability:* Any occurrence of processing data must be traceable
+   * *Traceability:* Any occurrence of processing data must be traceable
 and linkable to previous occurrences of processing of that data.
 
 GDPR is the standard proposed by European Parliament to protect European
@@ -203,7 +189,7 @@ National People’s Congress is already proposing changes similar to the
 GDPR\[2\]. Similarly there are laws like COPPA in the U.S. and PIPA in
 Japan.
 
-[]{#anchor-6}**Self-Sovereign Identity as a Model for GDPR**
+## Self-Sovereign Identity as a Model for GDPR
 
 The requirements of the GDPR call for user control of their private
 information. One model for that is self-sovereign identity, a movement
@@ -253,8 +239,8 @@ system.
     algorithms, designs, management and updates. In order to ensure that
     transparency, the algorithms used should be free, open-source and
     well described in public.
-5.  Such systems must be designed to exist forever, or be **persistent
-    **as long as the owner wants them to be. The protection mechanisms
+5.  Such systems must be designed to exist forever, or be **persistent**
+    as long as the owner wants them to be. The protection mechanisms
     and the implementation details may change over time, but the core
     identity should last forever. All of these should not prevent the
     rule of right to be forgotten, that allows users to request removal
@@ -286,7 +272,7 @@ above principles.
 Let us now look at the technical implementations proposed by various
 entities.
 
-[]{#anchor-7}**Technical Approaches to Digital Identity**
+## Technical Approaches to Digital Identity
 
 A few different technical proposals for digital identity have been
 incubated in conjunctions with the discussions of self-sovereign
@@ -297,9 +283,8 @@ describes the two most mature developments. However, it is important to
 recognize that each suits the use case it is trying to solve. We have
 yet to see a universal approach acceptable on a global scale.
 
-[]{#anchor-8} **Decentralized Identity Foundation – DIF**
-
-***Self-Sovereign Focus: ***Control.
+### Decentralized Identity Foundation – DIF
+***Self-Sovereign Focus:*** Control
 
 In May 2017, a new movement was started: creating a space for
 organizations to develop fundamental primitives, protocols and tools for
@@ -356,9 +341,8 @@ will be trust and reputation. These can only be built through
 attestations between groups of individuals and businesses, which can be
 used make important decisions in personal and business life.
 
-[]{#anchor-9}**Verifiable Claims**
-
-***Self-Sovereign Focus: ***Minimization.
+## Verifiable Claims
+***Self-Sovereign Focus:*** Minimization
 
 Today we have to reveal the maximum amount of information even when
 interacting with people who do not need that information. Moreover, it
@@ -385,15 +369,15 @@ doctor and so on. This minimizes data disclosure, fulfilling one of the
 precepts of self-sovereign identity while simultaneously reducing
 liability for a data holder, especially under laws like GDPR.
 
-[]{#anchor-10}**Blockchain Solutions to GDPR**
+### Blockchain Solutions to GDPR
 
-[]{#anchor-11}Blockchain is a up-and-coming technology for digital
+Blockchain is a up-and-coming technology for digital
 identities, and is already in extensive use for DIF and other
 self-sovereign-focused technologies. It needs to be part of any
 discussion about GDPR compliance. However, some fear that the Blockchain
 is the exact opposite of what GDPR requires of enterprises.
 
-[]{#anchor-12}If we take public, permissionless Blockchain, then indeed
+If we take public, permissionless Blockchain, then indeed
 everything that happens within such a system is visible and available to
 anyone. However, the domain of Blockchain technology expands beyond
 permissionless, public versions. If we take the example of medical
@@ -402,18 +386,18 @@ in a public ledger. For such a use case we need a private, permissioned
 ledger, where only a certain group of people may access the ledger for
 read and write purposes.
 
-[]{#anchor-13}Then, there is a middle ground – between the crypto
+Then, there is a middle ground – between the crypto
 currency and medical records – for instance certification. Issuance of
 such should be limited to those, who are eligible to certify that a
 given person can hold a given certificate. However, anyone should be
 able to inquire about the validity of the claim.
 
-[]{#anchor-14}So, there is space for both permissionless-private, and
+So, there is space for both permissionless-private, and
 permissioned-public blockchains. It is our strong belief that there will
 not be one Blockchain to rule them all, but a spectrum of solutions to
 choose from, which we summarize in the Figure below.
 
-[]{#anchor-15}![](Pictures/100002010000038A000000CA5BFA0CF2FD8543EF.png){width="6.5in"
+![](Pictures/100002010000038A000000CA5BFA0CF2FD8543EF.png){width="6.5in"
 height="1.4445in"}
 
 Given such a model, we can compare how GDPR requirements can map into
@@ -464,10 +448,10 @@ grade B on a Blockchain, the only way to change that is to introduce a
 new transaction announcing that the previous entry was incorrect, and
 that Alice passed the exam with a grade A.
 
-**Immutability **of Blockchain technology has been mentioned several
+**Immutability** of Blockchain technology has been mentioned several
 times here and is also a requirement of the GDPR.
 
-There are several ways how to achieve **confidentiality, **meaning that
+There are several ways how to achieve **confidentiality**, meaning that
 only parties involved in the exchange of data can be able to see the
 details of the transaction, while still ensuring full transparency,
 where any occurrence of processing data must be traceable and linkable
@@ -476,10 +460,9 @@ we can create permissioned Blockchain and confidential transactions, one
 can also create channels where only parties involved in the exchange of
 the information know the content of it, while the outside world
 acknowledges that such a transaction occurred. This is done in case of
-Hyperledger Fabric Channels\[7\] or Hyperledger Sawtooth’s[
-](https://sawtooth.hyperledger.org/docs/core/nightly/0-8/examples/private_utxo/private_utxo_transaction_family.html)[*Private
+Hyperledger Fabric Channels\[7\] or Hyperledger Sawtooth’s Private
 UTXO Transaction
-Family*](https://sawtooth.hyperledger.org/docs/core/nightly/0-8/examples/private_utxo/private_utxo_transaction_family.html)\[8\].
+Family\[8\].
 There are also many more ways to do this, depending on the technology
 chosen.
 
@@ -488,7 +471,7 @@ transactions by their precise hashes and referring to their exact
 position in a Blockchain, so that any new exchange can clearly build on
 top of it.
 
-[]{#anchor-16}Creating an Off-Chain Wallet
+### Creating an Off-Chain Wallet
 
 One of the big challenges facing enterprises when it comes to complying
 with GDPR is the user-centric approach to data handling. It is no longer
@@ -506,9 +489,8 @@ third party such a solution no longer creates a problem.
 Using DIDs and Verifiable Claims, we can create a solution that puts the
 users in charge and control of their identity, a wallet of attestations
 and information about them that only they are responsible for. This is
-what[
-](https://www.hyperledger.org/projects/hyperledger-indy)[*Hyperledger
-Indy*](https://www.hyperledger.org/projects/hyperledger-indy)\[9\] is
+what Hyperledger
+Indy\[9\] is
 focusing on: creating a Blockchain so that the identities can be kept in
 a secure storage and the Blockchain can serve as a common reference to
 the records, rather than storage for the data itself. By having a single
@@ -527,17 +509,17 @@ sensitive in the future, and thus, ZKPs seem like the right answer for
 handling personal data.
 
 With the design of off-blockchain wallets that are recorded on a
-Blockchain, we achieve **rectification. **If a user changes their data,
+Blockchain, we achieve **rectification**. If a user changes their data,
 the anchor to their wallet changes, meaning that they have to update
 their entry on the Blockchain. They cannot simply rewrite the history:
 they must make amendments, and inform everyone about the fact that the
 changes have been made (not necessarily revealing what these changes
 were).
 
-[]{#anchor-17}Blockchain and Erasure
+### Blockchain and Erasure
 
  Finally let us move to the most disputed part of the GDPR. **Right to
-erasure, **mandates that anyone may request that their data should be
+erasure**, mandates that anyone may request that their data should be
 deleted from the company's’ servers. In today’s settings the best Alice
 can do is send an email to company X to delete her data. If an auditor
 comes in, such email may, or may not disappear and the data may or may
@@ -547,10 +529,10 @@ the erasure is also confirmed on a Blockchain or simply executed as a
 smart contract in the first place when Alice gave access to the data
 only for limited time. Now if data is found by an auditor at any later
 point, the company can be held accountable for it in a much stronger
-way. The same holds for **rectification. **In case Alice wants to change
+way. The same holds for **rectification**. In case Alice wants to change
 her personal data, she makes a request which should be recorded on a
 Blockchain, acknowledged by the company and executed. This of course
-means **non-repudiation. **Interaction with any data should not be
+means **non-repudiation**. Interaction with any data should not be
 deniable at a later point in time; the system should ensure that every
 request for data is recorded on a Blockchain. This however boils down to
 the architecture of the system, not to the technology itself.
@@ -564,9 +546,9 @@ decrypt data and limited MITM interventions with PKI, don’t they make
 encrypted data almost anonymous? How we should treat such encrypted
 data? The same with other advanced computational techniques, like Secure
 Multiparty Computation, is the data truly pseudonymous? Or closer to
-anonymous.** I assume it would add great value to the paper.**
+anonymous. **I assume it would add great value to the paper.**
 
-[]{#anchor-18}**Summary**
+## Summary
 
 Today there are many third-party entities who collect and sell user data
 without permission. However, violation of privacy seems to be most
@@ -611,6 +593,16 @@ opt in for discounts and other sales promotions from local businesses.
 \[2\]
 [*https://www.chinalawinsight.com/2018/02/articles/corporate/antitrust-competition/the-wise-and-informed-adapts-to-the-changing-time-and-circumstances-discussing-the-issues-on-information-technology-personal-information-security-specification-from-a-pract/*](https://www.chinalawinsight.com/2018/02/articles/corporate/antitrust-competition/the-wise-and-informed-adapts-to-the-changing-time-and-circumstances-discussing-the-issues-on-information-technology-personal-information-security-specification-from-a-pract/)
 
+[^1]: ^^ PDX Principles
+    http://www.windley.com/archives/2010/09/pdx\_principles.shtml
+
+[^2]: ^^
+    https://identitywoman.net/vision-principles-for-the-personal-data-ecosystem/
+
+[^3]: ^^ https://www.moxytongue.com/2016/02/self-sovereign-identity.html
+
+https://medium.com/decentralized-identity/the-rising-tide-of-decentralized-identity-2e163e4ec663
+
 \[3\]
 [*http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html*](http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html)
 
@@ -639,10 +631,4 @@ opt in for discounts and other sales promotions from local businesses.
 ^\[12\]^[
 ](http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html)[*http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html*](http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html)
 
-[^1]: ^^ PDX Principles
-    http://www.windley.com/archives/2010/09/pdx\_principles.shtml
 
-[^2]: ^^
-    https://identitywoman.net/vision-principles-for-the-personal-data-ecosystem/
-
-[^3]: ^^ https://www.moxytongue.com/2016/02/self-sovereign-identity.html
