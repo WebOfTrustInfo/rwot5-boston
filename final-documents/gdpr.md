@@ -622,13 +622,13 @@ opt in for discounts and other sales promotions from local businesses.
 
 \[13\] https://www.hyperledger.org/projects/hyperledger-indy
 
-^\[14\]^[
+\[14\][
 ](http://www.thedrum.com/news/2017/10/05/what-does-the-eu-s-privacy-reform-mean-us-marketers-and-what-should-you-do-now)[*http://www.thedrum.com/news/2017/10/05/what-does-the-eu-s-privacy-reform-mean-us-marketers-and-what-should-you-do-now*](http://www.thedrum.com/news/2017/10/05/what-does-the-eu-s-privacy-reform-mean-us-marketers-and-what-should-you-do-now)
 
-^\[15\]^[
+\[15\][
 ](https://www.mparticle.com/blog/what-gdpr-means-for-data-driven-marketing)[*https://www.mparticle.com/blog/what-gdpr-means-for-data-driven-marketing*](https://www.mparticle.com/blog/what-gdpr-means-for-data-driven-marketing)
 
-^\[16\]^[
+\[16\][
 ](http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html)[*http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html*](http://www.pwc.com/us/en/increasing-it-effectiveness/publications/gdpr-readiness.html)
 
 
