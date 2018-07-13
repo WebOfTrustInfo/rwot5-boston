@@ -341,7 +341,7 @@ channel and Amira and Charlene confirm each other’s identity using their
 memorized phrases. Now both parties have each other’s cryptographically
 secure identifiers for ongoing correspondence.
 
-**Stage 7 — Services **
+**Stage 7 — Services**
 
 ***Services are provided.***
 
