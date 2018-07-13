@@ -5,7 +5,7 @@
 
 > An overview of the W3C ActivityPub protocol.
 
-## [*Amira 1.0.0*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/amira.pdf)] [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/amira.md)
+## [*Amira 1.0.0*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/amira.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/amira.md)
 #### by Joe Andrieu & Team
 
 > This paper reinterprets Christopher Allen’s Rebooting the Web of Trust user story through the lens of the Information Lifecycle Engagement Model. It presents a human-centric illustration of an individual’s experience in a self-sovereign, decentralized realization of the Web of Trust as originally conceived by Phil Zimmerman for PGP.
