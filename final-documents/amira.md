@@ -532,7 +532,7 @@ While the app has become popular, she notices it is straining under
 heavy technical debt. Amira reaches out to BigBen44 once again as
 BWHacker2. The two rekindle their connection, and Ben tells Amira that
 he wants her back full time. Amira gives notice to the bank, reactivates
-her BWHacker profile in the directory, and steps into her dream job of
+her BWHacker2 profile in the directory, and steps into her dream job of
 writing socially-responsible software.
 
 **Appendix A**
@@ -542,7 +542,7 @@ writing socially-responsible software.
 The 15-stage model presented here is an instance of an Information
 Lifecycle Engagement Framework, as illustrated below.
 
-![](media/image1.png)
+![](images/amira-1.png)
 
 Each phase in the model presents a concise description of one or two
 interactions illustrating the phase. Rather than attempting to describe
