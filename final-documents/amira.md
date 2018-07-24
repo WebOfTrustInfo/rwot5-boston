@@ -43,7 +43,7 @@ contributions.
 **Introduction**
 
 *This paper began as a collaborative project at the fifth Rebooting the
-Web of Trust\[1\] workshop, held in Cambridge MA in October 2017. We
+Web of Trust\[[1](#fn-1)\] workshop, held in Cambridge MA in October 2017. We
 reinterpret Christopher Allen’s Rebooting the Web of Trust user
 story,\[2\] through the lens of the Information Lifecycle Engagement
 Model (described in Appendix A). We present a human-centric illustration
@@ -571,7 +571,7 @@ innovation as design and implementation details emerge.
 
 ## Footnotes
 
-\[1\]: [*http://www.weboftrust.info/*](http://www.weboftrust.info/)
+<a name="fn-1">\[1\]:</a> [*http://www.weboftrust.info/*](http://www.weboftrust.info/)
 
 \[2\]: [*https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md)
 
