@@ -70,7 +70,7 @@ along the way, in one or more paragraphs about interactions in each of
 the 15 stages. The Information Lifecycle Engagement Model is based on
 the work of Joe Andrieu and Ian Henderson from [**The Customer-Supplier
 Engagement Model Quick
-Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)[^4],
+Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)\[4\],
 which uses a 12-stage model to illustrate how personal data stores can
 interact with CRM systems throughout the customer-supplier lifecycle.
 The model doesn’t attempt to define all the requirements or
@@ -191,7 +191,7 @@ difference in the world.
 
 One night, Amira discovers her opportunity. She sees an interview with
 Ben, the executive director of an international non-profit, on Cambridge
-Community Television[^5], sharing his organization’s vision for
+Community Television\[5\], sharing his organization’s vision for
 supporting oppressed women around the world. Ben envisions smart phones
 as the key to creating anonymous communication channels that safely and
 reliably connect women with local community services, specifically
@@ -330,7 +330,7 @@ on her laptop. She then downloads RISK and begins working through the
 READMEs and installation directions.
 
 Amira creates a unique identifier in the form of a DID, a Decentralized
-Identifier,[^6] on the RISK decentralized network. This binds a
+Identifier,\[6\] on the RISK decentralized network. This binds a
 publicly-verifiable credential to her new pseudonym, BWHacker. This
 pseudonym and the related DID will allow Amira to securely interact
 through RISK without revealing her real-world identity.
@@ -556,7 +556,7 @@ the human requirements independent of the underlying technology.
 This Information Lifecycle Engagement Model is based on the work of Joe
 Andrieu and Ian Henderson from [**The Customer-Supplier Engagement Model
 Quick
-Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)[^7]*.*
+Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)\[7\]*.*
 We have re-interpreted and expanded the 12 phases of the
 Customer-Supplier Engagement Model for suitability to identity
 information more generally, shifting away from the commercial nature of
@@ -577,10 +577,10 @@ innovation as design and implementation details emerge.
 
 \[3\]: [*https://en.wikipedia.org/wiki/Web\_of\_trust*](https://en.wikipedia.org/wiki/Web_of_trust)
 
-[^4]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
+\[4\]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
 
-[^5]: https://www.cctvcambridge.org/about
+\[5\]: https://www.cctvcambridge.org/about
 
-[^6]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/did-primer.md
+\[6\]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/did-primer.md
 
-[^7]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
+\[7\]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
