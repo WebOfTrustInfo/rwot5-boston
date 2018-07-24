@@ -45,11 +45,11 @@ contributions.
 *This paper began as a collaborative project at the fifth Rebooting the
 Web of Trust\[[1](#fn-1)\] workshop, held in Cambridge MA in October 2017. We
 reinterpret Christopher Allen’s Rebooting the Web of Trust user
-story,\[2\] through the lens of the Information Lifecycle Engagement
+story,\[[2](#fn-2)\] through the lens of the Information Lifecycle Engagement
 Model (described in Appendix A). We present a human-centric illustration
 of an individual’s experience in a self-sovereign, decentralized
 realization of the Web of Trust as originally conceived by Phil
-Zimmerman for PGP.\[3\]*
+Zimmerman for PGP.\[[3](#fn-3)\]*
 
 In our scenario, Amira is a successful programmer working in Boston at a
 prestigious multi-national bank. Outside of working hours, Amira wants
@@ -70,7 +70,7 @@ along the way, in one or more paragraphs about interactions in each of
 the 15 stages. The Information Lifecycle Engagement Model is based on
 the work of Joe Andrieu and Ian Henderson from [**The Customer-Supplier
 Engagement Model Quick
-Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)\[4\],
+Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)\[[4](#fn-4)\],
 which uses a 12-stage model to illustrate how personal data stores can
 interact with CRM systems throughout the customer-supplier lifecycle.
 The model doesn’t attempt to define all the requirements or
@@ -191,7 +191,7 @@ difference in the world.
 
 One night, Amira discovers her opportunity. She sees an interview with
 Ben, the executive director of an international non-profit, on Cambridge
-Community Television\[5\], sharing his organization’s vision for
+Community Television\[[5](#fn-5)\], sharing his organization’s vision for
 supporting oppressed women around the world. Ben envisions smart phones
 as the key to creating anonymous communication channels that safely and
 reliably connect women with local community services, specifically
@@ -330,7 +330,7 @@ on her laptop. She then downloads RISK and begins working through the
 READMEs and installation directions.
 
 Amira creates a unique identifier in the form of a DID, a Decentralized
-Identifier,\[6\] on the RISK decentralized network. This binds a
+Identifier,\[[6](#fn-6)\] on the RISK decentralized network. This binds a
 publicly-verifiable credential to her new pseudonym, BWHacker. This
 pseudonym and the related DID will allow Amira to securely interact
 through RISK without revealing her real-world identity.
@@ -556,7 +556,7 @@ the human requirements independent of the underlying technology.
 This Information Lifecycle Engagement Model is based on the work of Joe
 Andrieu and Ian Henderson from [**The Customer-Supplier Engagement Model
 Quick
-Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)\[7\]*.*
+Starter**](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)\[[7](#fn-7)\]*.*
 We have re-interpreted and expanded the 12 phases of the
 Customer-Supplier Engagement Model for suitability to identity
 information more generally, shifting away from the commercial nature of
@@ -573,14 +573,14 @@ innovation as design and implementation details emerge.
 
 <a name="fn-1">\[1\]:</a> [*http://www.weboftrust.info/*](http://www.weboftrust.info/)
 
-\[2\]: [*https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md)
+<a name="fn-2">\[2\]:</a> [*https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md)
 
-\[3\]: [*https://en.wikipedia.org/wiki/Web\_of\_trust*](https://en.wikipedia.org/wiki/Web_of_trust)
+<a name="fn-3">\[3\]:</a> [*https://en.wikipedia.org/wiki/Web\_of\_trust*](https://en.wikipedia.org/wiki/Web_of_trust)
 
-\[4\]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
+<a name="fn-4">\[4\]:</a> [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
 
-\[5\]: https://www.cctvcambridge.org/about
+<a name="fn-5">\[5\]:</a> https://www.cctvcambridge.org/about
 
-\[6\]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/did-primer.md
+<a name="fn-6">\[6\]:</a> https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/did-primer.md
 
-\[7\]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
+<a name="fn-7">\[7\]:</a> [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
