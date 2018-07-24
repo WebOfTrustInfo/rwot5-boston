@@ -1,4 +1,3 @@
-<p align="center">
 Amira 1.0.0
 ===========
 
@@ -40,17 +39,17 @@ Kaliya “Identity Woman” Young, @identitywoman,
 
 With special thanks to Pat McBennett and Raghav Chawla for their
 contributions.
-</p>
+
 **Introduction**
 
 *This paper began as a collaborative project at the fifth Rebooting the
-Web of Trust*[1] *workshop, held in Cambridge MA in October 2017. We
+Web of Trust\[1\] workshop, held in Cambridge MA in October 2017. We
 reinterpret Christopher Allen’s Rebooting the Web of Trust user
-story,*[2] *through the lens of the Information Lifecycle Engagement
+story,\[2\] through the lens of the Information Lifecycle Engagement
 Model (described in Appendix A). We present a human-centric illustration
 of an individual’s experience in a self-sovereign, decentralized
 realization of the Web of Trust as originally conceived by Phil
-Zimmerman for PGP.*[3]
+Zimmerman for PGP.\[3\]*
 
 In our scenario, Amira is a successful programmer working in Boston at a
 prestigious multi-national bank. Outside of working hours, Amira wants
@@ -572,11 +571,11 @@ innovation as design and implementation details emerge.
 
 ## Footnotes
 
-[1]: [*http://www.weboftrust.info/*](http://www.weboftrust.info/)
+\[1\]: [*http://www.weboftrust.info/*](http://www.weboftrust.info/)
 
-[2]: [*https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md)
+\[2\]: [*https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/RWOT-User-Story.md)
 
-[3]: [*https://en.wikipedia.org/wiki/Web\_of\_trust*](https://en.wikipedia.org/wiki/Web_of_trust)
+\[3\]: [*https://en.wikipedia.org/wiki/Web\_of\_trust*](https://en.wikipedia.org/wiki/Web_of_trust)
 
 [^4]: [*http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter*](http://kantarainitiative.org/confluence/display/infosharing/Customer-Supplier+Engagement+Model+Quick+Starter)
 
