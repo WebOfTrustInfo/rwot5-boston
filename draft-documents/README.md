@@ -16,7 +16,7 @@ Four Primers | Joe, Natalie, Drummond, Manu | [DID](https://github.com/WebOfTrus
 GDPR | Marta | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/gdpr.pdf) | **DONE**
 Hub Asset Access Control System  | Matt S. | [Revision](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/draft-documents/DIF-Hub-Capabilities-RWOT.md)
 Identity Hubs Capabilities Perspective | Adrian | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/identity-hubs-capabilities-perspective.pdf) | **DONE**
-Identity Mental Maps | Joe A. | Cancelled
+Identity Mental Maps | Joe A. | | Cancelled
 IPID Method Spec | Jonny | [Draft](https://github.com/jonnycrunch/ipid) | Abandoned
 Linked Data Capabilities | Chris W. | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/lds-ocap.pdf) | **DONE**
 Verus1 Method Spec | Manu | [Final](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/did-method-veres-one.pdf) | **DONE**
