@@ -18,7 +18,7 @@ Please see the [Advance Readings README](topics-and-advance-readings/README.md) 
 The design workshop exceeded its goal of three to five white papers with a total of eight publications:
 
 ## [*ActivityPub: From Decentralized to Distributed Social Networks*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/activitypub-decentralized-distributed.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/activitypub-decentralized-distributed.md)
-#### by Christopher Lemmer Webber & Manu Sporny
+#### by Christine Lemmer-Webber & Manu Sporny
 
 > An overview of the W3C ActivityPub protocol.
 
@@ -48,7 +48,7 @@ The design workshop exceeded its goal of three to five white papers with a total
 > Identity Hubs as currently proposed in the Decentralized Identity Foundation (DIF) are a subset of a general Decentralized Identifier (DID) based user-controlled agent, based on ACLs rather than an object-capabilities (ocap) architecture. Transitioning the Hubs design to an ocap model can be achieved by introducing an UMA authorization server as the control endpoint.
 
 ## [*Linked Data Capabilities*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/lds-ocap.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/final-documents/lds-ocap.md)
-#### Christopher Lemmer Webber & Mark S. Miller
+#### Christine Lemmer-Webber & Mark S. Miller
 
 > Linked Data Signatures enable a method of asserting the integrity of linked data documents that are passed throughout the web. The object capability model is a powerful system for ensuring the security of computing systems. 
 
