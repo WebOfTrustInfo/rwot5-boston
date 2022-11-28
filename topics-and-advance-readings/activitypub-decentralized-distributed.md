@@ -2,7 +2,7 @@
 *summit.*
 
 **Contributors**
-* Christopher Webber, Independent
+* Christine Lemmer-Webber, Independent
 
 # Introduction
 
