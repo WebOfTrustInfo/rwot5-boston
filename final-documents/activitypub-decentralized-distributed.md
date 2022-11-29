@@ -4,7 +4,7 @@
 *summit.*
 
 **Contributors**
-* Christopher Webber, Independent
+* Christine Lemmer-Webber, Independent
 * Manu Sporny, Digital Bazaar
 
 ## Introduction
